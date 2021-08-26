@@ -1,3 +1,33 @@
 .hidden-entity {
   display: none;
 }
+
+.hidden-before-desktop {
+  @media (max-width: $pre-desktop-width) {
+    display: none;
+  }
+}
+
+.hidden-on-desktop {
+  @media (min-width: $desktop-width) {
+    display: none;
+  }
+}
+
+.hidden-before-tablet {
+  @media (max-width: $pre-tablet-width) {
+    display: none;
+  }
+}
+
+.hidden-after-mobile {
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}
+
+.hidden-on-mobile {
+  @media (max-width: $pre-tablet-width) {
+    display: none;
+  }
+}
