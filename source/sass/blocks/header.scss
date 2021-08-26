@@ -12,6 +12,11 @@
     background-color: inherit;
   }
 
+  @media (max-width: $pre-desktop-width) {
+    color: $lcg-1;
+    background-color: $mcg-1;
+  }
+
   a {
     border-bottom: 1px dashed transparent;
 
@@ -22,6 +27,12 @@
 
     &:active {
       opacity: 0.5;
+    }
+  }
+
+  .header__cart {
+    @media (max-width: $pre-desktop-width) {
+      border: none;
     }
   }
 }
@@ -36,6 +47,10 @@
 
     @media (min-width: $desktop-width) {
       margin-bottom: 19px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 40px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -57,6 +72,7 @@
       padding-right: 0;
       margin-left: 0;
       margin-right: 0;
+      border-top: 1px solid $lcg-2;
     }
   }
 }
@@ -70,6 +86,10 @@
     margin-left: 29px;
     margin-right: 32.8%;
     transform: translate(0, 10px);
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 47px;
   }
 
   svg {
@@ -86,6 +106,8 @@
 
     @media (max-width: $pre-desktop-width) {
       --icon-color: #{$lcg-1};
+
+      transform: translate(13px, -50%) scale(1.15);
     }
   }
 
@@ -102,12 +124,30 @@
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    border-width: 1px;
-    border-style: dashed;
+
+    @media (min-width: $desktop-width) {
+      border-width: 1px;
+      border-style: dashed;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      color: $lcg-1;
+      height: 40px;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: $lcg-3;;
+      border-radius: 21px;
+    }
 
     &:hover,
     &:focus {
-      border-bottom-color: $dcg-1;
+      @media (min-width: $desktop-width) {
+        border-bottom-color: $dcg-1;
+      }
+
+      @media (max-width: $pre-desktop-width) {
+        box-shadow: 0 0 3px $lcg-1;
+      }
     }
 
     &::placeholder {
@@ -118,11 +158,11 @@
 }
 
 .header__logo {
+  margin-right: auto;
   fill: --icon-color;
 
   @media (min-width: $desktop-width) {
     --icon-color: #{$mcg-1};
-    margin-right: auto;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -134,26 +174,37 @@
   @media (min-width: $desktop-width) {
     margin-right: 3.1%;
   }
+
+  @media (max-width: $pre-desktop-width) {
+    font-size: 1.8rem;
+    line-height: 130%;
+
+    width: max-content;
+    margin-bottom: 74px;
+  }
 }
 
 .header__cart {
   @media (min-width: $desktop-width) {
     margin-right: 2px;
   }
-}
 
-.header__part {
-  width: 100%;
-
-  @media (min-width: $desktop-width) {
-    border-top: 1px solid $lcg-2;
+  @media (max-width: $pre-desktop-width) {
+    transform: translate(1px, 24px);
   }
+
+  svg {
+    @media (max-width: $pre-desktop-width) {
+      --icon-color: #{$lcg-1};
+    }
+  }
+
+  @include interactive-style;
 }
 
 .header__navigation {
-  @include centering-margin;
-
   @media (min-width: $desktop-width) {
+    @include centering-margin;
     width: 493px;
     padding-top: 18px;
     padding-bottom: 8px;
@@ -166,14 +217,30 @@
     @media (min-width: $desktop-width) {
       width: 100%;
     }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   li {
     @media (min-width: $desktop-width) {
       margin-bottom: 10px;
+    }
 
-      &:not(:last-child) {
+    &:not(:last-child) {
+      @media (min-width: $desktop-width) {
         margin-right: 7.0994%;
+      }
+
+      @media (max-width: $pre-desktop-width) {
+        margin-right: 0;
+        margin-bottom: 20px;
       }
     }
   }
@@ -181,5 +248,44 @@
   a {
     font-size: 1.6rem;
     line-height: 150%;
+
+    @media (max-width: $pre-desktop-width) {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.header__burger {
+  @media (max-width: $pre-desktop-width) {
+    margin-right: 39.7%;
+    background-color: transparent;
+    transform: translate(-6px, 23px);
+  }
+
+  svg {
+    @media (max-width: $pre-desktop-width) {
+      --icon-color: #{$lcg-1};
+    }
+  }
+
+  @include interactive-style;
+}
+
+.header__general-information {
+  @media (max-width: $pre-desktop-width) {
+    font-size: 1.8rem;
+    line-height: 130%;
+    color: $lcg-4;
+
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  li {
+    &:not(:last-child) {
+      @media (max-width: $pre-desktop-width) {
+        margin-bottom: 20px;
+      }
+    }
   }
 }

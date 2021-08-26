@@ -78,3 +78,20 @@
   outline: none;
   background-color: transparent;
 }
+
+@mixin interactive-style {
+  &:hover,
+  &:focus {
+    svg {
+      @media (max-width: $pre-desktop-width) {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &:active {
+    @media (max-width: $pre-desktop-width) {
+      opacity: 0.5;
+    }
+  }
+}

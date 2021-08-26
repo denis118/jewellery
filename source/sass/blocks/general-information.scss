@@ -1,0 +1,11 @@
+.general-information {
+  @include column-flex;
+
+  @media (min-width: $desktop-width) {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
