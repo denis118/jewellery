@@ -1,0 +1,172 @@
+.header {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 150%;
+  font-weight: 500;
+  color: inherit;
+
+  @media (min-width: $desktop-width) {
+    background-color: inherit;
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    padding-top: 30px;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 19px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-top: 20px;
+    }
+
+    & > *:not(.header__logo):not(.header__form-box) {
+      @media (min-width: $desktop-width) {
+        transform: translate(0, 13px);
+      }
+    }
+  }
+
+  a {
+    border-bottom: 1px dashed transparent;
+
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}
+
+.header__form-box {
+  position: relative;
+
+  @media (min-width: $desktop-width) {
+    width: 12.6984%;
+    width: 140px;
+    margin-left: 29px;
+    margin-right: 32.8%;
+    transform: translate(0, 10px);
+  }
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-28px, -50%);
+
+    fill: var(--icon-color);
+
+    @media (min-width: $desktop-width) {
+      --icon-color: #{$dcg-1};
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      --icon-color: #{$lcg-1};
+    }
+  }
+
+  input {
+    font-family:
+      "poppins",
+      "Arial",
+      sans-serif;
+    font-size: 1.4rem;
+    line-height: 150%;
+    font-weight: 500;
+
+    @include input-style;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border-width: 1px;
+    border-style: dashed;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: $dcg-1;
+    }
+
+    &::placeholder {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
+.header__logo {
+  fill: --icon-color;
+
+  @media (min-width: $desktop-width) {
+    --icon-color: #{$mcg-1};
+    margin-right: auto;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    --icon-color: #{$lcg-1};
+  }
+}
+
+.header__login {
+  @media (min-width: $desktop-width) {
+    margin-right: 3.1%;
+  }
+}
+
+.header__cart {
+  @media (min-width: $desktop-width) {
+    margin-right: 2px;
+  }
+}
+
+.header__part {
+  width: 100%;
+
+  @media (min-width: $desktop-width) {
+    border-top: 1px solid $lcg-2;
+  }
+}
+
+.header__navigation {
+  @include centering-margin;
+
+  @media (min-width: $desktop-width) {
+    width: 493px;
+    padding-top: 18px;
+    padding-bottom: 8px;
+    transform: translate(5px, 0);
+  }
+
+  ul {
+    @include casual-flex;
+
+    @media (min-width: $desktop-width) {
+      width: 100%;
+    }
+  }
+
+  li {
+    @media (min-width: $desktop-width) {
+      margin-bottom: 10px;
+
+      &:not(:last-child) {
+        margin-right: 7.0994%;
+      }
+    }
+  }
+
+  a {
+    font-size: 1.6rem;
+    line-height: 150%;
+  }
+}

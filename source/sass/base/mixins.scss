@@ -72,3 +72,9 @@
   width: 100%;
   height: auto;
 }
+
+@mixin input-style {
+  border-color: transparent;
+  outline: none;
+  background-color: transparent;
+}

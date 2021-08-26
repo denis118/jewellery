@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-size: 10px;
 }
 
 *,
@@ -15,7 +16,7 @@ body {
     "poppins",
     "Arial",
     sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 130%;
   font-weight: 400;
 
@@ -26,7 +27,11 @@ body {
   min-height: 100vh;
   min-width: $mobile-width;
   background-color: $lcg-1;
-  color: $dcg-1;
+  color: $dcg-2;
+}
+
+.visually-hidden {
+  @include visually-hidden;
 }
 
 .list {
@@ -46,4 +51,27 @@ body {
 .link,
 button {
   cursor: pointer;
+}
+
+.container {
+  @include centering-margin;
+  max-width: 1260px;
+
+  @media (min-width: $desktop-width) {
+    width: 92.24%;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 92.1875%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 84.375%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
