@@ -1,0 +1,74 @@
+@mixin link-base-style {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin background-properties {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(100%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin zero-edges {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin centering-margin {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin centering-padding($contentwidth: 100%) {
+  padding: calc((100% - #{$contentwidth}) / 2);
+}
+
+@mixin casual-flex {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin centering-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin padded-box($width: 100%) {
+  position: relative;
+  width: $width;
+  height: 0;
+  overflow: hidden;
+}
+
+@mixin content-in-padded-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
