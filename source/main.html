@@ -68,7 +68,8 @@
       </div>
 
       <button
-        class="header__burger hidden-on-desktop button">
+        class="header__burger hidden-on-desktop button"
+        aria-labelledby="burger-description">
         <svg
           width="25"
           height="18"
@@ -77,6 +78,10 @@
           aria-hidden="true">
           <use xlink:href="#icon-burger"></use>
         </svg>
+
+        <span
+          id="burger-description"
+          hidden="true">Кнопка открытия и закрытия меню</span>
       </button>
 
       <svg

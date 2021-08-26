@@ -280,6 +280,7 @@
   @media (max-width: $pre-desktop-width) {
     --icon-color: #{$lcg-1};
 
+    height: 18px;
     transform: translate(1px, 24px);
   }
 

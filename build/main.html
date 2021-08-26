@@ -11,7 +11,6 @@
   <title>Main</title>
 </head>
 
-<!-- .modal-open -->
 <body>
   <!-- .header--js -->
   <!-- .menu-open -->
@@ -28,10 +27,12 @@
         </form>
       </div>
 
-      <button class="header__burger hidden-on-desktop button">
+      <button class="header__burger hidden-on-desktop button" aria-labelledby="burger-description">
         <svg width="25" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <use xlink:href="#icon-burger"></use>
         </svg>
+
+        <span id="burger-description" hidden="true">Кнопка открытия и закрытия меню</span>
       </button>
 
       <svg class="header__logo" width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
