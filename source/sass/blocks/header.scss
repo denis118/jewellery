@@ -17,6 +17,72 @@
     background-color: $mcg-1;
   }
 
+  &--js {
+    @media (max-width: $pre-desktop-width) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: $lcg-1;
+    }
+
+    .header__container {
+      &--lower {
+        @media (max-width: $pre-desktop-width) {
+          display: none;
+        }
+      }
+    }
+
+    .header__logo {
+      @media (max-width: $pre-desktop-width) {
+        --icon-color: #{$mcg-1};
+      }
+    }
+
+    .header__burger,
+    .header__cart {
+      @media (max-width: $pre-desktop-width) {
+        --icon-color: #{$dcg-2};
+      }
+    }
+  }
+
+  &--js.menu-open {
+    @media (max-width: $pre-desktop-width) {
+      height: 100vh;
+      background-color: $mcg-1;
+      z-index: 1;
+    }
+
+    .header__container {
+      &--lower {
+        @media (max-width: $pre-desktop-width) {
+          display: block;
+          height: 85%;
+          overflow-y: auto;
+
+          position: absolute;
+          top: 126px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+
+        @media (max-width: $pre-tablet-width) {
+          top: 91px;
+        }
+      }
+    }
+
+    .header__burger,
+    .header__logo,
+    .header__cart {
+      @media (max-width: $pre-desktop-width) {
+        --icon-color: #{$lcg-1};
+      }
+    }
+  }
+
   a {
     border-bottom: 1px dashed transparent;
 
@@ -50,12 +116,12 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     @media (max-width: $pre-tablet-width) {
       padding-top: 20px;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     & > *:not(.header__logo):not(.header__form-box) {
@@ -74,6 +140,14 @@
       margin-left: 0;
       margin-right: 0;
       border-top: 1px solid $lcg-2;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 10px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-top: 10px;
     }
   }
 }
@@ -204,17 +278,13 @@
   }
 
   @media (max-width: $pre-desktop-width) {
+    --icon-color: #{$lcg-1};
+
     transform: translate(1px, 24px);
   }
 
   @media (max-width: $pre-tablet-width) {
     transform: translate(1px, 17px);
-  }
-
-  svg {
-    @media (max-width: $pre-desktop-width) {
-      --icon-color: #{$lcg-1};
-    }
   }
 
   @include interactive-style;
@@ -279,6 +349,8 @@
 
 .header__burger {
   @media (max-width: $pre-desktop-width) {
+    --icon-color: #{$lcg-1};
+
     margin-right: 39.7%;
     background-color: transparent;
     transform: translate(-6px, 23px);
@@ -287,12 +359,6 @@
   @media (max-width: $pre-tablet-width) {
     margin-right: 28.2%;
     transform: translate(-6px, 16px);
-  }
-
-  svg {
-    @media (max-width: $pre-desktop-width) {
-      --icon-color: #{$lcg-1};
-    }
   }
 
   @include interactive-style;
