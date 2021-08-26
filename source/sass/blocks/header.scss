@@ -55,6 +55,7 @@
 
     @media (max-width: $pre-tablet-width) {
       padding-top: 20px;
+      margin-bottom: 30px;
     }
 
     & > *:not(.header__logo):not(.header__form-box) {
@@ -90,6 +91,10 @@
 
   @media (max-width: $pre-desktop-width) {
     margin-bottom: 47px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 37px;
   }
 
   svg {
@@ -168,6 +173,11 @@
   @media (max-width: $pre-desktop-width) {
     --icon-color: #{$lcg-1};
   }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .header__login {
@@ -182,6 +192,10 @@
     width: max-content;
     margin-bottom: 74px;
   }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 42px;
+  }
 }
 
 .header__cart {
@@ -191,6 +205,10 @@
 
   @media (max-width: $pre-desktop-width) {
     transform: translate(1px, 24px);
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    transform: translate(1px, 17px);
   }
 
   svg {
@@ -220,6 +238,10 @@
 
     @media (max-width: $pre-desktop-width) {
       margin-bottom: 40px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 30px;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -262,6 +284,11 @@
     transform: translate(-6px, 23px);
   }
 
+  @media (max-width: $pre-tablet-width) {
+    margin-right: 28.2%;
+    transform: translate(-6px, 16px);
+  }
+
   svg {
     @media (max-width: $pre-desktop-width) {
       --icon-color: #{$lcg-1};
@@ -279,6 +306,10 @@
 
     align-items: flex-start;
     margin-bottom: 40px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 32px;
   }
 
   li {
