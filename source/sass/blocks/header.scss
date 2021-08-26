@@ -12,7 +12,22 @@
     background-color: inherit;
   }
 
-  .container {
+  a {
+    border-bottom: 1px dashed transparent;
+
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+}
+
+.header__container {
+  &--upper {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -34,16 +49,14 @@
     }
   }
 
-  a {
-    border-bottom: 1px dashed transparent;
-
-    &:hover,
-    &:focus {
-      border-color: inherit;
-    }
-
-    &:active {
-      opacity: 0.5;
+  &--lower {
+    @media (min-width: $desktop-width) {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 }

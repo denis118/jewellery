@@ -38,7 +38,7 @@
   <header
     class="header">
     <div
-      class="container">
+      class="header__container header__container--upper container">
       <div
         class="header__form-box hidden-before-desktop">
         <form
@@ -116,58 +116,61 @@
     </div>
 
     <div
-      class="header__part">
+      class="header__container header__container--lower container">
       <div
-        class="header__form-box hidden-on-desktop">
-        <form
-          id="site-search-predesktop"
-          action="https://echo.htmlacademy.ru/"
-          method="GET"
-          autocomplete="off">
-          <svg
-            class="header__search-svg"
-            width="14"
-            height="14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <use xlink:href="#icon-search"></use>
-          </svg>
+        class="header__part">
+        <div
+          class="header__form-box hidden-on-desktop">
+          <form
+            id="site-search-predesktop"
+            action="https://echo.htmlacademy.ru/"
+            method="GET"
+            autocomplete="off">
+            <svg
+              class="header__search-svg"
+              width="14"
+              height="14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use xlink:href="#icon-search"></use>
+            </svg>
 
-          <label
-            class="visually-hidden"
-            for="search-request-predesktop">Site search</label>
-          <input
-            type="text"
-            name="search-request-predesktop"
-            id="search-request-predesktop">
-        </form>
-      </div>
+            <label
+              class="visually-hidden"
+              for="search-request-predesktop">Site search</label>
+            <input
+              type="text"
+              name="search-request-predesktop"
+              id="search-request-predesktop">
+          </form>
+        </div>
 
-      <nav
-        class="header__navigation">
+        <nav
+          class="header__navigation">
+          <ul
+            class="list">
+            <li><a class="link" href="#">What’s new</a></li>
+            <li><a class="link" href="#">Chokers</a></li>
+            <li><a class="link" href="#">Necklaces</a></li>
+            <li><a class="link" href="#">Rings</a></li>
+            <li><a class="link" href="#">Earrings</a></li>
+          </ul>
+        </nav>
+
         <ul
-          class="list">
-          <li><a class="link" href="#">What’s new</a></li>
-          <li><a class="link" href="#">Chokers</a></li>
-          <li><a class="link" href="#">Necklaces</a></li>
-          <li><a class="link" href="#">Rings</a></li>
-          <li><a class="link" href="#">Earrings</a></li>
+          class="header__general-information general-information list hidden-on-desktop">
+          <li><a class="link" href="#">About CH</a></li>
+          <li><a class="link" href="#">Stores & Hours</a></li>
+          <li><a class="header__jobs-link link" href="#">Jobs</a></li>
+          <li><a class="link" href="#">Contact Us</a></li>
         </ul>
-      </nav>
 
-      <ul
-        class="header__general-information general-information list hidden-on-desktop">
-        <li><a class="link" href="#">About CH</a></li>
-        <li><a class="link" href="#">Stores & Hours</a></li>
-        <li><a class="header__jobs-link link" href="#">Jobs</a></li>
-        <li><a class="link" href="#">Contact Us</a></li>
-      </ul>
-
-      <a
-        class="header__login link hidden-on-desktop"
-        href="./login.html"
-        aria-label="login">Login</a>
+        <a
+          class="header__login link hidden-on-desktop"
+          href="./login.html"
+          aria-label="login">Login</a>
+      </div>
     </div>
   </header>
 
