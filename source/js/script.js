@@ -273,7 +273,6 @@
       return function () {
         if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
           headerManager.resetAttributes();
-          headerManager.togglePadding();
           headerManager.hide();
           isWorkedOnPreDesktopWidth = false;
           isWorkedOnDesktopWidth = true;
@@ -282,10 +281,11 @@
 
         if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
           headerManager.setAttributes();
-          headerManager.togglePadding();
           isWorkedOnPreDesktopWidth = true;
           isWorkedOnDesktopWidth = false;
         }
+
+        headerManager.togglePadding();
       };
     })();
 

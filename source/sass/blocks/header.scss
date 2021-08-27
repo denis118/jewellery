@@ -98,19 +98,23 @@
 .header__container {
   &--upper {
     @include casual-flex;
+    justify-content: center;
 
     padding-top: 30px;
 
     @media (min-width: $desktop-width) {
       margin-bottom: 19px;
+      padding-bottom: 40px;
     }
 
     @media (max-width: $pre-desktop-width) {
       margin-bottom: 30px;
+      padding-bottom: 43px;
     }
 
     @media (max-width: $pre-tablet-width) {
       padding-top: 20px;
+      padding-bottom: 29px;
       margin-bottom: 20px;
     }
 
@@ -149,7 +153,7 @@
     width: 12.6984%;
     width: 140px;
     margin-left: 29px;
-    margin-right: 32.8%;
+    margin-right: auto;
     transform: translate(0, 10px);
   }
 
@@ -218,7 +222,11 @@
 }
 
 .header__logo {
-  margin-right: auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 30px);
+
   fill: --icon-color;
 
   @media (min-width: $desktop-width) {
@@ -232,6 +240,7 @@
   @media (max-width: $pre-tablet-width) {
     width: 52px;
     height: 52px;
+    transform: translate(-50%, 20px);
   }
 }
 
@@ -333,13 +342,12 @@
   @media (max-width: $pre-desktop-width) {
     --icon-color: #{$lcg-1};
 
-    margin-right: 39.7%;
+    margin-right: auto;
     background-color: transparent;
     transform: translate(-6px, 23px);
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-right: 28.2%;
     transform: translate(-6px, 16px);
   }
 
