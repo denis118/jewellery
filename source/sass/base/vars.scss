@@ -25,14 +25,40 @@ $lcg-4: rgba(255, 255, 255, 0.75);
 // mcg (middle colors' group)
 $mcg-1: #a87b62;
 $mcg-2: #eaab90;
-$mcg-3: #19baff;
 
 // dcg (dark colors' group)
 $dcg-1: #000000;
 $dcg-2: #1d1613;
-$dcg-3: #f6f5f4;
-$dcg-4: #cdcdcd;
-$dcg-5: #c4c4c4;
-$dcg-6: #1b2931;
-$dcg-7: #ebebeb;
-$dcg-8: rgba(0, 0, 0, 0.8);
+
+//
+// backgrounds
+//
+
+// intro
+$intro-bg-main-desktop: url("../img/bg/intro-bg-main-desktop.jpg");
+$intro-bg-main-desktop-2x: url("../img/bg/intro-bg-main-desktop@2x.jpg");
+
+$intro-bg-main-tablet: url("../img/bg/intro-bg-main-tablet.jpg");
+$intro-bg-main-tablet-2x: url("../img/bg/intro-bg-main-tablet@2x.jpg");
+
+$intro-bg-main-mobile: url("../img/bg/intro-bg-main-mobile.jpg");
+$intro-bg-main-mobile-2x: url("../img/bg/intro-bg-main-mobile@2x.jpg");
+
+$intro-bg-catalog-desktop: url("../img/bg/intro-bg-catalog-desktop.jpg");
+$intro-bg-catalog-desktop-2x: url("../img/bg/intro-bg-catalog-desktop@2x.jpg");
+
+$intro-bg-catalog-tablet: url("../img/bg/intro-bg-catalog-tablet.jpg");
+$intro-bg-catalog-tablet-2x: url("../img/bg/intro-bg-catalog-tablet@2x.jpg");
+
+$intro-bg-catalog-mobile: url("../img/bg/intro-bg-catalog-mobile.jpg");
+$intro-bg-catalog-mobile-2x: url("../img/bg/intro-bg-catalog-mobile@2x.jpg");
+
+// login
+$login-bg-desktop: url("../img/bg/intro-bg-desktop.jpg");
+$login-bg-desktop-2x: url("../img/bg/intro-bg-desktop@2x.jpg");
+
+$login-bg-tablet: url("../img/bg/intro-bg-tablet.jpg");
+$login-bg-tablet-2x: url("../img/bg/intro-bg-tablet@2x.jpg");
+
+$login-bg-mobile: url("../img/bg/intro-bg-mobile.jpg");
+$login-bg-mobile-2x: url("../img/bg/intro-bg-mobile@2x.jpg");
