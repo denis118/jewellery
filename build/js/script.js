@@ -131,42 +131,7 @@
           default:
             return;
         }
-
-        // if (!isPreDesktopWidth()) {
-        //   return;
-        // }
-
-        // var nextSibling = this.header.nextElementSibling
-        //   ? this.header.nextElementSibling
-        //   : null;
-
-        // var main = document.querySelector('main')
-        //   ? document.querySelector('main')
-        //   : null;
-
-        // if (nextSibling && main && Object.is(nextSibling, main)) {
-        //   var height = this.header.scrollHeight;
-        //   main.style.paddingTop = height + UNITS;
-        // }
       };
-
-      // that.removePadding = function () {
-      //   if (isPreDesktopWidth()) {
-      //     return;
-      //   }
-
-      //   var nextSibling = this.header.nextElementSibling
-      //     ? this.header.nextElementSibling
-      //     : null;
-
-      //   var main = document.querySelector('main')
-      //     ? document.querySelector('main')
-      //     : null;
-
-      //   if (nextSibling && main && Object.is(nextSibling, main)) {
-      //     main.style.paddingTop = 0;
-      //   }
-      // };
 
       that.setAttributes = function () {
         if (isPreDesktopWidth()) {

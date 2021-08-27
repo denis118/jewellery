@@ -18,8 +18,8 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      padding-top: 60px;
-      padding-bottom: 60px;
+      padding-top: 50px;
+      padding-bottom: 56px;
     }
   }
 
@@ -34,7 +34,7 @@
       }
 
       @media (max-width: $pre-desktop-width) {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
       }
     }
   }
@@ -55,6 +55,11 @@
   @media (min-width: $aux-viewport-footer) {
     width: 43.7%;
   }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 100%;
+    margin-bottom: 48px;
+  }
 }
 
 .footer__leading-paragraph-box {
@@ -72,15 +77,17 @@
     transform: translate(0, -6px);
   }
 
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 9px;
+  }
+
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 30px;
   }
 }
 
 .footer__auxiliary-paragraph-box {
-  @media (min-width: $desktop-width) {
-    margin-bottom: 30px;
-  }
+  margin-bottom: 30px;
 
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 50px;
@@ -89,6 +96,10 @@
 
 .footer__form-box {
   position: relative;
+
+  @media (max-width: $pre-desktop-width) {
+    width: 84%;
+  }
 
   input {
     @include input-style;
@@ -143,6 +154,10 @@
   @media (min-width: $desktop-width) {
     margin-right: 5%;
   }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-right: 11.2%;
+  }
 }
 
 .footer__general-information {
@@ -154,6 +169,10 @@
 
   @media (min-width: $aux-viewport-footer) {
     margin-right: 8%;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-right: 17.1%;
   }
 }
 
@@ -195,8 +214,6 @@
   }
 
   svg.facebook-icon {
-    @media (min-width: $desktop-width) {
-      transform: translate(-28px, -50%);
-    }
+    transform: translate(-26px, -65%);
   }
 }
