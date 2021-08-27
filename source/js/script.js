@@ -140,6 +140,8 @@
               this.header.setAttribute(attribute, this.attributeSet[attribute]);
             }
           }
+
+          this.lowerContainer.setAttribute('tabindex', '-1');
         }
 
         return this;
@@ -152,6 +154,8 @@
               this.header.removeAttribute(attribute);
             }
           }
+
+          this.lowerContainer.removeAttribute('tabindex');
         }
       };
 

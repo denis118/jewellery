@@ -339,16 +339,20 @@
 }
 
 .header__burger {
+  @include centering-flex;
+  border-color: transparent;
+
   @media (max-width: $pre-desktop-width) {
     --icon-color: #{$lcg-1};
 
     margin-right: auto;
+    padding: 2px;
     background-color: transparent;
-    transform: translate(-6px, 23px);
+    transform: translate(-4px, 20px);
   }
 
   @media (max-width: $pre-tablet-width) {
-    transform: translate(-6px, 16px);
+    transform: translate(-4px, 13px);
   }
 
   @include svg-interactive-style;
