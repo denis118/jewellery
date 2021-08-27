@@ -13,8 +13,8 @@
     @include casual-flex;
 
     @media (min-width: $desktop-width) {
-      padding-top: 100px;
-      padding-bottom: 100px;
+      padding-top: 96px;
+      padding-bottom: 94px;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -30,10 +30,10 @@
   li {
     &:not(:last-child) {
       @media (min-width: $desktop-width) {
-        margin-bottom: 30px;
+        margin-bottom: 21px;
       }
 
-      @media (min-width: $pre-desktop-width) {
+      @media (max-width: $pre-desktop-width) {
         margin-bottom: 25px;
       }
     }
@@ -46,7 +46,7 @@
 
 .footer__subscription {
   @media (min-width: $desktop-width) {
-    width: 39.6825%;
+    width: 43.7%;
     padding-right: 10px;
     margin-right: auto;
   }
@@ -59,8 +59,12 @@
     sans-serif;
   font-size: 3.4rem;
   font-weight: 700;
+  letter-spacing: 0.025em;
 
-  margin-bottom: 25px;
+  @media (min-width: $desktop-width) {
+    margin-bottom: 28px;
+    transform: translate(0, 6px);
+  }
 
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 30px;
@@ -68,7 +72,9 @@
 }
 
 .footer__auxiliary-paragraph-box {
-  margin-bottom: 52px;
+  @media (min-width: $desktop-width) {
+    margin-bottom: 30px;
+  }
 
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 50px;
@@ -82,7 +88,7 @@
     @include input-style;
     color: $lcg-1;
 
-    padding: 10px 0;
+    padding: 14px 0 6px;
     border-bottom: 1px solid $lcg-1;
 
     &:hover,
@@ -103,13 +109,14 @@
   @include inherit-text-style;
   @include zero-edges;
   position: absolute;
-  top: 50%;
+  top: 56%;
   right: 0;
   transform: translate(0, -50%);
   background-color: transparent;
 
   span {
     @include inherit-text-style;
+    margin-right: 12px;
   }
 
   &:hover,
@@ -136,7 +143,7 @@
   padding-left: 10px;
 
   @media (min-width: $desktop-width) {
-    margin-right: 7%;
+    margin-right: 8%;
   }
 }
 
@@ -174,6 +181,12 @@
 
     @media (min-width: $desktop-width) {
       margin-right: 15px;
+    }
+  }
+
+  svg.facebook-icon {
+    @media (min-width: $desktop-width) {
+      transform: translate(-28px, -50%);
     }
   }
 }
