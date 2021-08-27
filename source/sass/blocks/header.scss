@@ -9,7 +9,7 @@
   color: inherit;
 
   @media (min-width: $desktop-width) {
-    background-color: inherit;
+    background-color: $lcg-1;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -24,6 +24,7 @@
       left: 0;
       width: 100%;
       background-color: $lcg-1;
+      z-index: 1;
     }
 
     .header__container {

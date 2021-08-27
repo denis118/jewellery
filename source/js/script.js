@@ -66,6 +66,8 @@
 //
 
 (function () {
+  var UNITS = 'px';
+
   var header = null;
 
   var findHeader = function () {
@@ -95,9 +97,40 @@
         };
 
         this.isShown = false;
+        this.togglePadding();
         this.burger.addEventListener('click', this.onBurgerClick);
 
         return this;
+      };
+
+      that.togglePadding = function () {
+        var nextSibling = this.header.nextElementSibling
+          ? this.header.nextElementSibling
+          : null;
+
+        var main = document.querySelector('main')
+          ? document.querySelector('main')
+          : null;
+
+        switch (isPreDesktopWidth()) {
+          case true:
+            if (nextSibling && main && Object.is(nextSibling, main)) {
+              var height = this.header.scrollHeight;
+              main.style.paddingTop = height + UNITS;
+            }
+
+            break;
+
+          case false:
+            if (nextSibling && main && Object.is(nextSibling, main)) {
+              main.style.paddingTop = 0;
+            }
+
+            break;
+
+          default:
+            return;
+        }
       };
 
       that.setAttributes = function () {
@@ -240,6 +273,7 @@
       return function () {
         if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
           headerManager.resetAttributes();
+          headerManager.togglePadding();
           headerManager.hide();
           isWorkedOnPreDesktopWidth = false;
           isWorkedOnDesktopWidth = true;
@@ -248,6 +282,7 @@
 
         if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
           headerManager.setAttributes();
+          headerManager.togglePadding();
           isWorkedOnPreDesktopWidth = true;
           isWorkedOnDesktopWidth = false;
         }
