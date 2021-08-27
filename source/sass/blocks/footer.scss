@@ -45,10 +45,15 @@
 }
 
 .footer__subscription {
+  padding-right: 10px;
+  margin-right: auto;
+
   @media (min-width: $desktop-width) {
+    width: 30%;
+  }
+
+  @media (min-width: $aux-viewport-footer) {
     width: 43.7%;
-    padding-right: 10px;
-    margin-right: auto;
   }
 }
 
@@ -58,12 +63,13 @@
     "Arial",
     sans-serif;
   font-size: 3.4rem;
+  line-height: 130%;
   font-weight: 700;
   letter-spacing: 0.025em;
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 28px;
-    transform: translate(0, 6px);
+    margin-bottom: 4px;
+    transform: translate(0, -6px);
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -143,6 +149,10 @@
   padding-left: 10px;
 
   @media (min-width: $desktop-width) {
+    margin-right: auto;
+  }
+
+  @media (min-width: $aux-viewport-footer) {
     margin-right: 8%;
   }
 }
