@@ -1,5 +1,5 @@
 .general-information {
-  @include column-flex;
+  @include column-flex-left;
 
   @media (min-width: $desktop-width) {
     font-family: inherit;

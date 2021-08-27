@@ -50,6 +50,12 @@
   align-items: center;
 }
 
+@mixin column-flex-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 @mixin centering-flex {
   display: flex;
   justify-content: center;
@@ -74,12 +80,34 @@
 }
 
 @mixin input-style {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 150%;
+  font-weight: 500;
+
+  width: 100%;
   border-color: transparent;
   outline: none;
   background-color: transparent;
 }
 
-@mixin interactive-style {
+@mixin casual-interactive-style {
+  border-bottom: 1px dashed transparent;
+
+  &:hover,
+  &:focus {
+    border-color: inherit;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+@mixin svg-interactive-style {
   &:hover,
   &:focus {
     svg {
@@ -94,4 +122,10 @@
       opacity: 0.5;
     }
   }
+}
+
+@mixin inherit-text-style {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
 }

@@ -84,16 +84,7 @@
   }
 
   a {
-    border-bottom: 1px dashed transparent;
-
-    &:hover,
-    &:focus {
-      border-color: inherit;
-    }
-
-    &:active {
-      opacity: 0.5;
-    }
+    @include casual-interactive-style;
   }
 
   .header__cart {
@@ -105,9 +96,7 @@
 
 .header__container {
   &--upper {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    @include casual-flex;
 
     padding-top: 30px;
 
@@ -191,16 +180,7 @@
   }
 
   input {
-    font-family:
-      "poppins",
-      "Arial",
-      sans-serif;
-    font-size: 1.4rem;
-    line-height: 150%;
-    font-weight: 500;
-
     @include input-style;
-    width: 100%;
     padding-left: 0;
     padding-right: 0;
 
@@ -288,7 +268,7 @@
     transform: translate(1px, 17px);
   }
 
-  @include interactive-style;
+  @include svg-interactive-style;
 }
 
 .header__navigation {
@@ -362,7 +342,7 @@
     transform: translate(-6px, 16px);
   }
 
-  @include interactive-style;
+  @include svg-interactive-style;
 }
 
 .header__general-information {
@@ -371,7 +351,6 @@
     line-height: 130%;
     color: $lcg-4;
 
-    align-items: flex-start;
     margin-bottom: 40px;
   }
 
