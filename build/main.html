@@ -23,7 +23,7 @@
           </svg>
 
           <label class="visually-hidden" for="search-request-desktop">Site search</label>
-          <input type="text" name="search-request-desktop" id="search-request-desktop" placeholder="Type here to search">
+          <input type="text" name="search-request-desktop" id="search-request-desktop" placeholder="Type here to search" aria-label="Type here to search">
         </form>
       </div>
 
@@ -32,16 +32,16 @@
           <use xlink:href="#icon-burger"></use>
         </svg>
 
-        <span id="burger-description" hidden="true">Кнопка открытия и закрытия меню</span>
+        <span id="burger-description" hidden="">Menu toggle</span>
       </button>
 
-      <svg class="header__logo" width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="logo">
+      <svg class="header__logo" width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo">
         <use xlink:href="#logo"></use>
       </svg>
 
-      <a class="header__login link hidden-before-desktop" href="./login.html" aria-label="login">Login</a>
+      <a class="header__login link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
 
-      <a class="header__cart link" href="#" aria-label="cart">
+      <a class="header__cart link" href="#" aria-label="Cart">
         <span class="header__cart-text hidden-before-desktop">Cart</span>
         <span class="header__cart-fullness hidden-before-desktop">0</span>
 
@@ -63,7 +63,7 @@
         </form>
       </div>
 
-      <nav class="header__navigation">
+      <nav class="header__navigation" aria-label="Site chapters">
         <ul class="list">
           <li><a class="link" href="#">What’s new</a></li>
           <li><a class="link" href="#">Chokers</a></li>
@@ -73,10 +73,10 @@
         </ul>
       </nav>
 
-      <ul class="header__general-information general-information list hidden-on-desktop">
+      <ul class="header__general-information general-information list hidden-on-desktop" aria-labelledby="buyers-info">
         <li><a class="link" href="#">About CH</a></li>
         <li><a class="link" href="#">Stores & Hours</a></li>
-        <li class="hidden-entity"><a class="link" href="#">Jobs</a></li>
+        <li hidden=""><a class="link" href="#">Jobs</a></li>
         <li><a class="link" href="#">Contact Us</a></li>
       </ul>
 
@@ -92,10 +92,96 @@
     </section>
   </main>
 
-  <footer>
-    <section class="">
-      <h2 class=""></h2>
-    </section>
+  <footer class="footer">
+    <div class="footer__container container">
+      <section class="footer__subscription">
+        <h2 class="visually-hidden">Subscription</h2>
+
+        <div class="footer__leading-paragraph-box">
+          <p>The good stuff in your inbox </p>
+        </div>
+
+        <div class="footer__auxiliary-paragraph-box">
+          <p>News and updates from CH. No spam, we promise.</p>
+        </div>
+
+        <div class="footer__form-box">
+          <form id="news-subscription" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+            <label for="search-news" data-text="Sign Up">
+              <span class="visually-hidden">Your E-mail</span>
+            </label>
+
+            <input type="text" name="search-news" id="search-news" placeholder="Your E-mail" aria-label="type your e-mail">
+
+            <button class="footer__submit button" type="submit" aria-label="Submit button">
+              <svg width="29" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="#icon-arrow"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <ul class="footer__buyers-information list" aria-labelledby="buyers-info">
+        <li><a class="link" href="#">About CH</a></li>
+        <li><a class="link" href="#">Stores & Hours</a></li>
+        <li><a class="link" href="#">Jobs</a></li>
+        <li><a class="link" href="#">Contact Us</a></li>
+      </ul>
+
+      <ul class="footer__general-information general-information list" aria-labelledby="buyers-info">
+        <li><a class="link" href="#">About CH</a></li>
+        <li><a class="link" href="#">Stores & Hours</a></li>
+        <li><a class="link" href="#">Jobs</a></li>
+        <li><a class="link" href="#">Contact Us</a></li>
+      </ul>
+
+      <ul class="footer__social-networks list" aria-labelledby="social-networks">
+        <li>
+          <a class="link" href="#">
+            <svg width="8" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="#icon-facebook"></use>
+            </svg>
+
+            <span>Facebook</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="link" href="#">
+            <svg width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="#icon-instagram"></use>
+            </svg>
+
+            <span>Instagram</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="link" href="#">
+            <svg width="16" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="#icon-pinterest"></use>
+            </svg>
+
+            <span>Pinterest</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="link" href="#">
+            <svg width="15" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="#icon-twitter"></use>
+            </svg>
+
+            <span>Twitter</span>
+          </a>
+        </li>
+      </ul>
+
+      <span id="buyers-info" hidden="">Information for buyers</span>
+
+      <span id="social-networks" hidden="">We are in social networks</span>
+    </div>
   </footer>
 
   <!--.hidden-entity -->
@@ -103,12 +189,12 @@
   </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
-    <symbol id="icon-angle">
-      <path d="M1 1l7.5 8L16 1" stroke="#A87B62"></path>
+    <symbol id="icon-angle" viewBox="0 0 17 10">
+      <path d="M1 1l7.5 8L16 1" stroke="var(--icon-color)"></path>
     </symbol>
 
-    <symbol id="icon-arrow">
-      <path d="M0 5.5h29m0 0L23.514 1M29 5.5L23.514 10" stroke="#A87B62"></path>
+    <symbol id="icon-arrow" viewBox="0 0 30 11">
+      <path d="M0 5.5h29m0 0L23.514 1M29 5.5L23.514 10" stroke="var(--icon-color)"></path>
     </symbol>
 
     <symbol id="icon-burger" viewBox="0 0 25 18">
@@ -119,33 +205,33 @@
       <path d="M14 5a4 4 0 11-8 0M1 1h18v16H1V1z" stroke="var(--icon-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
     </symbol>
 
-    <symbol id="icon-cross-in-circle">
+    <symbol id="icon-cross-in-circle" viewBox="0 0 32 32">
       <circle cx="16" cy="16" r="16" fill="var(--circle-color)"></circle>
       <path d="M16 14.445L21.445 9 23 10.555 17.555 16 23 21.445 21.445 23 16 17.555 10.555 23 9 21.445 14.445 16 9 10.555 10.555 9 16 14.445z" fill="var(--icon-color)"></path>
     </symbol>
 
-    <symbol id="icon-cross">
+    <symbol id="icon-cross" viewBox="0 0 14 14">
       <path d="M7 5.445L12.445 0 14 1.555 8.555 7 14 12.445 12.445 14 7 8.555 1.555 14 0 12.445 5.445 7 0 1.555 1.555 0 7 5.445z" fill="var(--icon-color)"></path>
     </symbol>
 
-    <symbol id="icon-facebook">
-      <path d="M5.333 8.625h1.905l.762-3H5.333v-1.5c0-.772 0-1.5 1.524-1.5H8V.105A21.797 21.797 0 005.823 0C3.755 0 2.286 1.243 2.286 3.525v2.1H0v3h2.286V15h3.047V8.625z" fill="#fff"></path>
+    <symbol id="icon-facebook" viewBox="0 0 8 15">
+      <path d="M5.333 8.625h1.905l.762-3H5.333v-1.5c0-.772 0-1.5 1.524-1.5H8V.105A21.797 21.797 0 005.823 0C3.755 0 2.286 1.243 2.286 3.525v2.1H0v3h2.286V15h3.047V8.625z" fill="var(--icon-color)"></path>
     </symbol>
 
-    <symbol id="icon-instagram">
+    <symbol id="icon-instagram" viewBox="0 0 15 15">
       <path d="M7.5 0c2.038 0 2.292.007 3.091.045.8.038 1.343.163 1.822.349.495.19.912.448 1.329.864.38.375.676.829.864 1.33.185.477.312 1.022.349 1.82.035.8.045 1.054.045 3.092 0 2.038-.008 2.292-.045 3.091-.037.8-.164 1.343-.349 1.822-.188.5-.483.954-.864 1.329a3.687 3.687 0 01-1.33.864c-.477.185-1.022.312-1.82.349-.8.035-1.054.045-3.092.045-2.038 0-2.292-.008-3.091-.045-.8-.037-1.343-.164-1.821-.349a3.668 3.668 0 01-1.33-.864 3.678 3.678 0 01-.864-1.33c-.186-.477-.311-1.022-.349-1.82C.01 9.791 0 9.537 0 7.5c0-2.038.007-2.292.045-3.091.038-.8.163-1.343.349-1.821.187-.501.483-.955.864-1.33a3.673 3.673 0 011.33-.864C3.066.208 3.608.083 4.407.045 5.208.01 5.463 0 7.5 0zm0 3.75a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zm4.875-.188a.938.938 0 10-1.875 0 .938.938 0 001.875 0zM7.5 5.25a2.25 2.25 0 110 4.5 2.25 2.25 0 010-4.5z" fill="var(--icon-color)"></path>
     </symbol>
 
-    <symbol id="icon-pinterest">
+    <symbol id="icon-pinterest" viewBox="0 0 16 15">
       <path d="M8.525.07a7.502 7.502 0 00-4.026 14.307 5.818 5.818 0 01.122-1.72c.139-.629.972-4.097.972-4.097a2.804 2.804 0 01-.243-1.183c0-1.113.643-1.944 1.442-1.944A1 1 0 017.8 6.563c0 .676-.434 1.697-.66 2.656a1.158 1.158 0 001.18 1.442c1.424 0 2.378-1.823 2.378-3.976 0-1.65-1.092-2.886-3.107-2.886a3.56 3.56 0 00-3.697 3.596 2.22 2.22 0 00.486 1.477.36.36 0 01.121.416c-.034.138-.121.467-.156.588a.265.265 0 01-.382.19c-1.038-.415-1.527-1.558-1.527-2.862 0-2.135 1.788-4.691 5.365-4.691 2.847 0 4.74 2.083 4.74 4.31 0 2.932-1.633 5.136-4.045 5.136a2.145 2.145 0 01-1.84-.934s-.434 1.736-.52 2.065a6.021 6.021 0 01-.764 1.598c.692.21 1.411.315 2.134.312a7.493 7.493 0 007.497-7.502A7.502 7.502 0 008.526.071L8.525.07z" fill="var(--icon-color)"></path>
+    </symbol>
+
+    <symbol id="icon-twitter" viewBox="0 0 15 13">
+      <path d="M15 1.543a5.875 5.875 0 01-1.768.516A3.263 3.263 0 0014.586.244a5.925 5.925 0 01-1.955.796 3.025 3.025 0 00-1.746-.996 2.913 2.913 0 00-1.954.344 3.206 3.206 0 00-1.353 1.543 3.48 3.48 0 00-.19 2.101 8.318 8.318 0 01-3.514-.995A8.868 8.868 0 011.044.604c-.273.501-.417 1.07-.416 1.65 0 1.137.543 2.142 1.368 2.73a2.924 2.924 0 01-1.393-.41v.04c0 .758.246 1.492.696 2.079.45.586 1.076.988 1.773 1.139-.454.13-.93.15-1.391.056.196.652.579 1.222 1.094 1.631a2.958 2.958 0 001.78.648c-.638.534-1.369.93-2.15 1.162-.782.233-1.6.3-2.405.196A8.318 8.318 0 004.717 13c5.661 0 8.757-4.999 8.757-9.334 0-.141-.004-.284-.01-.424A6.496 6.496 0 0015 1.544z" fill="var(--icon-color)"></path>
     </symbol>
 
     <symbol id="icon-search" viewBox="0 0 14 14">
       <path d="M11.048 10.074L14 13.024l-.975.976-2.951-2.952A6.205 6.205 0 010 6.202 6.205 6.205 0 016.203 0a6.205 6.205 0 014.845 10.074zm-1.382-.512a4.808 4.808 0 001.36-3.36 4.823 4.823 0 00-4.823-4.824 4.822 4.822 0 00-4.825 4.825 4.823 4.823 0 004.825 4.824 4.808 4.808 0 003.36-1.361l.103-.104z" fill="var(--icon-color)"></path>
-    </symbol>
-
-    <symbol id="icon-twitter">
-      <path d="M15 1.543a5.875 5.875 0 01-1.768.516A3.263 3.263 0 0014.586.244a5.925 5.925 0 01-1.955.796 3.025 3.025 0 00-1.746-.996 2.913 2.913 0 00-1.954.344 3.206 3.206 0 00-1.353 1.543 3.48 3.48 0 00-.19 2.101 8.318 8.318 0 01-3.514-.995A8.868 8.868 0 011.044.604c-.273.501-.417 1.07-.416 1.65 0 1.137.543 2.142 1.368 2.73a2.924 2.924 0 01-1.393-.41v.04c0 .758.246 1.492.696 2.079.45.586 1.076.988 1.773 1.139-.454.13-.93.15-1.391.056.196.652.579 1.222 1.094 1.631a2.958 2.958 0 001.78.648c-.638.534-1.369.93-2.15 1.162-.782.233-1.6.3-2.405.196A8.318 8.318 0 004.717 13c5.661 0 8.757-4.999 8.757-9.334 0-.141-.004-.284-.01-.424A6.496 6.496 0 0015 1.544z" fill="var(--icon-color)"></path>
     </symbol>
 
     <symbol id="logo" viewBox="0 0 66 66">
