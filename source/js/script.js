@@ -97,13 +97,13 @@
         };
 
         this.isShown = false;
-        this.togglePadding();
+        this.toggleMargin();
         this.burger.addEventListener('click', this.onBurgerClick);
 
         return this;
       };
 
-      that.togglePadding = function () {
+      that.toggleMargin = function () {
         var nextSibling = this.header.nextElementSibling
           ? this.header.nextElementSibling
           : null;
@@ -116,14 +116,14 @@
           case true:
             if (nextSibling && main && Object.is(nextSibling, main)) {
               var height = this.header.scrollHeight;
-              main.style.paddingTop = height + UNITS;
+              main.style.marginTop = height + UNITS;
             }
 
             break;
 
           case false:
             if (nextSibling && main && Object.is(nextSibling, main)) {
-              main.style.paddingTop = 0;
+              main.style.marginTop = 0;
             }
 
             break;
@@ -289,7 +289,7 @@
           isWorkedOnDesktopWidth = false;
         }
 
-        headerManager.togglePadding();
+        headerManager.toggleMargin();
       };
     })();
 

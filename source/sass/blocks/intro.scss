@@ -1,3 +1,70 @@
 .intro {
-  &--main {}
+  position: relative;
+
+  width: 100%;
+  background-color: $mcg-3;
+  @include background-properties;
+
+  &--main {
+    height: 463px;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 130px;
+      background-image: $intro-bg-main-desktop;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-main-desktop-2x;
+      }
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 80px;
+      background-image: $intro-bg-main-tablet;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-main-tablet-2x;
+      }
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 70px;
+      background-image: $intro-bg-main-mobile;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-main-mobile-2x;
+      }
+    }
+  }
+
+  p {
+    @include zero-edges;
+  }
+}
+
+.intro__inner {
+  @include centering-absolutely;
+}
+
+.intro__box {
+  font-family:
+    "cormorantgaramond",
+    "Arial",
+    sans-serif;
+  line-height: 130%;
+  text-align: center;
+  color: $lcg-1;
+
+  &--primary {
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  &--auxiliary {
+    font-size: 3.8rem;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: lowercase;
+  }
 }
