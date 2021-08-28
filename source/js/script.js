@@ -311,7 +311,7 @@
 (function () {
   var START_INDEX = 0;
   var DESKTOP_SLIDES_AMOUNT = 4;
-  var PREDESKTOP_SLIDES_AMOUNT = 2 ;
+  var PREDESKTOP_SLIDES_AMOUNT = 2;
 
   var initSlider = function (rootElement) {
     var that = {};
@@ -320,7 +320,6 @@
       var _ = that;
 
       _.root = rootElement;
-      _.inner = _.root.querySelector('.slider__inner');
       _.sliderList = _.root.querySelector('.slider__list');
       _.slides = Array.from(_.root.querySelectorAll('.slider__item'));
       _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
@@ -331,6 +330,7 @@
       _.slideSets = [];
 
       _.normalizeClass();
+      _.buildSlideSets();
 
       return _;
     };
@@ -383,6 +383,8 @@
         takenSlides = copiedSlides.splice(0, slidesAmount);
         _.slideSets.push(takenSlides);
       }
+
+      return 'done';
     };
 
     that.manageNumbers = function () {
