@@ -9,20 +9,9 @@
   color: $dcg-2;
 
   @include column-flex;
-
   width: 100%;
+  // margin-bottom: ;
   position: relative;
-
-  &--js {
-    .slider__item {
-      display: none;
-    }
-
-    .slider__item.active {
-      display: flex;
-      animation: fade 0.5s ease;
-    }
-  }
 
   figure {
     @include zero-edges;
