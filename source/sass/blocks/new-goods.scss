@@ -1,0 +1,29 @@
+.new-goods {
+  @media (min-width: $desktop-width) {
+    margin-bottom: 130px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 70px;
+  }
+}
+
+.new-goods__heading {
+  margin-bottom: 35px;
+}
+
+.new-goods__link {
+  margin-bottom: 60px;
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 50px;
+  }
+}
+
+.new-goods__slider {
+  width: 100%;
+}
