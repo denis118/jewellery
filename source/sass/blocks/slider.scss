@@ -39,7 +39,7 @@
   width: 100%;
 
   @media (min-width: $desktop-width) {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -108,7 +108,7 @@
 
 .slider__product-name {
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .slider__product-cost {
@@ -128,12 +128,12 @@
 
   &--previous {
     left: 0;
-    transform: translate(0, -110px);
+    transform: translate(0, -103px);
   }
 
   &--next {
     left: 100%;
-    transform: translate(-100%, -110px);
+    transform: translate(-100%, -103px);
   }
 
   &:hover,
@@ -166,15 +166,21 @@
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+  transform: translate(4px, 0);
 }
 
 .slider__frame-button-item {
   &:not(:last-child) {
-    margin-right: 15px;
+    margin-right: 12px;
   }
 }
 
 .slider__frame-button {
+  font-size: 1.6rem;
+  line-height: 130%;
+  font-weight: 500;
+  color: $lcg-5;
+
   padding: 0;
 
   &:focus,
@@ -185,7 +191,13 @@
 }
 
 .slider__frame-button.active {
+  color: $dcg-2;
   font-weight: 700;
+
+  &:focus,
+  &:hover {
+    color: $mcg-1;
+  }
 }
 
 @keyframes fade {
