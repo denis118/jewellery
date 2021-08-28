@@ -10,7 +10,6 @@
 
   @include column-flex;
   width: 100%;
-  // margin-bottom: ;
   position: relative;
 
   figure {
@@ -32,11 +31,11 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 50px;
+    margin-bottom: 41px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 }
 
@@ -61,11 +60,7 @@
 
   &:first-child {
     @media (max-width: $pre-desktop-width) {
-      margin-right: 2.2123%;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      margin-right: 10.3483%;
+      margin-right: auto;
     }
   }
 }
@@ -83,11 +78,12 @@
 
   @media (max-width: $pre-desktop-width) {
     padding-bottom: $ratio-slider-tablet;
+    margin-bottom: 23px;
   }
 
   @media (max-width: $pre-tablet-width) {
     padding-bottom: $ratio-slider-mobile;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 }
 
@@ -98,6 +94,16 @@
 .slider__product-name {
   text-align: center;
   margin-bottom: 5px;
+
+  &--shifted {
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(8px, 0);
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(0, 0);
+    }
+  }
 }
 
 .slider__product-cost {
@@ -118,11 +124,19 @@
   &--previous {
     left: 0;
     transform: translate(0, -103px);
+
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(0, -97px);
+    }
   }
 
   &--next {
     left: 100%;
     transform: translate(-100%, -103px);
+
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(-100%, -97px);
+    }
   }
 
   &:hover,
@@ -144,6 +158,11 @@
 }
 
 .slider__arrow-svg {
+  @media (max-width: $pre-desktop-width) {
+    width: 36px;
+    height: 15px;
+  }
+
   &--previous {
     left: 0;
     transform: rotate(180deg);
@@ -156,11 +175,19 @@
   align-items: flex-start;
   flex-wrap: wrap;
   transform: translate(4px, 0);
+
+  @media (max-width: $pre-desktop-width) {
+    transform: translate(0, 0);
+  }
 }
 
 .slider__frame-button-item {
   &:not(:last-child) {
     margin-right: 12px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-right: 14px;
+    }
   }
 }
 
@@ -186,6 +213,20 @@
   &:focus,
   &:hover {
     color: $mcg-1;
+  }
+}
+
+.slider__current-number {
+  @media (max-width: $pre-tablet-width) {
+    position: relative;
+    left: -6px;
+  }
+}
+
+.slider__slides-quantity {
+  @media (max-width: $pre-tablet-width) {
+    position: relative;
+    left: 5px;
   }
 }
 

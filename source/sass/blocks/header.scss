@@ -137,11 +137,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      padding-top: 10px;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      padding-top: 10px;
+      padding-top: 7px;
     }
   }
 }
@@ -150,8 +146,7 @@
   position: relative;
 
   @media (min-width: $desktop-width) {
-    width: 12.6984%;
-    width: 140px;
+    width: 145px;
     margin-left: 29px;
     margin-right: auto;
     transform: translate(0, 10px);
@@ -162,26 +157,9 @@
   }
 
   @media (max-width: $pre-tablet-width) {
+    @include centering-margin;
+    width: 99.5%;
     margin-bottom: 37px;
-  }
-
-  svg {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(-28px, -50%);
-
-    fill: var(--icon-color);
-
-    @media (min-width: $desktop-width) {
-      --icon-color: #{$dcg-1};
-    }
-
-    @media (max-width: $pre-desktop-width) {
-      --icon-color: #{$lcg-1};
-
-      transform: translate(13px, -50%) scale(1.15);
-    }
   }
 
   input {
@@ -210,7 +188,7 @@
       }
 
       @media (max-width: $pre-desktop-width) {
-        box-shadow: 0 0 3px $lcg-1;
+        box-shadow: 0 0 2px $lcg-1;
       }
     }
 
@@ -221,13 +199,43 @@
   }
 }
 
+.header__form-submit {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-36px, -50%);
+
+  @include button-common-style;
+
+  @media (min-width: $desktop-width) {
+    --icon-color: #{$dcg-1};
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    --icon-color: #{$lcg-1};
+
+    transform: translate(5px, -50%) scale(1.15);
+  }
+
+  &:hover,
+  &:focus {
+    --icon-color: #{$mcg-1};
+
+    svg {
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
 .header__logo {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translate(-50%, 30px);
-
-  fill: --icon-color;
 
   @media (min-width: $desktop-width) {
     --icon-color: #{$mcg-1};
@@ -238,9 +246,24 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    width: 52px;
-    height: 52px;
     transform: translate(-50%, 20px);
+  }
+
+  &--disabled {
+    &:hover,
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+      text-decoration: none;
+    }
+  }
+
+  svg {
+    @media (max-width: $pre-tablet-width) {
+      width: 52px;
+      height: 52px;
+    }
   }
 }
 
@@ -339,15 +362,13 @@
 }
 
 .header__burger {
-  @include centering-flex;
-  border-color: transparent;
+  @include button-common-style;
 
   @media (max-width: $pre-desktop-width) {
     --icon-color: #{$lcg-1};
 
     margin-right: auto;
     padding: 2px;
-    background-color: transparent;
     transform: translate(-4px, 20px);
   }
 

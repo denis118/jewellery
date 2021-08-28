@@ -136,3 +136,9 @@
   line-height: inherit;
   color: inherit;
 }
+
+@mixin button-common-style {
+  @include centering-flex;
+  border-color: transparent;
+  background-color: transparent;
+}

@@ -48,14 +48,6 @@
           action="https://echo.htmlacademy.ru/"
           method="GET"
           autocomplete="off">
-          <svg
-            width="14"
-            height="14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <use xlink:href="#icon-search"></use>
-          </svg>
 
           <label
             class="visually-hidden"
@@ -66,6 +58,20 @@
             id="search-request-desktop"
             placeholder="Type here to search"
             aria-label="Type here to search">
+
+          <button
+            class="header__form-submit"
+            type="submit"
+            aria-label="Button to search">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+          </button>
         </form>
       </div>
 
@@ -86,16 +92,29 @@
           hidden>Menu toggle</span>
       </button>
 
-      <svg
-        class="header__logo"
-        width="66"
-        height="66"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Logo">
-        <use xlink:href="#logo"></use>
-      </svg>
+      <a
+        class="header__logo header__logo--disabled"
+        role="link"
+        aria-disabled="true"
+        aria-labelledby="site-logo-link">
+        <svg
+          width="66"
+          height="66"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-labelledby="site-logo-image">
+          <use xlink:href="#logo"></use>
+        </svg>
+
+        <span
+          class="hidden-entity"
+          id="site-logo-link">Site logo link</span>
+
+        <span
+          class="hidden-entity"
+          id="site-logo-image">Site logo image</span>
+      </a>
 
       <a
         class="header__login link hidden-before-desktop"
@@ -132,16 +151,6 @@
           action="https://echo.htmlacademy.ru/"
           method="GET"
           autocomplete="off">
-          <svg
-            class="header__search-svg"
-            width="14"
-            height="14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true">
-            <use xlink:href="#icon-search"></use>
-          </svg>
-
           <label
             class="visually-hidden"
             for="search-request-predesktop">Site search</label>
@@ -149,6 +158,20 @@
             type="text"
             name="search-request-predesktop"
             id="search-request-predesktop">
+
+          <button
+            class="header__form-submit"
+            type="submit"
+            aria-label="Button to search">
+            <svg
+              width="14"
+              height="14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use xlink:href="#icon-search"></use>
+            </svg>
+          </button>
         </form>
       </div>
 
@@ -213,7 +236,7 @@
           class="new-goods__heading main-page__heading main-page__heading--new">New In</h2>
 
         <a
-          class="new-goods__link main-page__link link"
+          class="new-goods__link main-page__link main-page__link--altered link"
           href="#">Shop Now</a>
 
         <div
@@ -279,7 +302,7 @@
                   <figcaption
                     class="slider__figcaption">
                     <span
-                      class="slider__product-name">Necklace with amethyst</span>
+                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
                     <span
                       class="slider__product-cost">$ 145</span>
                   </figcaption>

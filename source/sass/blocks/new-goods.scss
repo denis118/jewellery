@@ -4,23 +4,31 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 80px;
+    margin-bottom: 49px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
   }
 }
 
 .new-goods__heading {
   margin-bottom: 35px;
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 30px;
+  }
 }
 
 .new-goods__link {
   margin-bottom: 60px;
 
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 56px;
+  }
+
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 50px;
+    margin-bottom: 46px;
   }
 }
 

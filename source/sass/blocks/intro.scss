@@ -18,7 +18,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      margin-bottom: 80px;
+      margin-bottom: 52px;
       background-image: $intro-bg-main-tablet;
 
       @media (min-resolution: 2dppx) {
@@ -27,7 +27,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-bottom: 70px;
+      margin-bottom: 42px;
       background-image: $intro-bg-main-mobile;
 
       @media (min-resolution: 2dppx) {
@@ -59,6 +59,19 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+
+    @media (min-width: $desktop-width) {
+      transform: translate(0, 4px);
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(-9px, 0);
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      font-size: 3.8rem;
+      transform: translate(0, 0);
+    }
   }
 
   &--auxiliary {
@@ -66,5 +79,14 @@
     font-weight: 400;
     font-style: italic;
     text-transform: lowercase;
+
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(-9px, -6px);
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      font-size: 3.4rem;
+      transform: translate(0, -6px);
+    }
   }
 }
