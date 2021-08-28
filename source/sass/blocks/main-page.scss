@@ -1,0 +1,60 @@
+.main-page {
+  line-height: 130%;
+  color: $dcg-2;
+}
+
+.main-page__section {
+  .container {
+    @include column-flex;
+  }
+}
+
+.main-page__heading {
+  font-family:
+    "cormorantgaramond",
+    "Arial",
+    sans-serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+
+  &--new {
+    letter-spacing: normal;
+  }
+}
+
+.main-page__link {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+
+  position: relative;
+  text-align: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 100%;
+    height: 1px;
+    background-color: $mcg-1;
+    transition: width 0.3s ease;
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      width: 120%;
+    }
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}

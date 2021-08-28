@@ -181,12 +181,13 @@
     </div>
   </header>
 
-  <main>
+  <main
+    class="main-page">
     <h1
       class="visually-hidden">Jewelry</h1>
 
     <section
-      class="intro">
+      class="intro intro--main">
       <h2
         class="visually-hidden">Introduction</h2>
 
@@ -202,14 +203,14 @@
     </section>
 
     <section
-      class="new-goods">
+      class="main-page__section new-goods">
       <div
         class="new-goods__container container">
         <h2
-          class="new-goods__heading">New In</h2>
+          class="new-goods__heading main-page__heading main-page__heading--new">New In</h2>
 
         <a
-          class="new-goods__link link"
+          class="new-goods__link main-page__link link"
           href="#">Shop Now</a>
 
         <div
@@ -416,13 +417,33 @@
             class="slider__arrow slider__arrow--previous button"
             type="button"
             data-id="previous"
-            aria-label="Previous slide button"></button>
+            aria-label="Previous slide button">
+            <svg
+              class="slider__arrow-svg slider__arrow-svg--previous"
+              width="29"
+              height="9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use xlink:href="#icon-arrow"></use>
+            </svg>
+          </button>
 
           <button
             class="slider__arrow slider__arrow--next button"
             type="button"
             data-id="next"
-            aria-label="Next slide button"></button>
+            aria-label="Next slide button">
+            <svg
+              class="slider__arrow-svg slider__arrow-svg--next"
+              width="29"
+              height="9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use xlink:href="#icon-arrow"></use>
+            </svg>
+          </button>
 
           <ul
             class="slider__frame-button-list list">
@@ -458,14 +479,14 @@
     </section>
 
     <section
-      class="blog">
+      class="main-page__section blog">
       <div
         class="blog__container container">
         <h2
-          class="blogs__heading">Blog</h2>
+          class="blog__heading main-page__heading">Blog</h2>
 
         <a
-          class="blog__link link"
+          class="blog__link main-page__link link"
           href="#">Read All</a>
 
         <div
@@ -669,11 +690,11 @@
     </section>
 
     <section
-      class="faq">
+      class="main-page__section faq">
       <div
         class="faq__container container">
         <h2
-          class="faq__heading">Frequently asked questions</h2>
+          class="faq__heading main-page__heading">Frequently asked questions</h2>
 
         <div
           class="faq__accordeon accordeon">
@@ -733,14 +754,14 @@
     </section>
 
     <section
-      class="subscription">
+      class="main-page__section subscription">
       <div
         class="subscription__container container">
         <h2
-          class="subscription__heading">@Chjewellery</h2>
+          class="subscription__heading main-page__heading">@Chjewellery</h2>
 
         <a
-          class="subscription__link link"
+          class="subscription__link main-page__link link"
           href="#">Follow Us</a>
       </div>
     </section>
