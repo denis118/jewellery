@@ -219,7 +219,8 @@
         <div
           class="new-goods__slider slider"
           id="slider1"
-          aria-label="Слайдер">
+          role="region"
+          aria-label="Slider">
           <div
             class="slider__inner">
             <ul
@@ -417,7 +418,7 @@
           </div>
 
           <button
-            class="slider__arrow slider__arrow--previous button"
+            class="slider__arrow slider__arrow--previous button hidden-on-mobile"
             type="button"
             data-id="previous"
             aria-label="Previous slide button">
@@ -433,7 +434,7 @@
           </button>
 
           <button
-            class="slider__arrow slider__arrow--next button"
+            class="slider__arrow slider__arrow--next button hidden-on-mobile"
             type="button"
             data-id="next"
             aria-label="Next slide button">
@@ -449,7 +450,7 @@
           </button>
 
           <ul
-            class="slider__frame-button-list list">
+            class="slider__frame-button-list list hidden-on-mobile">
             <li
               class="slider__frame-button-item">
               <button
@@ -462,7 +463,7 @@
             <li
               class="slider__frame-button-item">
               <button
-                class="slider__frame-button slider__frame-button--2 button active"
+                class="slider__frame-button slider__frame-button--2 button"
                 type="button"
                 data-id="frame-button-2"
                 aria-label="Button to enable the second set of products">2</button>
@@ -471,12 +472,49 @@
             <li
               class="slider__frame-button-item">
               <button
-                class="slider__frame-button slider__frame-button--3 button active"
+                class="slider__frame-button slider__frame-button--3 button"
                 type="button"
                 data-id="frame-button-3"
                 aria-label="Button to enable the third set of products">3</button>
             </li>
+
+            <li
+              class="slider__frame-button-item hidden-on-desktop">
+              <button
+                class="slider__frame-button slider__frame-button--3 button"
+                type="button"
+                data-id="frame-button-4"
+                aria-label="Button to enable the third set of products">4</button>
+            </li>
+
+            <li
+              class="slider__frame-button-item hidden-on-desktop">
+              <button
+                class="slider__frame-button slider__frame-button--3 button"
+                type="button"
+                data-id="frame-button-5"
+                aria-label="Button to enable the third set of products">5</button>
+            </li>
+
+            <li
+              class="slider__frame-button-item hidden-on-desktop">
+              <button
+                class="slider__frame-button slider__frame-button--3 button"
+                type="button"
+                data-id="frame-button-6"
+                aria-label="Button to enable the third set of products">6</button>
+            </li>
           </ul>
+
+          <div
+            class="slider__numbers hidden-after-mobile">
+            <span
+              class="slider__current-number">1</span>
+            <span
+              class="slider__divider">of</span>
+            <span
+              class="slider__slides-quantity">6</span>
+          </div>
         </div>
       </div>
     </section>
@@ -625,7 +663,8 @@
           </article>
 
           <article
-            class="blog__article article">
+            class="blog__article article"
+            hidden>
             <div
               class="article__image-box article__padded-box">
               <picture>
