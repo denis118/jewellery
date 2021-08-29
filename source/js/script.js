@@ -349,6 +349,30 @@
       return _;
     };
 
+    that.rebuild = function () {
+      var _ = that;
+
+      _.slideSets.splice(0, _.slideSets.length);
+
+      _.normalizeClass();
+      _.buildSlideSets();
+
+      _.slideSets[_.slideSetIndex].forEach(function (slide) {
+        slide.classList.add('hidden-entity');
+      });
+
+      _.slideSets[_.activeSetIndex].forEach(function (slide) {
+        slide.classList.remove('hidden-entity');
+      });
+
+      _.slideSetIndex = _.activeSetIndex;
+
+      _.defineSetsQuantity();
+      _.defineCurrentSetNumber();
+      _.insertNumbers();
+      _.verifyArrows();
+    };
+
     that.normalizeClass = function () {
       var _ = that;
 
@@ -667,22 +691,27 @@
       };
     };
 
-    var activate = useMethod('activate');
+    var rebuild = useMethod('rebuild');
+    var manageNumbers = useMethod('manageNumbers');
 
     var onWindowResize = (function () {
       var isWorkedOnPreDesktopWidth = false;
       var isWorkedOnDesktopWidth = false;
 
       return function () {
+        if (isPreDesktopWidth()) {
+          manageNumbers();
+        }
+
         if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
-          activate();
+          rebuild();
           isWorkedOnPreDesktopWidth = false;
           isWorkedOnDesktopWidth = true;
           return;
         }
 
         if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
-          activate();
+          rebuild();
           isWorkedOnPreDesktopWidth = true;
           isWorkedOnDesktopWidth = false;
         }
