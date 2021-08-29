@@ -57,6 +57,20 @@
     return document.documentElement.clientWidth < TABLET_WIDTH;
   };
 
+  var getCurrentMode = function () {
+    var width = document.documentElement.clientWidth;
+
+    if (width >= DESKTOP_WIDTH) {
+      return 'desktop';
+    }
+
+    if (width >= TABLET_WIDTH) {
+      return 'tablet';
+    }
+
+    return 'mobile';
+  };
+
   // export
   window.utility = {
     Maybe: Maybe,
@@ -64,7 +78,8 @@
     isTabEvent: isTabEvent,
     focusableSelectors: focusableSelectors,
     isPreDesktopWidth: isPreDesktopWidth,
-    isPreTabletWidth: isPreTabletWidth
+    isPreTabletWidth: isPreTabletWidth,
+    getCurrentMode: getCurrentMode
   };
 })();
 
@@ -352,7 +367,9 @@
     that.rebuild = function () {
       var _ = that;
 
-      _.slideSets.splice(0, _.slideSets.length);
+      _.slideSets = [];
+
+      // console.log(_.slideSets);
 
       _.normalizeClass();
       _.buildSlideSets();
@@ -364,6 +381,8 @@
       _.slideSets[_.activeSetIndex].forEach(function (slide) {
         slide.classList.remove('hidden-entity');
       });
+
+      // console.log(_.slideSets);
 
       _.slideSetIndex = _.activeSetIndex;
 
@@ -377,7 +396,7 @@
       var _ = that;
 
       _.slides.forEach(function (slide, index) {
-        slide.classList.remove('hidden-before-desktop');
+        slide.setAttribute('class', 'slider__item');
 
         var hiddenIndex = isPreDesktopWidth()
           ? PREDESKTOP_SLIDES_AMOUNT
@@ -662,8 +681,11 @@
   };
 
   var sliders = null;
+  var firstLoading = false;
   var isPreDesktopWidth = window.utility.isPreDesktopWidth;
   var isPreTabletWidth = window.utility.isPreTabletWidth;
+  var getCurrentMode = window.utility.getCurrentMode;
+  var mode = getCurrentMode();
   window.slider = {};
 
   var findSliders = function () {
@@ -697,20 +719,27 @@
     var onWindowResize = (function () {
       var isWorkedOnPreDesktopWidth = false;
       var isWorkedOnDesktopWidth = false;
+      var currentMode = '';
 
       return function () {
+        currentMode = getCurrentMode();
+
+        if (currentMode !== mode && firstLoading) {
+          firstLoading = false;
+        }
+
         if (isPreDesktopWidth()) {
           manageNumbers();
         }
 
-        if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
+        if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth && !firstLoading) {
           rebuild();
           isWorkedOnPreDesktopWidth = false;
           isWorkedOnDesktopWidth = true;
           return;
         }
 
-        if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
+        if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth && !firstLoading) {
           rebuild();
           isWorkedOnPreDesktopWidth = true;
           isWorkedOnDesktopWidth = false;
@@ -722,5 +751,7 @@
 
     window.addEventListener('resize', onWindowResize);
     window.addEventListener('beforeunload', onWindowBeforeunload);
+
+    firstLoading = true;
   }
 })();
