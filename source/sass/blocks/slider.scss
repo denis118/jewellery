@@ -57,11 +57,11 @@
       margin-right: 2.5641%;
     }
   }
+}
 
-  &:first-child {
-    @media (max-width: $pre-desktop-width) {
-      margin-right: auto;
-    }
+.slider__item.first-slide {
+  @media (max-width: $pre-desktop-width) {
+    margin-right: auto;
   }
 }
 
@@ -216,14 +216,14 @@
   }
 }
 
-.slider__current-number {
+.slider__current-set-number {
   @media (max-width: $pre-tablet-width) {
     position: relative;
     left: -6px;
   }
 }
 
-.slider__slides-quantity {
+.slider__slideset-quantity {
   @media (max-width: $pre-tablet-width) {
     position: relative;
     left: 5px;

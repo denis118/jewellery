@@ -6,6 +6,7 @@
 
 (function () {
   var DESKTOP_WIDTH = 1024;
+  var TABLET_WIDTH = 768;
 
   // monade
   var Maybe = function (operand) {
@@ -51,13 +52,19 @@
     return document.documentElement.clientWidth < DESKTOP_WIDTH;
   };
 
+  // isPreTabletWidth
+  var isPreTabletWidth = function () {
+    return document.documentElement.clientWidth < TABLET_WIDTH;
+  };
+
   // export
   window.utility = {
     Maybe: Maybe,
     isEscEvent: isEscEvent,
     isTabEvent: isTabEvent,
+    focusableSelectors: focusableSelectors,
     isPreDesktopWidth: isPreDesktopWidth,
-    focusableSelectors: focusableSelectors
+    isPreTabletWidth: isPreTabletWidth
   };
 })();
 
@@ -129,7 +136,7 @@
             break;
 
           default:
-            return;
+            break;
         }
       };
 
@@ -322,27 +329,23 @@
       _.root = rootElement;
       _.sliderList = _.root.querySelector('.slider__list');
       _.slides = Array.from(_.root.querySelectorAll('.slider__item'));
-      _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
-      _.buttonNext = _.root.querySelector('.slider__arrow--next');
+      _.currentSetNumber = _.root.querySelector('.slider__current-set-number');
+      _.slidesetQuantity = _.root.querySelector('.slider__slideset-quantity');
 
-      _.slideIndex = START_INDEX;
+      _.slideSetIndex = START_INDEX;
+      _.activeSetIndex = null;
       _.cursorPosition = {};
       _.slideSets = [];
+      _.numbers = null;
 
       _.normalizeClass();
       _.buildSlideSets();
+      _.defineSetsQuantity();
+      _.defineCurrentSetNumber();
+      _.specifyActiveSetIndex();
+      _.insertNumbers();
 
       return _;
-    };
-
-    that.execute = function (selector, functions) {
-      var _ = that;
-
-      _.root.querySelectorAll(selector).forEach(function (it) {
-        functions.forEach(function (func) {
-          func(it);
-        });
-      });
     };
 
     that.normalizeClass = function () {
@@ -381,55 +384,124 @@
         }
 
         takenSlides = copiedSlides.splice(0, slidesAmount);
+
+        if (isPreDesktopWidth()) {
+          takenSlides[0].classList.add('first-slide');
+        }
+
         _.slideSets.push(takenSlides);
       }
 
       return 'done';
     };
 
+    that.defineSetsQuantity = function () {
+      that.slidesetQuantity.innerText = that.slideSets.length;
+    };
+
+    that.defineCurrentSetNumber = function () {
+      that.currentSetNumber.innerText = that.slideSetIndex + 1;
+    };
+
+    that.specifyActiveSetIndex = function () {
+      that.activeSetIndex = that.slideSetIndex;
+    };
+
+    that.highlightNumber = function () {
+      that.numbers.forEach(function (number, index) {
+        number.setAttribute('class', 'slider__frame-button button');
+
+        if (index === that.slideSetIndex) {
+          number.setAttribute('class', 'slider__frame-button button active');
+        }
+      });
+    };
+
+    that.insertNumbers = function () {
+      var _ = that;
+
+      var list = _.root.querySelector('.slider__frame-button-list');
+      var listItem = list
+          .querySelector('.slider__frame-button-item')
+          .cloneNode(true);
+
+      while (list.firstChild) {
+        list.removeChild(list.firstChild);
+      }
+
+      var number = null;
+      var button = listItem.querySelector('button');
+      var buttonAttributeSet = {
+        'class': 'slider__frame-button button',
+        'type': 'button'
+      };
+
+      Object.keys(buttonAttributeSet).forEach(function (key) {
+        button.setAttribute(key, buttonAttributeSet[key]);
+      });
+
+      for (var i = 0; i < _.slideSets.length; i++) {
+        number = i + 1;
+        button.setAttribute('aria-label', 'Button to enable the ' + number + ' set of products');
+        button.innerText = number;
+        list.appendChild(listItem.cloneNode(true));
+      }
+
+      _.numbers = Array.from(_.root.querySelectorAll('.slider__frame-button'));
+      _.highlightNumber();
+    };
+
+    that.hideSlides = function (array) {
+      array.forEach(function (element) {
+        element.classList.add('hidden-entity');
+      });
+    };
+
+    that.showSlides = function (array) {
+      array.forEach(function (element) {
+        element.classList.remove('hidden-entity');
+      });
+    };
+
     that.manageNumbers = function () {
       var _ = that;
 
-      var activeSlides = _.root.querySelectorAll('.slider__item.active');
-      var activeSlide = activeSlides[0];
+      switch (isPreTabletWidth()) {
+        case true:
+          _.defineCurrentSetNumber();
+          break;
 
-      _.activeSlideNumber.innerText = _.slides.indexOf(activeSlide) + 1;
+        case false:
+          _.highlightNumber();
+          break;
+
+        default:
+          break;
+      }
     };
 
-    that.highlightDot = function () {
+    that.showNextSlideSet = function (previous) {
       var _ = that;
 
-      var activeSlide = _.root.querySelector('.slider__item.active');
-      var activeIndex = activeSlide.getAttribute('data-index');
-
-      _.execute('.slider__dot-btn', [function (dot) {
-        dot.classList.remove('active');
-
-        var dotIndex = dot.getAttribute('data-index');
-        if (dotIndex === activeIndex) {
-          dot.classList.add('active');
-        }
-      }]);
-    };
-
-    that.showNextSlide = function (previous) {
-      var _ = that;
-
-      _.slides[_.slideIndex].setAttribute('class', 'slider__item');
+      _.slideSets[_.slideSetIndex].forEach(function (slide) {
+        slide.classList.add('hidden-entity');
+      });
 
       if (previous) {
-        _.slideIndex = (--_.slideIndex) % _.slides.length;
+        _.slideSetIndex = (--_.slideSetIndex) % _.slideSets.length;
 
-        if (_.slideIndex < 0) {
-          _.slideIndex += _.slides.length;
+        if (_.slideSetIndex < 0) {
+          _.slideSetIndex += _.slideSets.length;
         }
       } else {
-        _.slideIndex = (++_.slideIndex) % _.slides.length;
+        _.slideSetIndex = (++_.slideSetIndex) % _.slideSets.length;
       }
 
-      _.slides[_.slideIndex].setAttribute('class', 'slider__item active');
+      _.slideSets[_.slideSetIndex].forEach(function (slide) {
+        slide.classList.remove('hidden-entity');
+      });
 
-      _.highlightDot();
+      _.specifyActiveSetIndex();
       _.manageNumbers();
     };
 
@@ -476,31 +548,27 @@
       }
     };
 
-    that.onDotsClick = function (evt) {
-      if (!evt.target.matches('.slider__dot-btn')) {
+    that.onNumbersClick = function (evt) {
+      if (!evt.target.matches('.slider__frame-button')) {
         return;
       }
 
       var _ = that;
 
-      var dataIndex = evt.target.getAttribute('data-index');
-      var slideToShow = _.root.querySelector('.slider__item[data-index="' + dataIndex + '"]');
-      var activeSlide = _.root.querySelector('.slider__item.active');
+      _.slideSetIndex = _.numbers.indexOf(evt.target);
 
-      activeSlide.classList.remove('active');
-      slideToShow.classList.add('active');
+      _.hideSlides(_.slideSets[_.activeSetIndex]);
+      _.showSlides(_.slideSets[_.slideSetIndex]);
 
-      _.slideIndex = _.slides.indexOf(slideToShow);
-
-      _.highlightDot();
+      _.specifyActiveSetIndex();
       _.manageNumbers();
     };
 
     that.processMouse = function (evt) {
       if (evt.target.matches('.slider__arrow')) {
         that.onArrowClick(evt);
-      } else if (evt.target.matches('.slider__dot-btn')) {
-        that.onDotsClick(evt);
+      } else if (evt.target.matches('.slider__frame-button')) {
+        that.onNumbersClick(evt);
       }
     };
 
@@ -510,8 +578,9 @@
         case 'touch':
           that.processMouse(evt);
           break;
+
         default:
-          return;
+          break;
       }
     };
 
@@ -536,6 +605,7 @@
 
   var sliders = null;
   var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isPreTabletWidth = window.utility.isPreTabletWidth;
   window.slider = {};
 
   var findSliders = function () {
@@ -563,10 +633,7 @@
       };
     };
 
-    var onWindowResize = createWindowEventsHandler('hideScrollbar');
     var onWindowBeforeunload = createWindowEventsHandler('eraseEventListeners');
-
-    window.addEventListener('resize', onWindowResize);
     window.addEventListener('beforeunload', onWindowBeforeunload);
   }
 })();
