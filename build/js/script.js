@@ -506,18 +506,35 @@
     };
 
     that.onArrowClick = function (evt) {
-      if (!evt.target.matches('.slider__arrow')) {
-        return;
-      }
+      // if (!evt.target.matches('.slider__arrow')) {
+      //   return;
+      // }
 
       var _ = that;
 
-      if (evt.target.matches('.slider__arrow--previous')) {
-        _.showNextSlide(true);
-      }
+      // if (evt.target.matches('.slider__arrow--previous')) {
+      //   _.showNextSlideSet(true);
+      // }
 
-      if (evt.target.matches('.slider__arrow--next')) {
-        _.showNextSlide();
+      // if (evt.target.matches('.slider__arrow--next')) {
+      //   _.showNextSlideSet();
+      // }
+
+      switch (true) {
+        case evt.target.matches('.slider__arrow--previous'):
+        case evt.target.parentNode.matches('.slider__arrow--previous'):
+          console.log('prev');
+          _.showNextSlideSet(true);
+          break;
+
+        case evt.target.matches('.slider__arrow--next'):
+        case evt.target.parentNode.matches('.slider__arrow--next'):
+          console.log('next');
+          _.showNextSlideSet();
+          break;
+
+        default:
+          break;
       }
     };
 
@@ -540,11 +557,11 @@
       }
 
       if (clientX1 - clientX2 < 0) {
-        _.showNextSlide(true);
+        _.showNextSlideSet(true);
       }
 
       if (clientX1 - clientX2 > 0) {
-        _.showNextSlide();
+        _.showNextSlideSet();
       }
     };
 
@@ -565,10 +582,18 @@
     };
 
     that.processMouse = function (evt) {
-      if (evt.target.matches('.slider__arrow')) {
-        that.onArrowClick(evt);
-      } else if (evt.target.matches('.slider__frame-button')) {
-        that.onNumbersClick(evt);
+      switch (true) {
+        case evt.target.matches('.slider__arrow'):
+        case evt.target.parentNode.matches('.slider__arrow'):
+          that.onArrowClick(evt);
+          break;
+
+        case evt.target.matches('.slider__frame-button'):
+          that.onNumbersClick(evt);
+          break;
+
+        default:
+          break;
       }
     };
 

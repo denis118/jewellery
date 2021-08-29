@@ -506,18 +506,19 @@
     };
 
     that.onArrowClick = function (evt) {
-      if (!evt.target.matches('.slider__arrow')) {
-        return;
-      }
+      switch (true) {
+        case evt.target.matches('.slider__arrow--previous'):
+        case evt.target.parentNode.matches('.slider__arrow--previous'):
+          that.showNextSlideSet(true);
+          break;
 
-      var _ = that;
+        case evt.target.matches('.slider__arrow--next'):
+        case evt.target.parentNode.matches('.slider__arrow--next'):
+          that.showNextSlideSet();
+          break;
 
-      if (evt.target.matches('.slider__arrow--previous')) {
-        _.showNextSlide(true);
-      }
-
-      if (evt.target.matches('.slider__arrow--next')) {
-        _.showNextSlide();
+        default:
+          break;
       }
     };
 
@@ -540,11 +541,11 @@
       }
 
       if (clientX1 - clientX2 < 0) {
-        _.showNextSlide(true);
+        _.showNextSlideSet(true);
       }
 
       if (clientX1 - clientX2 > 0) {
-        _.showNextSlide();
+        _.showNextSlideSet();
       }
     };
 
@@ -565,10 +566,18 @@
     };
 
     that.processMouse = function (evt) {
-      if (evt.target.matches('.slider__arrow')) {
-        that.onArrowClick(evt);
-      } else if (evt.target.matches('.slider__frame-button')) {
-        that.onNumbersClick(evt);
+      switch (true) {
+        case evt.target.matches('.slider__arrow'):
+        case evt.target.parentNode.matches('.slider__arrow'):
+          that.onArrowClick(evt);
+          break;
+
+        case evt.target.matches('.slider__frame-button'):
+          that.onNumbersClick(evt);
+          break;
+
+        default:
+          break;
       }
     };
 
