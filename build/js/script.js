@@ -334,6 +334,7 @@
   var START_INDEX = 0;
   var DESKTOP_SLIDES_AMOUNT = 4;
   var PREDESKTOP_SLIDES_AMOUNT = 2;
+  var IGNORED_SWIPE_DISTANCE = 20;
 
   var initSlider = function (rootElement) {
     var that = {};
@@ -344,6 +345,8 @@
       _.root = rootElement;
       _.sliderList = _.root.querySelector('.slider__list');
       _.slides = Array.from(_.root.querySelectorAll('.slider__item'));
+      _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
+      _.buttonNext = _.root.querySelector('.slider__arrow--next');
       _.currentSetNumber = _.root.querySelector('.slider__current-set-number');
       _.slidesetQuantity = _.root.querySelector('.slider__slideset-quantity');
 
@@ -368,6 +371,8 @@
       var _ = that;
 
       _.slideSets = [];
+      _.slideSetIndex = START_INDEX;
+      _.activeSetIndex = START_INDEX;
 
       // console.log(_.slideSets);
 
@@ -502,21 +507,31 @@
     that.verifyArrows = function () {
       var _ = that;
 
-      if (_.slideSets.length > 1 || _.slideSets.length === 0) {
-        return;
+      if (_.slideSets.length === 0) {
+        return 'canceled';
+      }
+
+      if (_.slideSets.length < 0) {
+        return -1;
       }
 
       if (_.slideSets.length === 1) {
-        _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
-        _.buttonNext = _.root.querySelector('.slider__arrow--next');
-
         [
           _.buttonPrevious,
           _.buttonNext
         ].forEach(function (item) {
           item.disabled = true;
         });
+      } else {
+        [
+          _.buttonPrevious,
+          _.buttonNext
+        ].forEach(function (item) {
+          item.removeAttribute('disabled');
+        });
       }
+
+      return 'done';
     };
 
     that.hideSlides = function (array) {
@@ -604,7 +619,12 @@
       var clientX1 = _.cursorPosition.clientX1;
       var clientX2 = _.cursorPosition.clientX2;
 
-      if (clientX1 - clientX2 === 0) {
+      var ignore = clientX1 - clientX2 < IGNORED_SWIPE_DISTANCE
+        && clientX1 - clientX2 > -IGNORED_SWIPE_DISTANCE
+        ? true
+        : false;
+
+      if (clientX1 - clientX2 === 0 || ignore) {
         return;
       }
 
