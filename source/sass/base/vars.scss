@@ -27,6 +27,7 @@ $lcg-5: #9b9997;
 $mcg-1: #a87b62;
 $mcg-2: #eaab90;
 $mcg-3: #5c3f2f;
+$mcg-4: #f0eae4;
 
 // dcg (dark colors' group)
 $dcg-1: #000000;
@@ -36,12 +37,18 @@ $dcg-2: #1d1613;
 // ratio
 //
 
-// images
+// blog images
+$ratio-blog-great: 110.526316%;
+$ratio-blog-big: 105.263158%;
+$ratio-blog-medium: 88.495575%;
+$ratio-blog-small: 88.257862%;
+
 // $ratio-great: 165.497076%;
 // $ratio-big: 149.880117%;
 // $ratio-large: 147.076023%;
 // $ratio-medium: 111.111111%;
 
+// blog images
 $ratio-slider-desktop: 105.185185%;
 $ratio-slider-tablet: 104.938272%;
 $ratio-slider-mobile: 104.615386%;
