@@ -11,44 +11,56 @@
   height: min-content;
   background-color: $mcg-4;
   position: relative;
+
+  &--trends {
+    @media (min-width: $desktop-width) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 52.2% 47.8%;
+    }
+  }
 }
 
 .article__image-box {
   @media (min-width: $desktop-width) {
     width: 50%;
+  }
 
-    height: 100%;
+  @media (max-width: $pre-desktop-width) {
+    width: 100%;
   }
 
   &--trends {
     @media (min-width: $desktop-width) {
       width: 100%;
+      grid-column-start: 1;
+      grid-column-end: -1;
+      grid-row-start: 1;
+      grid-row-end: -1;
+    }
+
+    img {
+      @media (min-width: $desktop-width) {
+        aspect-ratio: $ratio-blog-great;
+      }
     }
   }
 
   img {
-    @include content-in-padded-box;
-  }
-}
+    display: block;
+    width: 100%;
+    object-fit: cover;
 
-.article__padded-box {
-  @include padded-box;
-
-  @media (min-width: $desktop-width) {
-    padding-bottom: $ratio-blog-big;
-  }
-
-  @media (max-width: $pre-desktop-width) {
-    padding-bottom: $ratio-blog-medium;
-  }
-
-  @media (max-width: $pre-tablet-width) {
-    padding-bottom: $ratio-blog-small;
-  }
-
-  &--trends {
     @media (min-width: $desktop-width) {
-      padding-bottom: $ratio-blog-great;
+      aspect-ratio: $ratio-blog-big;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      aspect-ratio: $ratio-blog-medium;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      aspect-ratio: $ratio-blog-small;
     }
   }
 }
@@ -59,8 +71,7 @@
   background-color: inherit;
 
   @media (min-width: $desktop-width) {
-    // width: 50%;
-    width: 285px;
+    width: 50%;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -77,12 +88,12 @@
 
   &--trends {
     @media (min-width: $desktop-width) {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-
-      // width: 285px;
-      padding-bottom: 84px;
+      width: 100%;
+      height: 100%;
+      grid-column-start: 2;
+      grid-column-end: -1;
+      grid-row-start: 2;
+      grid-row-end: -1;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -125,6 +136,134 @@
 }
 
 .article__link {
-  margin-bottom: 25px;
   color: $dcg-2;
 }
+
+
+// .article {
+//   font-family:
+//     "poppins",
+//     "Arial",
+//     sans-serif;
+//   font-size: 1.6rem;
+//   line-height: 130%;
+//   font-weight: 500;
+
+//   @include casual-flex;
+//   height: min-content;
+//   background-color: $mcg-4;
+//   position: relative;
+// }
+
+// .article__image-box {
+//   @media (min-width: $desktop-width) {
+//     width: 50%;
+//   }
+
+//   &--trends {
+//     @media (min-width: $desktop-width) {
+//       width: 100%;
+//     }
+//   }
+
+//   img {
+//     @include content-in-padded-box;
+//   }
+// }
+
+// .article__padded-box {
+//   @include padded-box;
+
+//   @media (min-width: $desktop-width) {
+//     padding-bottom: $ratio-blog-big;
+//   }
+
+//   @media (max-width: $pre-desktop-width) {
+//     padding-bottom: $ratio-blog-medium;
+//   }
+
+//   @media (max-width: $pre-tablet-width) {
+//     padding-bottom: $ratio-blog-small;
+//   }
+
+//   &--trends {
+//     @media (min-width: $desktop-width) {
+//       padding-bottom: $ratio-blog-great;
+//     }
+//   }
+// }
+
+// .article__presentation {
+//   @include column-flex;
+//   padding-top: 67px;
+//   background-color: inherit;
+
+//   @media (min-width: $desktop-width) {
+//     width: 285px;
+//   }
+
+//   @media (max-width: $pre-desktop-width) {
+//     width: 100%;
+//   }
+
+//   @media (max-width: $pre-tablet-width) {
+//     padding-top: 49px;
+//   }
+
+//   &--power {
+//     order: -1;
+//   }
+
+//   &--trends {
+//     @media (min-width: $desktop-width) {
+//       position: absolute;
+//       bottom: 0;
+//       right: 0;
+
+//       width: 285px;
+//       padding-bottom: 84px;
+//     }
+
+//     @media (max-width: $pre-desktop-width) {
+//       padding-top: 88px;
+//     }
+
+//     @media (max-width: $pre-tablet-width) {
+//       padding-top: 66px;
+//     }
+//   }
+// }
+
+// .article__datetime {
+//   font-size: 1.4rem;
+//   color: $lcg-5;
+
+//   margin-bottom: 13px;
+// }
+
+// .article__title-box {
+//   font-family:
+//     "cormorantgaramond",
+//     "Arial",
+//     sans-serif;
+//   font-size: 2.6rem;
+//   line-height: 130%;
+//   font-weight: 600;
+//   color: $dcg-1;
+
+//   margin-bottom: 38px;
+
+//   @media (min-width: $desktop-width) {
+//     width: 60%;
+//   }
+
+//   p {
+//     @include zero-edges;
+//     text-align: center;
+//   }
+// }
+
+// .article__link {
+//   margin-bottom: 25px;
+//   color: $dcg-2;
+// }
