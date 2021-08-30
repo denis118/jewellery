@@ -1,10 +1,10 @@
 .blog {
   @media (min-width: $desktop-width) {
-    margin-bottom: 130px;
+    margin-bottom: 104px;
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 80px;
+    margin-bottom: 3px;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -16,7 +16,7 @@
   margin-bottom: 63px;
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 70px;
+    margin-bottom: 66px;
   }
 
   @media (max-width: $pre-tablet-width) {
