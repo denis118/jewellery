@@ -775,3 +775,92 @@
     firstLoading = true;
   }
 })();
+
+//
+// accordeon
+//
+
+(function () {
+  var UNITS = 'px';
+
+  var accordeons = null;
+
+  var findAccordeons = function () {
+    var Maybe = window.utility.Maybe;
+    accordeons = new Maybe(document.querySelectorAll('.accordeon'));
+    accordeons = accordeons.operand.length
+      ? Array.from(accordeons.operand)
+      : null;
+  };
+
+  var addContentJsStyles = function () {
+    accordeons.forEach(function (it) {
+      Array.from(it.querySelectorAll('.accordeon__content')).forEach(function (item) {
+        hideContent(item);
+      });
+    });
+  };
+
+  var hideContent = function (item) {
+    item.classList.add('accordeon__content--js');
+  };
+
+  var setEventListeners = function () {
+    accordeons.forEach(function (it) {
+      it.addEventListener('click', onAccordeonClick);
+    });
+  };
+
+  var onAccordeonClick = function (evt) {
+    if (!evt.target.closest('.accordeon__button')) {
+      return;
+    }
+
+    var target = evt.target.closest('.accordeon__button');
+    var accordeon = evt.target.closest('.accordeon');
+
+    var isButtonInactive = !target.classList.contains('accordeon__button--active');
+
+    accordeon.querySelectorAll('.accordeon__button').forEach(function (item) {
+      item.classList.remove('accordeon__button--active');
+    });
+
+    accordeon.querySelectorAll('.accordeon__content').forEach(function (item) {
+      item.style.maxHeight = null;
+    });
+
+
+    if (isButtonInactive) {
+      target.classList.toggle('accordeon__button--active');
+
+      var hasButtonNextElementSibling = target.nextElementSibling
+        ? true
+        : false;
+
+
+      var isButtonNextElementSiblingContent = target.nextElementSibling.matches('.accordeon__content')
+        ? true
+        : false;
+
+
+      if (hasButtonNextElementSibling && isButtonNextElementSiblingContent) {
+        var content = target.nextElementSibling;
+
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + UNITS;
+        }
+      }
+    }
+  };
+
+  window.addEventListener('load', function () {
+    findAccordeons();
+
+    if (accordeons.length) {
+      addContentJsStyles();
+      setEventListeners();
+    }
+  });
+})();

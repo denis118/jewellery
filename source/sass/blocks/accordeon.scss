@@ -6,12 +6,12 @@
 
 .accordeon__item {
   position: relative;
-  padding-top: 50px;
+  padding-top: 44px;
   padding-bottom: 50px;
   padding-right: 101px;
 
   @media (min-width: $desktop-width) {
-    padding-left: 38px;
+    padding-left: 42px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -30,7 +30,7 @@
   }
 }
 
-.accordeon__btn {
+.accordeon__button {
   --icon-color: #{$dcg-2};
 
   font-family:
@@ -79,6 +79,12 @@
     }
   }
 
+  &--active {
+    .accordeon__button-svg {
+      transform: translate(-50px, 50px) rotate(180deg);
+    }
+  }
+
   &:hover,
   &:focus {
     --icon-color: #{$mcg-1};
@@ -91,7 +97,7 @@
   }
 }
 
-.accordeon__btn-svg {
+.accordeon__button-svg {
   position: absolute;
   right: 0;
   top: 0;
@@ -110,6 +116,9 @@
 }
 
 .accordeon__content {
+  transition: max-height 0.3s ease-out;
+  overflow: hidden;
+
   @media (min-width: $desktop-width) {
     padding-top: 20px;
   }
@@ -120,6 +129,10 @@
 
   @media (max-width: $pre-tablet-width) {
     padding-top: 25px;
+  }
+
+  &--js {
+    max-height: 0;
   }
 
   p {
