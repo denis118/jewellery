@@ -1,0 +1,15 @@
+.faq {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.6rem;
+  line-height: 130%;
+  font-weight: 400;
+  color: $dcg-2;
+
+  @media (max-width: $pre-desktop-width) {
+    font-size: 1.4rem;
+    line-height: 140%;
+  }
+}
