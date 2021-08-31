@@ -7,8 +7,8 @@
 .accordeon__item {
   position: relative;
   padding-top: 44px;
-  padding-bottom: 50px;
-  padding-right: 101px;
+  padding-bottom: 43px;
+  padding-right: 98px;
 
   @media (min-width: $desktop-width) {
     padding-left: 42px;
@@ -19,7 +19,7 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    padding-top: 25px;
+    padding-top: 16px;
     padding-bottom: 25px;
     padding-right: 58px;
     padding-left: 25px;
@@ -46,13 +46,9 @@
   @include zero-edges;
   width: max-content;
 
-  @media (max-width: $pre-desktop-width) {
+  @media (max-width: $pre-tablet-width) {
     font-size: 1.6rem;
     line-height: 140%;
-  }
-
-  @media (max-width: $pre-tablet-width) {
-    padding-top: 25px;
   }
 
   &--material {
@@ -82,6 +78,14 @@
   &--active {
     .accordeon__button-svg {
       transform: translate(-50px, 50px) rotate(180deg);
+
+      @media (max-width: $pre-tablet-width) {
+        transform: translate(-25px, 25px) rotate(180deg);
+      }
+    }
+
+    & + .accordeon__content {
+      display: block;
     }
   }
 
@@ -116,23 +120,22 @@
 }
 
 .accordeon__content {
-  transition: max-height 0.3s ease-out;
-  overflow: hidden;
-
   @media (min-width: $desktop-width) {
-    padding-top: 20px;
+    width: 527px;
+    padding-left: 8px;
+    padding-top: 8px;
   }
 
   @media (max-width: $pre-desktop-width) {
-    padding-top: 35px;
+    padding-top: 27px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    padding-top: 25px;
+    padding-top: 18px;
   }
 
   &--js {
-    max-height: 0;
+    display: none;
   }
 
   p {

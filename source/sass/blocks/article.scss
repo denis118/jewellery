@@ -21,6 +21,12 @@
     padding-bottom: 30px;
   }
 
+  &:last-child {
+    @media (max-width: $pre-tablet-width) {
+      padding-bottom: 46px;
+    }
+  }
+
   &--trends {
     @media (min-width: $desktop-width) {
       display: grid;

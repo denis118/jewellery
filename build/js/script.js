@@ -780,8 +780,6 @@
 //
 
 (function () {
-  var UNITS = 'px';
-
   var initAccordeon = function (rootElement) {
     var that = {};
 
@@ -821,30 +819,8 @@
         item.classList.remove('accordeon__button--active');
       });
 
-      _.contents.forEach(function (item) {
-        item.style.maxHeight = null;
-      });
-
       if (isButtonInactive) {
         target.classList.toggle('accordeon__button--active');
-
-        var hasButtonNextElementSibling = target.nextElementSibling
-          ? true
-          : false;
-
-        var isButtonNextElementSiblingContent = target.nextElementSibling.matches('.accordeon__content')
-          ? true
-          : false;
-
-        if (hasButtonNextElementSibling && isButtonNextElementSiblingContent) {
-          var content = target.nextElementSibling;
-
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + UNITS;
-          }
-        }
       }
     };
 
