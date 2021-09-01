@@ -14,14 +14,32 @@
 
 .subscription__content-list {
   display: grid;
-  // grid-template-columns: repeat(4, min-content);
   grid-template-columns: 19.6581% 34.1026% 19.6581% 19.6581%;
-  grid-template-rows: repeat(2, min-content);
-  grid-auto-rows: min-content;
-  gap: 27px;
+  grid-template-rows: 230px 150px;
+  column-gap: 2.308%;
+  // row-gap: 8.2126%;
+  row-gap: 34px;
+
+  @media (min-width: $desktop-width) {
+    width: 100%;
+    margin-bottom: 132px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    grid-template-columns: 133px 231px 133px 133px;
+    grid-template-rows: 133px 87px;
+    // column-gap: 2.3599%;
+    column-gap: 16px;
+    // row-gap: 8.3333%;
+    row-gap: 20px;
+  }
 
   @media (max-width: $pre-tablet-width) {
-    grid-template-rows: repeat(3, min-content);
+    // grid-template-columns: repeat(2, 45.8621%);
+    grid-template-columns: repeat(2, 133px);
+    grid-template-rows: 133px 87px 87px;
+    column-gap: 24px;
+    row-gap: 27px;
   }
 }
 
@@ -66,6 +84,13 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
+
+    @media (max-width: $pre-tablet-width) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 4;
+    }
   }
 
   &--7 {
@@ -73,6 +98,13 @@
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 3;
+
+    @media (max-width: $pre-tablet-width) {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
   }
 
   &--first-size {
