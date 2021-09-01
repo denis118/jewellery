@@ -1,5 +1,3 @@
-// .subscription {}
-
 .subscription__heading {
   margin-bottom: 41px;
 
@@ -29,7 +27,6 @@
   grid-template-columns: 19.6581% 34.1026% 19.6581% 19.6581%;
   grid-template-rows: 230px 150px;
   column-gap: 2.308%;
-  // row-gap: 8.2126%;
   row-gap: 34px;
 
   @media (min-width: $desktop-width) {
@@ -40,9 +37,7 @@
   @media (max-width: $pre-desktop-width) {
     grid-template-columns: 133px 231px 133px 133px;
     grid-template-rows: 133px 87px;
-    // column-gap: 2.3599%;
     column-gap: 16px;
-    // row-gap: 8.3333%;
     row-gap: 20px;
 
     width: min-content;
@@ -50,7 +45,6 @@
   }
 
   @media (max-width: $pre-tablet-width) {
-    // grid-template-columns: repeat(2, 45.8621%);
     grid-template-columns: repeat(2, 133px);
     grid-template-rows: 133px 87px 87px;
     column-gap: 24px;
