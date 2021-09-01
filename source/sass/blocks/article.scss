@@ -58,9 +58,7 @@
   }
 
   img {
-    display: block;
-    width: 100%;
-    object-fit: cover;
+    @include img;
 
     @media (max-width: $pre-desktop-width) {
       height: 300px;
