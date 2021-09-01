@@ -1,14 +1,26 @@
 // .subscription {}
 
+.subscription__heading {
+  margin-bottom: 41px;
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 30px;
+  }
+
+  span {
+    font-size: 4.2rem;
+  }
+}
+
 .subscription__link {
-  margin-bottom: 63px;
+  margin-bottom: 66px;
 
   @media (max-width: $pre-desktop-width) {
     margin-bottom: 66px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    margin-bottom: 56px;
+    margin-bottom: 52px;
   }
 }
 
@@ -22,7 +34,7 @@
 
   @media (min-width: $desktop-width) {
     width: 100%;
-    margin-bottom: 132px;
+    margin-bottom: 130px;
   }
 
   @media (max-width: $pre-desktop-width) {

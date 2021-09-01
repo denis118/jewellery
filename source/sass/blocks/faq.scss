@@ -8,8 +8,30 @@
   font-weight: 400;
   color: $dcg-2;
 
+  @media (min-width: $desktop-width) {
+    margin-bottom: 90px;
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 57px;
+  }
+
   @media (max-width: $pre-tablet-width) {
     font-size: 1.4rem;
     line-height: 140%;
+
+    margin-bottom: 40px;
+  }
+}
+
+.faq__heading {
+  margin-bottom: 60px;
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 28px;
+    margin-top: 16px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    line-height: 130%;
   }
 }
