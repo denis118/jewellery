@@ -22,16 +22,16 @@
 
     margin-bottom: 40px;
   }
-}
 
-.faq__heading {
-  margin-bottom: 60px;
+  h2 {
+    margin-bottom: 60px;
 
-  @media (max-width: $pre-tablet-width) {
-    margin-bottom: 28px;
-    margin-top: 16px;
-    text-align: center;
-    letter-spacing: 0.03em;
-    line-height: 130%;
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 28px;
+      margin-top: 16px;
+      text-align: center;
+      letter-spacing: 0.03em;
+      line-height: 130%;
+    }
   }
 }

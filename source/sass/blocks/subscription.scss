@@ -1,13 +1,15 @@
-.subscription__heading {
-  margin-bottom: 41px;
+.subscription {
+  h2 {
+    margin-bottom: 41px;
 
-  @media (max-width: $pre-desktop-width) {
-    margin-bottom: 30px;
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 30px;
+    }
   }
+}
 
-  span {
-    font-size: 4.2rem;
-  }
+.subscription__at {
+  font-size: 4.2rem;
 }
 
 .subscription__link {

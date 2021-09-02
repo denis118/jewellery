@@ -1,27 +1,27 @@
 .main-page {
   line-height: 130%;
   color: $dcg-2;
+
+  h2 {
+    font-family:
+      "cormorantgaramond",
+      "Arial",
+      sans-serif;
+    font-size: 3.4rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+
+    margin-bottom: 35px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 30px;
+    }
+  }
 }
 
 .main-page__section {
   .container {
     @include column-flex;
-  }
-}
-
-.main-page__heading {
-  font-family:
-    "cormorantgaramond",
-    "Arial",
-    sans-serif;
-  font-size: 3.4rem;
-  font-weight: 700;
-  letter-spacing: 0.025em;
-
-  margin-bottom: 35px;
-
-  @media (max-width: $pre-desktop-width) {
-    margin-bottom: 30px;
   }
 }
 

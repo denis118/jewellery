@@ -144,7 +144,10 @@
     }
   }
 
-  p {
+  h3 {
+    font-size: inherit;
+    line-height: inherit;
+
     @include zero-edges;
     text-align: center;
   }
