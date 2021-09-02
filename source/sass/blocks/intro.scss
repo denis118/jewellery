@@ -36,6 +36,38 @@
     }
   }
 
+  &--catalog {
+    height: 261px;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 80px;
+      background-image: $intro-bg-catalog-desktop;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-catalog-desktop-2x;
+      }
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-top: -3px;
+      margin-bottom: 50px;
+      background-image: $intro-bg-catalog-tablet;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-catalog-tablet-2x;
+      }
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 70px;
+      background-image: $intro-bg-catalog-mobile;
+
+      @media (min-resolution: 2dppx) {
+        background-image: $intro-bg-catalog-mobile-2x;
+      }
+    }
+  }
+
   p {
     @include zero-edges;
   }
@@ -55,10 +87,13 @@
   color: $lcg-1;
 
   &--primary {
-    font-size: 4.5rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
     text-transform: uppercase;
+  }
+
+  &--prime-main {
+    font-size: 4.5rem;
+    letter-spacing: 0.03em;
 
     @media (min-width: $desktop-width) {
       transform: translate(0, 4px);
@@ -74,10 +109,18 @@
     }
   }
 
+  &--prime-catalog {
+    font-size: 3.4rem;
+    transform: translate(0, -4px);
+  }
+
   &--auxiliary {
     font-size: 3.8rem;
     font-weight: 400;
     font-style: italic;
+  }
+
+  &--aux-main {
     text-transform: lowercase;
 
     @media (max-width: $pre-desktop-width) {
@@ -87,6 +130,30 @@
     @media (max-width: $pre-tablet-width) {
       font-size: 3.4rem;
       transform: translate(0, -6px);
+    }
+  }
+
+  &--aux-catalog {
+    font-size: 2.2rem;
+    font-weight: 500;
+
+    @media (min-width: $desktop-width) {
+      transform: translate(2px, 0);
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      width: 488px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      line-height: 120%;
+      width: 100%;
+    }
+  }
+
+  &--catalog {
+    @media (max-width: $pre-tablet-width) {
+      width: 248px;
     }
   }
 }
