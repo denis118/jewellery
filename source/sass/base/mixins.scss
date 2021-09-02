@@ -148,3 +148,14 @@
   width: 100%;
   object-fit: cover;
 }
+
+@mixin logo-catalog-interactive-style {
+  &:hover,
+  &:focus {
+    --icon-color: #{$mcg-5};
+  }
+
+  &:active {
+    filter: hue-rotate(90deg);
+  }
+}

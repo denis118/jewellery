@@ -39,6 +39,10 @@
       @media (max-width: $pre-desktop-width) {
         --icon-color: #{$mcg-1};
       }
+
+      &--catalog {
+        @include logo-catalog-interactive-style;
+      }
     }
 
     .header__burger,
@@ -82,10 +86,24 @@
         --icon-color: #{$lcg-1};
       }
     }
+
+    .header__logo {
+      &--catalog {
+        @include logo-catalog-interactive-style;
+      }
+    }
   }
 
   a {
     @include casual-interactive-style;
+  }
+
+  .header__logo {
+    &--different {
+      &:active {
+        opacity: 1;
+      }
+    }
   }
 
   .header__cart {
@@ -249,14 +267,19 @@
     transform: translate(-50%, 20px);
   }
 
-  &--disabled {
+  &--different {
     &:hover,
     &:focus,
     &:active {
       border: none;
       outline: none;
       text-decoration: none;
+      opacity: 1;
     }
+  }
+
+  &--catalog {
+    @include logo-catalog-interactive-style;
   }
 
   svg {
