@@ -717,7 +717,7 @@
 
   var findSliders = function () {
     var Maybe = window.utility.Maybe;
-    sliders = new Maybe(document.querySelectorAll('.slider'));
+    sliders = new Maybe(document.querySelectorAll('#slider-main'));
     sliders = sliders.operand.length
       ? Array.from(sliders.operand)
       : null;

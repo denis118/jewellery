@@ -27,6 +27,10 @@
     }
   }
 
+  h2 {
+    @include visually-hidden;
+  }
+
   p {
     @include zero-edges;
   }

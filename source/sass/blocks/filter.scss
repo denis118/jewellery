@@ -1,0 +1,5 @@
+.filter {
+  h2 {
+    @include visually-hidden;
+  }
+}
