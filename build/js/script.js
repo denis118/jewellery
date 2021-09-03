@@ -725,6 +725,10 @@
 
   findSliders();
 
+  if (!sliders) {
+    return;
+  }
+
   if (sliders.length) {
     sliders.forEach(function (it) {
       var slider = initSlider(it);

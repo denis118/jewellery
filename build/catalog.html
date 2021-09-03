@@ -39,7 +39,7 @@
         <span id="burger-description" hidden="">Menu toggle</span>
       </button>
 
-      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html" role="link" aria-labelledby="site-logo-link">
+      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html" aria-labelledby="site-logo-link">
         <svg width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="site-logo-image">
           <use xlink:href="#logo"></use>
         </svg>
@@ -113,7 +113,7 @@
       </div>
     </section>
 
-    <div class="container">
+    <div class="catalog-page__container container">
       <div class="filter">
         <h2>Filter</h2>
 
@@ -139,22 +139,22 @@
                     <ul class="filter__list filter__list--products list">
                       <li class="filter__list-item filter__list-item--necklaces">
                         <input type="checkbox" name="necklaces" id="necklaces">
-                        <label class="filter_label filter_label--necklaces" for="necklaces">Necklaces</label>
+                        <label class="filter__label filter__label--necklaces" for="necklaces">Necklaces</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--chokers">
                         <input type="checkbox" name="chokers" id="chokers">
-                        <label class="filter_label filter_label--chokers" for="chokers">Chokers</label>
+                        <label class="filter__label filter__label--chokers" for="chokers">Chokers</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--rings">
                         <input type="checkbox" name="rings" id="rings">
-                        <label class="filter_label filter_label--rings" for="rings">Rings</label>
+                        <label class="filter__label filter__label--rings" for="rings">Rings</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--earrings">
                         <input type="checkbox" name="earrings" id="earrings">
-                        <label class="filter_label filter_label--earrings" for="earrings">Earrings</label>
+                        <label class="filter__label filter__label--earrings" for="earrings">Earrings</label>
                       </li>
                     </ul>
                   </fieldset>
@@ -177,12 +177,12 @@
                     <ul class="filter__list filter__list--materials list">
                       <li class="filter__list-item filter__list-item--gold">
                         <input type="checkbox" name="gold" id="gold">
-                        <label class="filter_label filter_label--gold" for="gold">Gold</label>
+                        <label class="filter__label filter__label--gold" for="gold">Gold</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--silver">
                         <input type="checkbox" name="silver" id="silver">
-                        <label class="filter_label filter_label--silver" for="silver">Silver</label>
+                        <label class="filter__label filter__label--silver" for="silver">Silver</label>
                       </li>
                     </ul>
                   </fieldset>
@@ -205,12 +205,12 @@
                     <ul class="filter__list filter__list--collections list">
                       <li class="filter__list-item filter__list-item--pink-flamingo">
                         <input type="checkbox" name="collection-pink-flamingo" id="collection-pink-flamingo">
-                        <label class="filter_label filter_label--pink-flamingo" for="collection-pink-flamingo">Pink flamingo</label>
+                        <label class="filter__label filter__label--pink-flamingo" for="collection-pink-flamingo">Pink flamingo</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--dreams">
                         <input type="checkbox" name="collection-dreams" id="collection-dreams">
-                        <label class="filter_label filter_label--dreams" for="collection-dreams">Dreams</label>
+                        <label class="filter__label filter__label--dreams" for="collection-dreams">Dreams</label>
                       </li>
                     </ul>
                   </fieldset>
@@ -235,11 +235,11 @@
                         <div class="filter__bar-fill"></div>
                       </div>
 
-                      <div class="filter__bar-handle filter__bar-handle--lower-level" data-value="$ 55" tabindex="0" aria-labelledby="lower-level-handle"></div>
-                      <div class="filter__bar-handle filter__bar-handle--upper-level" data-value="$ 155" tabindex="0" aria-labelledby="upper-level-handle"></div>
+                      <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle" data-value="$ 55" tabindex="0" aria-labelledby="lower-level-handle-description"></div>
+                      <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle" data-value="$ 155" tabindex="0" aria-labelledby="upper-level-handle-description"></div>
 
-                      <span class="hidden-entity" id="lower-level-handle">Lower level cost handle</span>
-                      <span class="hidden-entity" id="upper-level-handle">Upper level cost handle</span>
+                      <span class="hidden-entity" id="lower-level-handle-description">Lower level cost handle</span>
+                      <span class="hidden-entity" id="upper-level-handle-description">Upper level cost handle</span>
                     </div>
                   </fieldset>
                 </div>
@@ -249,11 +249,11 @@
         </div>
       </div>
 
-      <div class="slider" id="slider-catalog" role="region" aria-label="Slider">
+      <div class="slider slider--catalog" id="slider-catalog" role="region" aria-label="Slider">
         <div class="slider__inner">
-          <ul class="slider__list list">
+          <ul class="slider__list slider__list--catalog list">
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -290,7 +290,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -327,7 +327,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -364,7 +364,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -401,7 +401,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -438,7 +438,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -475,7 +475,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -512,7 +512,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -549,7 +549,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -586,7 +586,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -623,7 +623,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
@@ -660,7 +660,7 @@
               </figure>
             </li>
 
-            <li class="slider__item">
+            <li class="slider__item slider__item--catalog">
               <figure>
                 <div class="slider__padded-box">
                   <picture>
