@@ -211,8 +211,7 @@
 
     <section
       class="intro intro--catalog">
-      <h2
-        class="visually-hidden">Introduction</h2>
+      <h2>Introduction</h2>
 
       <div
         class="intro__inner">
@@ -255,13 +254,13 @@
                 <button
                   class="accordeon__button accordeon__button--product button"
                   type="button"
-                  aria-label="Toggle content visibility">
+                  aria-label="Button to display product types list">
                   Product
 
                   <svg
                     class="accordeon__button-svg"
-                    width="17"
-                    height="10"
+                    width="15"
+                    height="8"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -270,7 +269,58 @@
                 </button>
 
                 <div
-                  class="accordeon__content"></div>
+                  class="accordeon__content">
+                  <fieldset>
+                    <legend>Product</legend>
+
+                    <ul
+                      class="filter__list filter__list--products list">
+                      <li
+                        class="filter__list-item filter__list-item--necklaces">
+                        <input
+                          type="checkbox"
+                          name="necklaces"
+                          id="necklaces">
+                        <label
+                          class="filter_label filter_label--necklaces"
+                          for="necklaces">Necklaces</label>
+                      </li>
+
+                      <li
+                        class="filter__list-item filter__list-item--chokers">
+                        <input
+                          type="checkbox"
+                          name="chokers"
+                          id="chokers">
+                        <label
+                          class="filter_label filter_label--chokers"
+                          for="chokers">Chokers</label>
+                      </li>
+
+                      <li
+                        class="filter__list-item filter__list-item--rings">
+                        <input
+                          type="checkbox"
+                          name="rings"
+                          id="rings">
+                        <label
+                          class="filter_label filter_label--rings"
+                          for="rings">Rings</label>
+                      </li>
+
+                      <li
+                        class="filter__list-item filter__list-item--earrings">
+                        <input
+                          type="checkbox"
+                          name="earrings"
+                          id="earrings">
+                        <label
+                          class="filter_label filter_label--earrings"
+                          for="earrings">Earrings</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                </div>
               </div>
 
               <div
@@ -278,13 +328,13 @@
                 <button
                   class="accordeon__button accordeon__button--material button"
                   type="button"
-                  aria-label="Toggle content visibility">
+                  aria-label="Button to display product materials list">
                   Material
 
                   <svg
                     class="accordeon__button-svg"
-                    width="17"
-                    height="10"
+                    width="15"
+                    height="8"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -293,7 +343,36 @@
                 </button>
 
                 <div
-                  class="accordeon__content"></div>
+                  class="accordeon__content">
+                  <fieldset>
+                    <legend>Material</legend>
+
+                    <ul
+                      class="filter__list filter__list--materials list">
+                      <li
+                        class="filter__list-item filter__list-item--gold">
+                        <input
+                          type="checkbox"
+                          name="gold"
+                          id="gold">
+                        <label
+                          class="filter_label filter_label--gold"
+                          for="gold">Gold</label>
+                      </li>
+
+                      <li
+                        class="filter__list-item filter__list-item--silver">
+                        <input
+                          type="checkbox"
+                          name="silver"
+                          id="silver">
+                        <label
+                          class="filter_label filter_label--silver"
+                          for="silver">Silver</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                </div>
               </div>
 
               <div
@@ -301,13 +380,13 @@
                 <button
                   class="accordeon__button accordeon__button--collection button"
                   type="button"
-                  aria-label="Toggle content visibility">
+                  aria-label="Button to display collections list">
                   Collection
 
                   <svg
                     class="accordeon__button-svg"
-                    width="17"
-                    height="10"
+                    width="15"
+                    height="8"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -316,7 +395,36 @@
                 </button>
 
                 <div
-                  class="accordeon__content"></div>
+                  class="accordeon__content">
+                  <fieldset>
+                    <legend>Collection</legend>
+
+                    <ul
+                      class="filter__list filter__list--collections list">
+                      <li
+                        class="filter__list-item filter__list-item--pink-flamingo">
+                        <input
+                          type="checkbox"
+                          name="collection-pink-flamingo"
+                          id="collection-pink-flamingo">
+                        <label
+                          class="filter_label filter_label--pink-flamingo"
+                          for="collection-pink-flamingo">Pink flamingo</label>
+                      </li>
+
+                      <li
+                        class="filter__list-item filter__list-item--dreams">
+                        <input
+                          type="checkbox"
+                          name="collection-dreams"
+                          id="collection-dreams">
+                        <label
+                          class="filter_label filter_label--dreams"
+                          for="collection-dreams">Dreams</label>
+                      </li>
+                    </ul>
+                  </fieldset>
+                </div>
               </div>
 
               <div
@@ -324,13 +432,13 @@
                 <button
                   class="accordeon__button accordeon__button--price button"
                   type="button"
-                  aria-label="Toggle content visibility">
+                  aria-label="Button to display price controllers">
                   Price
 
                   <svg
                     class="accordeon__button-svg"
-                    width="17"
-                    height="10"
+                    width="15"
+                    height="8"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
@@ -339,7 +447,38 @@
                 </button>
 
                 <div
-                  class="accordeon__content"></div>
+                  class="accordeon__content">
+                  <fieldset>
+                    <legend>Price</legend>
+
+                    <div
+                      class="filter__controls-wrapper">
+                      <div
+                        class="filter__bar-shell">
+                        <div
+                          class="filter__bar-fill"></div>
+                      </div>
+
+                      <div
+                        class="filter__bar-handle filter__bar-handle--lower-level"
+                        data-value="$ 55"
+                        tabindex="0"
+                        aria-labelledby="lower-level-handle"></div>
+                      <div
+                        class="filter__bar-handle filter__bar-handle--upper-level"
+                        data-value="$ 155"
+                        tabindex="0"
+                        aria-labelledby="upper-level-handle"></div>
+
+                      <span
+                        class="hidden-entity"
+                        id="lower-level-handle">Lower level cost handle</span>
+                      <span
+                        class="hidden-entity"
+                        id="upper-level-handle">Upper level cost handle</span>
+                    </div>
+                  </fieldset>
+                </div>
               </div>
             </div>
           </form>
