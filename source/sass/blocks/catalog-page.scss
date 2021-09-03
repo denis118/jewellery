@@ -8,4 +8,8 @@
     column-gap: 50px;
     align-items: start;
   }
+
+  @media (max-width: $pre-desktop-width) {
+    @include column-flex;
+  }
 }

@@ -114,20 +114,18 @@
     </section>
 
     <div class="catalog-page__container container">
-      <div class="filter">
-        <h2>Filter</h2>
-
+      <div class="filter" role="region" aria-label="Filter">
         <button class="filter__starter button hidden-on-desktop" type="button" aria-label="Button to show filter">
         </button>
 
         <div class="filter__form-box">
           <form id="filter" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
             <div class="filter__accordeon accordeon" id="accordeon-catalog">
-              <div class="accordeon__item">
-                <button class="accordeon__button accordeon__button--product button" type="button" aria-label="Button to display product types list">
+              <div class="accordeon__item accordeon__item--catalog">
+                <button class="accordeon__button accordeon__button--catalog accordeon__button--product button" type="button" aria-label="Button to display product types list">
                   Product
 
-                  <svg class="accordeon__button-svg" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <use xlink:href="#icon-angle"></use>
                   </svg>
                 </button>
@@ -138,12 +136,12 @@
 
                     <ul class="filter__list filter__list--products list">
                       <li class="filter__list-item filter__list-item--necklaces">
-                        <input type="checkbox" name="necklaces" id="necklaces">
+                        <input type="checkbox" name="necklaces" id="necklaces" checked="">
                         <label class="filter__label filter__label--necklaces" for="necklaces">Necklaces</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--chokers">
-                        <input type="checkbox" name="chokers" id="chokers">
+                        <input type="checkbox" name="chokers" id="chokers" checked="">
                         <label class="filter__label filter__label--chokers" for="chokers">Chokers</label>
                       </li>
 
@@ -153,7 +151,7 @@
                       </li>
 
                       <li class="filter__list-item filter__list-item--earrings">
-                        <input type="checkbox" name="earrings" id="earrings">
+                        <input type="checkbox" name="earrings" id="earrings" checked="">
                         <label class="filter__label filter__label--earrings" for="earrings">Earrings</label>
                       </li>
                     </ul>
@@ -161,11 +159,11 @@
                 </div>
               </div>
 
-              <div class="accordeon__item">
-                <button class="accordeon__button accordeon__button--material button" type="button" aria-label="Button to display product materials list">
+              <div class="accordeon__item accordeon__item--catalog">
+                <button class="accordeon__button accordeon__button--catalog accordeon__button--material button" type="button" aria-label="Button to display product materials list">
                   Material
 
-                  <svg class="accordeon__button-svg" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <use xlink:href="#icon-angle"></use>
                   </svg>
                 </button>
@@ -189,11 +187,11 @@
                 </div>
               </div>
 
-              <div class="accordeon__item">
-                <button class="accordeon__button accordeon__button--collection button" type="button" aria-label="Button to display collections list">
+              <div class="accordeon__item accordeon__item--catalog">
+                <button class="accordeon__button accordeon__button--catalog accordeon__button--collection button" type="button" aria-label="Button to display collections list">
                   Collection
 
-                  <svg class="accordeon__button-svg" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <use xlink:href="#icon-angle"></use>
                   </svg>
                 </button>
@@ -217,11 +215,11 @@
                 </div>
               </div>
 
-              <div class="accordeon__item">
-                <button class="accordeon__button accordeon__button--price button" type="button" aria-label="Button to display price controllers">
+              <div class="accordeon__item accordeon__item--catalog">
+                <button class="accordeon__button accordeon__button--catalog accordeon__button--price button" type="button" aria-label="Button to display price controllers">
                   Price
 
-                  <svg class="accordeon__button-svg" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <use xlink:href="#icon-angle"></use>
                   </svg>
                 </button>

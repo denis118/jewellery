@@ -725,11 +725,11 @@
 
   findSliders();
 
-  if (!sliders) {
-    return;
-  }
+  // if (!sliders) {
+  //   return;
+  // }
 
-  if (sliders.length) {
+  if (sliders && sliders.length) {
     sliders.forEach(function (it) {
       var slider = initSlider(it);
       slider.activate().setEventListeners();
@@ -853,7 +853,11 @@
 
   findAccordeons();
 
-  if (accordeons.length) {
+  // if (!accordeons) {
+  //   return;
+  // }
+
+  if (accordeons && accordeons.length) {
     accordeons.forEach(function (it) {
       var accordeon = initAccordeon(it);
       accordeon.activate().setEventListener();

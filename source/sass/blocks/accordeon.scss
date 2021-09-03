@@ -28,6 +28,13 @@
   &:not(:last-child) {
     border-bottom: 1px solid $mcg-1;
   }
+
+  &--catalog {
+    padding-top: 25px;
+    padding-bottom: 31px;
+    padding-right: 70px;
+    padding-left: 25px;
+  }
 }
 
 .accordeon__button {
@@ -89,6 +96,10 @@
     }
   }
 
+  &--catalog {
+    font-size: 1.6rem;
+  }
+
   &:hover,
   &:focus {
     --icon-color: #{$mcg-1};
@@ -117,6 +128,21 @@
     height: 10px;
     transform: translate(-25px, 25px);
   }
+
+  // &--catalog {
+  //   transform: translate(0, 0);
+
+  //   @media (max-width: $pre-desktop-width) {
+  //     width: 23px;
+  //     height: 12px;
+  //   }
+
+  //   @media (max-width: $pre-tablet-width) {
+  //     width: 20px;
+  //     height: 10px;
+  //     transform: translate(-25px, 25px);
+  //   }
+  // }
 }
 
 .accordeon__content {
