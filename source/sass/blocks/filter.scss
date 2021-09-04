@@ -12,6 +12,10 @@
     margin-bottom: 50px;
   }
 
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 40px;
+  }
+
   h2,
   legend,
   input[type="checkbox"] {
@@ -43,17 +47,15 @@
   background-color: $mcg-1;
 
   display: none;
-  outline: 1px solid transparent;
-  outline-offset: -1px;
 
-  &--js {
-    @media (max-width: $pre-desktop-width) {
-      @include centering-flex;
-      @include zero-edges;
-      display: block;
-      width: 100%;
-      height: 68px;
-    }
+  @media (max-width: $pre-desktop-width) {
+    @include centering-flex;
+    @include zero-edges;
+    display: block;
+    width: 100%;
+    height: 68px;
+    outline: 1px solid transparent;
+    outline-offset: -1px;
   }
 
   &:hover,
@@ -102,6 +104,7 @@
 
 .filter__form-box {
   @media (max-width: $pre-desktop-width) {
+    display: none;
     width: 423px;
     padding-bottom: 40px;
     background-color: $lcg-1;
@@ -110,7 +113,6 @@
 
   &--js {
     @media (max-width: $pre-desktop-width) {
-      // display: none;
       display: block;
       position: absolute;
       top: 27px;
@@ -123,6 +125,7 @@
       left: 50%;
       transform: translate(-50%, 0);
       width: 270px;
+      width: 84.375%;
     }
   }
 }
@@ -193,6 +196,14 @@
   position: relative;
   width: 100%;
   margin-bottom: 29px;
+
+  @media (max-width: $pre-desktop-width) {
+    padding-left: 10px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    padding-left: 0;
+  }
 }
 
 .filter__bar-shell {
@@ -205,13 +216,18 @@
 .filter__bar-fill {
   position: absolute;
   top: 0;
-  left: 25%;
-  width: 54%;
+  left: 26%;
+  width: 53%;
   height: 100%;
   background-color: $mcg-1;
 
   @media (max-width: $pre-desktop-width) {
-    width: 58%;
+    width: 58.5%;
+    left: 17%;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 56%;
     left: 19%;
   }
 }
@@ -219,7 +235,6 @@
 .filter__bar-handle {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
 
   width: 15px;
   height: 15px;
@@ -233,27 +248,13 @@
   }
 
   &--lower-level {
-    left: 22%;
-
-    @media (max-width: $pre-desktop-width) {
-      left: 17.25%;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      left: 16%;
-    }
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 
   &--upper-level {
-    left: 74.5%;
-
-    @media (max-width: $pre-desktop-width) {
-      left: 73.5%;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      left: 71%;
-    }
+    right: 0;
+    transform: translate(50%, -50%);
   }
 }
 

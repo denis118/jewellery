@@ -41,6 +41,10 @@
       margin-bottom: 74px;
     }
 
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 64px;
+    }
+
     img {
       @media (max-width: $pre-desktop-width) {
         width: 206px;
@@ -72,6 +76,10 @@
 
   &--catalog {
     margin-bottom: 71px;
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 42px;
+    }
   }
 }
 
@@ -99,6 +107,7 @@
     @media (max-width: $pre-tablet-width) {
       grid-template-columns: repeat(2, 1fr);
       width: 290px;
+      row-gap: 25px;
     }
   }
 }
@@ -295,6 +304,10 @@
   &--catalog {
     &:not(:last-child) {
       margin-right: 14px;
+
+      @media (max-width: $pre-tablet-width) {
+        margin-right: 23px;
+      }
     }
   }
 }

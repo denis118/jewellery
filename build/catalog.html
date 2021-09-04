@@ -12,7 +12,7 @@
 </head>
 
 <!-- .scroll-stop -->
-<body class="scroll-stop">
+<body>
   <!-- .header--js -->
   <!-- .menu-open -->
   <header class="header">
@@ -116,17 +116,16 @@
     <div class="catalog-page__container container">
       <div class="filter" role="region" aria-label="Filter">
 
-        <!-- .filter__starter--js -->
-        <button class="filter__starter filter__starter--js button" type="button" aria-label="Button to show filter">Filter</button>
+        <button class="filter__starter button" type="button" aria-label="Button to show filter">Filter</button>
 
         <!-- .overlay -->
-        <div class="filter__inner overlay">
+        <div class="filter__inner">
 
           <!-- .filter__form-box--js -->
-          <div class="filter__form-box filter__form-box--js">
+          <div class="filter__form-box">
 
             <!-- .filter__cross--js -->
-            <button class="filter__cross filter__cross--js button" type="button" aria-label="Button to close filter">
+            <button class="filter__cross button" type="button" aria-label="Button to close filter">
               <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <use xlink:href="#icon-cross-in-circle"></use>
               </svg>
@@ -243,18 +242,19 @@
 
                       <div class="filter__controls-wrapper">
                         <div class="filter__bar-shell">
-                          <div class="filter__bar-fill"></div>
-                        </div>
+                          <div class="filter__bar-fill">
+                            <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle" tabindex="0" aria-labelledby="lower-level-handle-description">
+                              <span class="filter__bar-handle-value filter__bar-handle-value--lower" id="lower-cost">$ 55</span>
 
-                        <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle" tabindex="0" aria-labelledby="lower-level-handle-description">
-                          <span class="filter__bar-handle-value filter__bar-handle-value--lower" id="lower-cost">$ 55</span>
+                              <input type="hidden" name="lower-cost-value" id="lower-cost-value" value="$ 55">
+                            </div>
 
-                          <input type="hidden" name="lower-cost-value" id="lower-cost-value" value="$ 55">
-                        </div>
-                        <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle" tabindex="0" aria-labelledby="upper-level-handle-description">
-                          <span class="filter__bar-handle-value filter__bar-handle-value--upper" id="upper-cost">$ 155</span>
+                            <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle" tabindex="0" aria-labelledby="upper-level-handle-description">
+                              <span class="filter__bar-handle-value filter__bar-handle-value--upper" id="upper-cost">$ 155</span>
 
-                          <input type="hidden" name="upper-cost-value" id="upper-cost-value" value="$ 155">
+                              <input type="hidden" name="upper-cost-value" id="upper-cost-value" value="$ 155">
+                            </div>
+                          </div>
                         </div>
 
                         <span class="hidden-entity" id="lower-level-handle-description">Lower level cost handle</span>
