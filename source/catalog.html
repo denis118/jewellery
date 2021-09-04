@@ -470,13 +470,12 @@
                         id="lower-level-handle"
                         tabindex="0"
                         aria-labelledby="lower-level-handle-description">
-
-                        <label
-                          class="visually-hidden"
-                          for="lower-cost-value">Lower cost value</label>
-                        <input
+                        <span
                           class="filter__bar-handle-value filter__bar-handle-value--lower"
-                          type="text"
+                          id="lower-cost">$ 55</span>
+
+                        <input
+                          type="hidden"
                           name="lower-cost-value"
                           id="lower-cost-value"
                           value="$ 55">
@@ -486,13 +485,12 @@
                         id="upper-level-handle"
                         tabindex="0"
                         aria-labelledby="upper-level-handle-description">
-
-                        <label
-                          class="visually-hidden"
-                          for="upper-cost-value">Upper cost value</label>
-                        <input
+                        <span
                           class="filter__bar-handle-value filter__bar-handle-value--upper"
-                          type="text"
+                          id="upper-cost">$ 155</span>
+
+                        <input
+                          type="hidden"
                           name="upper-cost-value"
                           id="upper-cost-value"
                           value="$ 155">
@@ -529,7 +527,7 @@
         role="region"
         aria-label="Slider">
         <div
-          class="slider__inner">
+          class="slider__inner slider__inner--catalog">
           <ul
             class="slider__list slider__list--catalog list">
 
@@ -537,7 +535,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -585,7 +583,7 @@
                 <figcaption
                   class="slider__figcaption">
                   <span
-                    class="slider__product-name">Double pearl earrings</span>
+                    class="slider__product-name slider__product-name--altered">Double pearl earrings</span>
                   <span
                     class="slider__product-cost">$ 115</span>
                 </figcaption>
@@ -596,7 +594,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -646,7 +644,7 @@
                   <span
                     class="slider__product-name">Choker with gold bead</span>
                   <span
-                    class="slider__product-cost">$ 55</span>
+                    class="slider__product-cost slider__product-cost--altered">$ 55</span>
                 </figcaption>
               </figure>
             </li>
@@ -655,7 +653,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -703,7 +701,7 @@
                 <figcaption
                   class="slider__figcaption">
                   <span
-                    class="slider__product-name">Gold layered necklace</span>
+                    class="slider__product-name slider__product-name--altered">Gold layered necklace</span>
                   <span
                     class="slider__product-cost">$ 155</span>
                 </figcaption>
@@ -714,7 +712,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -773,7 +771,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -832,7 +830,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -891,7 +889,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -950,7 +948,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -1009,7 +1007,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -1068,7 +1066,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -1127,7 +1125,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -1186,7 +1184,7 @@
               class="slider__item slider__item--catalog">
               <figure>
                 <div
-                  class="slider__padded-box">
+                  class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <source
                       type="image/webp"
@@ -1244,13 +1242,13 @@
         </div>
 
         <button
-          class="slider__arrow slider__arrow--previous button hidden-on-mobile"
+          class="slider__arrow slider__arrow--catalog slider__arrow--backward button hidden-on-mobile"
           type="button"
           data-id="previous"
           aria-label="Previous slide button">Previous</button>
 
         <button
-          class="slider__arrow slider__arrow--next button hidden-on-mobile"
+          class="slider__arrow slider__arrow--catalog slider__arrow--forward button hidden-on-mobile"
           type="button"
           data-id="next"
           aria-label="Next slide button">Next</button>
@@ -1258,7 +1256,7 @@
         <ol
           class="slider__frame-button-list slider__frame-button-list--catalog list">
           <li
-            class="slider__frame-button-item">
+            class="slider__frame-button-item slider__frame-button-item--catalog">
             <button
               class="slider__frame-button button active"
               type="button"
@@ -1266,7 +1264,7 @@
           </li>
 
           <li
-            class="slider__frame-button-item">
+            class="slider__frame-button-item slider__frame-button-item--catalog">
             <button
               class="slider__frame-button button"
               type="button"
@@ -1274,7 +1272,7 @@
           </li>
 
           <li
-            class="slider__frame-button-item">
+            class="slider__frame-button-item slider__frame-button-item--catalog">
             <button
               class="slider__frame-button button"
               type="button"
@@ -1282,7 +1280,7 @@
           </li>
 
           <li
-            class="slider__frame-button-item">
+            class="slider__frame-button-item slider__frame-button-item--catalog">
             <button
               class="slider__frame-button button"
               type="button"
@@ -1290,7 +1288,7 @@
           </li>
 
           <li
-            class="slider__frame-button-item">
+            class="slider__frame-button-item slider__frame-button-item--catalog">
             <button
               class="slider__frame-button button"
               type="button"

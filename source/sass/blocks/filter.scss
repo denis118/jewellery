@@ -19,6 +19,10 @@
         background-color: $mcg-1;
       }
     }
+
+    &:focus + .filter__label {
+      border-color: inherit;
+    }
   }
 }
 
@@ -109,25 +113,12 @@
 }
 
 .filter__bar-handle-value {
-  font-family:
-    "poppins",
-    "Arial",
-    sans-serif;
-  font-size: 1.4rem;
-  line-height: 130%;
-  font-weight: 500;
-
-  @include zero-edges;
-  border: none;
-
   position: absolute;
   top: 22px;
   left: -10px;
   width: max-content;
   max-width: max-content;
   height: min-content;
-
-  width: 50px;
   pointer-events: none;
 
   &--lower {
