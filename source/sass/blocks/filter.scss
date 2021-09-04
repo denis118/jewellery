@@ -7,6 +7,11 @@
   line-height: 130%;
   font-weight: 500;
 
+  @media (max-width: $pre-desktop-width) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
   h2,
   legend,
   input[type="checkbox"] {
@@ -27,7 +32,49 @@
 }
 
 .filter__starter {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 500;
+  color: $lcg-1;
+  background-color: $mcg-1;
+
   display: none;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+
+  &--js {
+    @media (max-width: $pre-desktop-width) {
+      @include centering-flex;
+      @include zero-edges;
+      display: block;
+      width: 100%;
+      height: 68px;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $mcg-1;
+    outline-color: currentColor;
+    background-color: transparent;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.filter__form-box {
+  &--js {
+    @media (max-width: $pre-desktop-width) {
+      display: none;
+      position: fixed;
+    }
+  }
 }
 
 .filter__accordeon {

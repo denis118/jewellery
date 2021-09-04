@@ -35,8 +35,10 @@
   }
 
   &--catalog {
-    @media (min-width: $desktop-width) {
-      margin-bottom: 76px;
+    margin-bottom: 76px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 74px;
     }
 
     img {
@@ -69,9 +71,7 @@
   }
 
   &--catalog {
-    @media (min-width: $desktop-width) {
-      margin-bottom: 71px;
-    }
+    margin-bottom: 71px;
   }
 }
 
@@ -90,7 +90,7 @@
 
     @media (max-width: $pre-desktop-width) {
       column-gap: 30px;
-      row-gap: 40px;
+      row-gap: 34px;
       width: 678px;
 
       @include centering-margin;
@@ -172,7 +172,9 @@
   }
 
   &--altered {
-    transform: translate(5px, 0);
+    @media (min-width: $desktop-width) {
+      transform: translate(5px, 0);
+    }
   }
 }
 
@@ -181,7 +183,9 @@
   font-weight: 700;
 
   &--altered {
-    transform: translate(5px, 0);
+    @media (min-width: $desktop-width) {
+      transform: translate(5px, 0);
+    }
   }
 }
 
