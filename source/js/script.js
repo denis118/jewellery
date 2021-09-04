@@ -803,6 +803,20 @@
 
     that.hideContent = function (item) {
       item.classList.add('accordeon__content--js');
+
+      switch (true) {
+        case item.matches('.faq__first-answer'):
+        case item.matches('.accordeon__content--products'):
+        case item.matches('.accordeon__content--price'):
+          item
+              .previousElementSibling
+              .classList
+              .add('accordeon__button--active');
+          break;
+
+        default:
+          break;
+      }
     };
 
     // that.onAccordeonClick = function (evt) {
