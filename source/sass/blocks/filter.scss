@@ -4,6 +4,14 @@
   legend {
     @include visually-hidden;
   }
+
+  input {
+    &:checked + .filter__label {
+      &::before {
+        background-color: $mcg-1;
+      }
+    }
+  }
 }
 
 .filter__label {
@@ -14,6 +22,25 @@
   font-size: 1.4rem;
   line-height: 130%;
   font-weight: 500;
+
+  position: relative;
+  border-bottom: 1px dashed transparent;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -25px;
+    transform: translate(0, -50%);
+
+    width: 15px;
+    height: 15px;
+    border: 1px solid $mcg-1;
+    background-color: transparent;
+  }
+
+  @include casual-interactive-style;
 }
 
 .filter__list {
