@@ -51,6 +51,12 @@
       padding-left: 22px;
       padding-bottom: 32px;
     }
+
+    &:last-child {
+      @media (max-width: $pre-desktop-width) {
+        border-bottom: 1px solid $mcg-1;
+      }
+    }
   }
 
   &--price {
@@ -58,6 +64,7 @@
 
     @media (max-width: $pre-desktop-width) {
       padding-right: 88px;
+      padding-bottom: 41px;
     }
   }
 }

@@ -111,6 +111,13 @@
       left: 0;
       z-index: 1;
     }
+
+    @media (max-width: $pre-tablet-width) {
+      top: 76px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 270px;
+    }
   }
 }
 
@@ -118,7 +125,7 @@
   margin-bottom: 35px;
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 }
 
@@ -273,6 +280,11 @@
     @include centering-margin;
     width: 362px;
     transform: translate(-10px, 0);
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 230px;
+    transform: translate(0, 0);
   }
 
   &:active {
