@@ -4,6 +4,10 @@
   border: 1px solid $mcg-1;
 
   &--catalog {
+    @media (max-width: $pre-desktop-width) {
+      border: none;
+    }
+
     fieldset {
       @include zero-edges;
       border: none;
@@ -41,10 +45,20 @@
     padding-right: 70px;
     padding-bottom: 20px;
     padding-left: 25px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 35px;
+      padding-left: 22px;
+      padding-bottom: 32px;
+    }
   }
 
   &--price {
     padding-right: 25px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-right: 88px;
+    }
   }
 }
 
@@ -103,6 +117,10 @@
 
       &--catalog {
         transform: translate(-23px, 28px) rotate(180deg);
+
+        @media (max-width: $pre-desktop-width) {
+          transform: translate(-40px, 40px) rotate(180deg);
+        }
       }
     }
 
@@ -113,6 +131,10 @@
 
   &--catalog {
     font-size: 1.6rem;
+
+    @media (max-width: $pre-desktop-width) {
+      font-size: 1.8rem;
+    }
   }
 
   &:hover,
@@ -147,10 +169,9 @@
   &--catalog {
     transform: translate(-23px, 28px);
 
-    // @media (max-width: $pre-desktop-width) {
-    //   width: 23px;
-    //   height: 12px;
-    // }
+    @media (max-width: $pre-desktop-width) {
+      transform: translate(-40px, 40px);
+    }
 
     // @media (max-width: $pre-tablet-width) {
     //   width: 20px;
@@ -187,10 +208,20 @@
     width: max-content;
     padding-left: 34px;
     padding-top: 22px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 25px;
+      padding-left: 38px;
+    }
   }
 
   &--price {
+    width: 100%;
     padding-top: 26px;
     padding-left: 0;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-top: 33px;
+    }
   }
 }

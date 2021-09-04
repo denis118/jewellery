@@ -68,22 +68,63 @@
   }
 }
 
+.filter__cross {
+  --circle-color: #{$dcg-2};
+  --icon-color: #{$lcg-1};
+
+  @include zero-edges;
+  display: none;
+
+  @media (max-width: $pre-desktop-width) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus {
+    --circle-color: #{$mcg-2};
+  }
+
+  &:active {
+    --circle-color: #{$mcg-7};
+  }
+}
+
 .filter__form-box {
+  @media (max-width: $pre-desktop-width) {
+    width: 423px;
+    padding-bottom: 40px;
+    background-color: $lcg-1;
+    box-shadow: 0px 5px 32px $dcg-3;
+  }
+
   &--js {
     @media (max-width: $pre-desktop-width) {
-      display: none;
-      position: fixed;
+      // display: none;
+      display: block;
+      position: absolute;
+      top: 27px;
+      left: 0;
+      z-index: 1;
     }
   }
 }
 
 .filter__accordeon {
   margin-bottom: 35px;
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 50px;
+  }
 }
 
 .filter__fieldset {
   &--price {
-    width: 200px;
+    width: 100%;
   }
 }
 
@@ -91,6 +132,10 @@
   position: relative;
   border-bottom: 1px dashed transparent;
   cursor: pointer;
+
+  @media (max-width: $pre-desktop-width) {
+    font-size: 1.6rem;
+  }
 
   &::before {
     content: "";
@@ -102,6 +147,12 @@
     height: 15px;
     border: 1px solid $mcg-1;
     background-color: transparent;
+
+    @media (max-width: $pre-desktop-width) {
+      left: -29px;
+      width: 18px;
+      height: 18px;
+    }
   }
 
   @include casual-interactive-style;
@@ -114,6 +165,10 @@
 .filter__list-item {
   &:not(:last-child) {
     margin-bottom: 13px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 19px;
+    }
   }
 }
 
@@ -137,6 +192,11 @@
   width: 54%;
   height: 100%;
   background-color: $mcg-1;
+
+  @media (max-width: $pre-desktop-width) {
+    width: 58%;
+    left: 19%;
+  }
 }
 
 .filter__bar-handle {
@@ -150,12 +210,25 @@
   border-radius: 50%;
   cursor: pointer;
 
+  @media (max-width: $pre-desktop-width) {
+    width: 18px;
+    height: 18px;
+  }
+
   &--lower-level {
     left: 22%;
+
+    @media (max-width: $pre-desktop-width) {
+      left: 17.25%;
+    }
   }
 
   &--upper-level {
     left: 74.5%;
+
+    @media (max-width: $pre-desktop-width) {
+      left: 73.5%;
+    }
   }
 }
 
@@ -168,8 +241,17 @@
   height: min-content;
   pointer-events: none;
 
+  @media (max-width: $pre-desktop-width) {
+    top: 27px;
+    left: -8px;
+  }
+
   &--lower {
     left: -8px;
+
+    @media (max-width: $pre-desktop-width) {
+      left: -6px;
+    }
   }
 }
 
@@ -186,6 +268,12 @@
   width: 100%;
   height: 68px;
   outline-offset: -1px;
+
+  @media (max-width: $pre-desktop-width) {
+    @include centering-margin;
+    width: 362px;
+    transform: translate(-10px, 0);
+  }
 
   &:active {
     opacity: 0.5;
