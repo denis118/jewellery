@@ -870,3 +870,39 @@
     window.addEventListener('beforeunload', onWindowBeforeunload);
   }
 })();
+
+
+(function () {
+  var filterCleaner = document.querySelector('#filter-cleaner')
+    ? document.querySelector('#filter-cleaner')
+    : null;
+
+  if (!filterCleaner) {
+    return;
+  }
+
+  var filterId = '#' + filterCleaner.dataset.for;
+  var filter = document.querySelector(filterId);
+  var checkboxes = filter.querySelectorAll('input[type="checkbox"]');
+  var lowerPriceInput = filter.querySelector('#lower-cost-value');
+  var upperPriceInput = filter.querySelector('#upper-cost-value');
+  var priceLowerValue = lowerPriceInput.value;
+  var priceUpperValue = upperPriceInput.value;
+
+  filterCleaner.addEventListener('click', function () {
+    checkboxes.forEach(function (item) {
+      var hasAttribute = item.getAttribute('data-checked')
+        ? true
+        : false;
+
+      if (hasAttribute) {
+        item.checked = item.dataset.checked;
+      } else {
+        item.checked = false;
+      }
+
+      lowerPriceInput.value = priceLowerValue;
+      upperPriceInput.value = priceUpperValue;
+    });
+  });
+})();

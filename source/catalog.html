@@ -280,6 +280,7 @@
                           type="checkbox"
                           name="necklaces"
                           id="necklaces"
+                          data-checked="true"
                           checked>
                         <label
                           class="filter__label filter__label--necklaces"
@@ -292,6 +293,7 @@
                           type="checkbox"
                           name="chokers"
                           id="chokers"
+                          data-checked="true"
                           checked>
                         <label
                           class="filter__label filter__label--chokers"
@@ -315,6 +317,7 @@
                           type="checkbox"
                           name="earrings"
                           id="earrings"
+                          data-checked="true"
                           checked>
                         <label
                           class="filter__label filter__label--earrings"
@@ -513,7 +516,9 @@
 
             <button
               class="filter__button filter__clear button"
-              type="button">Clear All</button>
+              type="button"
+              id="filter-cleaner"
+              data-for="accordeon-catalog">Clear All</button>
           </form>
         </div>
       </div>

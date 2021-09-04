@@ -136,12 +136,12 @@
 
                     <ul class="filter__list filter__list--products list">
                       <li class="filter__list-item filter__list-item--necklaces">
-                        <input type="checkbox" name="necklaces" id="necklaces" checked="">
+                        <input type="checkbox" name="necklaces" id="necklaces" data-checked="true" checked="">
                         <label class="filter__label filter__label--necklaces" for="necklaces">Necklaces</label>
                       </li>
 
                       <li class="filter__list-item filter__list-item--chokers">
-                        <input type="checkbox" name="chokers" id="chokers" checked="">
+                        <input type="checkbox" name="chokers" id="chokers" data-checked="true" checked="">
                         <label class="filter__label filter__label--chokers" for="chokers">Chokers</label>
                       </li>
 
@@ -151,7 +151,7 @@
                       </li>
 
                       <li class="filter__list-item filter__list-item--earrings">
-                        <input type="checkbox" name="earrings" id="earrings" checked="">
+                        <input type="checkbox" name="earrings" id="earrings" data-checked="true" checked="">
                         <label class="filter__label filter__label--earrings" for="earrings">Earrings</label>
                       </li>
                     </ul>
@@ -254,7 +254,7 @@
 
             <button class="filter__button filter__apply button" type="submit">Apply</button>
 
-            <button class="filter__button filter__clear button" type="button">Clear All</button>
+            <button class="filter__button filter__clear button" type="button" id="filter-cleaner" data-for="accordeon-catalog">Clear All</button>
           </form>
         </div>
       </div>
