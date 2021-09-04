@@ -246,9 +246,9 @@
           : false;
       };
 
-      that.getFocusableChildren = function () {
+      that.getFocusableChildren = function (element) {
         return Array.from(
-            this.header
+            element
                 .querySelectorAll(window.utility.focusableSelectors.join(','))
         ).filter(this.isVisible);
       };
@@ -883,6 +883,125 @@
     var onWindowBeforeunload = useMethod('accordeon', 'eraseEventListener');
     window.addEventListener('beforeunload', onWindowBeforeunload);
   }
+})();
+
+//
+// filter
+//
+
+(function () {
+  var filterStarter = document.querySelector('#filter-starter')
+    ? document.querySelector('#filter-starter')
+    : null;
+
+  if (!filterStarter) {
+    return;
+  }
+
+  var body = document.body;
+  var filter = filterStarter.closest('.filter');
+  var inner = filter.querySelector('.filter__inner');
+  var formBox = filter.querySelector('.filter__form-box');
+  var cross = filter.querySelector('.filter__cross');
+
+  var focusableSelectors = window.utility.focusableSelectors.join(',')
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isTabEvent = window.utility.isTabEvent;
+  var isEscEvent = window.utility.isEscEvent;
+
+  var addClasses = function () {
+    body.classList.add('scroll-stop');
+    inner.classList.add('overlay');
+    formBox.classList.add('filter__form-box--js');
+    cross.classList.add('filter__cross--js');
+  };
+
+  var removeClasses = function () {
+    body.classList.remove('scroll-stop');
+    inner.classList.remove('overlay');
+    formBox.classList.remove('filter__form-box--js');
+    cross.classList.remove('filter__cross--js');
+  };
+
+  var isVisible = function (node) {
+    return node.offsetWidth
+      || node.offsetHeight
+      || node.getClientRects().length
+      ? true
+      : false;
+  };
+
+  var getFocusableChildren = function () {
+    return Array.from(
+        document
+            .querySelectorAll(focusableSelectors + ', :not(.filter):not(.filter *)')
+    ).filter(isVisible);
+  };
+
+  var trapTabKey = function (evt) {
+    var focusableChildren = getFocusableChildren();
+    var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
+    var lastIndex = focusableChildren.length - 1;
+    var withShift = evt.shiftKey;
+
+    if (withShift && focusedItemIndex === 0) {
+      focusableChildren[lastIndex].focus();
+      evt.preventDefault();
+    } else if (!withShift && focusedItemIndex === lastIndex) {
+      focusableChildren[0].focus();
+      evt.preventDefault();
+    }
+  };
+
+  var onFilterStarterClick = function () {
+    addClasses();
+  };
+
+  var onCrossClick = function (evt) {
+    if (!evt.target.closest('.filter__cross')) {
+      return;
+    }
+
+    removeClasses();
+  };
+
+  var onDocumentKeyDown = function (evt) {
+    if (isTabEvent(evt)) {
+      trapTabKey(evt);
+    }
+  };
+
+  var onWindowResize = function () {
+    if (!isPreDesktopWidth()) {
+      removeClasses();
+      eraseEventListeners();
+    } else {
+      addClasses();
+      setEventListeners();
+    }
+  };
+
+  var onWindowBeforeunload = function () {
+    eraseEventListeners();
+    window.removeEventListener('resize', onWindowResize);
+    window.removeEventListener('beforeunload', onWindowBeforeunload);
+  };
+
+  var setEventListeners = function () {
+    filterStarter.addEventListener('click', onFilterStarterClick);
+    cross.addEventListener('click', onCrossClick);
+    document.addEventListener('keydown', onDocumentKeyDown);
+  };
+
+  var eraseEventListeners = function () {
+    filterStarter.removeEventListener('click', onFilterStarterClick);
+    cross.removeEventListener('click', onCrossClick);
+    document.removeEventListener('keydown', onDocumentKeyDown);
+  };
+
+  setEventListeners();
+  window.addEventListener('resize', onWindowResize);
+  window.addEventListener('beforeunload', onWindowBeforeunload);
 })();
 
 //
