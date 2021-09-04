@@ -215,7 +215,7 @@
                 </div>
               </div>
 
-              <div class="accordeon__item accordeon__item--catalog">
+              <div class="accordeon__item accordeon__item--catalog  accordeon__item--price">
                 <button class="accordeon__button accordeon__button--catalog accordeon__button--price button" type="button" aria-label="Button to display price controllers">
                   Price
 
@@ -224,8 +224,8 @@
                   </svg>
                 </button>
 
-                <div class="accordeon__content accordeon__content--catalog">
-                  <fieldset>
+                <div class="accordeon__content accordeon__content--catalog accordeon__content--price">
+                  <fieldset class="filter__fieldset filter__fieldset--price">
                     <legend>Price</legend>
 
                     <div class="filter__controls-wrapper">
@@ -233,8 +233,12 @@
                         <div class="filter__bar-fill"></div>
                       </div>
 
-                      <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle" data-value="$ 55" tabindex="0" aria-labelledby="lower-level-handle-description"></div>
-                      <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle" data-value="$ 155" tabindex="0" aria-labelledby="upper-level-handle-description"></div>
+                      <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle" tabindex="0" aria-labelledby="lower-level-handle-description">
+                        <span class="filter__bar-handle-value filter__bar-handle-value--lower" id="lower-cost-value">$ 55</span>
+                      </div>
+                      <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle" tabindex="0" aria-labelledby="upper-level-handle-description">
+                        <span class="filter__bar-handle-value filter__bar-handle-value--upper" id="upper-cost-value">$ 155</span>
+                      </div>
 
                       <span class="hidden-entity" id="lower-level-handle-description">Lower level cost handle</span>
                       <span class="hidden-entity" id="upper-level-handle-description">Upper level cost handle</span>

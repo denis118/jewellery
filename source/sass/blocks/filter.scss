@@ -26,6 +26,12 @@
   margin-bottom: 35px;
 }
 
+.filter__fieldset {
+  &--price {
+    width: 200px;
+  }
+}
+
 .filter__label {
   position: relative;
   border-bottom: 1px dashed transparent;
@@ -54,6 +60,54 @@
   &:not(:last-child) {
     margin-bottom: 13px;
   }
+}
+
+.filter__controls-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 29px;
+}
+
+.filter__bar-shell {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: $lcg-6;
+}
+
+.filter__bar-fill {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width: 54%;
+  height: 100%;
+  background-color: $mcg-1;
+}
+
+.filter__bar-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  width: 15px;
+  height: 15px;
+  background-color: $mcg-1;
+  border-radius: 50%;
+
+  &--lower-level {
+    left: 22%;
+  }
+
+  &--upper-level {
+    left: 74.5%;
+  }
+}
+
+.filter__bar-handle-value {
+  position: absolute;
+  top: 23px;
+  left: -10px;
+  width: max-content;
 }
 
 .filter__button {

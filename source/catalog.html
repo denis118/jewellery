@@ -430,7 +430,7 @@
               </div>
 
               <div
-                class="accordeon__item accordeon__item--catalog">
+                class="accordeon__item accordeon__item--catalog  accordeon__item--price">
                 <button
                   class="accordeon__button accordeon__button--catalog accordeon__button--price button"
                   type="button"
@@ -449,8 +449,9 @@
                 </button>
 
                 <div
-                  class="accordeon__content accordeon__content--catalog">
-                  <fieldset>
+                  class="accordeon__content accordeon__content--catalog accordeon__content--price">
+                  <fieldset
+                    class="filter__fieldset filter__fieldset--price">
                     <legend>Price</legend>
 
                     <div
@@ -464,15 +465,21 @@
                       <div
                         class="filter__bar-handle filter__bar-handle--lower-level"
                         id="lower-level-handle"
-                        data-value="$ 55"
                         tabindex="0"
-                        aria-labelledby="lower-level-handle-description"></div>
+                        aria-labelledby="lower-level-handle-description">
+                        <span
+                          class="filter__bar-handle-value filter__bar-handle-value--lower"
+                          id="lower-cost-value">$ 55</span>
+                      </div>
                       <div
                         class="filter__bar-handle filter__bar-handle--upper-level"
                         id="upper-level-handle"
-                        data-value="$ 155"
                         tabindex="0"
-                        aria-labelledby="upper-level-handle-description"></div>
+                        aria-labelledby="upper-level-handle-description">
+                        <span
+                          class="filter__bar-handle-value filter__bar-handle-value--upper"
+                          id="upper-cost-value">$ 155</span>
+                      </div>
 
                       <span
                         class="hidden-entity"
