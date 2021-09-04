@@ -5,3 +5,23 @@
     @include visually-hidden;
   }
 }
+
+.filter__label {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+.filter__list {
+  margin-bottom: 6px;
+}
+
+.filter__list-item {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

@@ -725,10 +725,6 @@
 
   findSliders();
 
-  // if (!sliders) {
-  //   return;
-  // }
-
   if (sliders && sliders.length) {
     sliders.forEach(function (it) {
       var slider = initSlider(it);
@@ -852,10 +848,6 @@
   };
 
   findAccordeons();
-
-  // if (!accordeons) {
-  //   return;
-  // }
 
   if (accordeons && accordeons.length) {
     accordeons.forEach(function (it) {
