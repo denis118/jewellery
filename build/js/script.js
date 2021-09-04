@@ -805,23 +805,33 @@
       item.classList.add('accordeon__content--js');
     };
 
+    // that.onAccordeonClick = function (evt) {
+    //   if (!evt.target.closest('.accordeon__button')) {
+    //     return;
+    //   }
+
+    //   var _ = that;
+
+    //   var target = evt.target.closest('.accordeon__button');
+    //   var isButtonInactive = !target.classList.contains('accordeon__button--active');
+
+    //   _.buttons.forEach(function (item) {
+    //     item.classList.remove('accordeon__button--active');
+    //   });
+
+    //   if (isButtonInactive) {
+    //     target.classList.toggle('accordeon__button--active');
+    //   }
+    // };
+
     that.onAccordeonClick = function (evt) {
       if (!evt.target.closest('.accordeon__button')) {
         return;
       }
 
-      var _ = that;
-
-      var target = evt.target.closest('.accordeon__button');
-      var isButtonInactive = !target.classList.contains('accordeon__button--active');
-
-      _.buttons.forEach(function (item) {
-        item.classList.remove('accordeon__button--active');
-      });
-
-      if (isButtonInactive) {
-        target.classList.toggle('accordeon__button--active');
-      }
+      evt.target
+          .closest('.accordeon__button')
+          .classList.toggle('accordeon__button--active');
     };
 
     that.setEventListener = function () {

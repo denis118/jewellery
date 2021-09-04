@@ -8,8 +8,8 @@
   font-weight: 500;
 
   h2,
-  input,
-  legend {
+  legend,
+  input[type="checkbox"] {
     @include visually-hidden;
   }
 
@@ -93,6 +93,7 @@
   height: 15px;
   background-color: $mcg-1;
   border-radius: 50%;
+  cursor: pointer;
 
   &--lower-level {
     left: 22%;
@@ -104,14 +105,40 @@
 }
 
 .filter__bar-handle-value {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 130%;
+  font-weight: 500;
+
+  @include zero-edges;
+  border: none;
+
   position: absolute;
-  top: 23px;
+  top: 22px;
   left: -10px;
   width: max-content;
+  max-width: max-content;
+  height: min-content;
+
+  width: 50px;
+  pointer-events: none;
+
+  &--lower {
+    left: -8px;
+  }
 }
 
 .filter__button {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
   font-size: 1.6rem;
+  line-height: 130%;
+  font-weight: 500;
 
   @include centering-flex;
   width: 100%;
