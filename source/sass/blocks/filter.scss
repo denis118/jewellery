@@ -1,4 +1,12 @@
 .filter {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 130%;
+  font-weight: 500;
+
   h2,
   input,
   legend {
@@ -14,15 +22,11 @@
   }
 }
 
-.filter__label {
-  font-family:
-    "poppins",
-    "Arial",
-    sans-serif;
-  font-size: 1.4rem;
-  line-height: 130%;
-  font-weight: 500;
+.filter__accordeon {
+  margin-bottom: 35px;
+}
 
+.filter__label {
   position: relative;
   border-bottom: 1px dashed transparent;
   cursor: pointer;
@@ -30,9 +34,8 @@
   &::before {
     content: "";
     position: absolute;
-    top: 50%;
+    top: -2px;
     left: -25px;
-    transform: translate(0, -50%);
 
     width: 15px;
     height: 15px;
@@ -49,6 +52,45 @@
 
 .filter__list-item {
   &:not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
+  }
+}
+
+.filter__button {
+  font-size: 1.6rem;
+
+  @include centering-flex;
+  width: 100%;
+  height: 68px;
+  outline-offset: -1px;
+
+  &:active {
+    opacity: 0.5;
+  }
+}
+
+.filter__apply {
+  color: $lcg-1;
+  outline: 1px solid transparent;
+  background-color: $mcg-1;
+  margin-bottom: 25px;
+
+  &:hover,
+  &:focus {
+    color: $mcg-1;
+    outline-color: currentColor;
+    background-color: transparent;
+  }
+}
+
+.filter__clear {
+  color: $mcg-1;
+  outline: 1px solid currentColor;
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: $lcg-1;
+    background-color: $mcg-1;
   }
 }
