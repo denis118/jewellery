@@ -49,7 +49,7 @@
         <span class="hidden-entity" id="site-logo-image">Site logo image</span>
       </a>
 
-      <a class="header__login link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
+      <a class="header__login login-link link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
 
       <a class="header__cart link" href="#" aria-label="Cart">
         <span class="header__cart-text hidden-before-desktop">Cart</span>
@@ -92,7 +92,7 @@
         <li><a class="link" href="#">Contact Us</a></li>
       </ul>
 
-      <a class="header__login link hidden-on-desktop" href="./login.html" aria-label="login">Login</a>
+      <a class="header__login login-link link hidden-on-desktop" href="./login.html" aria-label="login">Login</a>
     </div>
   </header>
 
@@ -843,7 +843,40 @@
   </footer>
 
   <!--.hidden-entity -->
-  <div class="overlay hidden-entity" id="modal">
+  <div class="overlay hidden-entity" id="modal-login">
+    <section class="login">
+      <h3>Log In</h3>
+
+      <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
+        <div class="login__form-inner">
+          <div class="login__input-wrapper login__input-wrapper--email">
+            <label for="email">Your E-mail</label>
+            <input class="login__input login__input--email" type="email" name="email" id="email" placeholder="Your E-mail" required="" autofocus="">
+          </div>
+
+          <div class="login__input-wrapper login__input-wrapper--password">
+            <label for="password">Your password</label>
+            <input class="login__input login__input--password" type="password" name="password" id="password" placeholder="Password" required="">
+
+            <a class="login__forgot-password-link link" href="#">Forgot your password?</a>
+          </div>
+
+          <button class="login__submit button" type="submit">Log In</button>
+
+          <div class="login__singup-wrapper">
+            <p>Don’t have an account?</p>
+
+            <a class="login__singup-link link" href="#">Sign up</a>
+          </div>
+        </div>
+      </form>
+
+      <button class="login__cross button" type="button" aria-label="Button to close login form">
+        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="#icon-cross"></use>
+        </svg>
+      </button>
+    </section>
   </div>
 
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none">
