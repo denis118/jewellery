@@ -1105,8 +1105,14 @@
   var filterId = filterCleaner.dataset.for;
   var filter = document.querySelector(filterId);
   var checkboxes = filter.querySelectorAll('input[type="checkbox"]');
-  var lowerPriceInput = filter.querySelector('#lower-cost-value');
-  var upperPriceInput = filter.querySelector('#upper-cost-value');
+
+  var lowerCostSpan = filter.querySelector('#lower-cost-span');
+  var upperCostSpan = filter.querySelector('#upper-cost-span');
+  var lowerCostText = lowerCostSpan.innerText;
+  var upperCostText = upperCostSpan.innerText;
+
+  var lowerPriceInput = filter.querySelector('#lower-cost-input');
+  var upperPriceInput = filter.querySelector('#upper-cost-input');
   var priceLowerValue = lowerPriceInput.value;
   var priceUpperValue = upperPriceInput.value;
 
@@ -1122,6 +1128,8 @@
         item.checked = false;
       }
 
+      lowerCostSpan.innerText = lowerCostText;
+      upperCostSpan.innerText = upperCostText;
       lowerPriceInput.value = priceLowerValue;
       upperPriceInput.value = priceUpperValue;
     });
