@@ -114,23 +114,15 @@
     </section>
 
     <div class="catalog-page__container container">
+
+      <!-- filter--js -->
       <div class="filter" role="region" aria-label="Filter">
 
         <button class="filter__starter button" type="button" id="filter-starter" aria-label="Button to show filter">Filter</button>
 
         <!-- .overlay -->
         <div class="filter__inner">
-
-          <!-- .filter__form-box--js -->
           <div class="filter__form-box">
-
-            <!-- .filter__cross--js -->
-            <button class="filter__cross button" type="button" aria-label="Button to close filter">
-              <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <use xlink:href="#icon-cross-in-circle"></use>
-              </svg>
-            </button>
-
             <form id="filter" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
               <div class="filter__accordeon accordeon accordeon--catalog" id="accordeon-catalog">
                 <div class="accordeon__item accordeon__item--catalog">
@@ -267,8 +259,14 @@
 
               <button class="filter__button filter__apply button" type="submit">Apply</button>
 
-              <button class="filter__button filter__clear button" type="button" id="filter-cleaner" data-for="accordeon-catalog">Clear All</button>
+              <button class="filter__button filter__clear button" type="button" id="filter-cleaner" data-for="#accordeon-catalog">Clear All</button>
             </form>
+
+            <button class="filter__cross button" type="button" aria-label="Button to close filter">
+              <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="#icon-cross-in-circle"></use>
+              </svg>
+            </button>
           </div>
         </div>
       </div>

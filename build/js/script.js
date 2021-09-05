@@ -198,7 +198,7 @@
         this.body.classList.add('scroll-stop');
         this.header.classList.add('menu-open');
 
-        this.moveFocusIn();
+        this.moveFocusIn(this.header);
         this.setEventListeners();
       };
 
@@ -214,17 +214,17 @@
         this.eraseEventListeners();
       };
 
-      that.moveFocusIn = function () {
+      that.moveFocusIn = function (element) {
         var target = this.header.querySelector('[autofocus]')
-          || this.getFocusableChildren()[0];
+          || this.getFocusableChildren(element)[0];
 
         if (target) {
           target.focus();
         }
       };
 
-      that.trapTabKey = function (node, evt) {
-        var focusableChildren = this.getFocusableChildren(node);
+      that.trapTabKey = function (element, evt) {
+        var focusableChildren = this.getFocusableChildren(element);
         var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
         var lastIndex = focusableChildren.length - 1;
         var withShift = evt.shiftKey;
@@ -238,10 +238,10 @@
         }
       };
 
-      that.isVisible = function (node) {
-        return node.offsetWidth
-          || node.offsetHeight
-          || node.getClientRects().length
+      that.isVisible = function (element) {
+        return element.offsetWidth
+          || element.offsetHeight
+          || element.getClientRects().length
           ? true
           : false;
       };
@@ -890,118 +890,229 @@
 //
 
 (function () {
-  var filterStarter = document.querySelector('#filter-starter')
-    ? document.querySelector('#filter-starter')
-    : null;
+  var filter = null;
 
-  if (!filterStarter) {
-    return;
+  var findFilter = function () {
+    var Maybe = window.utility.Maybe;
+    filter = new Maybe(document.querySelector('.filter'));
+    filter = filter.operand
+      ? filter.operand
+      : null;
+  };
+
+  findFilter();
+
+  if (filter) {
+    var manageFilter = function () {
+      var that = {};
+
+      that.activate = function () {
+        this.filter = filter;
+        this.inner = this.filter.querySelector('.filter__inner');
+        this.formBox = this.filter.querySelector('.filter__form-box');
+        this.starter = this.filter.querySelector('.filter__starter');
+        this.cross = this.filter.querySelector('.filter__cross');
+        this.body = document.body;
+        this.isShown = false;
+        this.attributeSet = {
+          'role': 'dialog',
+          'aria-modal': true
+        };
+
+        this.starter.addEventListener('click', this.onStarterClick);
+        this.cross.addEventListener('click', this.onCrossClick);
+
+        return this;
+      };
+
+      that.setAttributes = function () {
+        if (isPreDesktopWidth()) {
+          for (var attribute in this.attributeSet) {
+            if (this.attributeSet.hasOwnProperty(attribute)) {
+              this.filter.setAttribute(attribute, this.attributeSet[attribute]);
+            }
+          }
+        }
+
+        return this;
+      };
+
+      that.resetAttributes = function () {
+        if (!isPreDesktopWidth()) {
+          for (var attribute in this.attributeSet) {
+            if (this.attributeSet.hasOwnProperty(attribute)) {
+              this.filter.removeAttribute(attribute);
+            }
+          }
+        }
+
+        return this;
+      };
+
+      that.show = function () {
+        this.isShown = true;
+        this.previouslyFocused = document.activeElement;
+
+        this.body.classList.add('scroll-stop');
+        this.inner.classList.add('overlay');
+        this.filter.classList.add('filter--js');
+        this.starter.setAttribute('tabindex', '-1');
+
+        this.moveFocusIn(this.filter);
+        this.setEventListeners();
+      };
+
+      that.hide = function () {
+        if (this.previouslyFocused && this.previouslyFocused.focus) {
+          this.previouslyFocused.focus();
+        }
+
+        this.isShown = false;
+        this.body.classList.remove('scroll-stop');
+        this.inner.classList.remove('overlay');
+        this.filter.classList.remove('filter--js');
+        this.starter.removeAttribute('tabindex');
+
+        this.eraseEventListeners();
+      };
+
+      that.moveFocusIn = function (element) {
+        var target = this.filter.querySelector('[autofocus]')
+          || this.getFocusableChildren(element)[0];
+
+        if (target) {
+          target.focus();
+        }
+      };
+
+      that.trapTabKey = function (element, evt) {
+        var focusableChildren = this.getFocusableChildren(element);
+        var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
+        var lastIndex = focusableChildren.length - 1;
+        var withShift = evt.shiftKey;
+
+        if (withShift && focusedItemIndex === 0) {
+          focusableChildren[lastIndex].focus();
+          evt.preventDefault();
+        } else if (!withShift && focusedItemIndex === lastIndex) {
+          focusableChildren[0].focus();
+          evt.preventDefault();
+        }
+      };
+
+      that.isVisible = function (element) {
+        return element.offsetWidth
+          || element.offsetHeight
+          || element.getClientRects().length
+          ? true
+          : false;
+      };
+
+      that.getFocusableChildren = function (element) {
+        return Array.from(
+            element
+                .querySelectorAll(window.utility.focusableSelectors.join(','))
+        ).filter(this.isVisible);
+      };
+
+      that.onStarterClick = function () {
+        if (!that.isShown) {
+          that.show();
+        }
+      };
+
+      that.onCrossClick = function () {
+        if (that.isShown) {
+          that.hide();
+        }
+      };
+
+      that.onInnerClick = function (evt) {
+        if (!Object.is(evt.target, that.inner)) {
+          return;
+        }
+
+        that.hide();
+      };
+
+      that.onBodyFocus = function (evt) {
+        var isInDialog = evt.target.closest('[aria-modal="true"]');
+
+        if (!isInDialog) {
+          that.moveFocusIn();
+        }
+      };
+
+      that.onDocumentKeyDown = function (evt) {
+        if (isTabEvent(evt)) {
+          that.trapTabKey(that.filter, evt);
+        }
+
+        if (isEscEvent(evt)) {
+          that.hide();
+        }
+      };
+
+      that.setEventListeners = function () {
+        this.inner.addEventListener('click', this.onInnerClick);
+        this.body.addEventListener('focus', this.onBodyFocus, true);
+        document.addEventListener('keydown', this.onDocumentKeyDown);
+      };
+
+      that.eraseEventListeners = function () {
+        this.inner.removeEventListener('click', this.onInnerClick);
+        this.body.removeEventListener('focus', this.onBodyFocus, true);
+        document.removeEventListener('keydown', this.onDocumentKeyDown);
+      };
+
+      that.destroy = function () {
+        this.starter.removeEventListener('click', this.onStarterClick);
+        this.cross.removeEventListener('click', this.onCrossClick);
+        this.eraseEventListeners();
+      };
+
+      return that;
+    };
+
+    var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+    var isTabEvent = window.utility.isTabEvent;
+    var isEscEvent = window.utility.isEscEvent;
+
+    var filterManager = manageFilter();
+    filterManager
+        .activate()
+        .setAttributes()
+        .setEventListeners();
+
+    var onWindowResize = (function () {
+      var isWorkedOnPreDesktopWidth = false;
+      var isWorkedOnDesktopWidth = false;
+
+      return function () {
+        if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
+          filterManager.resetAttributes().hide();
+          isWorkedOnPreDesktopWidth = false;
+          isWorkedOnDesktopWidth = true;
+          return;
+        }
+
+        if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
+          filterManager.setAttributes().setEventListeners();
+          isWorkedOnPreDesktopWidth = true;
+          isWorkedOnDesktopWidth = false;
+        }
+      };
+    })();
+
+    var onWindowBeforeunload = function () {
+      filterManager.destroy();
+      window.removeEventListener('resize', onWindowResize);
+      window.removeEventListener('beforeunload', onWindowBeforeunload);
+    };
+
+    window.addEventListener('resize', onWindowResize);
+    window.addEventListener('beforeunload', onWindowBeforeunload);
   }
-
-  var body = document.body;
-  var filter = filterStarter.closest('.filter');
-  var inner = filter.querySelector('.filter__inner');
-  var formBox = filter.querySelector('.filter__form-box');
-  var cross = filter.querySelector('.filter__cross');
-
-  var focusableSelectors = window.utility.focusableSelectors.join(',')
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
-  var isTabEvent = window.utility.isTabEvent;
-  var isEscEvent = window.utility.isEscEvent;
-
-  var addClasses = function () {
-    body.classList.add('scroll-stop');
-    inner.classList.add('overlay');
-    formBox.classList.add('filter__form-box--js');
-    cross.classList.add('filter__cross--js');
-  };
-
-  var removeClasses = function () {
-    body.classList.remove('scroll-stop');
-    inner.classList.remove('overlay');
-    formBox.classList.remove('filter__form-box--js');
-    cross.classList.remove('filter__cross--js');
-  };
-
-  var isVisible = function (node) {
-    return node.offsetWidth
-      || node.offsetHeight
-      || node.getClientRects().length
-      ? true
-      : false;
-  };
-
-  var getFocusableChildren = function () {
-    return Array.from(
-        document
-            .querySelectorAll(focusableSelectors + ', :not(.filter):not(.filter *)')
-    ).filter(isVisible);
-  };
-
-  var trapTabKey = function (evt) {
-    var focusableChildren = getFocusableChildren();
-    var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
-    var lastIndex = focusableChildren.length - 1;
-    var withShift = evt.shiftKey;
-
-    if (withShift && focusedItemIndex === 0) {
-      focusableChildren[lastIndex].focus();
-      evt.preventDefault();
-    } else if (!withShift && focusedItemIndex === lastIndex) {
-      focusableChildren[0].focus();
-      evt.preventDefault();
-    }
-  };
-
-  var onFilterStarterClick = function () {
-    addClasses();
-  };
-
-  var onCrossClick = function (evt) {
-    if (!evt.target.closest('.filter__cross')) {
-      return;
-    }
-
-    removeClasses();
-  };
-
-  var onDocumentKeyDown = function (evt) {
-    if (isTabEvent(evt)) {
-      trapTabKey(evt);
-    }
-  };
-
-  var onWindowResize = function () {
-    if (!isPreDesktopWidth()) {
-      removeClasses();
-      eraseEventListeners();
-    } else {
-      addClasses();
-      setEventListeners();
-    }
-  };
-
-  var onWindowBeforeunload = function () {
-    eraseEventListeners();
-    window.removeEventListener('resize', onWindowResize);
-    window.removeEventListener('beforeunload', onWindowBeforeunload);
-  };
-
-  var setEventListeners = function () {
-    filterStarter.addEventListener('click', onFilterStarterClick);
-    cross.addEventListener('click', onCrossClick);
-    document.addEventListener('keydown', onDocumentKeyDown);
-  };
-
-  var eraseEventListeners = function () {
-    filterStarter.removeEventListener('click', onFilterStarterClick);
-    cross.removeEventListener('click', onCrossClick);
-    document.removeEventListener('keydown', onDocumentKeyDown);
-  };
-
-  setEventListeners();
-  window.addEventListener('resize', onWindowResize);
-  window.addEventListener('beforeunload', onWindowBeforeunload);
 })();
 
 //
