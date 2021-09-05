@@ -21,6 +21,16 @@
     }
   };
 
+  // isPreDesktopWidth
+  var isPreDesktopWidth = function () {
+    return document.documentElement.clientWidth < DESKTOP_WIDTH;
+  };
+
+  // isPreTabletWidth
+  var isPreTabletWidth = function () {
+    return document.documentElement.clientWidth < TABLET_WIDTH;
+  };
+
   // ESC event
   var isEscEvent = function (evt) {
     return evt.key === ('Escape' || 'Esc');
@@ -29,6 +39,24 @@
   // TAB event
   var isTabEvent = function (evt) {
     return evt.key === 'Tab';
+  };
+
+  // setAttributes
+  var setAttributes = function (element, attributeSet) {
+    for (var attribute in attributeSet) {
+      if (attributeSet.hasOwnProperty(attribute)) {
+        element.setAttribute(attribute, attributeSet[attribute]);
+      }
+    }
+  };
+
+  // resetAttributes
+  var resetAttributes = function (element, attributeSet) {
+    for (var attribute in attributeSet) {
+      if (attributeSet.hasOwnProperty(attribute)) {
+        element.removeAttribute(attribute);
+      }
+    }
   };
 
   // focusable elements' selectors
@@ -47,16 +75,59 @@
     '[tabindex]:not([tabindex^="-"])',
   ];
 
-  // isPreDesktopWidth
-  var isPreDesktopWidth = function () {
-    return document.documentElement.clientWidth < DESKTOP_WIDTH;
+  // isVisible
+  var isVisible = function (element) {
+    return element.offsetWidth
+      || element.offsetHeight
+      || element.getClientRects().length
+      ? true
+      : false;
   };
 
-  // isPreTabletWidth
-  var isPreTabletWidth = function () {
-    return document.documentElement.clientWidth < TABLET_WIDTH;
+  // getFocusableChildren
+  var getFocusableChildren = function (element) {
+    return Array.from(
+        element
+            .querySelectorAll(focusableSelectors.join(','))
+    ).filter(isVisible);
   };
 
+  // moveFocusIn
+  var moveFocusIn = function (element) {
+    var target = element.querySelector('[autofocus]')
+      || getFocusableChildren(element)[0];
+
+    if (target) {
+      target.focus();
+    }
+  };
+
+  // trapTabKey
+  var trapTabKey = function (element, evt) {
+    var focusableChildren = getFocusableChildren(element);
+    var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
+    var lastIndex = focusableChildren.length - 1;
+    var withShift = evt.shiftKey;
+
+    if (withShift && focusedItemIndex === 0) {
+      focusableChildren[lastIndex].focus();
+      evt.preventDefault();
+    } else if (!withShift && focusedItemIndex === lastIndex) {
+      focusableChildren[0].focus();
+      evt.preventDefault();
+    }
+  };
+
+  // onBodyFocus
+  var onBodyFocus = function (evt, element) {
+    var isInDialog = evt.target.closest('[aria-modal="true"]');
+
+    if (!isInDialog) {
+      moveFocusIn(element);
+    }
+  };
+
+  // getCurrentMode
   var getCurrentMode = function () {
     var width = document.documentElement.clientWidth;
 
@@ -83,11 +154,15 @@
   // export
   window.utility = {
     Maybe: Maybe,
-    isEscEvent: isEscEvent,
-    isTabEvent: isTabEvent,
-    focusableSelectors: focusableSelectors,
     isPreDesktopWidth: isPreDesktopWidth,
     isPreTabletWidth: isPreTabletWidth,
+    isEscEvent: isEscEvent,
+    isTabEvent: isTabEvent,
+    setAttributes: setAttributes,
+    resetAttributes: resetAttributes,
+    trapTabKey: trapTabKey,
+    moveFocusIn: moveFocusIn,
+    onBodyFocus: onBodyFocus,
     getCurrentMode: getCurrentMode,
     useMethod: useMethod
   };
@@ -120,7 +195,7 @@
         this.header = header;
         this.burger = this.header.querySelector('.header__burger');
         this.lowerContainer = this.header.querySelector('.header__container--lower');
-        this.body = document.querySelector('body') || document.body;
+        this.body = document.body;
 
         this.header.classList.add('header--js');
         this.attributeSet = {
@@ -131,7 +206,6 @@
         this.isShown = false;
         this.toggleMargin();
         this.burger.addEventListener('click', this.onBurgerClick);
-
         return this;
       };
 
@@ -167,12 +241,7 @@
 
       that.setAttributes = function () {
         if (isPreDesktopWidth()) {
-          for (var attribute in this.attributeSet) {
-            if (this.attributeSet.hasOwnProperty(attribute)) {
-              this.header.setAttribute(attribute, this.attributeSet[attribute]);
-            }
-          }
-
+          setAttributes(this.header, this.attributeSet);
           this.lowerContainer.setAttribute('tabindex', '-1');
         }
 
@@ -181,12 +250,7 @@
 
       that.resetAttributes = function () {
         if (!isPreDesktopWidth()) {
-          for (var attribute in this.attributeSet) {
-            if (this.attributeSet.hasOwnProperty(attribute)) {
-              this.header.removeAttribute(attribute);
-            }
-          }
-
+          resetAttributes(this.header, this.attributeSet);
           this.lowerContainer.removeAttribute('tabindex');
         }
       };
@@ -198,8 +262,8 @@
         this.body.classList.add('scroll-stop');
         this.header.classList.add('menu-open');
 
-        this.moveFocusIn(this.header);
         this.setEventListeners();
+        moveFocusIn(this.header);
       };
 
       that.hide = function () {
@@ -214,45 +278,6 @@
         this.eraseEventListeners();
       };
 
-      that.moveFocusIn = function (element) {
-        var target = this.header.querySelector('[autofocus]')
-          || this.getFocusableChildren(element)[0];
-
-        if (target) {
-          target.focus();
-        }
-      };
-
-      that.trapTabKey = function (element, evt) {
-        var focusableChildren = this.getFocusableChildren(element);
-        var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
-        var lastIndex = focusableChildren.length - 1;
-        var withShift = evt.shiftKey;
-
-        if (withShift && focusedItemIndex === 0) {
-          focusableChildren[lastIndex].focus();
-          evt.preventDefault();
-        } else if (!withShift && focusedItemIndex === lastIndex) {
-          focusableChildren[0].focus();
-          evt.preventDefault();
-        }
-      };
-
-      that.isVisible = function (element) {
-        return element.offsetWidth
-          || element.offsetHeight
-          || element.getClientRects().length
-          ? true
-          : false;
-      };
-
-      that.getFocusableChildren = function (element) {
-        return Array.from(
-            element
-                .querySelectorAll(window.utility.focusableSelectors.join(','))
-        ).filter(this.isVisible);
-      };
-
       that.onBurgerClick = function () {
         if (!that.isShown) {
           that.show();
@@ -262,16 +287,12 @@
       };
 
       that.onBodyFocus = function (evt) {
-        var isInDialog = evt.target.closest('[aria-modal="true"]');
-
-        if (!isInDialog) {
-          that.moveFocusIn();
-        }
+        onBodyFocus(evt, that.header);
       };
 
       that.onDocumentKeyDown = function (evt) {
         if (isTabEvent(evt)) {
-          that.trapTabKey(that.header, evt);
+          trapTabKey(that.header, evt);
         }
       };
 
@@ -296,6 +317,11 @@
 
     var isPreDesktopWidth = window.utility.isPreDesktopWidth;
     var isTabEvent = window.utility.isTabEvent;
+    var setAttributes = window.utility.setAttributes;
+    var resetAttributes = window.utility.resetAttributes;
+    var moveFocusIn = window.utility.moveFocusIn;
+    var trapTabKey = window.utility.trapTabKey;
+    var onBodyFocus = window.utility.onBodyFocus;
 
     var headerManager = manageHeader();
     headerManager
@@ -344,7 +370,7 @@
   var START_INDEX = 0;
   var DESKTOP_SLIDES_AMOUNT = 4;
   var PREDESKTOP_SLIDES_AMOUNT = 2;
-  var IGNORED_SWIPE_DISTANCE = 20;
+  var IGNORED_SWIPE_DISTANCE = 30;
 
   var initSlider = function (rootElement) {
     var that = {};
@@ -784,15 +810,12 @@
     var that = {};
 
     that.activate = function () {
-      var _ = that;
+      this.root = rootElement;
+      this.buttons = Array.from(this.root.querySelectorAll('.accordeon__button'));
+      this.contents = Array.from(this.root.querySelectorAll('.accordeon__content'));
 
-      _.root = rootElement;
-      _.buttons = Array.from(_.root.querySelectorAll('.accordeon__button'));
-      _.contents = Array.from(_.root.querySelectorAll('.accordeon__content'));
-
-      _.addContentJsStyles();
-
-      return _;
+      this.addContentJsStyles();
+      return this;
     };
 
     that.addContentJsStyles = function () {
@@ -824,12 +847,10 @@
     //     return;
     //   }
 
-    //   var _ = that;
-
     //   var target = evt.target.closest('.accordeon__button');
     //   var isButtonInactive = !target.classList.contains('accordeon__button--active');
 
-    //   _.buttons.forEach(function (item) {
+    //   that.buttons.forEach(function (item) {
     //     item.classList.remove('accordeon__button--active');
     //   });
 
@@ -849,11 +870,11 @@
     };
 
     that.setEventListener = function () {
-      that.root.addEventListener('click', that.onAccordeonClick);
+      this.root.addEventListener('click', this.onAccordeonClick);
     };
 
     that.eraseEventListener = function () {
-      that.root.removeEventListener('click', that.onAccordeonClick);
+      this.root.removeEventListener('click', this.onAccordeonClick);
     };
 
     return that;
@@ -921,17 +942,12 @@
 
         this.starter.addEventListener('click', this.onStarterClick);
         this.cross.addEventListener('click', this.onCrossClick);
-
         return this;
       };
 
       that.setAttributes = function () {
         if (isPreDesktopWidth()) {
-          for (var attribute in this.attributeSet) {
-            if (this.attributeSet.hasOwnProperty(attribute)) {
-              this.filter.setAttribute(attribute, this.attributeSet[attribute]);
-            }
-          }
+          setAttributes(this.filter, this.attributeSet);
         }
 
         return this;
@@ -939,11 +955,7 @@
 
       that.resetAttributes = function () {
         if (!isPreDesktopWidth()) {
-          for (var attribute in this.attributeSet) {
-            if (this.attributeSet.hasOwnProperty(attribute)) {
-              this.filter.removeAttribute(attribute);
-            }
-          }
+          resetAttributes(this.filter, this.attributeSet);
         }
 
         return this;
@@ -958,8 +970,8 @@
         this.filter.classList.add('filter--js');
         this.starter.setAttribute('tabindex', '-1');
 
-        this.moveFocusIn(this.filter);
         this.setEventListeners();
+        moveFocusIn(this.filter);
       };
 
       that.hide = function () {
@@ -974,45 +986,6 @@
         this.starter.removeAttribute('tabindex');
 
         this.eraseEventListeners();
-      };
-
-      that.moveFocusIn = function (element) {
-        var target = this.filter.querySelector('[autofocus]')
-          || this.getFocusableChildren(element)[0];
-
-        if (target) {
-          target.focus();
-        }
-      };
-
-      that.trapTabKey = function (element, evt) {
-        var focusableChildren = this.getFocusableChildren(element);
-        var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
-        var lastIndex = focusableChildren.length - 1;
-        var withShift = evt.shiftKey;
-
-        if (withShift && focusedItemIndex === 0) {
-          focusableChildren[lastIndex].focus();
-          evt.preventDefault();
-        } else if (!withShift && focusedItemIndex === lastIndex) {
-          focusableChildren[0].focus();
-          evt.preventDefault();
-        }
-      };
-
-      that.isVisible = function (element) {
-        return element.offsetWidth
-          || element.offsetHeight
-          || element.getClientRects().length
-          ? true
-          : false;
-      };
-
-      that.getFocusableChildren = function (element) {
-        return Array.from(
-            element
-                .querySelectorAll(window.utility.focusableSelectors.join(','))
-        ).filter(this.isVisible);
       };
 
       that.onStarterClick = function () {
@@ -1036,16 +1009,12 @@
       };
 
       that.onBodyFocus = function (evt) {
-        var isInDialog = evt.target.closest('[aria-modal="true"]');
-
-        if (!isInDialog) {
-          that.moveFocusIn();
-        }
+        onBodyFocus(evt, that.filter);
       };
 
       that.onDocumentKeyDown = function (evt) {
         if (isTabEvent(evt)) {
-          that.trapTabKey(that.filter, evt);
+          trapTabKey(that.filter, evt);
         }
 
         if (isEscEvent(evt)) {
@@ -1077,6 +1046,11 @@
     var isPreDesktopWidth = window.utility.isPreDesktopWidth;
     var isTabEvent = window.utility.isTabEvent;
     var isEscEvent = window.utility.isEscEvent;
+    var setAttributes = window.utility.setAttributes;
+    var resetAttributes = window.utility.resetAttributes;
+    var moveFocusIn = window.utility.moveFocusIn;
+    var trapTabKey = window.utility.trapTabKey;
+    var onBodyFocus = window.utility.onBodyFocus;
 
     var filterManager = manageFilter();
     filterManager
