@@ -2,6 +2,10 @@
   line-height: 130%;
   color: $dcg-2;
 
+  h1 {
+    @include visually-hidden;
+  }
+
   h2 {
     font-family:
       "cormorantgaramond",

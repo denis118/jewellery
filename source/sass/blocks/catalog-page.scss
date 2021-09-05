@@ -1,4 +1,8 @@
-// .catalog-page {}
+.catalog-page {
+  h1 {
+    @include visually-hidden;
+  }
+}
 
 .catalog-page__container {
   @media (min-width: $desktop-width) {
