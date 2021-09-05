@@ -1255,6 +1255,7 @@
 
     that.onCrossClick = function () {
       if (that.isShown) {
+        console.log('in');
         that.hide();
       }
     };
@@ -1283,12 +1284,14 @@
 
     that.setEventListeners = function () {
       this.loginModal.addEventListener('click', this.onLoginModalClick);
+      this.cross.addEventListener('click', this.onCrossClick);
       this.body.addEventListener('focus', this.onBodyFocus, true);
       document.addEventListener('keydown', this.onDocumentKeyDown);
     };
 
     that.eraseEventListeners = function () {
       this.loginModal.removeEventListener('click', this.onLoginModalClick);
+      this.cross.removeEventListener('click', this.onCrossClick);
       this.body.removeEventListener('focus', this.onBodyFocus, true);
       document.removeEventListener('keydown', this.onDocumentKeyDown);
     };
