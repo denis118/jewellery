@@ -1255,7 +1255,6 @@
 
     that.onCrossClick = function () {
       if (that.isShown) {
-        console.log('in');
         that.hide();
       }
     };
