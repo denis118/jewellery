@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en">
 <head>
   <meta
     charset="UTF-8">
@@ -1804,10 +1805,78 @@
     </div>
   </footer>
 
-  <!--.hidden-entity -->
+  <!--.hidden-entity overlay -->
   <div
-    class="overlay hidden-entity"
-    id="modal">
+    class=""
+    id="modal-login">
+    <section
+      class="login">
+      <h3>Log In</h3>
+
+      <form
+        action="https://echo.htmlacademy.ru/"
+        method="POST"
+        autocomplete="off">
+        <div
+          class="login__form-inner">
+          <div
+            class="login__input-wrapper login__input-wrapper--email">
+            <label
+              for="email">Your E-mail</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Your E-mail"
+              required
+              autofocus>
+          </div>
+
+          <div
+            class="login__input-wrapper login__input-wrapper--password">
+            <label
+              for="password">Your password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              required>
+
+            <a
+              class="login__forgot-password-link link"
+              href="#">Forgot your password?</a>
+          </div>
+
+          <button
+            class="login__submit button"
+            type="submit">Log In</button>
+
+          <div
+            class="login__singup-wrapper">
+            <p>Don’t have an account?</p>
+
+            <a
+              class="login__singup-link link"
+              href="#">Sign up</a>
+          </div>
+        </div>
+      </form>
+
+      <button
+        class="login__cross button"
+        type="button"
+        aria-label="Button to close login form">
+        <svg
+          width="14"
+          height="14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <use xlink:href="#icon-cross"></use>
+        </svg>
+      </button>
+    </section>
   </div>
 
   <svg

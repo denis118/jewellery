@@ -112,21 +112,6 @@
   @include zero-edges;
   display: none;
 
-  // &--js {
-  //   @media (max-width: $pre-desktop-width) {
-  //     display: block;
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //     transform: translate(50%, -50%);
-  //     z-index: 1;
-  //   }
-
-  //   @media (max-width: $pre-tablet-width) {
-  //     transform: translate(30%, -45%);
-  //   }
-  // }
-
   &:hover,
   &:focus {
     --circle-color: #{$mcg-2};

@@ -1,0 +1,215 @@
+.login {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
+  font-size: 1.4rem;
+  line-height: 150%;
+  font-weight: 500;
+  color: $lcg-5;
+
+  @include centering-absolutely;
+  position: relative;
+  width: 430px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 138px;
+  background-color: $mcg-4;
+
+  @media (min-width: $desktop-width) {
+    padding: 188px 45px 51px;
+    background-image: $login-bg-desktop;
+
+    @media (min-resolution: 2dppx) {
+      background-image: $login-bg-desktop-2x;
+    }
+  }
+
+  @media (max-width: $pre-desktop-width) {
+    width: 442px;
+    padding: 198px 51px 60px;
+    background-image: $login-bg-tablet;
+
+    @media (min-resolution: 2dppx) {
+      background-image: $login-bg-tablet-2x;
+    }
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    width: 270px;
+    padding: 129px 15px 45px;
+    background-image: $login-bg-mobile;
+    background-size: 100% 84px;
+
+    @media (min-resolution: 2dppx) {
+      background-image: $login-bg-mobile-2x;
+    }
+  }
+
+  h3 {
+    font-family:
+      "cormorantgaramond",
+      "Arial",
+      sans-serif;
+    font-size: 3.4rem;
+    line-height: 130%;
+    font-weight: 700;
+    color: $dcg-2;
+
+    @include zero-edges;
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 23px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 40px;
+    }
+  }
+
+  form {
+    width: 100%;
+  }
+
+  label {
+    @include visually-hidden;
+  }
+}
+
+.login__form-inner {
+  @include column-flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.login__input-wrapper {
+  width: 100%;
+
+  &--email {
+    margin-bottom: 26px;
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &--password {
+    position: relative;
+    margin-bottom: 68px;
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 58px;
+    }
+  }
+
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: inherit;
+
+    width: 100%;
+    padding-top: 8px;
+    padding-left: 0;
+    border: 1px solid transparent;
+    border-bottom-color: $dcg-2;
+    background-color: transparent;
+
+    @media (min-width: $desktop-width) {
+      padding-bottom: 8px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-bottom: 15px;
+    }
+
+    &:hover,
+    &:focus {
+      border-bottom-style: dashed;
+    }
+  }
+}
+
+.login__forgot-password-link {
+  font-size: 1.2rem;
+
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translate(0, 6px);
+  width: max-content;
+
+  @include casual-interactive-style;
+}
+
+.login__submit {
+  font-family: inherit;
+  font-size: 1.6rem;
+  line-height: 130%;
+  font-weight: inherit;
+  color: $lcg-1;
+
+  @include centering-flex;
+  width: 100%;
+  height: 68px;
+  margin-bottom: 16px;
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+  background-color: $mcg-1;
+
+  &:hover,
+  &:focus {
+    color: $mcg-1;
+    outline-color: currentColor;
+    background-color: transparent;
+  }
+}
+
+.login__singup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  p {
+    @include zero-edges;
+    margin-right: 5px;
+    transform: translate(-5px, 0);
+  }
+}
+
+.login__singup-link {
+  color: $dcg-2;
+
+  @include casual-interactive-style;
+}
+
+.login__cross {
+  --icon-color: #{$dcg-2};
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-13px, 20px);
+  transform-origin: 50% 44%;
+  transition: transform 0.5s ease;
+  z-index: 1;
+
+  &:hover {
+    transform: translate(-13px, 20px) rotate(180deg);
+  }
+
+  &:focus {
+    --icon-color: #{$mcg-8};
+  }
+
+  &:active {
+    --icon-color: #{$lcg-1};
+  }
+}
