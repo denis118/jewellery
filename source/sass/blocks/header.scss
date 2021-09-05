@@ -29,6 +29,8 @@
 
     .header__container {
       &--lower {
+        justify-content: center;
+
         @media (max-width: $pre-desktop-width) {
           display: none;
         }
@@ -50,6 +52,10 @@
       @media (max-width: $pre-desktop-width) {
         --icon-color: #{$dcg-2};
       }
+    }
+
+    .header__burger {
+      display: block;
     }
   }
 
@@ -116,7 +122,7 @@
 .header__container {
   &--upper {
     @include casual-flex;
-    justify-content: center;
+    justify-content: flex-end;
 
     padding-top: 30px;
 
@@ -385,6 +391,8 @@
 }
 
 .header__burger {
+  display: none;
+
   @include button-common-style;
 
   @media (max-width: $pre-desktop-width) {
