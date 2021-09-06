@@ -871,23 +871,6 @@
       }
     };
 
-    // that.onAccordeonClick = function (evt) {
-    //   if (!evt.target.closest('.accordeon__button')) {
-    //     return;
-    //   }
-
-    //   var target = evt.target.closest('.accordeon__button');
-    //   var isButtonInactive = !target.classList.contains('accordeon__button--active');
-
-    //   that.buttons.forEach(function (item) {
-    //     item.classList.remove('accordeon__button--active');
-    //   });
-
-    //   if (isButtonInactive) {
-    //     target.classList.toggle('accordeon__button--active');
-    //   }
-    // };
-
     that.onAccordeonClick = function (evt) {
       if (!evt.target.closest('.accordeon__button')) {
         return;
