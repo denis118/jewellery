@@ -109,7 +109,7 @@
   };
 
   // trapTabKey
-  var trapTabKey = function (element, evt) {
+  var trapTabKey = function (evt, element) {
     var focusableChildren = getFocusableChildren(element);
     var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
     var lastIndex = focusableChildren.length - 1;
@@ -197,25 +197,35 @@
     return;
   }
 
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isTabEvent = window.utility.isTabEvent;
+  var setAttributes = window.utility.setAttributes;
+  var resetAttributes = window.utility.resetAttributes;
+  var moveFocusIn = window.utility.moveFocusIn;
+  var trapTabKey = window.utility.trapTabKey;
+  var onBodyFocus = window.utility.onBodyFocus;
+
   var manageHeader = function () {
     var that = {};
 
     that.activate = function () {
-      this.header = header;
-      this.burger = this.header.querySelector('.header__burger');
-      this.lowerContainer = this.header.querySelector('.header__container--lower');
-      this.body = document.body;
+      var _ = that;
 
-      this.header.classList.add('header--js');
-      this.isShown = false;
-      this.toggleMargin();
-      this.burger.addEventListener('click', this.onBurgerClick);
-      return this;
+      _.header = header;
+      _.burger = _.header.querySelector('.header__burger');
+      _.lowerContainer = _.header.querySelector('.header__container--lower');
+      _.body = document.body;
+
+      _.header.classList.add('header--js');
+      _.isShown = false;
+      _.toggleMargin();
+      _.burger.addEventListener('click', _.onBurgerClick);
+      return that;
     };
 
     that.toggleMargin = function () {
-      var nextSibling = this.header.nextElementSibling
-        ? this.header.nextElementSibling
+      var nextSibling = that.header.nextElementSibling
+        ? that.header.nextElementSibling
         : null;
 
       var main = document.querySelector('main')
@@ -225,7 +235,7 @@
       switch (isPreDesktopWidth()) {
         case true:
           if (nextSibling && main && Object.is(nextSibling, main)) {
-            var height = this.header.scrollHeight;
+            var height = that.header.scrollHeight;
             main.style.marginTop = height + UNITS;
           }
 
@@ -245,41 +255,47 @@
 
     that.setAttributes = function () {
       if (isPreDesktopWidth()) {
-        setAttributes(this.header);
-        this.lowerContainer.setAttribute('tabindex', '-1');
+        setAttributes(that.header);
+        that.lowerContainer.setAttribute('tabindex', '-1');
       }
 
-      return this;
+      return that;
     };
 
     that.resetAttributes = function () {
       if (!isPreDesktopWidth()) {
-        resetAttributes(this.header);
-        this.lowerContainer.removeAttribute('tabindex');
+        resetAttributes(that.header);
+        that.lowerContainer.removeAttribute('tabindex');
       }
+
+      return that;
     };
 
     that.show = function () {
-      this.isShown = true;
-      this.previouslyFocused = document.activeElement;
+      var _ = that;
 
-      this.body.classList.add('scroll-stop');
-      this.header.classList.add('menu-open');
+      _.isShown = true;
+      _.previouslyFocused = document.activeElement;
 
-      this.setEventListeners();
-      moveFocusIn(this.header);
+      _.body.classList.add('scroll-stop');
+      _.header.classList.add('menu-open');
+
+      _.setEventListeners();
+      moveFocusIn(_.header);
     };
 
     that.hide = function () {
-      if (this.previouslyFocused && this.previouslyFocused.focus) {
-        this.previouslyFocused.focus();
+      var _ = that;
+
+      if (_.previouslyFocused && _.previouslyFocused.focus) {
+        _.previouslyFocused.focus();
       }
 
-      this.isShown = false;
-      this.body.classList.remove('scroll-stop');
-      this.header.classList.remove('menu-open');
+      _.isShown = false;
+      _.body.classList.remove('scroll-stop');
+      _.header.classList.remove('menu-open');
 
-      this.eraseEventListeners();
+      _.eraseEventListeners();
     };
 
     that.onBurgerClick = function () {
@@ -296,36 +312,28 @@
 
     that.onDocumentKeyDown = function (evt) {
       if (isTabEvent(evt)) {
-        trapTabKey(that.header, evt);
+        trapTabKey(evt, that.header);
       }
     };
 
     that.setEventListeners = function () {
-      document.addEventListener('keydown', this.onDocumentKeyDown);
-      this.body.addEventListener('focus', this.onBodyFocus, true);
+      document.addEventListener('keydown', that.onDocumentKeyDown);
+      that.body.addEventListener('focus', that.onBodyFocus, true);
     };
 
     that.eraseEventListeners = function () {
-      document.removeEventListener('keydown', this.onDocumentKeyDown);
-      this.body.removeEventListener('focus', this.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
     };
 
     that.destroy = function () {
-      this.burger.removeEventListener('click', this.onBurgerClick);
-      this.body.removeEventListener('focus', this.onBodyFocus, true);
-      document.removeEventListener('keydown', this.onDocumentKeyDown);
+      that.burger.removeEventListener('click', that.onBurgerClick);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
     };
 
     return that;
   };
-
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
-  var isTabEvent = window.utility.isTabEvent;
-  var setAttributes = window.utility.setAttributes;
-  var resetAttributes = window.utility.resetAttributes;
-  var moveFocusIn = window.utility.moveFocusIn;
-  var trapTabKey = window.utility.trapTabKey;
-  var onBodyFocus = window.utility.onBodyFocus;
 
   var headerManager = manageHeader();
   headerManager
@@ -338,8 +346,7 @@
 
     return function () {
       if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
-        headerManager.resetAttributes();
-        headerManager.hide();
+        headerManager.resetAttributes().hide();
         isWorkedOnPreDesktopWidth = false;
         isWorkedOnDesktopWidth = true;
         return;
@@ -378,6 +385,30 @@
   var PREDESKTOP_SLIDES_AMOUNT = 2;
   var IGNORED_SWIPE_DISTANCE = 30;
 
+  var sliders = null;
+
+  var findSliders = function () {
+    var Maybe = window.utility.Maybe;
+    sliders = new Maybe(document.querySelectorAll('#slider-main'));
+    sliders = sliders.operand.length
+      ? Array.from(sliders.operand)
+      : null;
+  };
+
+  findSliders();
+
+  if (!(sliders && sliders.length)) {
+    return;
+  }
+
+  var firstLoading = false;
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isPreTabletWidth = window.utility.isPreTabletWidth;
+  var getCurrentMode = window.utility.getCurrentMode;
+  var useMethod = window.utility.useMethod;
+  var mode = getCurrentMode();
+  window.slider = {};
+
   var initSlider = function (rootElement) {
     var that = {};
 
@@ -406,7 +437,7 @@
       _.insertNumbers();
       _.verifyArrows();
 
-      return _;
+      return that;
     };
 
     that.rebuild = function () {
@@ -436,9 +467,7 @@
     };
 
     that.normalizeClass = function () {
-      var _ = that;
-
-      _.slides.forEach(function (slide, index) {
+      that.slides.forEach(function (slide, index) {
         slide.setAttribute('class', 'slider__item');
 
         var hiddenIndex = isPreDesktopWidth()
@@ -452,10 +481,8 @@
     };
 
     that.buildSlideSets = function () {
-      var _ = that;
-
       var takenSlides = null;
-      var copiedSlides = _.slides.slice();
+      var copiedSlides = that.slides.slice();
 
       var slidesAmount = isPreDesktopWidth()
         ? PREDESKTOP_SLIDES_AMOUNT
@@ -480,7 +507,7 @@
           takenSlides[takenSlides.length - 1].classList.add('last-slide');
         }
 
-        _.slideSets.push(takenSlides);
+        that.slideSets.push(takenSlides);
       }
 
       return 'done';
@@ -521,6 +548,7 @@
       }
 
       var number = null;
+      var fragment = document.createDocumentFragment();
       var button = listItem.querySelector('button');
       var buttonAttributeSet = {
         'class': 'slider__frame-button button',
@@ -535,9 +563,10 @@
         number = i + 1;
         button.setAttribute('aria-label', 'Button to enable the ' + number + ' set of products');
         button.innerText = number;
-        list.appendChild(listItem.cloneNode(true));
+        fragment.appendChild(listItem.cloneNode(true));
       }
 
+      list.appendChild(fragment);
       _.numbers = Array.from(_.root.querySelectorAll('.slider__frame-button'));
       _.highlightNumber();
     };
@@ -585,15 +614,13 @@
     };
 
     that.manageNumbers = function () {
-      var _ = that;
-
       switch (isPreTabletWidth()) {
         case true:
-          _.defineCurrentSetNumber();
+          that.defineCurrentSetNumber();
           break;
 
         case false:
-          _.highlightNumber();
+          that.highlightNumber();
           break;
 
         default:
@@ -657,12 +684,12 @@
       var clientX1 = _.cursorPosition.clientX1;
       var clientX2 = _.cursorPosition.clientX2;
 
-      var ignore = clientX1 - clientX2 < IGNORED_SWIPE_DISTANCE
+      var isIgnored = clientX1 - clientX2 < IGNORED_SWIPE_DISTANCE
         && clientX1 - clientX2 > -IGNORED_SWIPE_DISTANCE
         ? true
         : false;
 
-      if (clientX1 - clientX2 === 0 || ignore) {
+      if (clientX1 - clientX2 === 0 || isIgnored) {
         return;
       }
 
@@ -720,46 +747,19 @@
     };
 
     that.setEventListeners = function () {
-      var _ = that;
-
-      _.root.addEventListener('pointerup', _.onSliderPointerup);
-      _.root.addEventListener('touchstart', _.onSliderTouchstart);
-      _.root.addEventListener('touchend', _.onSliderTouchend);
+      that.root.addEventListener('pointerup', that.onSliderPointerup);
+      that.root.addEventListener('touchstart', that.onSliderTouchstart);
+      that.root.addEventListener('touchend', that.onSliderTouchend);
     };
 
     that.eraseEventListeners = function () {
-      var _ = that;
-
-      _.root.removeEventListener('pointerup', _.onSliderPointerup);
-      _.root.removeEventListener('touchstart', _.onSliderTouchstart);
-      _.root.removeEventListener('touchend', _.onSliderTouchend);
+      that.root.removeEventListener('pointerup', that.onSliderPointerup);
+      that.root.removeEventListener('touchstart', that.onSliderTouchstart);
+      that.root.removeEventListener('touchend', that.onSliderTouchend);
     };
 
     return that;
   };
-
-  var sliders = null;
-  var firstLoading = false;
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
-  var isPreTabletWidth = window.utility.isPreTabletWidth;
-  var getCurrentMode = window.utility.getCurrentMode;
-  var useMethod = window.utility.useMethod;
-  var mode = getCurrentMode();
-  window.slider = {};
-
-  var findSliders = function () {
-    var Maybe = window.utility.Maybe;
-    sliders = new Maybe(document.querySelectorAll('#slider-main'));
-    sliders = sliders.operand.length
-      ? Array.from(sliders.operand)
-      : null;
-  };
-
-  findSliders();
-
-  if (!(sliders && sliders.length)) {
-    return;
-  }
 
   sliders.forEach(function (it) {
     var slider = initSlider(it);
@@ -817,16 +817,34 @@
 //
 
 (function () {
+  var accordeons = null;
+  var useMethod = window.utility.useMethod;
+  window.accordeon = {};
+
+  var findAccordeons = function () {
+    var Maybe = window.utility.Maybe;
+    accordeons = new Maybe(document.querySelectorAll('.accordeon'));
+    accordeons = accordeons.operand.length
+      ? Array.from(accordeons.operand)
+      : null;
+  };
+
+  findAccordeons();
+
+  if (!(accordeons && accordeons.length)) {
+    return;
+  }
+
   var initAccordeon = function (rootElement) {
     var that = {};
 
     that.activate = function () {
-      this.root = rootElement;
-      this.buttons = Array.from(this.root.querySelectorAll('.accordeon__button'));
-      this.contents = Array.from(this.root.querySelectorAll('.accordeon__content'));
+      that.root = rootElement;
+      that.buttons = Array.from(that.root.querySelectorAll('.accordeon__button'));
+      that.contents = Array.from(that.root.querySelectorAll('.accordeon__content'));
 
-      this.addContentJsStyles();
-      return this;
+      that.addContentJsStyles();
+      return that;
     };
 
     that.addContentJsStyles = function () {
@@ -881,33 +899,15 @@
     };
 
     that.setEventListener = function () {
-      this.root.addEventListener('click', this.onAccordeonClick);
+      that.root.addEventListener('click', that.onAccordeonClick);
     };
 
     that.eraseEventListener = function () {
-      this.root.removeEventListener('click', this.onAccordeonClick);
+      that.root.removeEventListener('click', that.onAccordeonClick);
     };
 
     return that;
   };
-
-  var accordeons = null;
-  var useMethod = window.utility.useMethod;
-  window.accordeon = {};
-
-  var findAccordeons = function () {
-    var Maybe = window.utility.Maybe;
-    accordeons = new Maybe(document.querySelectorAll('.accordeon'));
-    accordeons = accordeons.operand.length
-      ? Array.from(accordeons.operand)
-      : null;
-  };
-
-  findAccordeons();
-
-  if (!(accordeons && accordeons.length)) {
-    return;
-  }
 
   accordeons.forEach(function (it) {
     var accordeon = initAccordeon(it);
@@ -944,63 +944,78 @@
     return;
   }
 
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isTabEvent = window.utility.isTabEvent;
+  var isEscEvent = window.utility.isEscEvent;
+  var setAttributes = window.utility.setAttributes;
+  var resetAttributes = window.utility.resetAttributes;
+  var moveFocusIn = window.utility.moveFocusIn;
+  var trapTabKey = window.utility.trapTabKey;
+  var onBodyFocus = window.utility.onBodyFocus;
+
   var manageFilter = function () {
     var that = {};
 
     that.activate = function () {
-      this.filter = filter;
-      this.inner = this.filter.querySelector('.filter__inner');
-      this.formBox = this.filter.querySelector('.filter__form-box');
-      this.starter = this.filter.querySelector('.filter__starter');
-      this.cross = this.filter.querySelector('.filter__cross');
-      this.body = document.body;
-      this.isShown = false;
+      var _ = that;
 
-      this.starter.addEventListener('click', this.onStarterClick);
-      return this;
+      _.filter = filter;
+      _.inner = _.filter.querySelector('.filter__inner');
+      _.formBox = _.filter.querySelector('.filter__form-box');
+      _.starter = _.filter.querySelector('.filter__starter');
+      _.cross = _.filter.querySelector('.filter__cross');
+      _.body = document.body;
+      _.isShown = false;
+
+      _.starter.addEventListener('click', _.onStarterClick);
+      return that;
     };
 
     that.setAttributes = function () {
       if (isPreDesktopWidth()) {
-        setAttributes(this.filter);
+        setAttributes(that.filter);
       }
 
-      return this;
+      return that;
     };
 
     that.resetAttributes = function () {
       if (!isPreDesktopWidth()) {
-        resetAttributes(this.filter);
+        resetAttributes(that.filter);
       }
 
-      return this;
+      return that;
     };
 
     that.show = function () {
-      this.isShown = true;
-      this.previouslyFocused = document.activeElement;
+      var _ = that;
 
-      this.body.classList.add('scroll-stop');
-      this.inner.classList.add('overlay');
-      this.filter.classList.add('filter--js');
-      this.starter.setAttribute('tabindex', '-1');
+      _.isShown = true;
+      _.previouslyFocused = document.activeElement;
 
-      this.setEventListeners();
-      moveFocusIn(this.filter);
+      _.body.classList.add('scroll-stop');
+      _.inner.classList.add('overlay');
+      _.filter.classList.add('filter--js');
+      _.starter.setAttribute('tabindex', '-1');
+
+      _.setEventListeners();
+      moveFocusIn(_.filter);
     };
 
     that.hide = function () {
-      if (this.previouslyFocused && this.previouslyFocused.focus) {
-        this.previouslyFocused.focus();
+      var _ = that;
+
+      if (_.previouslyFocused && _.previouslyFocused.focus) {
+        _.previouslyFocused.focus();
       }
 
-      this.isShown = false;
-      this.body.classList.remove('scroll-stop');
-      this.inner.classList.remove('overlay');
-      this.filter.classList.remove('filter--js');
-      this.starter.removeAttribute('tabindex');
+      _.isShown = false;
+      _.body.classList.remove('scroll-stop');
+      _.inner.classList.remove('overlay');
+      _.filter.classList.remove('filter--js');
+      _.starter.removeAttribute('tabindex');
 
-      this.eraseEventListeners();
+      _.eraseEventListeners();
     };
 
     that.onStarterClick = function () {
@@ -1029,7 +1044,7 @@
 
     that.onDocumentKeyDown = function (evt) {
       if (isTabEvent(evt)) {
-        trapTabKey(that.filter, evt);
+        trapTabKey(evt, that.filter);
       }
 
       if (isEscEvent(evt)) {
@@ -1038,35 +1053,26 @@
     };
 
     that.setEventListeners = function () {
-      this.cross.addEventListener('click', this.onCrossClick);
-      this.inner.addEventListener('click', this.onInnerClick);
-      this.body.addEventListener('focus', this.onBodyFocus, true);
-      document.addEventListener('keydown', this.onDocumentKeyDown);
+      that.cross.addEventListener('click', that.onCrossClick);
+      that.inner.addEventListener('click', that.onInnerClick);
+      that.body.addEventListener('focus', that.onBodyFocus, true);
+      document.addEventListener('keydown', that.onDocumentKeyDown);
     };
 
     that.eraseEventListeners = function () {
-      this.cross.removeEventListener('click', this.onCrossClick);
-      this.inner.removeEventListener('click', this.onInnerClick);
-      this.body.removeEventListener('focus', this.onBodyFocus, true);
-      document.removeEventListener('keydown', this.onDocumentKeyDown);
+      that.cross.removeEventListener('click', that.onCrossClick);
+      that.inner.removeEventListener('click', that.onInnerClick);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
     };
 
     that.destroy = function () {
-      this.starter.removeEventListener('click', this.onStarterClick);
-      this.eraseEventListeners();
+      that.starter.removeEventListener('click', that.onStarterClick);
+      that.eraseEventListeners();
     };
 
     return that;
   };
-
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
-  var isTabEvent = window.utility.isTabEvent;
-  var isEscEvent = window.utility.isEscEvent;
-  var setAttributes = window.utility.setAttributes;
-  var resetAttributes = window.utility.resetAttributes;
-  var moveFocusIn = window.utility.moveFocusIn;
-  var trapTabKey = window.utility.trapTabKey;
-  var onBodyFocus = window.utility.onBodyFocus;
 
   var filterManager = manageFilter();
   filterManager
@@ -1129,10 +1135,10 @@
   var lowerCostText = lowerCostSpan.innerText;
   var upperCostText = upperCostSpan.innerText;
 
-  var lowerPriceInput = filter.querySelector('#lower-cost-input');
-  var upperPriceInput = filter.querySelector('#upper-cost-input');
-  var priceLowerValue = lowerPriceInput.value;
-  var priceUpperValue = upperPriceInput.value;
+  var lowerCostInput = filter.querySelector('#lower-cost-input');
+  var upperCostInput = filter.querySelector('#upper-cost-input');
+  var lowerCostValue = lowerCostInput.value;
+  var upperCostValue = upperCostInput.value;
 
   var onFilterCleanerClick = function () {
     checkboxes.forEach(function (item) {
@@ -1149,8 +1155,8 @@
 
     lowerCostSpan.innerText = lowerCostText;
     upperCostSpan.innerText = upperCostText;
-    lowerPriceInput.value = priceLowerValue;
-    upperPriceInput.value = priceUpperValue;
+    lowerCostInput.value = lowerCostValue;
+    upperCostInput.value = upperCostValue;
   };
 
   filterCleaner.addEventListener('click', onFilterCleanerClick);
@@ -1197,53 +1203,67 @@
     return;
   }
 
+  var isTabEvent = window.utility.isTabEvent;
+  var isEscEvent = window.utility.isEscEvent;
+  var setAttributes = window.utility.setAttributes;
+  var resetAttributes = window.utility.resetAttributes;
+  var moveFocusIn = window.utility.moveFocusIn;
+  var trapTabKey = window.utility.trapTabKey;
+  var onBodyFocus = window.utility.onBodyFocus;
+
   var manageLogin = function () {
     var that = {};
 
     that.activate = function () {
-      this.loginLinks = loginLinks;
-      this.loginModal = loginModal;
-      this.cross = this.loginModal.querySelector('.login__cross');
-      this.body = document.body;
-      this.isShown = false;
+      var _ = that;
 
-      this.loginLinks.forEach(function (link) {
-        link.addEventListener('click', that.onLoginLinkClick);
+      _.loginLinks = loginLinks;
+      _.loginModal = loginModal;
+      _.cross = _.loginModal.querySelector('.login__cross');
+      _.body = document.body;
+      _.isShown = false;
+
+      _.loginLinks.forEach(function (link) {
+        link.addEventListener('click', _.onLoginLinkClick);
       });
-      return this;
+      return that;
     };
 
     that.setAttributes = function () {
-      setAttributes(this.loginModal);
-      return this;
+      setAttributes(that.loginModal);
+      return that;
     };
 
     that.resetAttributes = function () {
-      resetAttributes(this.loginModal);
-      return this;
+      resetAttributes(that.loginModal);
+      return that;
     };
 
     that.show = function () {
-      this.isShown = true;
-      this.previouslyFocused = document.activeElement;
+      var _ = that;
 
-      this.body.classList.add('scroll-stop');
-      this.loginModal.classList.remove('hidden-entity');
+      _.isShown = true;
+      _.previouslyFocused = document.activeElement;
 
-      this.setEventListeners();
-      moveFocusIn(this.loginModal);
+      _.body.classList.add('scroll-stop');
+      _.loginModal.classList.remove('hidden-entity');
+
+      _.setEventListeners();
+      moveFocusIn(_.loginModal);
     };
 
     that.hide = function () {
-      if (this.previouslyFocused && this.previouslyFocused.focus) {
-        this.previouslyFocused.focus();
+      var _ = that;
+
+      if (_.previouslyFocused && _.previouslyFocused.focus) {
+        _.previouslyFocused.focus();
       }
 
-      this.isShown = false;
-      this.body.classList.remove('scroll-stop');
-      this.loginModal.classList.add('hidden-entity');
+      _.isShown = false;
+      _.body.classList.remove('scroll-stop');
+      _.loginModal.classList.add('hidden-entity');
 
-      this.eraseEventListeners();
+      _.eraseEventListeners();
     };
 
     that.onLoginLinkClick = function (evt) {
@@ -1273,7 +1293,7 @@
 
     that.onDocumentKeyDown = function (evt) {
       if (isTabEvent(evt)) {
-        trapTabKey(that.loginModal, evt);
+        trapTabKey(evt, that.loginModal);
       }
 
       if (isEscEvent(evt)) {
@@ -1282,36 +1302,28 @@
     };
 
     that.setEventListeners = function () {
-      this.loginModal.addEventListener('click', this.onLoginModalClick);
-      this.cross.addEventListener('click', this.onCrossClick);
-      this.body.addEventListener('focus', this.onBodyFocus, true);
-      document.addEventListener('keydown', this.onDocumentKeyDown);
+      that.loginModal.addEventListener('click', that.onLoginModalClick);
+      that.cross.addEventListener('click', that.onCrossClick);
+      that.body.addEventListener('focus', that.onBodyFocus, true);
+      document.addEventListener('keydown', that.onDocumentKeyDown);
     };
 
     that.eraseEventListeners = function () {
-      this.loginModal.removeEventListener('click', this.onLoginModalClick);
-      this.cross.removeEventListener('click', this.onCrossClick);
-      this.body.removeEventListener('focus', this.onBodyFocus, true);
-      document.removeEventListener('keydown', this.onDocumentKeyDown);
+      that.loginModal.removeEventListener('click', that.onLoginModalClick);
+      that.cross.removeEventListener('click', that.onCrossClick);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
     };
 
     that.destroy = function () {
-      this.loginLinks.forEach(function (link) {
+      that.loginLinks.forEach(function (link) {
         link.removeEventListener('click', that.onLoginLinkClick);
       });
-      this.eraseEventListeners();
+      that.eraseEventListeners();
     };
 
     return that;
   };
-
-  var isTabEvent = window.utility.isTabEvent;
-  var isEscEvent = window.utility.isEscEvent;
-  var setAttributes = window.utility.setAttributes;
-  var resetAttributes = window.utility.resetAttributes;
-  var moveFocusIn = window.utility.moveFocusIn;
-  var trapTabKey = window.utility.trapTabKey;
-  var onBodyFocus = window.utility.onBodyFocus;
 
   var loginManager = manageLogin();
   loginManager
