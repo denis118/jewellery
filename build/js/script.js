@@ -535,40 +535,6 @@
       });
     };
 
-    // that.insertNumbers = function () {
-    //   var _ = that;
-
-    //   var list = _.root.querySelector('.slider__frame-button-list');
-    //   var listItem = list
-    //       .querySelector('.slider__frame-button-item')
-    //       .cloneNode(true);
-
-    //   while (list.firstChild) {
-    //     list.removeChild(list.firstChild);
-    //   }
-
-    //   var number = null;
-    //   var button = listItem.querySelector('button');
-    //   var buttonAttributeSet = {
-    //     'class': 'slider__frame-button button',
-    //     'type': 'button'
-    //   };
-
-    //   Object.keys(buttonAttributeSet).forEach(function (key) {
-    //     button.setAttribute(key, buttonAttributeSet[key]);
-    //   });
-
-    //   for (var i = 0; i < _.slideSets.length; i++) {
-    //     number = i + 1;
-    //     button.setAttribute('aria-label', 'Button to enable the ' + number + ' set of products');
-    //     button.innerText = number;
-    //     list.appendChild(listItem.cloneNode(true));
-    //   }
-
-    //   _.numbers = Array.from(_.root.querySelectorAll('.slider__frame-button'));
-    //   _.highlightNumber();
-    // };
-
     that.insertNumbers = function () {
       var _ = that;
 
