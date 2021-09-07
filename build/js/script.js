@@ -193,11 +193,11 @@
 
   findHeader();
 
-  if (!header) {
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  if (!header || !isPreDesktopWidth()) {
     return;
   }
 
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
   var isTabEvent = window.utility.isTabEvent;
   var setAttributes = window.utility.setAttributes;
   var resetAttributes = window.utility.resetAttributes;
@@ -336,9 +336,7 @@
   };
 
   var headerManager = manageHeader();
-  headerManager
-      .activate()
-      .setAttributes();
+  headerManager.activate().setAttributes();
 
   var onWindowResize = (function () {
     var isWorkedOnPreDesktopWidth = false;
@@ -923,11 +921,11 @@
 
   findFilter();
 
-  if (!filter) {
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  if (!filter || !isPreDesktopWidth()) {
     return;
   }
 
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
   var isTabEvent = window.utility.isTabEvent;
   var isEscEvent = window.utility.isEscEvent;
   var setAttributes = window.utility.setAttributes;
@@ -1058,10 +1056,7 @@
   };
 
   var filterManager = manageFilter();
-  filterManager
-      .activate()
-      .setAttributes()
-      .setEventListeners();
+  filterManager.activate().setAttributes();
 
   var onWindowResize = (function () {
     var isWorkedOnPreDesktopWidth = false;
@@ -1309,10 +1304,7 @@
   };
 
   var loginManager = manageLogin();
-  loginManager
-      .activate()
-      .setAttributes()
-      .setEventListeners();
+  loginManager.activate().setAttributes();
 
   var onWindowBeforeunload = function () {
     loginManager.destroy();
