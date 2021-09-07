@@ -28,6 +28,7 @@ body {
   min-width: $mobile-width;
   background-color: $lcg-1;
   color: $dcg-2;
+  word-wrap: break-word;
 }
 
 .visually-hidden {

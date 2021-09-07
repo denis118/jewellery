@@ -18,7 +18,8 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      margin-bottom: 52px;
+      margin-top: -6px;
+      margin-bottom: 55px;
       background-image: $intro-bg-main-tablet;
 
       @media (min-resolution: 2dppx) {
@@ -27,7 +28,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      margin-bottom: 42px;
+      margin-bottom: 45px;
       background-image: $intro-bg-main-mobile;
 
       @media (min-resolution: 2dppx) {
@@ -49,7 +50,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      margin-top: -3px;
+      margin-top: -6px;
       margin-bottom: 50px;
       background-image: $intro-bg-catalog-tablet;
 
@@ -104,12 +105,12 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(-9px, 0);
+      transform: translate(-9px, 3px);
     }
 
     @media (max-width: $pre-tablet-width) {
       font-size: 3.8rem;
-      transform: translate(0, 0);
+      transform: translate(0, 3px);
     }
   }
 
@@ -128,7 +129,7 @@
     text-transform: lowercase;
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(-9px, -6px);
+      transform: translate(-9px, -3px);
     }
 
     @media (max-width: $pre-tablet-width) {

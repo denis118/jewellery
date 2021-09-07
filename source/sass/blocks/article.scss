@@ -8,9 +8,12 @@
   font-weight: 500;
 
   @include casual-flex;
-  height: min-content;
   background-color: $mcg-4;
   position: relative;
+
+  @media (min-width: $desktop-width) {
+    height: 100%;
+  }
 
   @media (max-width: $pre-desktop-width) {
     margin-bottom: 50px;
@@ -28,12 +31,6 @@
   }
 
   &--trends {
-    @media (min-width: $desktop-width) {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 52.2% 47.8%;
-    }
-
     @media (max-width: $pre-tablet-width) {
       padding-bottom: 46px;
     }
@@ -41,6 +38,7 @@
 }
 
 .article__image-box {
+  align-self: stretch;
   width: 50%;
 
   @media (max-width: $pre-tablet-width) {
@@ -50,15 +48,12 @@
   &--trends {
     @media (min-width: $desktop-width) {
       width: 100%;
-      grid-column-start: 1;
-      grid-column-end: -1;
-      grid-row-start: 1;
-      grid-row-end: -1;
     }
   }
 
   img {
     @include img;
+    height: 100%;
 
     @media (max-width: $pre-desktop-width) {
       height: 300px;
@@ -74,11 +69,13 @@
   @include column-flex;
   width: 50%;
   padding-top: 67px;
+  padding-bottom: 75px;
   background-color: inherit;
 
   @media (max-width: $pre-tablet-width) {
     width: 100%;
     padding-top: 44px;
+    padding-bottom: 0;
   }
 
   &--power {
@@ -91,14 +88,10 @@
 
   &--trends {
     @media (min-width: $desktop-width) {
-      width: 100%;
-      height: 100%;
-      padding-bottom: 106px;
-
-      grid-column-start: 2;
-      grid-column-end: -1;
-      grid-row-start: 2;
-      grid-row-end: -1;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding-bottom: 110px;
     }
 
     @media (max-width: $pre-desktop-width) {
@@ -141,6 +134,12 @@
   &--care {
     @media (max-width: $pre-tablet-width) {
       width: 60%;
+    }
+  }
+
+  &--trends {
+    @media (min-width: $desktop-width) {
+      width: 138px;
     }
   }
 
