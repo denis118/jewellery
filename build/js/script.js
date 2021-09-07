@@ -1181,6 +1181,20 @@
     return;
   }
 
+  if (window.localStorage) {
+    var email = loginModal.querySelector('.login__input--email')
+      ? loginModal.querySelector('.login__input--email')
+      : null;
+
+    if (email) {
+      var name = email.getAttribute('name');
+      email.value = localStorage.getItem(name) || email.value;
+      email.onkeyup = function () {
+        localStorage.setItem(name, email.value);
+      };
+    }
+  }
+
   var isTabEvent = window.utility.isTabEvent;
   var isEscEvent = window.utility.isEscEvent;
   var setAttributes = window.utility.setAttributes;
