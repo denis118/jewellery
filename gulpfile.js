@@ -69,7 +69,8 @@ gulp.task('webp', function () {
 gulp.task('sprite', function () {
   return gulp.src([
     'source/img/{icon-*,htmlacademy*}.svg',
-    'source/img/content/logo.svg'
+    'source/img/content/logo.svg',
+    '!source/img/outer-sprite.svg'
   ])
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('sprite_auto.svg'))
