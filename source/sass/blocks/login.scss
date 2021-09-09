@@ -107,6 +107,27 @@
 .login__input-wrapper {
   width: 100%;
 
+  input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: inherit;
+
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 0;
+    border: 1px solid transparent;
+    border-bottom-color: $dcg-2;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      border-bottom-style: dashed;
+    }
+  }
+
   &--email {
     margin-bottom: 26px;
 
@@ -122,33 +143,12 @@
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 58px;
     }
-  }
-}
 
-.login__input {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: inherit;
-  color: inherit;
-
-  width: 100%;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 0;
-  border: 1px solid transparent;
-  border-bottom-color: $dcg-2;
-  background-color: transparent;
-
-  &--password {
-    @media (max-width: $pre-tablet-width) {
-      padding-bottom: 6px;
+    input {
+      @media (max-width: $pre-tablet-width) {
+        padding-bottom: 6px;
+      }
     }
-  }
-
-  &:hover,
-  &:focus {
-    border-bottom-style: dashed;
   }
 }
 
