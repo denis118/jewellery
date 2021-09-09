@@ -46,6 +46,7 @@
     }
   }
 
+  h2,
   h3 {
     font-family:
       "cormorantgaramond",
@@ -71,6 +72,20 @@
     @media (max-width: $pre-tablet-width) {
       font-size: 2.4rem;
       margin-bottom: 17px;
+    }
+  }
+
+  h2 {
+    display: none;
+  }
+
+  &--independent {
+    h2 {
+      display: block;
+    }
+
+    h3 {
+      display: none;
     }
   }
 

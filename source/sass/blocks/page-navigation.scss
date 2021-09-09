@@ -1,4 +1,8 @@
 .page-navigation {
+  h2 {
+    @include visually-hidden;
+  }
+
   ul {
     display: flex;
   }
