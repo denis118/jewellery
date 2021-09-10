@@ -10,11 +10,17 @@
   @media (max-width: $pre-tablet-width) {
     margin-bottom: 4px;
   }
+
+  h2 {
+    @media (min-width: $desktop-width) {
+      margin-bottom: 32px;
+    }
+  }
 }
 
 .blog__link {
   width: 70px;
-  margin-bottom: 63px;
+  margin-bottom: 65px;
 
   @media (max-width: $pre-desktop-width) {
     margin-bottom: 66px;
