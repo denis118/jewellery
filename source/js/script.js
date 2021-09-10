@@ -205,6 +205,8 @@
   var trapTabKey = window.utility.trapTabKey;
   var onBodyFocus = window.utility.onBodyFocus;
 
+  var getCurrentMode = window.utility.getCurrentMode;
+
   var manageHeader = function () {
     var that = {};
 
@@ -223,6 +225,36 @@
       return that;
     };
 
+    // that.toggleMargin = function () {
+    //   var nextSibling = that.header.nextElementSibling
+    //     ? that.header.nextElementSibling
+    //     : null;
+
+    //   var main = document.querySelector('main')
+    //     ? document.querySelector('main')
+    //     : null;
+
+    //   switch (isPreDesktopWidth()) {
+    //     case true:
+    //       if (nextSibling && main && Object.is(nextSibling, main)) {
+    //         var height = that.header.scrollHeight;
+    //         main.style.marginTop = height + UNITS;
+    //       }
+
+    //       break;
+
+    //     case false:
+    //       if (nextSibling && main && Object.is(nextSibling, main)) {
+    //         main.style.marginTop = 0;
+    //       }
+
+    //       break;
+
+    //     default:
+    //       break;
+    //   }
+    // };
+
     that.toggleMargin = function () {
       var nextSibling = that.header.nextElementSibling
         ? that.header.nextElementSibling
@@ -234,6 +266,7 @@
 
       switch (isPreDesktopWidth()) {
         case true:
+          console.log('preDesktopWidth');
           if (nextSibling && main && Object.is(nextSibling, main)) {
             var height = that.header.scrollHeight;
             main.style.marginTop = height + UNITS;
@@ -242,6 +275,7 @@
           break;
 
         case false:
+          console.log('desktopWidth');
           if (nextSibling && main && Object.is(nextSibling, main)) {
             main.style.marginTop = 0;
           }
@@ -338,11 +372,37 @@
   var headerManager = manageHeader();
   headerManager.activate().setAttributes();
 
+  // var onWindowResize = (function () {
+  //   var isWorkedOnPreDesktopWidth = false;
+  //   var isWorkedOnDesktopWidth = false;
+
+  //   return function () {
+  //     if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
+  //       headerManager.resetAttributes().hide();
+  //       isWorkedOnPreDesktopWidth = false;
+  //       isWorkedOnDesktopWidth = true;
+  //       return;
+  //     }
+
+  //     if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
+  //       headerManager.setAttributes();
+  //       isWorkedOnPreDesktopWidth = true;
+  //       isWorkedOnDesktopWidth = false;
+  //     }
+
+  //     console.log('in onWindowResize');
+  //   };
+  // })();
+
   var onWindowResize = (function () {
     var isWorkedOnPreDesktopWidth = false;
     var isWorkedOnDesktopWidth = false;
+    var mode = getCurrentMode();
+    var currentMode = '';
 
     return function () {
+      currentMode = getCurrentMode();
+
       if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
         headerManager.resetAttributes().hide();
         isWorkedOnPreDesktopWidth = false;
@@ -356,7 +416,11 @@
         isWorkedOnDesktopWidth = false;
       }
 
-      headerManager.toggleMargin();
+      if (currentMode !== mode) {
+        mode = currentMode;
+        console.log('mode is changed');
+        headerManager.toggleMargin();
+      }
     };
   })();
 
