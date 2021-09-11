@@ -1261,7 +1261,9 @@
       'filterCleanerDestroyer',
       'loginDestroyer'
     ].forEach(function (item) {
-      window[item].onWindowBeforeunload();
+      if (window[item]) {
+        window[item].onWindowBeforeunload();
+      }
     });
 
     window.removeEventListener('beforeunload', onWindowBeforeunload);
