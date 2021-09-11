@@ -220,7 +220,7 @@
 
       _.header.classList.add('header--js');
       _.isShown = false;
-      _.toggleMargin();
+      _.toggleMargin(getCurrentMode());
       _.burger.addEventListener('click', _.onBurgerClick);
       return that;
     };
@@ -255,7 +255,7 @@
     //   }
     // };
 
-    that.toggleMargin = function () {
+    that.toggleMargin = function (currentMode) {
       var nextSibling = that.header.nextElementSibling
         ? that.header.nextElementSibling
         : null;
@@ -264,9 +264,10 @@
         ? document.querySelector('main')
         : null;
 
-      switch (isPreDesktopWidth()) {
-        case true:
-          console.log('preDesktopWidth');
+      switch (currentMode) {
+        case 'tablet':
+        case 'mobile':
+          console.log('pre desktop');
           if (nextSibling && main && Object.is(nextSibling, main)) {
             var height = that.header.scrollHeight;
             main.style.marginTop = height + UNITS;
@@ -274,8 +275,8 @@
 
           break;
 
-        case false:
-          console.log('desktopWidth');
+        case 'desktop':
+          console.log('desktop');
           if (nextSibling && main && Object.is(nextSibling, main)) {
             main.style.marginTop = 0;
           }
@@ -419,7 +420,7 @@
       if (currentMode !== mode) {
         mode = currentMode;
         console.log('mode is changed');
-        headerManager.toggleMargin();
+        headerManager.toggleMargin(currentMode);
       }
     };
   })();
