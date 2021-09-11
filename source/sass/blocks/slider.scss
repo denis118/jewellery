@@ -32,18 +32,6 @@
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 64px;
     }
-
-    img {
-      @media (max-width: $pre-desktop-width) {
-        width: 206px;
-        height: 208px;
-      }
-
-      @media (max-width: $pre-tablet-width) {
-        width: 130px;
-        height: 136px;
-      }
-    }
   }
 }
 
@@ -85,16 +73,13 @@
     align-items: start;
 
     @media (max-width: $pre-desktop-width) {
-      column-gap: 30px;
+      column-gap: 4.4248%;
       row-gap: 34px;
-      width: 678px;
-
-      @include centering-margin;
     }
 
     @media (max-width: $pre-tablet-width) {
       grid-template-columns: repeat(2, 1fr);
-      width: 290px;
+      column-gap: 10.3448%;
       row-gap: 25px;
     }
   }
@@ -150,6 +135,14 @@
   &--catalog {
     @media (min-width: $desktop-width) {
       margin-bottom: 10px;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      margin-bottom: 18px;
     }
   }
 }
