@@ -771,6 +771,7 @@
     that.activate = function () {
       that.root = rootElement;
       that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
+      that.id = that.root.id;
 
       that.addContentJsStyles();
       return that;
@@ -783,13 +784,33 @@
     };
 
     that.hideContent = function (item) {
-      item.classList.remove('accordeon__item--opened');
+      var jsClass = null;
+      var isMaterialItem = item.matches('.accordeon__item--material');
+      var isProductItem = item.matches('.accordeon__item--product');
+      var isPriceItem = item.matches('.accordeon__item--price');
+
+      if (that.id === 'accordeon-main') {
+        jsClass = 'accordeon__item--opened';
+      }
+
+      if (that.id === 'accordeon-catalog') {
+        jsClass = 'accordeon__item--disclosed';
+      }
+
+      item.classList.remove(jsClass);
+
+      // if (that.id === 'accordeon-main' && isMaterialItem) {
+      //   item.classList.add(jsClass);
+      // }
+
+      // if (that.id === 'accordeon-catalog' && (isProductItem || isPriceItem)) {
+      //   item.classList.add(jsClass);
+      // }
 
       switch (true) {
-        case item.matches('.accordeon__item--material'):
-        case item.matches('.accordeon__item--product'):
-        case item.matches('.accordeon__item--price'):
-          item.classList.add('accordeon__item--opened');
+        case that.id === 'accordeon-main' && isMaterialItem:
+        case that.id === 'accordeon-catalog' && (isProductItem || isPriceItem):
+          item.classList.add(jsClass);
           break;
 
         default:
@@ -798,10 +819,20 @@
     };
 
     that.onAccordeonClick = function (evt) {
-      if (evt.target.closest('.accordeon__button')) {
+      if (!evt.target.closest('.accordeon__button')) {
+        return;
+      }
+
+      if (that.id === 'accordeon-main') {
         evt.target
             .closest('.accordeon__item')
             .classList.toggle('accordeon__item--opened');
+      }
+
+      if (that.id === 'accordeon-catalog') {
+        evt.target
+            .closest('.accordeon__item')
+            .classList.toggle('accordeon__item--disclosed');
       }
     };
 
