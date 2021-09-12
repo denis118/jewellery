@@ -27,30 +27,24 @@
 
 .subscription__content-list {
   display: grid;
-  grid-template-columns: 19.6581% 34.1026% 19.6581% 19.6581%;
-  grid-template-rows: 230px 150px;
+  grid-template-columns: 19.63% 34.17% 19.63% 19.63%;
+  grid-auto-rows: min-content;
   column-gap: 2.308%;
-  row-gap: 34px;
+  row-gap: 8.5%;
 
-  @media (min-width: $desktop-width) {
-    width: 100%;
-    margin-bottom: 130px;
-  }
+  width: 100%;
+  margin-bottom: 130px;
 
   @media (max-width: $pre-desktop-width) {
-    grid-template-columns: 133px 231px 133px 133px;
-    grid-template-rows: 133px 87px;
-    column-gap: 16px;
-    row-gap: 20px;
+    grid-template-columns: 19.60% 34.2% 19.60% 19.60%;
+    column-gap: 2.3599%;
 
-    width: min-content;
     margin-bottom: 80px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    grid-template-columns: repeat(2, 133px);
-    grid-template-rows: 133px 87px 87px;
-    column-gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8.2759%;
     row-gap: 27px;
 
     margin-bottom: 71px;
@@ -58,11 +52,19 @@
 }
 
 .subscription__content-item {
+  @include padded-box;
+  width: 100%;
+  height: min-content;
+
   &--1 {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
+
+    @media (max-width: $pre-tablet-width) {
+      padding-bottom: $ratio-subscription-initial;
+    }
   }
 
   &--2 {
@@ -71,15 +73,19 @@
     grid-row-start: 1;
     grid-row-end: 3;
 
-    img {
-      @media (max-width: $pre-desktop-width) {
-        height: 240px;
-      }
-
-      @media (max-width: $pre-tablet-width) {
-        height: 247px;
-      }
+    @media (min-width: $desktop-width) {
+      padding-bottom: $ratio-subscription-large;
     }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-bottom: $ratio-subscription-moderate;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-bottom: $ratio-subscription-middle;
+    }
+
+    transform: translate(0, 1px);
   }
 
   &--3 {
@@ -132,22 +138,22 @@
   }
 
   &--first-size {
-    img {
-      @media (max-width: $pre-desktop-width) {
-        height: 133px;
-      }
+    @media (min-width: $tablet-width) {
+      padding-bottom: $ratio-subscription-initial;
     }
   }
 
   &--second-size {
-    img {
-      @media (max-width: $pre-desktop-width) {
-        height: 87px;
-      }
+    @media (min-width: $desktop-width) {
+      padding-bottom: $ratio-subscription-big;
+    }
+
+    @media (max-width: $pre-desktop-width) {
+      padding-bottom: $ratio-subscription-small;
     }
   }
 
   img {
-    @include img;
+    @include content-in-padded-box;
   }
 }
