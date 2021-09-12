@@ -92,10 +92,27 @@
   }
 
   &--disclosed {
+    padding-bottom: 17px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-bottom: 31px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-bottom: 20px;
+    }
+
     .accordeon__button {
+      padding-bottom: 11px;
+      margin-bottom: 10px;
+
       &--price {
-        @media (max-width: $pre-tablet-width) {
-          padding-left: 10px;
+        @media (min-width: $desktop-width) {
+          margin-bottom: 12px;
+        }
+
+        @media (max-width: $pre-desktop-width) {
+          margin-bottom: 17px;
         }
       }
     }
@@ -117,22 +134,39 @@
     .accordeon__content {
       display: block;
       padding-top: 3px;
-      padding-left: 60px;
+      padding-right: 34px;
+      padding-left: 34px;
+
+      @media (max-width: $pre-desktop-width) {
+        padding-left: 33px;
+      }
+
+      &--price {
+        padding-right: 27px;
+        padding-left: 25px;
+
+        @media (max-width: $pre-desktop-width) {
+          padding-right: 89px;
+          padding-left: 26px;
+        }
+
+        @media (max-width: $pre-tablet-width) {
+          padding-right: 10px;
+          padding-left: 10px;
+        }
+      }
     }
   }
 
   &--price {
-    padding-right: 25px;
+    padding-bottom: 21px;
 
     @media (max-width: $pre-desktop-width) {
-      padding-right: 88px;
       padding-bottom: 41px;
     }
 
     @media (max-width: $pre-tablet-width) {
-      padding-right: 10px;
       padding-bottom: 31px;
-      padding-left: 10px;
     }
   }
 }
@@ -196,6 +230,15 @@
 
     @media (max-width: $pre-desktop-width) {
       font-size: 1.8rem;
+
+      padding-top: 36px;
+      padding-bottom: 32px;
+      padding-left: 21px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-top: 25px;
+      padding-bottom: 21px;
     }
   }
 
@@ -247,21 +290,6 @@
     @include zero-edges;
   }
 
-  &--catalog {
-    width: max-content;
-    padding-left: 34px;
-    padding-top: 22px;
-
-    @media (max-width: $pre-desktop-width) {
-      padding-top: 25px;
-      padding-left: 38px;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      padding-top: 24px;
-    }
-  }
-
   &--price {
     width: 100%;
     padding-top: 26px;
@@ -276,266 +304,3 @@
     }
   }
 }
-
-
-// .accordeon {
-//   width: 100%;
-//   max-width: 970px;
-//   border: 1px solid $mcg-1;
-
-//   &--catalog {
-//     @media (max-width: $pre-desktop-width) {
-//       border: none;
-//     }
-
-//     fieldset {
-//       @include zero-edges;
-//       border: none;
-//     }
-//   }
-// }
-
-// .accordeon__item {
-//   position: relative;
-//   padding-top: 44px;
-//   padding-bottom: 43px;
-//   padding-right: 98px;
-
-//   @media (min-width: $desktop-width) {
-//     padding-left: 42px;
-//   }
-
-//   @media (max-width: $pre-desktop-width) {
-//     padding-left: 50px;
-//   }
-
-//   @media (max-width: $pre-tablet-width) {
-//     padding-top: 17px;
-//     padding-bottom: 20px;
-//     padding-right: 58px;
-//     padding-left: 25px;
-//   }
-
-//   &:not(:last-child) {
-//     border-bottom: 1px solid $mcg-1;
-//   }
-
-//   &--catalog {
-//     padding-top: 25px;
-//     padding-right: 70px;
-//     padding-bottom: 20px;
-//     padding-left: 25px;
-
-//     @media (max-width: $pre-desktop-width) {
-//       padding-top: 35px;
-//       padding-left: 22px;
-//       padding-bottom: 32px;
-//     }
-
-//     @media (max-width: $pre-tablet-width) {
-//       padding-top: 24px;
-//       padding-bottom: 22px;
-//     }
-
-//     &:last-child {
-//       @media (max-width: $pre-desktop-width) {
-//         border-bottom: 1px solid $mcg-1;
-//       }
-//     }
-//   }
-
-//   &--price {
-//     padding-right: 25px;
-
-//     @media (max-width: $pre-desktop-width) {
-//       padding-right: 88px;
-//       padding-bottom: 41px;
-//     }
-
-//     @media (max-width: $pre-tablet-width) {
-//       padding-right: 10px;
-//       padding-bottom: 31px;
-//       padding-left: 10px;
-//     }
-//   }
-// }
-
-// .accordeon__button {
-//   --icon-color: #{$dcg-2};
-
-//   font-family:
-//     "poppins",
-//     "Arial",
-//     sans-serif;
-//   font-size: 1.8rem;
-//   line-height: 130%;
-//   font-weight: 500;
-//   text-align: left;
-//   color: $dcg-2;
-
-//   @include zero-edges;
-//   width: max-content;
-
-//   @media (max-width: $pre-tablet-width) {
-//     font-size: 1.6rem;
-//     line-height: 140%;
-//   }
-
-//   &--material {
-//     @media (max-width: $pre-tablet-width) {
-//       width: 182px;
-//     }
-//   }
-
-//   &--countries {
-//     @media (max-width: $pre-tablet-width) {
-//       width: 145px;
-//     }
-//   }
-
-//   &--payment {
-//     @media (max-width: $pre-tablet-width) {
-//       width: 160px;
-//     }
-//   }
-
-//   &--return {
-//     @media (max-width: $pre-tablet-width) {
-//       width: 210px;
-//     }
-//   }
-
-//   &--active {
-//     .accordeon__button-svg {
-//       transform: translate(-50px, 50px) rotate(180deg);
-
-//       @media (max-width: $pre-tablet-width) {
-//         transform: translate(-25px, 25px) rotate(180deg);
-//       }
-
-//       &--catalog {
-//         transform: translate(-23px, 28px) rotate(180deg);
-
-//         @media (max-width: $pre-desktop-width) {
-//           transform: translate(-40px, 40px) rotate(180deg);
-//         }
-
-//         @media (max-width: $pre-tablet-width) {
-//           transform: translate(-20px, 31px) rotate(180deg);
-//         }
-//       }
-//     }
-
-//     & + .accordeon__content {
-//       display: block;
-//     }
-//   }
-
-//   &--catalog {
-//     font-size: 1.6rem;
-
-//     @media (max-width: $pre-desktop-width) {
-//       font-size: 1.8rem;
-//     }
-//   }
-
-//   &--price {
-//     @media (max-width: $pre-tablet-width) {
-//       padding-left: 10px;
-//     }
-//   }
-
-//   &:hover,
-//   &:focus {
-//     --icon-color: #{$mcg-1};
-
-//     color: $mcg-1;
-//   }
-
-//   &:active {
-//     opacity: 0.5;
-//   }
-// }
-
-// .accordeon__button-svg {
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   transform: translate(-50px, 50px);
-
-//   @media (max-width: $pre-desktop-width) {
-//     width: 23px;
-//     height: 12px;
-//   }
-
-//   @media (max-width: $pre-tablet-width) {
-//     width: 20px;
-//     height: 10px;
-//     transform: translate(-25px, 25px);
-//   }
-
-//   &--catalog {
-//     transform: translate(-23px, 28px);
-
-//     @media (max-width: $pre-desktop-width) {
-//       transform: translate(-40px, 40px);
-//     }
-
-//     @media (max-width: $pre-tablet-width) {
-//       transform: translate(-20px, 31px);
-//     }
-//   }
-// }
-
-// .accordeon__content {
-//   @media (min-width: $desktop-width) {
-//     width: 527px;
-//     padding-left: 8px;
-//     padding-top: 8px;
-//   }
-
-//   @media (max-width: $pre-desktop-width) {
-//     padding-top: 27px;
-//   }
-
-//   @media (max-width: $pre-tablet-width) {
-//     padding-top: 18px;
-//   }
-
-//   &--js {
-//     display: none;
-//   }
-
-//   p {
-//     @include zero-edges;
-//   }
-
-//   &--catalog {
-//     width: max-content;
-//     padding-left: 34px;
-//     padding-top: 22px;
-
-//     @media (max-width: $pre-desktop-width) {
-//       padding-top: 25px;
-//       padding-left: 38px;
-//     }
-
-//     @media (max-width: $pre-tablet-width) {
-//       padding-top: 24px;
-//     }
-//   }
-
-//   &--price {
-//     width: 100%;
-//     padding-top: 26px;
-//     padding-left: 0;
-
-//     @media (max-width: $pre-desktop-width) {
-//       padding-top: 33px;
-//     }
-
-//     @media (max-width: $pre-tablet-width) {
-//       padding-top: 30px;
-//     }
-//   }
-// }

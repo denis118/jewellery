@@ -799,14 +799,6 @@
 
       item.classList.remove(jsClass);
 
-      // if (that.id === 'accordeon-main' && isMaterialItem) {
-      //   item.classList.add(jsClass);
-      // }
-
-      // if (that.id === 'accordeon-catalog' && (isProductItem || isPriceItem)) {
-      //   item.classList.add(jsClass);
-      // }
-
       switch (true) {
         case that.id === 'accordeon-main' && isMaterialItem:
         case that.id === 'accordeon-catalog' && (isProductItem || isPriceItem):

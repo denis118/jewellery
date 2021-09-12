@@ -343,6 +343,12 @@
     transform: translate(5px, 0);
   }
 
+  &--catalog {
+    @media (min-width: $desktop-width) {
+      padding-bottom: 5px;
+    }
+  }
+
   ul {
     @include casual-flex;
 
