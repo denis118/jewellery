@@ -16,31 +16,82 @@
 }
 
 .accordeon__item {
-  position: relative;
-  padding-top: 44px;
-  padding-bottom: 43px;
-  padding-right: 98px;
-
-  @media (min-width: $desktop-width) {
-    padding-left: 42px;
-  }
-
-  @media (max-width: $pre-desktop-width) {
-    padding-left: 50px;
-  }
-
-  @media (max-width: $pre-tablet-width) {
-    padding-top: 17px;
-    padding-bottom: 20px;
-    padding-right: 58px;
-    padding-left: 25px;
-  }
-
   &:not(:last-child) {
     border-bottom: 1px solid $mcg-1;
   }
 
+  .accordeon__content {
+    display: none;
+  }
+
+  &--opened {
+    padding-bottom: 42px;
+
+    @media (max-width: $pre-desktop-width) {
+      padding-bottom: 44px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      padding-bottom: 19px;
+    }
+
+    .accordeon__button {
+      padding-bottom: 4px;
+      margin-bottom: 3px;
+
+      @media (max-width: $pre-desktop-width) {
+        padding-bottom: 13px;
+        margin-bottom: 13px;
+      }
+
+      @media (max-width: $pre-tablet-width) {
+        padding-bottom: 9px;
+        margin-bottom: 9px;
+      }
+
+      &--material {
+        @media (max-width: $pre-tablet-width) {
+          padding-top: 18px;
+        }
+      }
+    }
+
+    .accordeon__button-svg {
+      transform: translate(-50px, 50px) rotate(180deg);
+
+      @media (max-width: $pre-tablet-width) {
+        transform: translate(-25px, 25px) rotate(180deg);
+      }
+    }
+
+    .accordeon__content {
+      display: block;
+      padding-left: 50px;
+
+      @media (min-width: $desktop-width) {
+        width: 555px;
+      }
+
+      @media (max-width: $pre-desktop-width) {
+        width: 580px;
+      }
+
+      @media (max-width: $pre-tablet-width) {
+        width: 230px;
+        padding-left: 25px;
+      }
+    }
+  }
+
   &--catalog {
+    &:last-child {
+      @media (max-width: $pre-desktop-width) {
+        border-bottom: 1px solid $mcg-1;
+      }
+    }
+  }
+
+  &--disclosed {
     padding-top: 25px;
     padding-right: 70px;
     padding-bottom: 20px;
@@ -57,9 +108,31 @@
       padding-bottom: 22px;
     }
 
-    &:last-child {
+    .accordeon__button {
+      font-size: 1.6rem;
+
       @media (max-width: $pre-desktop-width) {
-        border-bottom: 1px solid $mcg-1;
+        font-size: 1.8rem;
+      }
+
+      &--price {
+        @media (max-width: $pre-tablet-width) {
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .accordeon__button-svg {
+      &--catalog {
+        transform: translate(-23px, 28px) rotate(180deg);
+
+        @media (max-width: $pre-desktop-width) {
+          transform: translate(-40px, 40px) rotate(180deg);
+        }
+
+        @media (max-width: $pre-tablet-width) {
+          transform: translate(-20px, 31px) rotate(180deg);
+        }
       }
     }
   }
@@ -80,6 +153,12 @@
   }
 }
 
+.accordeon__item.content-visible {
+  .accordeon__content {
+    display: block;
+  }
+}
+
 .accordeon__button {
   --icon-color: #{$dcg-2};
 
@@ -94,74 +173,38 @@
   color: $dcg-2;
 
   @include zero-edges;
-  width: max-content;
+  position: relative;
+  width: 100%;
+  padding: 45px 100px 42px 42px;
+
+  @media (max-width: $pre-desktop-width) {
+    padding-left: 50px;
+  }
 
   @media (max-width: $pre-tablet-width) {
     font-size: 1.6rem;
     line-height: 140%;
+
+    padding-top: 20px;
+    padding-bottom: 17px;
+    padding-left: 25px;
   }
 
   &--material {
     @media (max-width: $pre-tablet-width) {
-      width: 182px;
+      padding-right: 80px;
     }
   }
 
   &--countries {
     @media (max-width: $pre-tablet-width) {
-      width: 145px;
-    }
-  }
-
-  &--payment {
-    @media (max-width: $pre-tablet-width) {
-      width: 160px;
+      padding-right: 120px;
     }
   }
 
   &--return {
     @media (max-width: $pre-tablet-width) {
-      width: 210px;
-    }
-  }
-
-  &--active {
-    .accordeon__button-svg {
-      transform: translate(-50px, 50px) rotate(180deg);
-
-      @media (max-width: $pre-tablet-width) {
-        transform: translate(-25px, 25px) rotate(180deg);
-      }
-
-      &--catalog {
-        transform: translate(-23px, 28px) rotate(180deg);
-
-        @media (max-width: $pre-desktop-width) {
-          transform: translate(-40px, 40px) rotate(180deg);
-        }
-
-        @media (max-width: $pre-tablet-width) {
-          transform: translate(-20px, 31px) rotate(180deg);
-        }
-      }
-    }
-
-    & + .accordeon__content {
-      display: block;
-    }
-  }
-
-  &--catalog {
-    font-size: 1.6rem;
-
-    @media (max-width: $pre-desktop-width) {
-      font-size: 1.8rem;
-    }
-  }
-
-  &--price {
-    @media (max-width: $pre-tablet-width) {
-      padding-left: 10px;
+      padding-right: 50px;
     }
   }
 
@@ -170,6 +213,7 @@
     --icon-color: #{$mcg-1};
 
     color: $mcg-1;
+    background-color: $mcg-9;
   }
 
   &:active {
@@ -208,24 +252,6 @@
 }
 
 .accordeon__content {
-  @media (min-width: $desktop-width) {
-    width: 527px;
-    padding-left: 8px;
-    padding-top: 8px;
-  }
-
-  @media (max-width: $pre-desktop-width) {
-    padding-top: 27px;
-  }
-
-  @media (max-width: $pre-tablet-width) {
-    padding-top: 18px;
-  }
-
-  &--js {
-    display: none;
-  }
-
   p {
     @include zero-edges;
   }

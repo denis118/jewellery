@@ -120,7 +120,7 @@
 .slider__padded-box {
   @include padded-box;
   padding-bottom: $ratio-slider-desktop;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 
   @media (max-width: $pre-desktop-width) {
     padding-bottom: $ratio-slider-tablet;

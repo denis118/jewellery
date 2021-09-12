@@ -770,30 +770,26 @@
 
     that.activate = function () {
       that.root = rootElement;
-      that.buttons = Array.from(that.root.querySelectorAll('.accordeon__button'));
-      that.contents = Array.from(that.root.querySelectorAll('.accordeon__content'));
+      that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
 
       that.addContentJsStyles();
       return that;
     };
 
     that.addContentJsStyles = function () {
-      that.contents.forEach(function (item) {
+      that.items.forEach(function (item) {
         that.hideContent(item);
       });
     };
 
     that.hideContent = function (item) {
-      item.classList.add('accordeon__content--js');
+      item.classList.remove('accordeon__item--opened');
 
       switch (true) {
-        case item.matches('.faq__first-answer'):
-        case item.matches('.accordeon__content--products'):
-        case item.matches('.accordeon__content--price'):
-          item
-              .previousElementSibling
-              .classList
-              .add('accordeon__button--active');
+        case item.matches('.accordeon__item--material'):
+        case item.matches('.accordeon__item--product'):
+        case item.matches('.accordeon__item--price'):
+          item.classList.add('accordeon__item--opened');
           break;
 
         default:
@@ -804,28 +800,10 @@
     that.onAccordeonClick = function (evt) {
       if (evt.target.closest('.accordeon__button')) {
         evt.target
-            .closest('.accordeon__button')
-            .classList.toggle('accordeon__button--active');
+            .closest('.accordeon__item')
+            .classList.toggle('accordeon__item--opened');
       }
     };
-
-    // that.onAccordeonClick = function (evt) {
-    //   if (evt.target.closest('.accordeon__item')) {
-    //     evt.target
-    //         .closest('.accordeon__item')
-    //         .querySelector('.accordeon__button')
-    //         .classList.toggle('accordeon__button--active');
-    //   }
-    // };
-
-    // that.onDocumentKeyDown = function (evt) {
-    //   if (isSpaceEvent(evt) && document.activeElement.matches('.accordeon__item')) {
-    //     evt.preventDefault();
-    //     document.activeElement
-    //         .querySelector('.accordeon__button')
-    //         .classList.toggle('accordeon__button--active');
-    //   }
-    // };
 
     that.setEventListeners = function () {
       that.root.addEventListener('click', that.onAccordeonClick);
