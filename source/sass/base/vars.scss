@@ -12,6 +12,19 @@ $mobile-width: 320px;
 // local
 $aux-viewport-footer: 1170px;
 
+$aux-viewport-subscription-1: $pre-tablet-width;
+$aux-viewport-subscription-2: 720px;
+$aux-viewport-subscription-3: 648px;
+$aux-viewport-subscription-4: 561px;
+$aux-viewport-subscription-5: 515px;
+$aux-viewport-subscription-6: 472px;
+$aux-viewport-subscription-7: 437px;
+$aux-viewport-subscription-8: 409px;
+$aux-viewport-subscription-9: 382px;
+$aux-viewport-subscription-10: 352px;
+$aux-viewport-subscription-11: 338px;
+$aux-viewport-subscription-12: $mobile-width;
+
 //
 // colors
 //
@@ -55,10 +68,21 @@ $ratio-slider-mobile: 104.615386%;
 $ratio-subscription-large: 103.258145%;
 $ratio-subscription-initial: 100%;
 $ratio-subscription-big: 65.217391%;
-// $ratio-subscription-moderate: 103.896104%;
 $ratio-subscription-moderate: 103%;
-$ratio-subscription-middle: 185.714286%;
 $ratio-subscription-small: 65.413534%;
+
+$ratio-subscription-middle-1: 174%;
+$ratio-subscription-middle-2: 175%;
+$ratio-subscription-middle-3: 176%;
+$ratio-subscription-middle-4: 177%;
+$ratio-subscription-middle-5: 178%;
+$ratio-subscription-middle-6: 179%;
+$ratio-subscription-middle-7: 180%;
+$ratio-subscription-middle-8: 181%;
+$ratio-subscription-middle-9: 182%;
+$ratio-subscription-middle-10: 183%;
+$ratio-subscription-middle-11: 184%;
+$ratio-subscription-middle-12: 185%;
 
 //
 // backgrounds
