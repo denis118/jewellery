@@ -26,8 +26,15 @@
   }
 }
 
+
 .hidden-on-mobile {
   @media (max-width: $pre-tablet-width) {
+    display: none;
+  }
+}
+
+.hidden-after-accordeon-aux-break-point {
+  @media (min-width: $aux-viewport-accordeon) {
     display: none;
   }
 }
