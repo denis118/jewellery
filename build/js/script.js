@@ -761,7 +761,6 @@
     return;
   }
 
-  // var isSpaceEvent = window.utility.isSpaceEvent;
   var useMethod = window.utility.useMethod;
   window.accordeon = {};
 
@@ -828,14 +827,12 @@
       }
     };
 
-    that.setEventListeners = function () {
+    that.setEventListener = function () {
       that.root.addEventListener('click', that.onAccordeonClick);
-      // document.addEventListener('keydown', that.onDocumentKeyDown);
     };
 
-    that.eraseEventListeners = function () {
+    that.eraseEventListener = function () {
       that.root.removeEventListener('click', that.onAccordeonClick);
-      // document.removeEventListener('keydown', that.onDocumentKeyDown);
     };
 
     return that;
@@ -843,11 +840,11 @@
 
   accordeons.forEach(function (it) {
     var accordeon = initAccordeon(it);
-    accordeon.activate().setEventListeners();
+    accordeon.activate().setEventListener();
     window.accordeon[accordeon.root.id] = accordeon;
   });
 
-  var onWindowBeforeunload = useMethod('accordeon', 'eraseEventListeners');
+  var onWindowBeforeunload = useMethod('accordeon', 'eraseEventListener');
 
   // export
   window.accordeonDestroyer = {

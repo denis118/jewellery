@@ -143,10 +143,12 @@
 
       &--price {
         padding-right: 27px;
+        padding-bottom: 3px;
         padding-left: 25px;
 
         @media (max-width: $pre-desktop-width) {
           padding-right: 89px;
+          padding-bottom: 10px;
           padding-left: 26px;
         }
 
@@ -155,18 +157,6 @@
           padding-left: 10px;
         }
       }
-    }
-  }
-
-  &--price {
-    padding-bottom: 21px;
-
-    @media (max-width: $pre-desktop-width) {
-      padding-bottom: 41px;
-    }
-
-    @media (max-width: $pre-tablet-width) {
-      padding-bottom: 31px;
     }
   }
 }
