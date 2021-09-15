@@ -273,17 +273,13 @@
   flex-wrap: wrap;
 
   @media (max-width: $pre-desktop-width) {
-    transform: translate(0, 0);
+    transform: translate(-2px, 0);
   }
 }
 
 .slider__frame-button-item {
   &:not(:last-child) {
     margin-right: 12px;
-
-    @media (max-width: $pre-desktop-width) {
-      margin-right: 14px;
-    }
   }
 
   &--catalog {

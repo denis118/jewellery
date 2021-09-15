@@ -159,3 +159,9 @@
     filter: hue-rotate(90deg);
   }
 }
+
+@mixin no-zoom {
+  font-size: 1.6rem;
+  transform-origin: top left;
+  transform: scale(0.875); //  14px / 16px
+}

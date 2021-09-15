@@ -91,7 +91,7 @@
 
   @media (max-width: $pre-desktop-width) {
     width: 100%;
-    margin-bottom: 48px;
+    margin-bottom: 41px;
   }
 
   h3 {
@@ -115,7 +115,7 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -151,7 +151,7 @@
     color: $lcg-1;
 
     padding-top: 14px;
-    padding-right: 110px;
+    padding-right: 130px;
     padding-bottom: 7px;
     padding-left: 0;
 
@@ -160,8 +160,18 @@
     outline: none;
     border-radius: 0;
 
+    @media (max-width: $pre-desktop-width) {
+      @include no-zoom;
+      width: 114.5%;
+      padding-bottom: 10px;
+    }
+
     @media (max-width: $pre-tablet-width) {
-      padding-bottom: 6px;
+      width: 100%;
+      padding-right: 110px;
+      padding-bottom: 9px;
+      transform: scale(0.875) scaleX(1.146);
+      letter-spacing: -0.083em;
     }
 
     &:hover,
@@ -195,6 +205,10 @@
   top: 50%;
   right: 0;
   transform: translate(2px, -35%);
+
+  @media (max-width: $pre-desktop-width) {
+    transform: translate(2px, -50%);
+  }
 
   span {
     @include inherit-text-style;
@@ -253,8 +267,18 @@
 }
 
 .footer__delivery-item {
+  @media (max-width: $pre-desktop-width) {
+    margin-top: 3px;
+  }
+
   @media (max-width: $pre-tablet-width) {
     margin-top: 1px;
+  }
+}
+
+.footer__twitter-item {
+  @media (max-width: $pre-desktop-width) {
+    margin-top: 3px;
   }
 }
 
@@ -338,7 +362,7 @@
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(0, -1px) scale(1.2);
+          transform: translate(0, 0) scale(1.2);
         }
       }
 
@@ -354,11 +378,11 @@
 
       &--twitter {
         @media (max-width: $pre-desktop-width) {
-          transform: translate(1px, -50%) scale(1.2);
+          transform: translate(1px, -55%) scale(1.2);
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(0, 2px) scale(1.2);
+          transform: translate(0, 0) scale(1.2);
         }
       }
     }
@@ -412,7 +436,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      transform: translate(0, -1px) scale(1.01);
+      transform: translate(0, 0) scale(1.01);
     }
   }
 
@@ -428,13 +452,13 @@
 
   &--twitter {
     @media (max-width: $pre-desktop-width) {
-      transform: translate(1px, -50%);
+      transform: translate(1px, -55%);
     }
 
     @media (max-width: $pre-tablet-width) {
       width: 20px;
       height: 18px;
-      transform: translate(0, 2px);
+      transform: translate(0, 0);
     }
   }
 }
