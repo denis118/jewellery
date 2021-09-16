@@ -62,18 +62,15 @@
     text-align: center;
 
     @media (min-width: $desktop-width) {
-      // margin-bottom: 23px;
       margin-bottom: 32px;
     }
 
     @media (max-width: $pre-desktop-width) {
-      // margin-bottom: 24px;
       margin-bottom: 32px;
     }
 
     @media (max-width: $pre-tablet-width) {
       font-size: 2.4rem;
-      // margin-bottom: 17px;
       margin-bottom: 25px;
     }
   }
@@ -117,15 +114,10 @@
     font-weight: inherit;
     color: $dcg-2;
 
-    // width: 100%;
-    padding-top: 8px;
-    // padding-bottom: 8px;
-
     @include no-zoom;
     width: 114.5%;
     padding-top: 2px;
     padding-bottom: 10px;
-
     padding-left: 0;
     border: 1px solid transparent;
     outline: none;
@@ -148,14 +140,11 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      // margin-bottom: 23px;
       margin-bottom: 25px;
     }
 
     input {
       transform-origin: -13px 0;
-      // padding-top: 2px;
-      // padding-bottom: 10px;
     }
   }
 
@@ -168,7 +157,6 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      // margin-bottom: 58px;
       margin-bottom: 54px;
     }
 
@@ -186,8 +174,7 @@
   position: absolute;
   right: 0;
   top: 100%;
-  // transform: translate(0, 6px);
-  transform: translate(0, 0px);
+  transform: translate(0, 0);
   width: max-content;
 
   @include casual-interactive-style;
