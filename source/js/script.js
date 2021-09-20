@@ -28,11 +28,6 @@
     return evt.key === 'Tab';
   };
 
-  // Space event
-  var isSpaceEvent = function (evt) {
-    return evt.code === 'Space' || evt.key === ' ';
-  };
-
   // attributeSet
   var attributeSet = {
     'role': 'dialog',
@@ -155,7 +150,6 @@
     isPreTabletWidth: isPreTabletWidth,
     isEscEvent: isEscEvent,
     isTabEvent: isTabEvent,
-    isSpaceEvent: isSpaceEvent,
     setAttributes: setAttributes,
     resetAttributes: resetAttributes,
     trapTabKey: trapTabKey,
@@ -186,7 +180,6 @@
   var moveFocusIn = window.utility.moveFocusIn;
   var trapTabKey = window.utility.trapTabKey;
   var onBodyFocus = window.utility.onBodyFocus;
-
   var getCurrentMode = window.utility.getCurrentMode;
 
   var manageHeader = function () {
