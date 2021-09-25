@@ -8,38 +8,27 @@
   var DESKTOP_WIDTH = 1024;
   var TABLET_WIDTH = 768;
 
-  // isPreDesktopWidth
   var isPreDesktopWidth = function () {
     return document.documentElement.clientWidth < DESKTOP_WIDTH;
   };
 
-  // isPreTabletWidth
   var isPreTabletWidth = function () {
     return document.documentElement.clientWidth < TABLET_WIDTH;
   };
 
-  // ESC event
   var isEscEvent = function (evt) {
     return evt.key === 'Escape' || evt.key === 'Esc';
   };
 
-  // TAB event
   var isTabEvent = function (evt) {
     return evt.key === 'Tab';
   };
 
-  // Space event
-  var isSpaceEvent = function (evt) {
-    return evt.code === 'Space' || evt.key === ' ';
-  };
-
-  // attributeSet
   var attributeSet = {
     'role': 'dialog',
     'aria-modal': true
   };
 
-  // setAttributes
   var setAttributes = function (element) {
     for (var attribute in attributeSet) {
       if (attributeSet.hasOwnProperty(attribute)) {
@@ -48,7 +37,6 @@
     }
   };
 
-  // resetAttributes
   var resetAttributes = function (element) {
     for (var attribute in attributeSet) {
       if (attributeSet.hasOwnProperty(attribute)) {
@@ -57,7 +45,6 @@
     }
   };
 
-  // focusable elements' selectors
   var focusableSelectors = [
     'a[href]:not([tabindex^="-"])',
     'area[href]:not([tabindex^="-"])',
@@ -73,7 +60,6 @@
     '[tabindex]:not([tabindex^="-"])',
   ];
 
-  // isVisible
   var isVisible = function (element) {
     return element.offsetWidth
       || element.offsetHeight
@@ -82,7 +68,6 @@
       : false;
   };
 
-  // getFocusableChildren
   var getFocusableChildren = function (element) {
     return Array.from(
         element
@@ -90,7 +75,6 @@
     ).filter(isVisible);
   };
 
-  // moveFocusIn
   var moveFocusIn = function (element) {
     var target = element.querySelector('[autofocus]')
       || getFocusableChildren(element)[0];
@@ -100,7 +84,6 @@
     }
   };
 
-  // trapTabKey
   var trapTabKey = function (evt, element) {
     var focusableChildren = getFocusableChildren(element);
     var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
@@ -116,7 +99,6 @@
     }
   };
 
-  // onBodyFocus
   var onBodyFocus = function (evt, element) {
     var isInDialog = evt.target.closest('[aria-modal="true"]');
 
@@ -125,7 +107,6 @@
     }
   };
 
-  // getCurrentMode
   var getCurrentMode = function () {
     var width = document.documentElement.clientWidth;
 
@@ -140,7 +121,6 @@
     return 'mobile';
   };
 
-  // useMethod
   var useMethod = function (objectName, method) {
     return function () {
       Object.keys(window[objectName]).forEach(function (key) {
@@ -155,7 +135,6 @@
     isPreTabletWidth: isPreTabletWidth,
     isEscEvent: isEscEvent,
     isTabEvent: isTabEvent,
-    isSpaceEvent: isSpaceEvent,
     setAttributes: setAttributes,
     resetAttributes: resetAttributes,
     trapTabKey: trapTabKey,
@@ -165,6 +144,346 @@
     useMethod: useMethod
   };
 })();
+
+'use strict';
+
+//
+// accordeon
+//
+
+(function () {
+  var accordeons = Array.from(document.querySelectorAll('.accordeon'));
+
+  if (!accordeons.length) {
+    return;
+  }
+
+  var useMethod = window.utility.useMethod;
+  window.accordeon = {};
+
+  var initAccordeon = function (rootElement) {
+    var that = {};
+
+    that.activate = function () {
+      that.root = rootElement;
+      that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
+      that.id = that.root.id;
+
+      that.addContentJsStyles();
+      return that;
+    };
+
+    that.addContentJsStyles = function () {
+      that.items.forEach(function (item) {
+        that.hideContent(item);
+      });
+    };
+
+    that.hideContent = function (item) {
+      var jsClass = null;
+      var isMaterialItem = item.matches('.accordeon__item--material');
+      var isProductItem = item.matches('.accordeon__item--product');
+      var isPriceItem = item.matches('.accordeon__item--price');
+
+      if (that.id === 'accordeon-main') {
+        jsClass = 'accordeon__item--opened';
+      }
+
+      if (that.id === 'accordeon-catalog') {
+        jsClass = 'accordeon__item--disclosed';
+      }
+
+      item.classList.remove(jsClass);
+
+      switch (true) {
+        case that.id === 'accordeon-main' && isMaterialItem:
+        case that.id === 'accordeon-catalog' && (isProductItem || isPriceItem):
+          item.classList.add(jsClass);
+          break;
+
+        default:
+          break;
+      }
+    };
+
+    that.onAccordeonClick = function (evt) {
+      if (!evt.target.closest('.accordeon__button')) {
+        return;
+      }
+
+      if (that.id === 'accordeon-main') {
+        evt.target
+            .closest('.accordeon__item')
+            .classList.toggle('accordeon__item--opened');
+      }
+
+      if (that.id === 'accordeon-catalog') {
+        evt.target
+            .closest('.accordeon__item')
+            .classList.toggle('accordeon__item--disclosed');
+      }
+    };
+
+    that.setEventListener = function () {
+      that.root.addEventListener('click', that.onAccordeonClick);
+    };
+
+    that.eraseEventListener = function () {
+      that.root.removeEventListener('click', that.onAccordeonClick);
+    };
+
+    return that;
+  };
+
+  accordeons.forEach(function (it) {
+    var accordeon = initAccordeon(it);
+    accordeon.activate().setEventListener();
+    window.accordeon[accordeon.root.id] = accordeon;
+  });
+
+  var onWindowBeforeunload = useMethod('accordeon', 'eraseEventListener');
+
+  // export
+  window.accordeonDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
+  };
+})();
+
+'use strict';
+
+//
+// filter
+//
+
+(function () {
+  var filter = document.querySelector('.filter');
+
+  if (!filter) {
+    return;
+  }
+
+  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
+  var isTabEvent = window.utility.isTabEvent;
+  var isEscEvent = window.utility.isEscEvent;
+  var setAttributes = window.utility.setAttributes;
+  var resetAttributes = window.utility.resetAttributes;
+  var moveFocusIn = window.utility.moveFocusIn;
+  var trapTabKey = window.utility.trapTabKey;
+  var onBodyFocus = window.utility.onBodyFocus;
+
+  var manageFilter = function () {
+    var that = {};
+
+    that.activate = function () {
+      var _ = that;
+
+      _.filter = filter;
+      _.inner = _.filter.querySelector('.filter__inner');
+      _.formBox = _.filter.querySelector('.filter__form-box');
+      _.starter = _.filter.querySelector('.filter__starter');
+      _.cross = _.filter.querySelector('.filter__cross');
+      _.body = document.body;
+      _.isShown = false;
+
+      _.starter.addEventListener('click', _.onStarterClick);
+      return that;
+    };
+
+    that.setAttributes = function () {
+      if (isPreDesktopWidth()) {
+        setAttributes(that.filter);
+      }
+
+      return that;
+    };
+
+    that.resetAttributes = function () {
+      if (!isPreDesktopWidth()) {
+        resetAttributes(that.filter);
+      }
+
+      return that;
+    };
+
+    that.show = function () {
+      var _ = that;
+
+      _.isShown = true;
+      _.previouslyFocused = document.activeElement;
+
+      _.body.classList.add('scroll-stop');
+      _.inner.classList.add('overlay');
+      _.filter.classList.add('filter--js');
+      _.starter.setAttribute('tabindex', '-1');
+
+      _.setEventListeners();
+      moveFocusIn(_.filter);
+    };
+
+    that.hide = function () {
+      var _ = that;
+
+      if (_.previouslyFocused && _.previouslyFocused.focus) {
+        _.previouslyFocused.focus();
+      }
+
+      _.isShown = false;
+      _.body.classList.remove('scroll-stop');
+      _.inner.classList.remove('overlay');
+      _.filter.classList.remove('filter--js');
+      _.starter.removeAttribute('tabindex');
+
+      _.eraseEventListeners();
+    };
+
+    that.onStarterClick = function () {
+      if (!that.isShown) {
+        that.show();
+      }
+    };
+
+    that.onCrossClick = function () {
+      if (that.isShown) {
+        that.hide();
+      }
+    };
+
+    that.onInnerClick = function (evt) {
+      if (evt.target !== that.inner) {
+        return;
+      }
+
+      that.hide();
+    };
+
+    that.onBodyFocus = function (evt) {
+      onBodyFocus(evt, that.filter);
+    };
+
+    that.onDocumentKeyDown = function (evt) {
+      if (isTabEvent(evt)) {
+        trapTabKey(evt, that.filter);
+      }
+
+      if (isEscEvent(evt)) {
+        that.hide();
+      }
+    };
+
+    that.setEventListeners = function () {
+      that.cross.addEventListener('click', that.onCrossClick);
+      that.inner.addEventListener('click', that.onInnerClick);
+      that.body.addEventListener('focus', that.onBodyFocus, true);
+      document.addEventListener('keydown', that.onDocumentKeyDown);
+    };
+
+    that.eraseEventListeners = function () {
+      that.cross.removeEventListener('click', that.onCrossClick);
+      that.inner.removeEventListener('click', that.onInnerClick);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
+    };
+
+    that.destroy = function () {
+      that.starter.removeEventListener('click', that.onStarterClick);
+      that.eraseEventListeners();
+    };
+
+    return that;
+  };
+
+  var filterManager = manageFilter();
+  filterManager.activate().setAttributes();
+
+  var onWindowResize = (function () {
+    var isWorkedOnPreDesktopWidth = false;
+    var isWorkedOnDesktopWidth = false;
+
+    return function () {
+      if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
+        filterManager.resetAttributes().hide();
+        isWorkedOnPreDesktopWidth = false;
+        isWorkedOnDesktopWidth = true;
+        return;
+      }
+
+      if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
+        filterManager.setAttributes().setEventListeners();
+        isWorkedOnPreDesktopWidth = true;
+        isWorkedOnDesktopWidth = false;
+      }
+    };
+  })();
+
+  window.addEventListener('resize', onWindowResize);
+
+  var onWindowBeforeunload = function () {
+    filterManager.destroy();
+    window.removeEventListener('resize', onWindowResize);
+  };
+
+  // export
+  window.filterDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
+  };
+})();
+
+//
+// filter cleaner
+//
+
+(function () {
+  var filterCleaner = document.querySelector('#filter-cleaner')
+    ? document.querySelector('#filter-cleaner')
+    : null;
+
+  if (!filterCleaner) {
+    return;
+  }
+
+  var filterId = filterCleaner.dataset.for;
+  var filter = document.querySelector(filterId);
+  var checkboxes = filter.querySelectorAll('input[type="checkbox"]');
+
+  var lowerCostSpan = filter.querySelector('#lower-cost-span');
+  var upperCostSpan = filter.querySelector('#upper-cost-span');
+  var lowerCostText = lowerCostSpan.innerText;
+  var upperCostText = upperCostSpan.innerText;
+
+  var lowerCostInput = filter.querySelector('#lower-cost-input');
+  var upperCostInput = filter.querySelector('#upper-cost-input');
+  var lowerCostValue = lowerCostInput.value;
+  var upperCostValue = upperCostInput.value;
+
+  var onFilterCleanerClick = function () {
+    checkboxes.forEach(function (item) {
+      if (item.hasAttribute('data-checked')) {
+        item.checked = item.dataset.checked;
+      } else {
+        item.checked = false;
+      }
+    });
+
+    lowerCostSpan.innerText = lowerCostText;
+    upperCostSpan.innerText = upperCostText;
+    lowerCostInput.value = lowerCostValue;
+    upperCostInput.value = upperCostValue;
+  };
+
+  filterCleaner.addEventListener('click', onFilterCleanerClick);
+
+  var onWindowBeforeunload = function () {
+    filterCleaner.removeEventListener('click', onFilterCleanerClick);
+    window.removeEventListener('beforeunload', onWindowBeforeunload);
+  };
+
+  // export
+  window.filterCleanerDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
+  };
+})();
+
+'use strict';
 
 //
 // header
@@ -186,7 +505,6 @@
   var moveFocusIn = window.utility.moveFocusIn;
   var trapTabKey = window.utility.trapTabKey;
   var onBodyFocus = window.utility.onBodyFocus;
-
   var getCurrentMode = window.utility.getCurrentMode;
 
   var manageHeader = function () {
@@ -348,6 +666,171 @@
     onWindowBeforeunload: onWindowBeforeunload
   };
 })();
+
+'use strict';
+
+//
+// login
+//
+
+(function () {
+  var loginLinks = Array.from(document.querySelectorAll('.login-link'));
+  var loginModal = document.querySelector('#modal-login');
+
+  if (!loginLinks.length || !loginModal) {
+    return;
+  }
+
+  if (window.localStorage) {
+    var email = loginModal.querySelector('.login__input--email')
+      ? loginModal.querySelector('.login__input--email')
+      : null;
+
+    if (email) {
+      var name = email.getAttribute('name');
+      email.value = localStorage.getItem(name) || email.value;
+      email.onkeyup = function () {
+        localStorage.setItem(name, email.value);
+      };
+    }
+  }
+
+  var isTabEvent = window.utility.isTabEvent;
+  var isEscEvent = window.utility.isEscEvent;
+  var setAttributes = window.utility.setAttributes;
+  var resetAttributes = window.utility.resetAttributes;
+  var moveFocusIn = window.utility.moveFocusIn;
+  var trapTabKey = window.utility.trapTabKey;
+  var onBodyFocus = window.utility.onBodyFocus;
+
+  var manageLogin = function () {
+    var that = {};
+
+    that.activate = function () {
+      var _ = that;
+
+      _.loginLinks = loginLinks;
+      _.loginModal = loginModal;
+      _.cross = _.loginModal.querySelector('.login__cross');
+      _.body = document.body;
+      _.isShown = false;
+
+      _.loginLinks.forEach(function (link) {
+        link.addEventListener('click', _.onLoginLinkClick);
+      });
+      return that;
+    };
+
+    that.setAttributes = function () {
+      setAttributes(that.loginModal);
+      return that;
+    };
+
+    that.resetAttributes = function () {
+      resetAttributes(that.loginModal);
+      return that;
+    };
+
+    that.show = function () {
+      var _ = that;
+
+      _.isShown = true;
+      _.previouslyFocused = document.activeElement;
+
+      _.body.classList.add('scroll-stop');
+      _.loginModal.classList.remove('hidden-entity');
+
+      _.setEventListeners();
+      moveFocusIn(_.loginModal);
+    };
+
+    that.hide = function () {
+      var _ = that;
+
+      if (_.previouslyFocused && _.previouslyFocused.focus) {
+        _.previouslyFocused.focus();
+      }
+
+      _.isShown = false;
+      _.body.classList.remove('scroll-stop');
+      _.loginModal.classList.add('hidden-entity');
+
+      _.eraseEventListeners();
+    };
+
+    that.onLoginLinkClick = function (evt) {
+      evt.preventDefault();
+      if (!that.isShown) {
+        that.show();
+      }
+    };
+
+    that.onCrossClick = function () {
+      if (that.isShown) {
+        that.hide();
+      }
+    };
+
+    that.onLoginModalClick = function (evt) {
+      if (evt.target !== that.loginModal) {
+        return;
+      }
+
+      that.hide();
+    };
+
+    that.onBodyFocus = function (evt) {
+      onBodyFocus(evt, that.loginModal);
+    };
+
+    that.onDocumentKeyDown = function (evt) {
+      if (isTabEvent(evt)) {
+        trapTabKey(evt, that.loginModal);
+      }
+
+      if (isEscEvent(evt)) {
+        that.hide();
+      }
+    };
+
+    that.setEventListeners = function () {
+      that.loginModal.addEventListener('click', that.onLoginModalClick);
+      that.cross.addEventListener('click', that.onCrossClick);
+      that.body.addEventListener('focus', that.onBodyFocus, true);
+      document.addEventListener('keydown', that.onDocumentKeyDown);
+    };
+
+    that.eraseEventListeners = function () {
+      that.loginModal.removeEventListener('click', that.onLoginModalClick);
+      that.cross.removeEventListener('click', that.onCrossClick);
+      that.body.removeEventListener('focus', that.onBodyFocus, true);
+      document.removeEventListener('keydown', that.onDocumentKeyDown);
+    };
+
+    that.destroy = function () {
+      that.loginLinks.forEach(function (link) {
+        link.removeEventListener('click', that.onLoginLinkClick);
+      });
+      that.eraseEventListeners();
+    };
+
+    return that;
+  };
+
+  var loginManager = manageLogin();
+  loginManager.activate().setAttributes();
+
+  var onWindowBeforeunload = function () {
+    loginManager.destroy();
+  };
+
+  // export
+  window.loginDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
+  };
+})();
+
+'use strict';
 
 //
 // slider
@@ -750,500 +1233,7 @@
   };
 })();
 
-//
-// accordeon
-//
-
-(function () {
-  var accordeons = Array.from(document.querySelectorAll('.accordeon'));
-
-  if (!accordeons.length) {
-    return;
-  }
-
-  var useMethod = window.utility.useMethod;
-  window.accordeon = {};
-
-  var initAccordeon = function (rootElement) {
-    var that = {};
-
-    that.activate = function () {
-      that.root = rootElement;
-      that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
-      that.id = that.root.id;
-
-      that.addContentJsStyles();
-      return that;
-    };
-
-    that.addContentJsStyles = function () {
-      that.items.forEach(function (item) {
-        that.hideContent(item);
-      });
-    };
-
-    that.hideContent = function (item) {
-      var jsClass = null;
-      var isMaterialItem = item.matches('.accordeon__item--material');
-      var isProductItem = item.matches('.accordeon__item--product');
-      var isPriceItem = item.matches('.accordeon__item--price');
-
-      if (that.id === 'accordeon-main') {
-        jsClass = 'accordeon__item--opened';
-      }
-
-      if (that.id === 'accordeon-catalog') {
-        jsClass = 'accordeon__item--disclosed';
-      }
-
-      item.classList.remove(jsClass);
-
-      switch (true) {
-        case that.id === 'accordeon-main' && isMaterialItem:
-        case that.id === 'accordeon-catalog' && (isProductItem || isPriceItem):
-          item.classList.add(jsClass);
-          break;
-
-        default:
-          break;
-      }
-    };
-
-    that.onAccordeonClick = function (evt) {
-      if (!evt.target.closest('.accordeon__button')) {
-        return;
-      }
-
-      if (that.id === 'accordeon-main') {
-        evt.target
-            .closest('.accordeon__item')
-            .classList.toggle('accordeon__item--opened');
-      }
-
-      if (that.id === 'accordeon-catalog') {
-        evt.target
-            .closest('.accordeon__item')
-            .classList.toggle('accordeon__item--disclosed');
-      }
-    };
-
-    that.setEventListener = function () {
-      that.root.addEventListener('click', that.onAccordeonClick);
-    };
-
-    that.eraseEventListener = function () {
-      that.root.removeEventListener('click', that.onAccordeonClick);
-    };
-
-    return that;
-  };
-
-  accordeons.forEach(function (it) {
-    var accordeon = initAccordeon(it);
-    accordeon.activate().setEventListener();
-    window.accordeon[accordeon.root.id] = accordeon;
-  });
-
-  var onWindowBeforeunload = useMethod('accordeon', 'eraseEventListener');
-
-  // export
-  window.accordeonDestroyer = {
-    onWindowBeforeunload: onWindowBeforeunload
-  };
-})();
-
-//
-// filter
-//
-
-(function () {
-  var filter = document.querySelector('.filter');
-
-  if (!filter) {
-    return;
-  }
-
-  var isPreDesktopWidth = window.utility.isPreDesktopWidth;
-  var isTabEvent = window.utility.isTabEvent;
-  var isEscEvent = window.utility.isEscEvent;
-  var setAttributes = window.utility.setAttributes;
-  var resetAttributes = window.utility.resetAttributes;
-  var moveFocusIn = window.utility.moveFocusIn;
-  var trapTabKey = window.utility.trapTabKey;
-  var onBodyFocus = window.utility.onBodyFocus;
-
-  var manageFilter = function () {
-    var that = {};
-
-    that.activate = function () {
-      var _ = that;
-
-      _.filter = filter;
-      _.inner = _.filter.querySelector('.filter__inner');
-      _.formBox = _.filter.querySelector('.filter__form-box');
-      _.starter = _.filter.querySelector('.filter__starter');
-      _.cross = _.filter.querySelector('.filter__cross');
-      _.body = document.body;
-      _.isShown = false;
-
-      _.starter.addEventListener('click', _.onStarterClick);
-      return that;
-    };
-
-    that.setAttributes = function () {
-      if (isPreDesktopWidth()) {
-        setAttributes(that.filter);
-      }
-
-      return that;
-    };
-
-    that.resetAttributes = function () {
-      if (!isPreDesktopWidth()) {
-        resetAttributes(that.filter);
-      }
-
-      return that;
-    };
-
-    that.show = function () {
-      var _ = that;
-
-      _.isShown = true;
-      _.previouslyFocused = document.activeElement;
-
-      _.body.classList.add('scroll-stop');
-      _.inner.classList.add('overlay');
-      _.filter.classList.add('filter--js');
-      _.starter.setAttribute('tabindex', '-1');
-
-      _.setEventListeners();
-      moveFocusIn(_.filter);
-    };
-
-    that.hide = function () {
-      var _ = that;
-
-      if (_.previouslyFocused && _.previouslyFocused.focus) {
-        _.previouslyFocused.focus();
-      }
-
-      _.isShown = false;
-      _.body.classList.remove('scroll-stop');
-      _.inner.classList.remove('overlay');
-      _.filter.classList.remove('filter--js');
-      _.starter.removeAttribute('tabindex');
-
-      _.eraseEventListeners();
-    };
-
-    that.onStarterClick = function () {
-      if (!that.isShown) {
-        that.show();
-      }
-    };
-
-    that.onCrossClick = function () {
-      if (that.isShown) {
-        that.hide();
-      }
-    };
-
-    that.onInnerClick = function (evt) {
-      if (evt.target !== that.inner) {
-        return;
-      }
-
-      that.hide();
-    };
-
-    that.onBodyFocus = function (evt) {
-      onBodyFocus(evt, that.filter);
-    };
-
-    that.onDocumentKeyDown = function (evt) {
-      if (isTabEvent(evt)) {
-        trapTabKey(evt, that.filter);
-      }
-
-      if (isEscEvent(evt)) {
-        that.hide();
-      }
-    };
-
-    that.setEventListeners = function () {
-      that.cross.addEventListener('click', that.onCrossClick);
-      that.inner.addEventListener('click', that.onInnerClick);
-      that.body.addEventListener('focus', that.onBodyFocus, true);
-      document.addEventListener('keydown', that.onDocumentKeyDown);
-    };
-
-    that.eraseEventListeners = function () {
-      that.cross.removeEventListener('click', that.onCrossClick);
-      that.inner.removeEventListener('click', that.onInnerClick);
-      that.body.removeEventListener('focus', that.onBodyFocus, true);
-      document.removeEventListener('keydown', that.onDocumentKeyDown);
-    };
-
-    that.destroy = function () {
-      that.starter.removeEventListener('click', that.onStarterClick);
-      that.eraseEventListeners();
-    };
-
-    return that;
-  };
-
-  var filterManager = manageFilter();
-  filterManager.activate().setAttributes();
-
-  var onWindowResize = (function () {
-    var isWorkedOnPreDesktopWidth = false;
-    var isWorkedOnDesktopWidth = false;
-
-    return function () {
-      if (!isPreDesktopWidth() && !isWorkedOnDesktopWidth) {
-        filterManager.resetAttributes().hide();
-        isWorkedOnPreDesktopWidth = false;
-        isWorkedOnDesktopWidth = true;
-        return;
-      }
-
-      if (isPreDesktopWidth() && !isWorkedOnPreDesktopWidth) {
-        filterManager.setAttributes().setEventListeners();
-        isWorkedOnPreDesktopWidth = true;
-        isWorkedOnDesktopWidth = false;
-      }
-    };
-  })();
-
-  window.addEventListener('resize', onWindowResize);
-
-  var onWindowBeforeunload = function () {
-    filterManager.destroy();
-    window.removeEventListener('resize', onWindowResize);
-  };
-
-  // export
-  window.filterDestroyer = {
-    onWindowBeforeunload: onWindowBeforeunload
-  };
-})();
-
-//
-// filter cleaner
-//
-
-(function () {
-  var filterCleaner = document.querySelector('#filter-cleaner')
-    ? document.querySelector('#filter-cleaner')
-    : null;
-
-  if (!filterCleaner) {
-    return;
-  }
-
-  var filterId = filterCleaner.dataset.for;
-  var filter = document.querySelector(filterId);
-  var checkboxes = filter.querySelectorAll('input[type="checkbox"]');
-
-  var lowerCostSpan = filter.querySelector('#lower-cost-span');
-  var upperCostSpan = filter.querySelector('#upper-cost-span');
-  var lowerCostText = lowerCostSpan.innerText;
-  var upperCostText = upperCostSpan.innerText;
-
-  var lowerCostInput = filter.querySelector('#lower-cost-input');
-  var upperCostInput = filter.querySelector('#upper-cost-input');
-  var lowerCostValue = lowerCostInput.value;
-  var upperCostValue = upperCostInput.value;
-
-  var onFilterCleanerClick = function () {
-    checkboxes.forEach(function (item) {
-      if (item.hasAttribute('data-checked')) {
-        item.checked = item.dataset.checked;
-      } else {
-        item.checked = false;
-      }
-    });
-
-    lowerCostSpan.innerText = lowerCostText;
-    upperCostSpan.innerText = upperCostText;
-    lowerCostInput.value = lowerCostValue;
-    upperCostInput.value = upperCostValue;
-  };
-
-  filterCleaner.addEventListener('click', onFilterCleanerClick);
-
-  var onWindowBeforeunload = function () {
-    filterCleaner.removeEventListener('click', onFilterCleanerClick);
-    window.removeEventListener('beforeunload', onWindowBeforeunload);
-  };
-
-  // export
-  window.filterCleanerDestroyer = {
-    onWindowBeforeunload: onWindowBeforeunload
-  };
-})();
-
-//
-// login
-//
-
-(function () {
-  var loginLinks = Array.from(document.querySelectorAll('.login-link'));
-  var loginModal = document.querySelector('#modal-login');
-
-  if (!loginLinks.length || !loginModal) {
-    return;
-  }
-
-  if (window.localStorage) {
-    var email = loginModal.querySelector('.login__input--email')
-      ? loginModal.querySelector('.login__input--email')
-      : null;
-
-    if (email) {
-      var name = email.getAttribute('name');
-      email.value = localStorage.getItem(name) || email.value;
-      email.onkeyup = function () {
-        localStorage.setItem(name, email.value);
-      };
-    }
-  }
-
-  var isTabEvent = window.utility.isTabEvent;
-  var isEscEvent = window.utility.isEscEvent;
-  var setAttributes = window.utility.setAttributes;
-  var resetAttributes = window.utility.resetAttributes;
-  var moveFocusIn = window.utility.moveFocusIn;
-  var trapTabKey = window.utility.trapTabKey;
-  var onBodyFocus = window.utility.onBodyFocus;
-
-  var manageLogin = function () {
-    var that = {};
-
-    that.activate = function () {
-      var _ = that;
-
-      _.loginLinks = loginLinks;
-      _.loginModal = loginModal;
-      _.cross = _.loginModal.querySelector('.login__cross');
-      _.body = document.body;
-      _.isShown = false;
-
-      _.loginLinks.forEach(function (link) {
-        link.addEventListener('click', _.onLoginLinkClick);
-      });
-      return that;
-    };
-
-    that.setAttributes = function () {
-      setAttributes(that.loginModal);
-      return that;
-    };
-
-    that.resetAttributes = function () {
-      resetAttributes(that.loginModal);
-      return that;
-    };
-
-    that.show = function () {
-      var _ = that;
-
-      _.isShown = true;
-      _.previouslyFocused = document.activeElement;
-
-      _.body.classList.add('scroll-stop');
-      _.loginModal.classList.remove('hidden-entity');
-
-      _.setEventListeners();
-      moveFocusIn(_.loginModal);
-    };
-
-    that.hide = function () {
-      var _ = that;
-
-      if (_.previouslyFocused && _.previouslyFocused.focus) {
-        _.previouslyFocused.focus();
-      }
-
-      _.isShown = false;
-      _.body.classList.remove('scroll-stop');
-      _.loginModal.classList.add('hidden-entity');
-
-      _.eraseEventListeners();
-    };
-
-    that.onLoginLinkClick = function (evt) {
-      evt.preventDefault();
-      if (!that.isShown) {
-        that.show();
-      }
-    };
-
-    that.onCrossClick = function () {
-      if (that.isShown) {
-        that.hide();
-      }
-    };
-
-    that.onLoginModalClick = function (evt) {
-      if (evt.target !== that.loginModal) {
-        return;
-      }
-
-      that.hide();
-    };
-
-    that.onBodyFocus = function (evt) {
-      onBodyFocus(evt, that.loginModal);
-    };
-
-    that.onDocumentKeyDown = function (evt) {
-      if (isTabEvent(evt)) {
-        trapTabKey(evt, that.loginModal);
-      }
-
-      if (isEscEvent(evt)) {
-        that.hide();
-      }
-    };
-
-    that.setEventListeners = function () {
-      that.loginModal.addEventListener('click', that.onLoginModalClick);
-      that.cross.addEventListener('click', that.onCrossClick);
-      that.body.addEventListener('focus', that.onBodyFocus, true);
-      document.addEventListener('keydown', that.onDocumentKeyDown);
-    };
-
-    that.eraseEventListeners = function () {
-      that.loginModal.removeEventListener('click', that.onLoginModalClick);
-      that.cross.removeEventListener('click', that.onCrossClick);
-      that.body.removeEventListener('focus', that.onBodyFocus, true);
-      document.removeEventListener('keydown', that.onDocumentKeyDown);
-    };
-
-    that.destroy = function () {
-      that.loginLinks.forEach(function (link) {
-        link.removeEventListener('click', that.onLoginLinkClick);
-      });
-      that.eraseEventListeners();
-    };
-
-    return that;
-  };
-
-  var loginManager = manageLogin();
-  loginManager.activate().setAttributes();
-
-  var onWindowBeforeunload = function () {
-    loginManager.destroy();
-  };
-
-  // export
-  window.loginDestroyer = {
-    onWindowBeforeunload: onWindowBeforeunload
-  };
-})();
+'use strict';
 
 //
 // beforeunload
