@@ -17,15 +17,11 @@ var include = require('posthtml-include');
 var del = require('del');
 var concat = require('gulp-concat');
 
-// Swiper
-gulp.task('copySwiperJs', function () {
-  return gulp.src('node_modules/swiper/swiper-bundle.js')
-      .pipe(gulp.dest('source/js/vendor'));
-});
-
 // JS
 gulp.task('bundleVendorJs', function () {
-  return gulp.src('source/js/vendor/*.js')
+  return gulp.src([
+    'node_modules/swiper/swiper-bundle.js',
+  ])
       .pipe(plumber())
       .pipe(concat('vendor.js'))
       .pipe(gulp.dest('build/js'));
@@ -43,20 +39,17 @@ gulp.task('bundleMainJs', function () {
 });
 
 gulp.task('js', gulp.series(
-    'copySwiperJs',
     'bundleVendorJs',
     'bundleMainJs'
 ));
 
 // Styles
-gulp.task('cleanTemp', function () {
-  return del('source/temp');
-});
-
 gulp.task('convertScss', function () {
   return gulp.src('source/sass/style.scss')
       .pipe(plumber())
+      .pipe(sourcemap.init())
       .pipe(sass())
+      .pipe(sourcemap.write('.'))
       .pipe(gulp.dest('source/temp'));
 });
 
@@ -76,18 +69,9 @@ gulp.task('concatCss', function () {
       .pipe(server.stream());
 });
 
-// gulp.task('css', function () {
-//   return gulp.src('source/sass/style.scss')
-//     .pipe(plumber())
-//     .pipe(sourcemap.init())
-//     .pipe(sass())
-//     .pipe(postcss([autoprefixer()]))
-//     .pipe(csso())
-//     .pipe(rename('style.min.css'))
-//     .pipe(sourcemap.write('.'))
-//     .pipe(gulp.dest('build/css'))
-//     .pipe(server.stream());
-// });
+gulp.task('cleanTemp', function () {
+  return del('source/temp');
+});
 
 gulp.task('css', gulp.series(
     'convertScss',
@@ -174,18 +158,6 @@ gulp.task('copy', function () {
   })
       .pipe(gulp.dest('build'));
 });
-
-// gulp.task('copy', function () {
-//   return gulp.src([
-//     'source/fonts/**/*.{woff,woff2}',
-//     'source/img/**',
-//     'source/js/**',
-//     'source//*.ico'
-//   ], {
-//     base: 'source'
-//   })
-//       .pipe(gulp.dest('build'));
-// });
 
 // Clean
 gulp.task('clean', function () {
