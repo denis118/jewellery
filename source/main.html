@@ -280,740 +280,731 @@
           href="#">Shop Now</a>
 
         <div
-          class="new-goods__slider slider"
+          class="new-goods__slider slider swiper"
           id="slider-main"
           role="region"
           aria-label="Slider">
           <div
-            class="slider__inner">
-            <ul
-              class="slider__list list">
+            class="slider__inner swiper-wrapper">
+            <div
+              class="swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px  -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px  -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px  -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px  -->
+                    <img
+                      src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Purple gemstone necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <!-- .first-slide -->
-              <li
-                class="slider__item first-slide">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px  -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px  -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px  -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px  -->
-                      <img
-                        src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Purple gemstone necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
+                  <span
+                    class="slider__product-cost">$ 145</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
-                    <span
-                      class="slider__product-cost">$ 145</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Layered choker necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Layered choker necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Layered сhoker</span>
+                  <span
+                    class="slider__product-cost">$ 115</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Layered сhoker</span>
-                    <span
-                      class="slider__product-cost">$ 115</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/dainty-gold-necklace.webp    1x,
+                        ./img/content/main/new/desktop/dainty-gold-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/dainty-gold-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Dainty gold necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/dainty-gold-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <!-- the third slide should contain the "hidden-before-desktop" class -->
-              <li
-                class="slider__item hidden-before-desktop">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/dainty-gold-necklace.webp    1x,
-                          ./img/content/main/new/desktop/dainty-gold-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/dainty-gold-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Dainty gold necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/dainty-gold-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Gold chain</span>
+                  <span
+                    class="slider__product-cost">$ 215</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Gold chain</span>
-                    <span
-                      class="slider__product-cost">$ 215</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/galaxy-earrings.webp    1x,
+                        ./img/content/main/new/desktop/galaxy-earrings@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/galaxy-earrings.jpg"
+                      width="270"
+                      height="284"
+                      alt="Galaxy earrings"
+                      srcset="
+                        ./img/content/main/new/desktop/galaxy-earrings@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <!-- the fourth slide should contain the "hidden-before-desktop" class -->
-              <!-- .last-slide -->
-              <li
-                class="slider__item last-slide hidden-before-desktop">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/galaxy-earrings.webp    1x,
-                          ./img/content/main/new/desktop/galaxy-earrings@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/galaxy-earrings.jpg"
-                        width="270"
-                        height="284"
-                        alt="Galaxy earrings"
-                        srcset="
-                          ./img/content/main/new/desktop/galaxy-earrings@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Galaxy earrings</span>
+                  <span
+                    class="slider__product-cost">$ 95</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Galaxy earrings</span>
-                    <span
-                      class="slider__product-cost">$ 95</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Purple gemstone necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <!-- the fifth slide and the following should contain the "hidden-entity" class -->
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Purple gemstone necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
+                  <span
+                    class="slider__product-cost">$ 145</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
-                    <span
-                      class="slider__product-cost">$ 145</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Purple gemstone necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Purple gemstone necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
+                  <span
+                    class="slider__product-cost">$ 145</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
-                    <span
-                      class="slider__product-cost">$ 145</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Purple gemstone necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Purple gemstone necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
+                  <span
+                    class="slider__product-cost">$ 145</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
-                    <span
-                      class="slider__product-cost">$ 145</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Purple gemstone necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/purple-gemstone-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace.webp    1x,
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/purple-gemstone-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Purple gemstone necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/purple-gemstone-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
+                  <span
+                    class="slider__product-cost">$ 145</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name slider__product-name--shifted">Necklace with amethyst</span>
-                    <span
-                      class="slider__product-cost">$ 145</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Layered choker necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Layered choker necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Layered сhoker</span>
+                  <span
+                    class="slider__product-cost">$ 115</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Layered сhoker</span>
-                    <span
-                      class="slider__product-cost">$ 115</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Layered choker necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Layered choker necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Layered сhoker</span>
+                  <span
+                    class="slider__product-cost">$ 115</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Layered сhoker</span>
-                    <span
-                      class="slider__product-cost">$ 115</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Layered choker necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Layered choker necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Layered сhoker</span>
+                  <span
+                    class="slider__product-cost">$ 115</span>
+                </figcaption>
+              </figure>
+            </div>
 
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Layered сhoker</span>
-                    <span
-                      class="slider__product-cost">$ 115</span>
-                  </figcaption>
-                </figure>
-              </li>
+            <div
+              class="slider__item swiper-slide">
+              <figure>
+                <div
+                  class="slider__padded-box">
+                  <picture>
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      type="image/webp"
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
+                    <source
+                      media="(max-width: 1023px)"
+                      srcset="
+                        ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
+                        ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <source
+                      type="image/webp"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
+                      " />
+                    <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
+                    <img
+                      src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
+                      width="270"
+                      height="284"
+                      alt="Layered choker necklace"
+                      srcset="
+                        ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
+                      " />
+                  </picture>
+                </div>
 
-              <li
-                class="slider__item hidden-entity">
-                <figure>
-                  <div
-                    class="slider__padded-box">
-                    <picture>
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                      <source
-                        media="(max-width: 767px)"
-                        srcset="
-                          ./img/content/main/new/mobile/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/mobile/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        type="image/webp"
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 324px, height: 340px; 2x: width: 648px, height: 680px -->
-                      <source
-                        media="(max-width: 1023px)"
-                        srcset="
-                          ./img/content/main/new/tablet/layered-choker-necklace.jpg    1x,
-                          ./img/content/main/new/tablet/layered-choker-necklace@2x.jpg 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <source
-                        type="image/webp"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace.webp    1x,
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.webp 2x
-                        " />
-                      <!-- 1х: width: 270px, height: 284px; 2x: width: 540px, height: 568px -->
-                      <img
-                        src="./img/content/main/new/desktop/layered-choker-necklace.jpg"
-                        width="270"
-                        height="284"
-                        alt="Layered choker necklace"
-                        srcset="
-                          ./img/content/main/new/desktop/layered-choker-necklace@2x.jpg 2x
-                        " />
-                    </picture>
-                  </div>
-
-                  <figcaption
-                    class="slider__figcaption">
-                    <span
-                      class="slider__product-name">Layered сhoker</span>
-                    <span
-                      class="slider__product-cost">$ 115</span>
-                  </figcaption>
-                </figure>
-              </li>
-            </ul>
+                <figcaption
+                  class="slider__figcaption">
+                  <span
+                    class="slider__product-name">Layered сhoker</span>
+                  <span
+                    class="slider__product-cost">$ 115</span>
+                </figcaption>
+              </figure>
+            </div>
           </div>
 
           <button
@@ -1050,7 +1041,10 @@
             </svg>
           </button>
 
-          <ol
+          <div
+            class="swiper-pagination"></div>
+
+          <!-- <ol
             class="slider__frame-button-list list hidden-on-mobile">
             <li
               class="slider__frame-button-item">
@@ -1074,10 +1068,10 @@
                 class="slider__frame-button button"
                 type="button"
                 aria-label="Button to enable the third set of products">3</button>
-            </li>
+            </li> -->
 
             <!-- the fourth <li> and the following should contain the "hidden-on-desktop" class -->
-            <li
+            <!-- <li
               class="slider__frame-button-item hidden-on-desktop">
               <button
                 class="slider__frame-button button"
@@ -1100,9 +1094,9 @@
                 type="button"
                 aria-label="Button to enable the sixth set of products">6</button>
             </li>
-          </ol>
+          </ol> -->
 
-          <div
+          <!-- <div
             class="slider__numbers hidden-after-mobile">
             <span
               class="slider__current-set-number">1</span>
@@ -1110,7 +1104,7 @@
               class="slider__divider">of</span>
             <span
               class="slider__slideset-quantity">6</span>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

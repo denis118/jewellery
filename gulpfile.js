@@ -27,20 +27,15 @@ gulp.task('bundleVendorJs', function () {
       .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('bundleMainJs', function () {
-  return gulp.src([
-    'source/js/utility.js',
-    'source/js/modules/*.js',
-    'source/js/main.js',
-  ])
+gulp.task('copyMainJs', function () {
+  return gulp.src('source/js/script.js')
       .pipe(plumber())
-      .pipe(concat('script.js'))
       .pipe(gulp.dest('build/js'));
 });
 
 gulp.task('js', gulp.series(
     'bundleVendorJs',
-    'bundleMainJs'
+    'copyMainJs'
 ));
 
 // Styles
