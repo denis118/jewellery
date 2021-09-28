@@ -39,23 +39,11 @@ gulp.task('js', gulp.series(
 ));
 
 // Styles
-gulp.task('convertScss', function () {
+gulp.task('css', function () {
   return gulp.src('source/sass/style.scss')
       .pipe(plumber())
       .pipe(sourcemap.init())
       .pipe(sass())
-      .pipe(sourcemap.write('.'))
-      .pipe(gulp.dest('source/temp'));
-});
-
-gulp.task('concatCss', function () {
-  return gulp.src([
-    'node_modules/swiper/swiper-bundle.css',
-    'source/temp/style.css',
-  ])
-      .pipe(plumber())
-      .pipe(sourcemap.init())
-      .pipe(concat('style.css'))
       .pipe(postcss([autoprefixer()]))
       .pipe(csso())
       .pipe(rename('style.min.css'))
@@ -64,15 +52,40 @@ gulp.task('concatCss', function () {
       .pipe(server.stream());
 });
 
-gulp.task('cleanTemp', function () {
-  return del('source/temp');
-});
+// gulp.task('convertScss', function () {
+//   return gulp.src('source/sass/style.scss')
+//       .pipe(plumber())
+//       .pipe(sourcemap.init())
+//       .pipe(sass())
+//       .pipe(sourcemap.write('.'))
+//       .pipe(gulp.dest('source/temp'));
+// });
 
-gulp.task('css', gulp.series(
-    'convertScss',
-    'concatCss',
-    'cleanTemp'
-));
+// gulp.task('concatCss', function () {
+//   return gulp.src([
+//     'node_modules/swiper/swiper-bundle.css',
+//     'source/temp/style.css',
+//   ])
+//       .pipe(plumber())
+//       .pipe(sourcemap.init())
+//       .pipe(concat('style.css'))
+//       .pipe(postcss([autoprefixer()]))
+//       .pipe(csso())
+//       .pipe(rename('style.min.css'))
+//       .pipe(sourcemap.write('.'))
+//       .pipe(gulp.dest('build/css'))
+//       .pipe(server.stream());
+// });
+
+// gulp.task('cleanTemp', function () {
+//   return del('source/temp');
+// });
+
+// gulp.task('css', gulp.series(
+//     'convertScss',
+//     'concatCss',
+//     'cleanTemp'
+// ));
 
 // Server
 gulp.task('server', function () {

@@ -1,3 +1,9 @@
+// vendor
+@import "../../node_modules/swiper/swiper.scss";
+@import "../../node_modules/swiper/modules/pagination/pagination.scss";
+@import "../../node_modules/swiper/modules/navigation/navigation.scss";
+
+// owner
 @import "./base/fonts.scss";
 @import "./base/vars.scss";
 @import "./base/mixins.scss";
@@ -18,9 +24,6 @@
 
 // new-goods
 @import "./blocks/new-goods.scss";
-
-// swiper
-@import "./blocks/swiper.scss";
 
 // slider
 @import "./blocks/slider.scss";

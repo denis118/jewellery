@@ -378,6 +378,11 @@
       prevEl: '.slider__arrow--previous',
     },
   });
+
+  // export
+  window.slider = {
+    swiper: swiper
+  };
 })();
 
 // (function () {
