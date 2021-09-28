@@ -284,6 +284,40 @@
           id="slider-main"
           role="region"
           aria-label="Slider">
+          <button
+            class="slider__arrow slider__arrow--previous button hidden-on-mobile"
+            type="button"
+            data-id="previous"
+            aria-label="Previous slide button">
+            <svg
+              class="slider__arrow-svg slider__arrow-svg--previous"
+              width="29"
+              height="9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use
+                xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
+            </svg>
+          </button>
+
+          <button
+            class="slider__arrow slider__arrow--next button hidden-on-mobile"
+            type="button"
+            data-id="next"
+            aria-label="Next slide button">
+            <svg
+              class="slider__arrow-svg slider__arrow-svg--next"
+              width="29"
+              height="9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true">
+              <use
+                xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
+            </svg>
+          </button>
+
           <div
             class="slider__swiper swiper">
             <div
@@ -1010,43 +1044,70 @@
             </div>
 
             <div
-              class="swiper-pagination"></div>
+              class="swiper-pagination hidden-entity"></div>
+
+            <ol
+              class="slider__frame-button-list list hidden-on-mobile">
+              <li
+                class="slider__frame-button-item">
+                <button
+                  class="slider__frame-button button active"
+                  type="button"
+                  aria-label="Button to enable the first set of products">1</button>
+              </li>
+
+              <li
+                class="slider__frame-button-item">
+                <button
+                  class="slider__frame-button button"
+                  type="button"
+                  aria-label="Button to enable the second set of products">2</button>
+              </li>
+
+              <li
+                class="slider__frame-button-item">
+                <button
+                  class="slider__frame-button button"
+                  type="button"
+                  aria-label="Button to enable the third set of products">3</button>
+              </li>
+
+              <!-- the fourth <li> and the following should contain the "hidden-on-desktop" class -->
+              <li
+                class="slider__frame-button-item hidden-on-desktop">
+                <button
+                  class="slider__frame-button button"
+                  type="button"
+                  aria-label="Button to enable the fourth set of products">4</button>
+              </li>
+
+              <li
+                class="slider__frame-button-item hidden-on-desktop">
+                <button
+                  class="slider__frame-button button"
+                  type="button"
+                  aria-label="Button to enable the fifth set of products">5</button>
+              </li>
+
+              <li
+                class="slider__frame-button-item hidden-on-desktop">
+                <button
+                  class="slider__frame-button button"
+                  type="button"
+                  aria-label="Button to enable the sixth set of products">6</button>
+              </li>
+            </ol>
+
+            <div
+              class="slider__numbers hidden-after-mobile">
+              <span
+                class="slider__current-set-number">1</span>
+              <span
+                class="slider__divider">of</span>
+              <span
+                class="slider__slideset-quantity">6</span>
+            </div>
           </div>
-
-
-          <button
-            class="slider__arrow slider__arrow--previous button hidden-on-mobile"
-            type="button"
-            data-id="previous"
-            aria-label="Previous slide button">
-            <svg
-              class="slider__arrow-svg slider__arrow-svg--previous"
-              width="29"
-              height="9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
-            </svg>
-          </button>
-
-          <button
-            class="slider__arrow slider__arrow--next button hidden-on-mobile"
-            type="button"
-            data-id="next"
-            aria-label="Next slide button">
-            <svg
-              class="slider__arrow-svg slider__arrow-svg--next"
-              width="29"
-              height="9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
-            </svg>
-          </button>
 
           <!-- <ol
             class="slider__frame-button-list list hidden-on-mobile">

@@ -347,6 +347,31 @@
 //
 
 (function () {
+  var slider = document.querySelector('.slider');
+
+  if (!slider || !window.Swiper) {
+    return;
+  }
+
+  slider
+      .querySelector('.swiper-pagination')
+      .classList
+      .remove('hidden-entity');
+
+  var frameButtonList = slider.querySelector('.slider__frame-button-list');
+  var numberList = slider.querySelector('.slider__numbers');
+
+  [
+    frameButtonList,
+    numberList
+  ].forEach(function (element) {
+    element.classList.add('hidden-entity');
+  });
+
+  var renderBullet = function (index, className) {
+    return '<button class="' + className + ' button" type="button">' + (index + 1) + '</button>';
+  };
+
   var swiper = new window.Swiper('.swiper', {
     spaceBetween: 30,
     loop: true,
@@ -368,9 +393,7 @@
     pagination: {
       el: '.swiper-pagination',
       clickable: 'true',
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + (index + 1) + '</span>';
-      },
+      renderBullet: renderBullet,
     },
 
     navigation: {
