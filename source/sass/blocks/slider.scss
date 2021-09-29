@@ -9,6 +9,7 @@
   color: $dcg-2;
 
   position: relative;
+  width: 100%;
 
   figure {
     @include zero-edges;
@@ -29,6 +30,16 @@
 
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 64px;
+    }
+  }
+}
+
+.slider.no-js {
+  .slider__inner {
+    &--main {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   }
 }
@@ -101,6 +112,8 @@
 }
 
 .slider__inner {
+  width: 100%;
+
   @media (min-width: $desktop-width) {
     margin-bottom: 50px;
   }
@@ -123,9 +136,7 @@
 }
 
 .slider__list {
-  // display: flex;
-  // justify-content: center;
-  // width: 100%;
+  width: 100%;
 
   &--catalog {
     display: grid;
@@ -149,18 +160,18 @@
 }
 
 .slider__item {
-  // @media (min-width: $desktop-width) {
-  //   width: 23.0769%;
-  //   margin-right: 2.5641%;
-  // }
+  @media (min-width: $desktop-width) {
+    width: 23.0769%;
+    margin-right: 2.5641%;
+  }
 
-  // @media (max-width: $pre-desktop-width) {
-  //   width: 47.7876%;
-  // }
+  @media (max-width: $pre-desktop-width) {
+    width: 47.7876%;
+  }
 
-  // @media (max-width: $pre-tablet-width) {
-  //   width: 44.8276%;
-  // }
+  @media (max-width: $pre-tablet-width) {
+    width: 44.8276%;
+  }
 
   &--catalog {
     width: 100%;
@@ -168,17 +179,17 @@
   }
 }
 
-// .slider__item.first-slide {
-//   @media (max-width: $pre-desktop-width) {
-//     margin-right: 30px;
-//   }
-// }
+.slider__item.first-slide {
+  @media (max-width: $pre-desktop-width) {
+    margin-right: 30px;
+  }
+}
 
-// .slider__item.last-slide {
-//   @media (min-width: $desktop-width) {
-//     margin-right: 0;
-//   }
-// }
+.slider__item.last-slide {
+  @media (min-width: $desktop-width) {
+    margin-right: 0;
+  }
+}
 
 .slider__padded-box {
   @include padded-box;
@@ -317,77 +328,6 @@
   }
 }
 
-// .slider__arrow {
-//   --icon-color: #{$mcg-1};
-
-//   @include zero-edges;
-//   @include centering-flex;
-
-//   position: absolute;
-//   top: 0;
-//   touch-action: manipulation;
-
-//   &--previous {
-//     left: 0;
-//     transform: translate(0, -103px);
-
-//     @media (max-width: $pre-desktop-width) {
-//       transform: translate(0, -97px);
-//     }
-//   }
-
-//   &--next {
-//     left: 100%;
-//     transform: translate(-100%, -103px);
-
-//     @media (max-width: $pre-desktop-width) {
-//       transform: translate(-100%, -97px);
-//     }
-//   }
-
-//   &--catalog {
-//     font-size: 1.6rem;
-//     line-height: 130%;
-//     font-weight: 500;
-
-//     top: 100%;
-//     transform: translate(0, -100%);
-//   }
-
-//   &--backward {
-//     left: 0;
-//     transform: translate(0, -100%);
-//   }
-
-//   &--forward {
-//     left: 100%;
-//     transform: translate(-100%, -100%);
-//   }
-
-//   &:hover,
-//   &:focus {
-//     --icon-color: #{$dcg-1};
-
-//     color: $mcg-1;
-
-//     .slider__arrow-svg {
-//       transform: scale(1.1);
-
-//       &--previous {
-//         transform: rotate(180deg) scale(1.1);
-//       }
-//     }
-//   }
-
-//   &:active {
-//     opacity: 0.5;
-//   }
-
-//   &:disabled {
-//     cursor: not-allowed;
-//   }
-// }
-
 .slider__arrow-svg {
   @media (max-width: $pre-desktop-width) {
     width: 36px;
@@ -406,14 +346,20 @@
   align-items: flex-start;
   flex-wrap: wrap;
 
+  transform: translate(5px, 2px);
+
   @media (max-width: $pre-desktop-width) {
-    transform: translate(-2px, 0);
+    transform: translate(0, 0);
   }
 }
 
 .slider__frame-button-item {
   &:not(:last-child) {
     margin-right: 12px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-right: 13px;
+    }
   }
 
   &--catalog {
@@ -428,6 +374,10 @@
 }
 
 .slider__frame-button {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
   font-size: 1.6rem;
   line-height: 130%;
   font-weight: 500;
@@ -444,7 +394,6 @@
 
 .slider__frame-button.active {
   color: $dcg-2;
-  font-weight: 700;
 
   &:focus,
   &:hover {
