@@ -401,6 +401,13 @@
   }
 }
 
+.slider__numbers {
+  @media (max-width: $pre-tablet-width) {
+    @include centering-margin;
+    width: max-content;
+  }
+}
+
 .slider__current-set-number {
   @media (max-width: $pre-tablet-width) {
     position: relative;
