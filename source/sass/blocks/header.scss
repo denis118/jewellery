@@ -57,6 +57,12 @@
     .header__burger {
       display: block;
     }
+
+    .header__navigation {
+      @media (min-width: $desktop-width) {
+        padding-top: 18px;
+      }
+    }
   }
 
   &--js.menu-open {

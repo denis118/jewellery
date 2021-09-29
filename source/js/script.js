@@ -349,21 +349,38 @@
 (function () {
   var slider = document.querySelector('.slider');
 
-  if (!slider || !window.Swiper) {
+  if (!slider || slider.id !== 'slider-main' || !window.Swiper) {
     return;
   }
+
+  slider
+      .classList
+      .remove('no-js');
+
+  slider
+      .querySelector('.slider__swiper')
+      .classList
+      .add('swiper');
+
+  slider
+      .querySelector('.slider__inner')
+      .classList
+      .add('swiper-wrapper');
+
+  slider
+      .querySelectorAll('.slider__item')
+      .forEach(function (item) {
+        item.className = 'swiper-slide';
+      });
 
   slider
       .querySelector('.swiper-pagination')
       .classList
       .remove('hidden-entity');
 
-  var frameButtonList = slider.querySelector('.slider__frame-button-list');
-  var numberList = slider.querySelector('.slider__numbers');
-
   [
-    frameButtonList,
-    numberList
+    slider.querySelector('.slider__frame-button-list'),
+    slider.querySelector('.slider__numbers')
   ].forEach(function (element) {
     element.classList.add('hidden-entity');
   });

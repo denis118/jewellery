@@ -86,6 +86,18 @@
   height: auto;
 }
 
+@mixin img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+@mixin no-zoom {
+  font-size: 1.6rem;
+  transform-origin: top left;
+  transform: scale(0.875); //  14px / 16px
+}
+
 @mixin input-style {
   font-family:
     "poppins",
@@ -143,12 +155,6 @@
   background-color: transparent;
 }
 
-@mixin img {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-}
-
 @mixin logo-catalog-interactive-style {
   &:hover,
   &:focus {
@@ -160,8 +166,32 @@
   }
 }
 
-@mixin no-zoom {
+
+
+@mixin frame-button {
+  font-family:
+    "poppins",
+    "Arial",
+    sans-serif;
   font-size: 1.6rem;
-  transform-origin: top left;
-  transform: scale(0.875); //  14px / 16px
+  line-height: 130%;
+  font-weight: 500;
+  color: $lcg-5;
+
+  padding: 0;
+
+  &:focus,
+  &:hover {
+    color: $mcg-1;
+    transform: scale(1.1);
+  }
+}
+
+@mixin frame-button-active {
+  color: $dcg-2;
+
+  &:focus,
+  &:hover {
+    color: $mcg-1;
+  }
 }

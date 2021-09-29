@@ -60,22 +60,12 @@
   }
 
   .swiper-pagination-bullet {
-    font-family:
-      "poppins",
-      "Arial",
-      sans-serif;
-    font-size: 1.6rem;
-    line-height: 130%;
-    font-weight: 500;
-    color: $lcg-5;
-
-    padding: 0;
+    @include frame-button;
     border-radius: 0;
+    vertical-align: top;
 
-    &:focus,
-    &:hover {
-      color: $mcg-1;
-      transform: scale(1.1);
+    @media (min-width: $desktop-width) {
+      transform: translate(0, 2px);
     }
 
     &:not(:last-child) {
@@ -86,16 +76,17 @@
       margin-right: 0;
       margin-left: 0;
     }
+
+    &:hover,
+    &:focus {
+      @media (min-width: $desktop-width) {
+        transform: translate(0, 2px) scale(1.1);
+      }
+    }
   }
 
   .swiper-pagination-bullet-active {
-    color: $dcg-2;
-    font-weight: 700;
-
-    &:focus,
-    &:hover {
-      color: $mcg-1;
-    }
+    @include frame-button-active;
   }
 
   &--catalog {
@@ -374,31 +365,11 @@
 }
 
 .slider__frame-button {
-  font-family:
-    "poppins",
-    "Arial",
-    sans-serif;
-  font-size: 1.6rem;
-  line-height: 130%;
-  font-weight: 500;
-  color: $lcg-5;
-
-  padding: 0;
-
-  &:focus,
-  &:hover {
-    color: $mcg-1;
-    transform: scale(1.1);
-  }
+  @include frame-button;
 }
 
 .slider__frame-button.active {
-  color: $dcg-2;
-
-  &:focus,
-  &:hover {
-    color: $mcg-1;
-  }
+  @include frame-button-active;
 }
 
 .slider__numbers {
