@@ -7,6 +7,7 @@
 (function () {
   var DESKTOP_WIDTH = 1024;
   var TABLET_WIDTH = 768;
+  var MOBILE_WIDTH = 320;
 
   // isPreDesktopWidth
   var isPreDesktopWidth = function () {
@@ -146,6 +147,9 @@
 
   // export
   window.utility = {
+    DESKTOP_WIDTH: DESKTOP_WIDTH,
+    TABLET_WIDTH: TABLET_WIDTH,
+    MOBILE_WIDTH: MOBILE_WIDTH,
     isPreDesktopWidth: isPreDesktopWidth,
     isPreTabletWidth: isPreTabletWidth,
     isEscEvent: isEscEvent,
@@ -347,36 +351,25 @@
 //
 
 (function () {
+  var DESKTOP_WIDTH = window.utility.DESKTOP_WIDTH;
+  var TABLET_WIDTH = window.utility.TABLET_WIDTH;
+  var MOBILE_WIDTH = window.utility.MOBILE_WIDTH;
+
   var slider = document.querySelector('.slider');
 
   if (!slider || slider.id !== 'slider-main' || !window.Swiper) {
     return;
   }
 
-  slider
-      .classList
-      .remove('no-js');
+  var getCurrentMode = window.utility.getCurrentMode;
 
-  slider
-      .querySelector('.slider__swiper')
-      .classList
-      .add('swiper');
-
-  slider
-      .querySelector('.slider__inner')
-      .classList
-      .add('swiper-wrapper');
-
-  slider
-      .querySelectorAll('.slider__item')
-      .forEach(function (item) {
-        item.className = 'swiper-slide';
-      });
-
-  slider
-      .querySelector('.swiper-pagination')
-      .classList
-      .remove('hidden-entity');
+  slider.classList.remove('no-js');
+  slider.querySelector('.slider__swiper').classList.add('swiper');
+  slider.querySelector('.slider__inner').classList.add('swiper-wrapper');
+  slider.querySelector('.swiper-pagination').classList.remove('hidden-entity');
+  slider.querySelectorAll('.slider__item').forEach(function (item) {
+    item.className = 'swiper-slide';
+  });
 
   [
     slider.querySelector('.slider__frame-button-list'),
@@ -389,39 +382,81 @@
     return '<button class="' + className + ' button" type="button">' + (index + 1) + '</button>';
   };
 
-  var swiper = new window.Swiper('.swiper', {
-    spaceBetween: 30,
-    loop: true,
-    loopFillGroupWithBlank: true,
+  var setBreakpoints = function () {
+    var propertySet = {};
 
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 2,
-        slidesPerGroup: 2
-      },
-      // when window width is >= 1024px
-      1024: {
-        slidesPerView: 4,
-        slidesPerGroup: 4
+    propertySet[DESKTOP_WIDTH] = {
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      pagination: {
+        type: 'bullets',
+        renderBullet: renderBullet
       }
-    },
+    };
 
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: 'true',
-      renderBullet: renderBullet,
-    },
+    propertySet[TABLET_WIDTH] = {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      pagination: {
+        type: 'bullets',
+        renderBullet: renderBullet
+      }
+    };
 
-    navigation: {
-      nextEl: '.slider__arrow--next',
-      prevEl: '.slider__arrow--previous',
-    },
-  });
+    propertySet[MOBILE_WIDTH] = {
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      pagination: {
+        type: 'fraction'
+      }
+    };
+
+    return propertySet;
+  };
+
+  var buildSwiper = function () {
+    return new window.Swiper('.swiper', {
+      spaceBetween: 30,
+      loop: true,
+      loopFillGroupWithBlank: true,
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: 'true'
+      },
+
+      breakpoints: setBreakpoints(),
+
+      navigation: {
+        nextEl: '.slider__arrow--next',
+        prevEl: '.slider__arrow--previous',
+      },
+    });
+  };
+
+  buildSwiper();
+
+  var onWindowResize = (function () {
+    var mode = getCurrentMode();
+
+    return function () {
+      if (mode !== getCurrentMode()) {
+        buildSwiper();
+        console.log('in');
+        mode = getCurrentMode();
+      }
+    };
+  })();
+
+  window.addEventListener('resize', onWindowResize);
+
+  var onWindowBeforeunload = function () {
+    window.removeEventListener('resize', onWindowResize);
+  };
 
   // export
-  window.slider = {
-    swiper: swiper
+  window.sliderDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
   };
 })();
 
