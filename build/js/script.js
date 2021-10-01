@@ -890,6 +890,8 @@
     return;
   }
 
+  var getCurrentMode = window.utility.getCurrentMode;
+
   if (window.localStorage) {
     var email = loginModal.querySelector('.login__input--email')
       ? loginModal.querySelector('.login__input--email')
@@ -961,7 +963,11 @@
       }
 
       _.isShown = false;
-      _.body.classList.remove('scroll-stop');
+
+      if (getCurrentMode() === 'desktop') {
+        _.body.classList.remove('scroll-stop');
+      }
+
       _.loginModal.classList.add('hidden-entity');
 
       _.eraseEventListeners();
