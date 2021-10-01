@@ -7,35 +7,28 @@
 (function () {
   var DESKTOP_WIDTH = 1024;
   var TABLET_WIDTH = 768;
-  var MOBILE_WIDTH = 320;
 
-  // isPreDesktopWidth
   var isPreDesktopWidth = function () {
     return document.documentElement.clientWidth < DESKTOP_WIDTH;
   };
 
-  // isPreTabletWidth
   var isPreTabletWidth = function () {
     return document.documentElement.clientWidth < TABLET_WIDTH;
   };
 
-  // ESC event
   var isEscEvent = function (evt) {
     return evt.key === 'Escape' || evt.key === 'Esc';
   };
 
-  // TAB event
   var isTabEvent = function (evt) {
     return evt.key === 'Tab';
   };
 
-  // attributeSet
   var attributeSet = {
     'role': 'dialog',
     'aria-modal': true
   };
 
-  // setAttributes
   var setAttributes = function (element) {
     for (var attribute in attributeSet) {
       if (attributeSet.hasOwnProperty(attribute)) {
@@ -44,7 +37,6 @@
     }
   };
 
-  // resetAttributes
   var resetAttributes = function (element) {
     for (var attribute in attributeSet) {
       if (attributeSet.hasOwnProperty(attribute)) {
@@ -53,7 +45,6 @@
     }
   };
 
-  // focusable elements' selectors
   var focusableSelectors = [
     'a[href]:not([tabindex^="-"])',
     'area[href]:not([tabindex^="-"])',
@@ -69,7 +60,6 @@
     '[tabindex]:not([tabindex^="-"])',
   ];
 
-  // isVisible
   var isVisible = function (element) {
     return element.offsetWidth
       || element.offsetHeight
@@ -78,7 +68,6 @@
       : false;
   };
 
-  // getFocusableChildren
   var getFocusableChildren = function (element) {
     return Array.from(
         element
@@ -86,7 +75,6 @@
     ).filter(isVisible);
   };
 
-  // moveFocusIn
   var moveFocusIn = function (element) {
     var target = element.querySelector('[autofocus]')
       || getFocusableChildren(element)[0];
@@ -96,7 +84,6 @@
     }
   };
 
-  // trapTabKey
   var trapTabKey = function (evt, element) {
     var focusableChildren = getFocusableChildren(element);
     var focusedItemIndex = focusableChildren.indexOf(document.activeElement);
@@ -112,7 +99,6 @@
     }
   };
 
-  // onBodyFocus
   var onBodyFocus = function (evt, element) {
     var isInDialog = evt.target.closest('[aria-modal="true"]');
 
@@ -121,7 +107,6 @@
     }
   };
 
-  // getCurrentMode
   var getCurrentMode = function () {
     var width = document.documentElement.clientWidth;
 
@@ -136,7 +121,6 @@
     return 'mobile';
   };
 
-  // useMethod
   var useMethod = function (objectName, method) {
     return function () {
       Object.keys(window[objectName]).forEach(function (key) {
@@ -147,9 +131,6 @@
 
   // export
   window.utility = {
-    DESKTOP_WIDTH: DESKTOP_WIDTH,
-    TABLET_WIDTH: TABLET_WIDTH,
-    MOBILE_WIDTH: MOBILE_WIDTH,
     isPreDesktopWidth: isPreDesktopWidth,
     isPreTabletWidth: isPreTabletWidth,
     isEscEvent: isEscEvent,
@@ -351,10 +332,6 @@
 //
 
 (function () {
-  var DESKTOP_WIDTH = window.utility.DESKTOP_WIDTH;
-  var TABLET_WIDTH = window.utility.TABLET_WIDTH;
-  var MOBILE_WIDTH = window.utility.MOBILE_WIDTH;
-
   var sliderMain = document.querySelector('#slider-main');
   var sliderCatalog = document.querySelector('#slider-catalog');
 
@@ -417,56 +394,80 @@
       return '<button class="' + className + ' button" type="button">' + (index + 1) + '</button>';
     };
 
-    that.setMainSwiperBreakpoints = function () {
-      var propertySet = {};
-
-      propertySet[DESKTOP_WIDTH] = {
-        slidesPerView: 4,
-        slidesPerGroup: 4,
-        pagination: {
-          type: 'bullets',
-          renderBullet: that.renderBullet
-        }
-      };
-
-      propertySet[TABLET_WIDTH] = {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        pagination: {
-          type: 'bullets',
-          renderBullet: that.renderBullet
-        }
-      };
-
-      propertySet[MOBILE_WIDTH] = {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        pagination: {
-          type: 'fraction'
-        }
-      };
-
-      return propertySet;
-    };
-
-    that.buildMainSwiper = function () {
-      return new window.Swiper(that.swiper, {
+    that.makeMainSwiperSettings = (function () {
+      var commonSet = {
         spaceBetween: 30,
         loop: true,
         loopFillGroupWithBlank: true,
-
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: 'true'
-        },
-
-        breakpoints: that.setMainSwiperBreakpoints(),
-
         navigation: {
           nextEl: '.slider__arrow--next',
           prevEl: '.slider__arrow--previous',
         },
-      });
+      };
+
+      var desktopSet = {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: 'true',
+          type: 'bullets',
+          renderBullet: that.renderBullet,
+        },
+      };
+
+      var tabletSet = {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: 'true',
+          type: 'bullets',
+          renderBullet: that.renderBullet,
+        },
+      };
+
+      var mobileSet = {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: 'true',
+          type: 'fraction',
+        },
+      };
+
+      return function () {
+        var mode = getCurrentMode();
+
+        if (mode === 'desktop') {
+          return Object.assign({}, commonSet, desktopSet);
+        }
+
+        if (mode === 'tablet') {
+          return Object.assign({}, commonSet, tabletSet);
+        }
+
+        if (mode === 'mobile') {
+          return Object.assign({}, commonSet, mobileSet);
+        }
+
+        throw Error('Mode mismatch');
+      };
+    })();
+
+    that.buildMainSwiper = function () {
+      var propertySet = null;
+
+      try {
+        propertySet = that.makeMainSwiperSettings();
+      } catch (error) {
+        return error.message;
+      }
+
+      that.swiperInstance = new window.Swiper(that.swiper, propertySet);
+
+      return that;
     };
 
     that.correctMainPaginaton = function () {
@@ -524,6 +525,7 @@
 
     return function () {
       if (mode !== getCurrentMode()) {
+        sliderManager.swiperInstance.destroy();
         sliderManager.buildSwiper();
         mode = getCurrentMode();
       }
@@ -541,146 +543,6 @@
     onWindowBeforeunload: onWindowBeforeunload
   };
 })();
-
-// (function () {
-//   var DESKTOP_WIDTH = window.utility.DESKTOP_WIDTH;
-//   var TABLET_WIDTH = window.utility.TABLET_WIDTH;
-//   var MOBILE_WIDTH = window.utility.MOBILE_WIDTH;
-
-//   var slider = document.querySelector('.slider');
-
-//   if (!slider || slider.id !== 'slider-main' || !window.Swiper) {
-//     return;
-//   }
-
-//   var getCurrentMode = window.utility.getCurrentMode;
-
-//   slider.classList.remove('no-js');
-//   slider.querySelector('.slider__swiper').classList.add('swiper');
-//   slider.querySelector('.slider__inner').classList.add('swiper-wrapper');
-//   slider.querySelectorAll('.slider__item').forEach(function (item) {
-//     item.className = 'swiper-slide';
-//   });
-
-//   var divider = slider.querySelector('.slider__divider').textContent;
-
-//   [
-//     slider.querySelector('.slider__frame-button-list'),
-//     slider.querySelector('.slider__numbers')
-//   ].forEach(function (element) {
-//     element.classList.add('hidden-entity');
-//   });
-
-//   var pagination = slider.querySelector('.swiper-pagination');
-//   pagination.classList.remove('hidden-entity');
-
-//   var renderBullet = function (index, className) {
-//     return '<button class="' + className + ' button" type="button">' + (index + 1) + '</button>';
-//   };
-
-//   var setBreakpoints = function () {
-//     var propertySet = {};
-
-//     propertySet[DESKTOP_WIDTH] = {
-//       slidesPerView: 4,
-//       slidesPerGroup: 4,
-//       pagination: {
-//         type: 'bullets',
-//         renderBullet: renderBullet
-//       }
-//     };
-
-//     propertySet[TABLET_WIDTH] = {
-//       slidesPerView: 2,
-//       slidesPerGroup: 2,
-//       pagination: {
-//         type: 'bullets',
-//         renderBullet: renderBullet
-//       }
-//     };
-
-//     propertySet[MOBILE_WIDTH] = {
-//       slidesPerView: 2,
-//       slidesPerGroup: 2,
-//       pagination: {
-//         type: 'fraction'
-//       }
-//     };
-
-//     return propertySet;
-//   };
-
-//   var buildSwiper = function () {
-//     return new window.Swiper('.swiper', {
-//       spaceBetween: 30,
-//       loop: true,
-//       loopFillGroupWithBlank: true,
-
-//       pagination: {
-//         el: '.swiper-pagination',
-//         clickable: 'true'
-//       },
-
-//       breakpoints: setBreakpoints(),
-
-//       navigation: {
-//         nextEl: '.slider__arrow--next',
-//         prevEl: '.slider__arrow--previous',
-//       },
-//     });
-//   };
-
-//   buildSwiper();
-
-//   var correctPaginaton = function () {
-//     if (getCurrentMode() !== 'mobile') {
-//       return;
-//     }
-
-//     if (pagination.hasChildNodes()) {
-//       pagination.querySelector('.swiper-pagination-current')
-//           .classList.add('slider__current-set-number');
-
-//       pagination.querySelector('.swiper-pagination-total')
-//           .classList.add('slider__slideset-quantity');
-
-//       pagination.childNodes.forEach(function (child) {
-//         if (child.nodeType !== 3) {
-//           return;
-//         }
-
-//         if (/^ \/ $/.test(child.textContent)) {
-//           child.textContent = divider;
-//         }
-//       });
-//     }
-//   };
-
-//   correctPaginaton();
-
-//   var onWindowResize = (function () {
-//     var mode = getCurrentMode();
-
-//     return function () {
-//       if (mode !== getCurrentMode()) {
-//         buildSwiper();
-//         correctPaginaton();
-//         mode = getCurrentMode();
-//       }
-//     };
-//   })();
-
-//   window.addEventListener('resize', onWindowResize);
-
-//   var onWindowBeforeunload = function () {
-//     window.removeEventListener('resize', onWindowResize);
-//   };
-
-//   // export
-//   window.sliderDestroyer = {
-//     onWindowBeforeunload: onWindowBeforeunload
-//   };
-// })();
 
 //
 // accordeon
