@@ -241,7 +241,7 @@
   }
 
   svg {
-    @media (max-width: $pre-desktop-width) and (min-width: $tablet-width){
+    @media (max-width: $pre-desktop-width) and (min-width: $tablet-width) {
       width: 20px;
       height: 20px;
     }
