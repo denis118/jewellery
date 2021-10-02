@@ -50,6 +50,12 @@
     @media (max-width: $pre-tablet-width) {
       margin-bottom: 42px;
     }
+
+    &--catalog {
+      @media (max-width: $pre-tablet-width) {
+        margin-bottom: 44px;
+      }
+    }
   }
 
   li {
@@ -264,6 +270,17 @@
   @media (max-width: $pre-tablet-width) {
     padding-right: 0;
   }
+
+  &--catalog {
+    @media (max-width: $pre-desktop-width) {
+      position: relative;
+      top: -3px;
+    }
+
+    @media (max-width: $pre-tablet-width) {
+      top: 2px;
+    }
+  }
 }
 
 .footer__delivery-item {
@@ -440,6 +457,13 @@
     }
   }
 
+  &--instagram.catalog {
+    @media (max-width: $pre-tablet-width) {
+      position: relative;
+      top: -1px;
+    }
+  }
+
   &--pinterest {
     @media (max-width: $pre-desktop-width) {
       transform: translate(1px, -55%);
@@ -459,6 +483,13 @@
       width: 20px;
       height: 18px;
       transform: translate(0, 0);
+    }
+  }
+
+  &--twitter.catalog {
+    @media (max-width: $pre-tablet-width) {
+      position: relative;
+      top: 2px;
     }
   }
 }
