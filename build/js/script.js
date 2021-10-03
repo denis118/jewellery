@@ -133,6 +133,10 @@
     };
   };
 
+  var isMatched = function (element, selector) {
+    return element === document.querySelector(selector);
+  };
+
   // export
   window.utility = {
     isPreDesktopWidth: isPreDesktopWidth,
@@ -147,6 +151,7 @@
     getCurrentMode: getCurrentMode,
     useMethod: useMethod,
     makeArray: makeArray,
+    isMatched: isMatched,
   };
 })();
 
@@ -636,6 +641,7 @@
   }
 
   var useMethod = window.utility.useMethod;
+  var isMatched = window.utility.isMatched;
   window.accordeon = {};
 
   var initAccordeon = function (rootElement) {
@@ -658,9 +664,13 @@
 
     that.hideContent = function (item) {
       var jsClass = null;
-      var isMaterialItem = item.matches('.accordeon__item--material');
-      var isProductItem = item.matches('.accordeon__item--product');
-      var isPriceItem = item.matches('.accordeon__item--price');
+      // var isMaterialItem = item.matches('.accordeon__item--material');
+      // var isProductItem = item.matches('.accordeon__item--product');
+      // var isPriceItem = item.matches('.accordeon__item--price');
+
+      var isMaterialItem = isMatched(item, '.accordeon__item--material');
+      var isProductItem = isMatched(item, '.accordeon__item--product');
+      var isPriceItem = isMatched(item, '.accordeon__item--price');
 
       if (that.id === 'accordeon-main') {
         jsClass = 'accordeon__item--opened';
