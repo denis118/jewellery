@@ -384,6 +384,10 @@
         _.frameButtonList,
         _.numbersElement
       ].forEach(function (element) {
+        if (!element) {
+          return;
+        }
+
         element.classList.add('hidden-entity');
       });
 
@@ -394,84 +398,126 @@
       return '<button class="' + className + ' button" type="button">' + (index + 1) + '</button>';
     };
 
-    that.makeMainSwiperSettings = (function () {
-      var commonSet = {
-        spaceBetween: 30,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        navigation: {
-          nextEl: '.slider__arrow--next',
-          prevEl: '.slider__arrow--previous',
+    that.getPropertySet = function (flag) {
+      var mainPropertySet = {
+        common: {
+          spaceBetween: 30,
+          loop: true,
+          loopFillGroupWithBlank: true,
+          navigation: {
+            nextEl: '.slider__arrow--next',
+            prevEl: '.slider__arrow--previous',
+          },
+        },
+
+        desktop: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: 'true',
+            type: 'bullets',
+            renderBullet: that.renderBullet,
+          },
+        },
+
+        tablet: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: 'true',
+            type: 'bullets',
+            renderBullet: that.renderBullet,
+          },
+        },
+
+        mobile: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: 'true',
+            type: 'fraction',
+          },
         },
       };
 
-      var desktopSet = {
-        slidesPerView: 4,
-        slidesPerGroup: 4,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: 'true',
-          type: 'bullets',
-          renderBullet: that.renderBullet,
+      var catalogPropertySet = {
+        common: {
+          spaceBetween: 30,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: 'true',
+            type: 'bullets',
+            renderBullet: that.renderBullet,
+          },
+          navigation: {
+            nextEl: '.slider__arrow--next',
+            prevEl: '.slider__arrow--previous',
+          },
+        },
+
+        desktop: {
+          slidesPerView: 3,
+          grid: {
+            rows: 2,
+          },
+        },
+
+        tablet: {
+          slidesPerView: 3,
+          grid: {
+            rows: 2,
+          },
+        },
+
+        mobile: {
+          slidesPerView: 2,
+          grid: {
+            rows: 6,
+          },
         },
       };
 
-      var tabletSet = {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: 'true',
-          type: 'bullets',
-          renderBullet: that.renderBullet,
-        },
-      };
+      return (flag === 'catalog' && catalogPropertySet)
+        || (flag === 'main' && mainPropertySet)
+        || {};
+    };
 
-      var mobileSet = {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: 'true',
-          type: 'fraction',
-        },
-      };
+    that.makeSwiperSettings = function (flag) {
+      var isEmpty = true;
+      var mode = getCurrentMode();
+      var propertySet = that.getPropertySet(flag);
 
-      return function () {
-        var mode = getCurrentMode();
-
-        if (mode === 'desktop') {
-          return Object.assign({}, commonSet, desktopSet);
+      for (var property in propertySet) {
+        if (propertySet.hasOwnProperty(property)) {
+          isEmpty = false;
         }
-
-        if (mode === 'tablet') {
-          return Object.assign({}, commonSet, tabletSet);
-        }
-
-        if (mode === 'mobile') {
-          return Object.assign({}, commonSet, mobileSet);
-        }
-
-        throw Error('Mode mismatch');
-      };
-    })();
-
-    that.buildMainSwiper = function () {
-      var propertySet = null;
-
-      try {
-        propertySet = that.makeMainSwiperSettings();
-      } catch (error) {
-        return error.message;
       }
 
-      that.swiperInstance = new window.Swiper(that.swiper, propertySet);
+      if (isEmpty) {
+        throw Error('ID mismatch');
+      }
 
-      return that;
+      if (mode === 'desktop') {
+        return Object.assign({}, propertySet.common, propertySet.desktop);
+      }
+
+      if (mode === 'tablet') {
+        return Object.assign({}, propertySet.common, propertySet.tablet);
+      }
+
+      if (mode === 'mobile') {
+        return Object.assign({}, propertySet.common, propertySet.mobile);
+      }
+
+      throw Error('Mode mismatch');
     };
 
     that.correctMainPaginaton = function () {
       var _ = that;
+      var regex = /^ \/ $/;
 
       if (getCurrentMode() !== 'mobile') {
         return;
@@ -489,7 +535,7 @@
             return;
           }
 
-          if (/^ \/ $/.test(child.textContent)) {
+          if (regex.test(child.textContent)) {
             child.textContent = _.divider;
           }
         });
@@ -498,24 +544,51 @@
 
     that.buildSwiper = function () {
       var _ = that;
+      var flag = null;
+      var callback = null;
+      var propertySet = null;
 
       if (_.root.id === 'slider-main') {
-        _.buildMainSwiper();
-        _.correctMainPaginaton();
-        return;
+        flag = 'main';
+        callback = _.correctMainPaginaton;
       }
 
       if (_.root.id === 'slider-catalog') {
-        _.buildCatalogSwiper();
+        flag = 'catalog';
       }
+
+      try {
+        propertySet = _.makeSwiperSettings(flag);
+      } catch (error) {
+        return error.message;
+      }
+
+      _.swiperInstance = new window.Swiper(_.swiper, propertySet);
+
+      if (callback) {
+        callback();
+      }
+
+      return that;
     };
 
     return that;
   };
 
   var sliderManager = manageSlider(sliderMain || sliderCatalog);
+  // sliderManager
+  //     .activate()
+  //     .saveDivider()
+  //     .normalizeClasses()
+  //     .buildSwiper();
+
+  sliderManager.activate();
+
+  if (sliderManager.root.id === 'slider-catalog') { // temporary plug
+    return;
+  }
+
   sliderManager
-      .activate()
       .saveDivider()
       .normalizeClasses()
       .buildSwiper();
