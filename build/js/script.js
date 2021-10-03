@@ -24,6 +24,10 @@
     return evt.key === 'Tab';
   };
 
+  var makeArray = function (object) {
+    return Array.prototype.slice.call(object);
+  };
+
   var attributeSet = {
     'role': 'dialog',
     'aria-modal': true
@@ -69,7 +73,7 @@
   };
 
   var getFocusableChildren = function (element) {
-    return Array.from(
+    return makeArray(
         element
             .querySelectorAll(focusableSelectors.join(','))
     ).filter(isVisible);
@@ -141,7 +145,8 @@
     moveFocusIn: moveFocusIn,
     onBodyFocus: onBodyFocus,
     getCurrentMode: getCurrentMode,
-    useMethod: useMethod
+    useMethod: useMethod,
+    makeArray: makeArray,
   };
 })();
 
@@ -340,6 +345,7 @@
   }
 
   var getCurrentMode = window.utility.getCurrentMode;
+  var makeArray = window.utility.makeArray;
 
   var manageSlider = function (rootElement) {
     var that = {};
@@ -350,9 +356,9 @@
       _.root = rootElement;
       _.inner = _.root.querySelector('.slider__inner');
       _.swiper = _.root.querySelector('.slider__swiper');
-      _.slides = _.root.querySelectorAll('.slider__item');
       _.pagination = _.root.querySelector('.swiper-pagination');
       _.numbersElement = _.root.querySelector('.slider__numbers');
+      _.slides = makeArray(_.root.querySelectorAll('.slider__item'));
       _.frameButtonList = _.root.querySelector('.slider__frame-button-list');
 
       return _;
@@ -622,7 +628,8 @@
 //
 
 (function () {
-  var accordeons = Array.from(document.querySelectorAll('.accordeon'));
+  var makeArray = window.utility.makeArray;
+  var accordeons = makeArray(document.querySelectorAll('.accordeon'));
 
   if (!accordeons.length) {
     return;
@@ -636,7 +643,7 @@
 
     that.activate = function () {
       that.root = rootElement;
-      that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
+      that.items = makeArray(that.root.querySelectorAll('.accordeon__item'));
       that.id = that.root.id;
 
       that.addContentJsStyles();
@@ -909,9 +916,11 @@
     return;
   }
 
+  var makeArray = window.utility.makeArray;
+
   var filterId = filterCleaner.dataset.for;
   var filter = document.querySelector(filterId);
-  var checkboxes = filter.querySelectorAll('input[type="checkbox"]');
+  var checkboxes = makeArray(filter.querySelectorAll('input[type="checkbox"]'));
 
   var lowerCostSpan = filter.querySelector('#lower-cost-span');
   var upperCostSpan = filter.querySelector('#upper-cost-span');
@@ -956,7 +965,8 @@
 //
 
 (function () {
-  var loginLinks = Array.from(document.querySelectorAll('.login-link'));
+  var makeArray = window.utility.makeArray;
+  var loginLinks = makeArray(document.querySelectorAll('.login-link'));
   var loginModal = document.querySelector('#modal-login');
 
   if (!loginLinks.length || !loginModal) {
