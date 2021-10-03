@@ -664,10 +664,6 @@
 
     that.hideContent = function (item) {
       var jsClass = null;
-      // var isMaterialItem = item.matches('.accordeon__item--material');
-      // var isProductItem = item.matches('.accordeon__item--product');
-      // var isPriceItem = item.matches('.accordeon__item--price');
-
       var isMaterialItem = isMatched(item, '.accordeon__item--material');
       var isProductItem = isMatched(item, '.accordeon__item--product');
       var isPriceItem = isMatched(item, '.accordeon__item--price');
