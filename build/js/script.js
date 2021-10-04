@@ -1,6 +1,52 @@
 'use strict';
 
 //
+// polyfills
+//
+
+(function (elementPrototype) {
+  // polyfill for 'matches' method
+  (function (element) {
+    var matches = element.matches
+      || element.matchesSelector
+      || element.webkitMatchesSelector
+      || element.mozMatchesSelector
+      || element.msMatchesSelector
+      || element.oMatchesSelector;
+
+    if (!matches) {
+      element.matches = element.matchesSelector = function (selector) {
+        var allMatches = document.querySelectorAll(selector);
+        var self = this;
+        return Array.prototype.some.call(allMatches, function (searchedElement) {
+          return searchedElement === self;
+        });
+      };
+    } else {
+      element.matches = element.matchesSelector = matches;
+    }
+  })(elementPrototype);
+
+  // polyfill for 'closest' method
+  (function (element) {
+    element.closest = element.closest || function (selector) {
+      var node = this;
+
+      while (node) {
+        if (node.matches(selector)) {
+          return node;
+        } else {
+          node = node.parentElement;
+        }
+      }
+      return null;
+    };
+  })(elementPrototype);
+
+  console.log(elementPrototype);
+})(Element.prototype);
+
+//
 // utility
 //
 
@@ -133,10 +179,6 @@
     };
   };
 
-  var isMatched = function (element, selector) {
-    return element === document.querySelector(selector);
-  };
-
   // export
   window.utility = {
     isPreDesktopWidth: isPreDesktopWidth,
@@ -151,7 +193,6 @@
     getCurrentMode: getCurrentMode,
     useMethod: useMethod,
     makeArray: makeArray,
-    isMatched: isMatched,
   };
 })();
 
@@ -641,7 +682,7 @@
   }
 
   var useMethod = window.utility.useMethod;
-  var isMatched = window.utility.isMatched;
+  // var isMatched = window.utility.isMatched;
   window.accordeon = {};
 
   var initAccordeon = function (rootElement) {
@@ -664,13 +705,12 @@
 
     that.hideContent = function (item) {
       var jsClass = null;
-      // var isMaterialItem = item.matches('.accordeon__item--material');
-      // var isProductItem = item.matches('.accordeon__item--product');
-      // var isPriceItem = item.matches('.accordeon__item--price');
-
-      var isMaterialItem = isMatched(item, '.accordeon__item--material');
-      var isProductItem = isMatched(item, '.accordeon__item--product');
-      var isPriceItem = isMatched(item, '.accordeon__item--price');
+      // var isMaterialItem = isMatched(item, '.accordeon__item--material');
+      // var isProductItem = isMatched(item, '.accordeon__item--product');
+      // var isPriceItem = isMatched(item, '.accordeon__item--price');
+      var isMaterialItem = item.matches('.accordeon__item--material');
+      var isProductItem = item.matches('.accordeon__item--product');
+      var isPriceItem = item.matches('.accordeon__item--price');
 
       if (that.id === 'accordeon-main') {
         jsClass = 'accordeon__item--opened';

@@ -33,7 +33,7 @@
       return obj !== null && typeof obj === 'object' && 'constructor' in obj && obj.constructor === Object;
     }
 
-    function extend$1(target = {}, src = {}) {
+    function extend$1(target, src) {
       Object.keys(src).forEach(key => {
         if (typeof target[key] === 'undefined') target[key] = src[key];else if (isObject$1(src[key]) && isObject$1(target[key]) && Object.keys(src[key]).length > 0) {
           extend$1(target[key], src[key]);
