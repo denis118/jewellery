@@ -16,6 +16,7 @@ var posthtml = require('gulp-posthtml');
 var include = require('posthtml-include');
 var del = require('del');
 var concat = require('gulp-concat');
+var babel = require('gulp-babel');
 
 // JS
 gulp.task('bundleVendorJs', function () {
@@ -23,6 +24,9 @@ gulp.task('bundleVendorJs', function () {
     'node_modules/swiper/swiper-bundle.js',
   ])
       .pipe(plumber())
+      .pipe(babel({
+        presets: ['@babel/preset-env']
+      }))
       .pipe(concat('vendor.js'))
       .pipe(gulp.dest('build/js'));
 });

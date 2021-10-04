@@ -42,8 +42,6 @@
       return null;
     };
   })(elementPrototype);
-
-  console.log(elementPrototype);
 })(Element.prototype);
 
 //
