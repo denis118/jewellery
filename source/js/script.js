@@ -1,6 +1,50 @@
 'use strict';
 
 //
+// polyfills
+//
+
+(function (elementPrototype) {
+  // polyfill for 'matches' method
+  (function (element) {
+    var matches = element.matches
+      || element.matchesSelector
+      || element.webkitMatchesSelector
+      || element.mozMatchesSelector
+      || element.msMatchesSelector
+      || element.oMatchesSelector;
+
+    if (!matches) {
+      element.matches = element.matchesSelector = function (selector) {
+        var allMatches = document.querySelectorAll(selector);
+        var self = this;
+        return Array.prototype.some.call(allMatches, function (searchedElement) {
+          return searchedElement === self;
+        });
+      };
+    } else {
+      element.matches = element.matchesSelector = matches;
+    }
+  })(elementPrototype);
+
+  // polyfill for 'closest' method
+  (function (element) {
+    element.closest = element.closest || function (selector) {
+      var node = this;
+
+      while (node) {
+        if (node.matches(selector)) {
+          return node;
+        } else {
+          node = node.parentElement;
+        }
+      }
+      return null;
+    };
+  })(elementPrototype);
+})(Element.prototype);
+
+//
 // utility
 //
 
