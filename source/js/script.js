@@ -77,6 +77,10 @@
     return evt.code === 'Space' || evt.key === ' ';
   };
 
+  var makeArray = function (object) {
+    return Array.prototype.slice.call(object);
+  };
+
   // attributeSet
   var attributeSet = {
     'role': 'dialog',
@@ -128,7 +132,7 @@
 
   // getFocusableChildren
   var getFocusableChildren = function (element) {
-    return Array.from(
+    return makeArray(
         element
             .querySelectorAll(focusableSelectors.join(','))
     ).filter(isVisible);
@@ -206,7 +210,8 @@
     moveFocusIn: moveFocusIn,
     onBodyFocus: onBodyFocus,
     getCurrentMode: getCurrentMode,
-    useMethod: useMethod
+    useMethod: useMethod,
+    makeArray: makeArray
   };
 })();
 
@@ -403,7 +408,8 @@
   var PREDESKTOP_SLIDES_AMOUNT = 2;
   var IGNORED_SWIPE_DISTANCE = 30;
 
-  var sliders = Array.from(document.querySelectorAll('#slider-main'));
+  var makeArray = window.utility.makeArray;
+  var sliders = makeArray(document.querySelectorAll('#slider-main'));
 
   if (!sliders.length) {
     return;
@@ -425,7 +431,7 @@
 
       _.root = rootElement;
       _.sliderList = _.root.querySelector('.slider__list');
-      _.slides = Array.from(_.root.querySelectorAll('.slider__item'));
+      _.slides = makeArray(_.root.querySelectorAll('.slider__item'));
       _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
       _.buttonNext = _.root.querySelector('.slider__arrow--next');
       _.currentSetNumber = _.root.querySelector('.slider__current-set-number');
@@ -575,7 +581,7 @@
       }
 
       list.appendChild(fragment);
-      _.numbers = Array.from(_.root.querySelectorAll('.slider__frame-button'));
+      _.numbers = makeArray(_.root.querySelectorAll('.slider__frame-button'));
       _.highlightNumber();
     };
 
@@ -799,7 +805,8 @@
 //
 
 (function () {
-  var accordeons = Array.from(document.querySelectorAll('.accordeon'));
+  var makeArray = window.utility.makeArray;
+  var accordeons = makeArray(document.querySelectorAll('.accordeon'));
 
   if (!accordeons.length) {
     return;
@@ -813,7 +820,7 @@
 
     that.activate = function () {
       that.root = rootElement;
-      that.items = Array.from(that.root.querySelectorAll('.accordeon__item'));
+      that.items = makeArray(that.root.querySelectorAll('.accordeon__item'));
       that.id = that.root.id;
 
       that.addContentJsStyles();
@@ -1133,7 +1140,8 @@
 //
 
 (function () {
-  var loginLinks = Array.from(document.querySelectorAll('.login-link'));
+  var makeArray = window.utility.makeArray;
+  var loginLinks = makeArray(document.querySelectorAll('.login-link'));
   var loginModal = document.querySelector('#modal-login');
 
   if (!loginLinks.length || !loginModal) {
