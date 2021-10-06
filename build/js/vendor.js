@@ -43,7 +43,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /**
- * Swiper 7.0.6
+ * Swiper 7.0.8
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -51,7 +51,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  *
  * Released under the MIT License
  *
- * Released on: September 16, 2021
+ * Released on: October 4, 2021
  */
 (function (global, factory) {
   (typeof exports === "undefined" ? "undefined" : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Swiper = factory());
@@ -2713,6 +2713,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
         if (isVirtual) {
           swiper.wrapperEl.style.scrollSnapType = 'none';
+          swiper._immediateVirtual = true;
         }
 
         wrapperEl[isH ? 'scrollLeft' : 'scrollTop'] = t;
@@ -2720,6 +2721,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         if (isVirtual) {
           requestAnimationFrame(function () {
             swiper.wrapperEl.style.scrollSnapType = '';
+            swiper._swiperImmediateVirtual = false;
           });
         }
       } else {
@@ -4835,6 +4837,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         addSlidesAfter: 0
       }
     });
+    var cssModeTimeout;
     swiper.virtual = {
       cache: {},
       from: undefined,
@@ -4871,7 +4874,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           slides = _swiper$virtual.slides,
           previousSlidesGrid = _swiper$virtual.slidesGrid,
           previousOffset = _swiper$virtual.offset;
-      swiper.updateActiveIndex();
+
+      if (!swiper.params.cssMode) {
+        swiper.updateActiveIndex();
+      }
+
       var activeIndex = swiper.activeIndex || 0;
       var offsetProp;
       if (swiper.rtlTranslate) offsetProp = 'right';else offsetProp = swiper.isHorizontal() ? 'left' : 'top';
@@ -5010,7 +5017,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           var cachedElIndex = $cachedEl.attr('data-swiper-slide-index');
 
           if (cachedElIndex) {
-            $cachedEl.attr('data-swiper-slide-index', parseInt(cachedElIndex, 10) + 1);
+            $cachedEl.attr('data-swiper-slide-index', parseInt(cachedElIndex, 10) + numberOfNewSlides);
           }
 
           newCache[parseInt(cachedIndex, 10) + numberOfNewSlides] = $cachedEl;
@@ -5076,7 +5083,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
     on('setTranslate', function () {
       if (!swiper.params.virtual.enabled) return;
-      update();
+
+      if (swiper.params.cssMode && !swiper._immediateVirtual) {
+        clearTimeout(cssModeTimeout);
+        cssModeTimeout = setTimeout(function () {
+          update();
+        }, 100);
+      } else {
+        update();
+      }
     });
     on('init update resize', function () {
       if (!swiper.params.virtual.enabled) return;
