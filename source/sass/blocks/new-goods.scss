@@ -13,6 +13,10 @@
 
   h2 {
     letter-spacing: normal;
+
+    @media (min-width: $desktop-width) {
+      margin-bottom: 37px;
+    }
   }
 }
 

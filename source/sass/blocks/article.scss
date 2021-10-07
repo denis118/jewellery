@@ -39,21 +39,24 @@
 
 .article__image-box {
   align-self: stretch;
+  position: relative;
   width: 50%;
+  overflow: hidden;
 
   @media (max-width: $pre-tablet-width) {
     width: 100%;
   }
 
-  &--trends {
-    @media (min-width: $desktop-width) {
-      width: 100%;
-    }
-  }
-
   img {
-    @include img;
-    height: 100%;
+    @media (min-width: $desktop-width) {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, 0);
+
+      width: 285px;
+      height: 100%;
+    }
 
     @media (max-width: $pre-desktop-width) {
       height: 300px;
@@ -61,6 +64,18 @@
 
     @media (max-width: $pre-tablet-width) {
       height: 256px;
+    }
+  }
+
+  &--trends {
+    @media (min-width: $desktop-width) {
+      width: 100%;
+    }
+
+    img {
+      @media (min-width: $desktop-width) {
+        width: 570px;
+      }
     }
   }
 }

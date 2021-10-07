@@ -37,6 +37,7 @@
 
 .slider__inner {
   width: 100%;
+  overflow: hidden;
 
   @media (min-width: $desktop-width) {
     margin-bottom: 50px;
@@ -61,8 +62,9 @@
 
 .slider__list {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  transition-property: transform;
+  transition-duration: $duration;
+  transition-timing-function: $timing-function;
 
   &--catalog {
     display: grid;
@@ -86,6 +88,8 @@
 }
 
 .slider__item {
+  flex-shrink: 0;
+
   @media (min-width: $desktop-width) {
     width: 23.0769%;
     margin-right: 2.5641%;
@@ -271,6 +275,10 @@
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
+
+  @media (min-width: $desktop-width) {
+    transform: translate(5px, 0);
+  }
 
   @media (max-width: $pre-desktop-width) {
     transform: translate(-2px, 0);

@@ -1,378 +1,193 @@
 <!DOCTYPE html>
-<html
-  lang="en">
+<html lang="en">
+
 <head>
-  <meta
-    charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="jewelry, ornaments">
-  <link
-    rel="preload"
-    href="./fonts/poppins-regular-webfont.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin>
-  <link
-    rel="preload"
-    href="./fonts/cormorantgaramond-semibold-webfont.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin>
-  <link
-    rel="preload"
-    href="./fonts/cormorantgaramond-bold-webfont.woff2"
-    as="font"
-    type="font/woff2"
-    crossorigin>
-  <link
-    rel="stylesheet"
-    href="./css/style.min.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="jewelry, ornaments">
+  <link rel="preload" href="./fonts/poppins-regular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/cormorantgaramond-semibold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/cormorantgaramond-bold-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./css/style.min.css">
   <title>Catalog</title>
 </head>
 
 <!-- .scroll-stop -->
+
 <body>
   <!-- .header--js -->
   <!-- .menu-open -->
-  <header
-    class="header">
-    <div
-      class="header__container header__container--upper container">
-      <div
-        class="header__form-box hidden-before-desktop">
-        <form
-          id="site-search-desktop"
-          action="https://echo.htmlacademy.ru/"
-          method="GET"
-          autocomplete="off">
+  <header class="header">
+    <div class="header__container header__container--upper container">
+      <div class="header__form-box hidden-before-desktop">
+        <form id="site-search-desktop" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
 
-          <label
-            class="visually-hidden"
-            for="search-request-desktop">Site search</label>
-          <input
-            type="text"
-            name="search-request-desktop"
-            id="search-request-desktop"
-            placeholder="Type here to search"
+          <label class="visually-hidden" for="search-request-desktop">Site search</label>
+          <input type="text" name="search-request-desktop" id="search-request-desktop" placeholder="Type here to search"
             aria-label="Type here to search">
 
-          <button
-            class="header__form-submit"
-            type="submit"
-            aria-label="Button to search">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-search"></use>
+          <button class="header__form-submit" type="submit" aria-label="Button to search">
+            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
             </svg>
           </button>
         </form>
       </div>
 
-      <button
-        class="header__burger hidden-on-desktop"
-        aria-labelledby="burger-description">
-        <svg
-          width="25"
-          height="18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-burger"></use>
+      <button class="header__burger hidden-on-desktop" aria-labelledby="burger-description">
+        <svg width="25" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="./img/outer-sprite.svg#icon-burger"></use>
         </svg>
 
-        <span
-          id="burger-description"
-          hidden>Menu toggle</span>
+        <span id="burger-description" hidden>Menu toggle</span>
       </button>
 
-      <a
-        class="header__logo header__logo--different header__logo--catalog"
-        href="./main.html"
+      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html"
         aria-labelledby="site-logo-link">
-        <svg
-          width="66"
-          height="66"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
+        <svg width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
           aria-labelledby="site-logo-image">
-          <use
-            xlink:href="./img/outer-sprite.svg#logo"></use>
+          <use xlink:href="./img/outer-sprite.svg#logo"></use>
         </svg>
 
-        <span
-          class="hidden-entity"
-          id="site-logo-link">Site logo link</span>
+        <span class="hidden-entity" id="site-logo-link">Site logo link</span>
 
-        <span
-          class="hidden-entity"
-          id="site-logo-image">Site logo image</span>
+        <span class="hidden-entity" id="site-logo-image">Site logo image</span>
       </a>
 
-      <a
-        class="header__login login-link link hidden-before-desktop"
-        href="./login.html"
-        aria-label="Login">Login</a>
+      <a class="header__login login-link link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
 
-      <a
-        class="header__cart link"
-        href="#"
-        aria-label="Cart">
-        <span
-          class="header__cart-text hidden-before-desktop">Cart</span>
-        <span
-          class="header__cart-fullness hidden-before-desktop">0</span>
+      <a class="header__cart link" href="#" aria-label="Cart">
+        <span class="header__cart-text hidden-before-desktop">Cart</span>
+        <span class="header__cart-fullness hidden-before-desktop">0</span>
 
-        <svg
-          class="hidden-on-desktop"
-          width="20"
-          height="18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <svg class="hidden-on-desktop" width="20" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-cart"></use>
+          <use xlink:href="./img/outer-sprite.svg#icon-cart"></use>
         </svg>
       </a>
     </div>
 
-    <div
-      class="header__container header__container--lower container">
-      <div
-        class="header__form-box hidden-on-desktop">
-        <form
-          id="site-search-predesktop"
-          action="https://echo.htmlacademy.ru/"
-          method="GET"
-          autocomplete="off">
-          <label
-            class="visually-hidden"
-            for="search-request-predesktop">Site search</label>
-          <input
-            type="text"
-            name="search-request-predesktop"
-            id="search-request-predesktop">
+    <div class="header__container header__container--lower container">
+      <div class="header__form-box hidden-on-desktop">
+        <form id="site-search-predesktop" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+          <label class="visually-hidden" for="search-request-predesktop">Site search</label>
+          <input type="text" name="search-request-predesktop" id="search-request-predesktop">
 
-          <button
-            class="header__form-submit"
-            type="submit"
-            aria-label="Button to search">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-search"></use>
+          <button class="header__form-submit" type="submit" aria-label="Button to search">
+            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
             </svg>
           </button>
         </form>
       </div>
 
-      <nav
-        class="header__navigation header__navigation--catalog"
-        aria-label="Site chapters">
-        <ul
-          class="list">
+      <nav class="header__navigation header__navigation--catalog" aria-label="Site chapters">
+        <ul class="list">
           <li>
-            <a
-              class="link"
-              href="#">What’s new</a>
+            <a class="link" href="#">What’s new</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Chokers</a>
+            <a class="link" href="#">Chokers</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Necklaces</a>
+            <a class="link" href="#">Necklaces</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Rings</a>
+            <a class="link" href="#">Rings</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Earrings</a>
+            <a class="link" href="#">Earrings</a>
           </li>
         </ul>
       </nav>
 
-      <ul
-        class="header__general-information general-information list hidden-on-desktop"
-        aria-labelledby="buyers-info">
+      <ul class="header__general-information general-information list hidden-on-desktop" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">About CH</a>
+          <a class="link" href="#">About CH</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Stores & Hours</a>
+          <a class="link" href="#">Stores & Hours</a>
         </li>
-        <li
-          hidden>
-          <a
-            class="link"
-            href="#">Jobs</a>
+        <li hidden>
+          <a class="link" href="#">Jobs</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Contact Us</a>
+          <a class="link" href="#">Contact Us</a>
         </li>
       </ul>
 
-      <a
-        class="header__login login-link link hidden-on-desktop"
-        href="./login.html"
-        aria-label="login">Login</a>
+      <a class="header__login login-link link hidden-on-desktop" href="./login.html" aria-label="login">Login</a>
     </div>
   </header>
 
-  <main
-    class="catalog-page">
+  <main class="catalog-page">
     <h1>Jewelry</h1>
 
-    <section
-      class="intro intro--catalog">
+    <section class="intro intro--catalog">
       <h2>Introduction</h2>
 
-      <div
-        class="intro__inner">
-        <div
-          class="intro__box intro__box--catalog intro__box--primary intro__box--prime-catalog">
+      <div class="intro__inner">
+        <div class="intro__box intro__box--catalog intro__box--primary intro__box--prime-catalog">
           <p>All Jewellery</p>
         </div>
 
-        <div
-          class="intro__box intro__box--catalog intro__box--auxiliary intro__box--aux-catalog">
+        <div class="intro__box intro__box--catalog intro__box--auxiliary intro__box--aux-catalog">
           <p>Discover picks of fashion's finest trends in our jewellery catalog</p>
         </div>
       </div>
     </section>
 
-    <div
-      class="catalog-page__container container">
+    <div class="catalog-page__container container">
 
       <!-- filter--js -->
-      <div
-        class="filter"
-        role="region"
-        aria-label="Filter">
+      <div class="filter" role="region" aria-label="Filter">
 
-        <button
-          class="filter__starter button"
-          type="button"
-          id="filter-starter"
+        <button class="filter__starter button" type="button" id="filter-starter"
           aria-label="Button to show filter">Filter</button>
 
         <!-- .overlay -->
-        <div
-          class="filter__inner">
-          <div
-            class="filter__form-box">
-            <form
-              id="filter"
-              action="https://echo.htmlacademy.ru/"
-              method="GET"
-              autocomplete="off">
-              <div
-                class="filter__accordeon accordeon accordeon--catalog"
-                id="accordeon-catalog">
+        <div class="filter__inner">
+          <div class="filter__form-box">
+            <form id="filter" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+              <div class="filter__accordeon accordeon accordeon--catalog" id="accordeon-catalog">
 
                 <!-- .accordeon__item--disclosed -->
                 <div
                   class="accordeon__item accordeon__item--product accordeon__item--catalog accordeon__item--disclosed">
-                  <button
-                    class="accordeon__button accordeon__button--catalog accordeon__button--product button"
-                    type="button"
-                    aria-label="Button to display product types list">
+                  <button class="accordeon__button accordeon__button--catalog accordeon__button--product button"
+                    type="button" aria-label="Button to display product types list">
                     Product
 
-                    <svg
-                      class="accordeon__button-svg accordeon__button-svg--catalog"
-                      width="15"
-                      height="8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true">
-                      <use
-                        xlink:href="./img/outer-sprite.svg#icon-angle"></use>
+                    <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
                   </button>
 
-                  <div
-                    class="accordeon__content accordeon__content--catalog accordeon__content--products">
+                  <div class="accordeon__content accordeon__content--catalog accordeon__content--products">
                     <fieldset>
                       <legend>Product</legend>
 
-                      <ul
-                        class="filter__list filter__list--products list">
-                        <li
-                          class="filter__list-item filter__list-item--necklaces">
-                          <input
-                            type="checkbox"
-                            name="necklaces"
-                            id="necklaces"
-                            data-checked="true"
-                            checked>
-                          <label
-                            class="filter__label filter__label--necklaces"
-                            for="necklaces">Necklaces</label>
+                      <ul class="filter__list filter__list--products list">
+                        <li class="filter__list-item filter__list-item--necklaces">
+                          <input type="checkbox" name="necklaces" id="necklaces" data-checked="true" checked>
+                          <label class="filter__label filter__label--necklaces" for="necklaces">Necklaces</label>
                         </li>
 
-                        <li
-                          class="filter__list-item filter__list-item--chokers">
-                          <input
-                            type="checkbox"
-                            name="chokers"
-                            id="chokers"
-                            data-checked="true"
-                            checked>
-                          <label
-                            class="filter__label filter__label--chokers"
-                            for="chokers">Chokers</label>
+                        <li class="filter__list-item filter__list-item--chokers">
+                          <input type="checkbox" name="chokers" id="chokers" data-checked="true" checked>
+                          <label class="filter__label filter__label--chokers" for="chokers">Chokers</label>
                         </li>
 
-                        <li
-                          class="filter__list-item filter__list-item--rings">
-                          <input
-                            type="checkbox"
-                            name="rings"
-                            id="rings">
-                          <label
-                            class="filter__label filter__label--rings"
-                            for="rings">Rings</label>
+                        <li class="filter__list-item filter__list-item--rings">
+                          <input type="checkbox" name="rings" id="rings">
+                          <label class="filter__label filter__label--rings" for="rings">Rings</label>
                         </li>
 
-                        <li
-                          class="filter__list-item filter__list-item--earrings">
-                          <input
-                            type="checkbox"
-                            name="earrings"
-                            id="earrings"
-                            data-checked="true"
-                            checked>
-                          <label
-                            class="filter__label filter__label--earrings"
-                            for="earrings">Earrings</label>
+                        <li class="filter__list-item filter__list-item--earrings">
+                          <input type="checkbox" name="earrings" id="earrings" data-checked="true" checked>
+                          <label class="filter__label filter__label--earrings" for="earrings">Earrings</label>
                         </li>
                       </ul>
                     </fieldset>
@@ -380,53 +195,30 @@
                 </div>
 
                 <!-- .accordeon__item--disclosed -->
-                <div
-                  class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
-                  <button
-                    class="accordeon__button accordeon__button--catalog accordeon__button--material button"
-                    type="button"
-                    aria-label="Button to display product materials list">
+                <div class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
+                  <button class="accordeon__button accordeon__button--catalog accordeon__button--material button"
+                    type="button" aria-label="Button to display product materials list">
                     Material
 
-                    <svg
-                      class="accordeon__button-svg accordeon__button-svg--catalog"
-                      width="15"
-                      height="8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true">
-                      <use
-                        xlink:href="./img/outer-sprite.svg#icon-angle"></use>
+                    <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
                   </button>
 
-                  <div
-                    class="accordeon__content accordeon__content--catalog">
+                  <div class="accordeon__content accordeon__content--catalog">
                     <fieldset>
                       <legend>Material</legend>
 
-                      <ul
-                        class="filter__list filter__list--materials list">
-                        <li
-                          class="filter__list-item filter__list-item--gold">
-                          <input
-                            type="checkbox"
-                            name="gold"
-                            id="gold">
-                          <label
-                            class="filter__label filter__label--gold"
-                            for="gold">Gold</label>
+                      <ul class="filter__list filter__list--materials list">
+                        <li class="filter__list-item filter__list-item--gold">
+                          <input type="checkbox" name="gold" id="gold">
+                          <label class="filter__label filter__label--gold" for="gold">Gold</label>
                         </li>
 
-                        <li
-                          class="filter__list-item filter__list-item--silver">
-                          <input
-                            type="checkbox"
-                            name="silver"
-                            id="silver">
-                          <label
-                            class="filter__label filter__label--silver"
-                            for="silver">Silver</label>
+                        <li class="filter__list-item filter__list-item--silver">
+                          <input type="checkbox" name="silver" id="silver">
+                          <label class="filter__label filter__label--silver" for="silver">Silver</label>
                         </li>
                       </ul>
                     </fieldset>
@@ -434,53 +226,31 @@
                 </div>
 
                 <!-- .accordeon__item--disclosed -->
-                <div
-                  class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
-                  <button
-                    class="accordeon__button accordeon__button--catalog accordeon__button--collection button"
-                    type="button"
-                    aria-label="Button to display collections list">
+                <div class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
+                  <button class="accordeon__button accordeon__button--catalog accordeon__button--collection button"
+                    type="button" aria-label="Button to display collections list">
                     Collection
 
-                    <svg
-                      class="accordeon__button-svg accordeon__button-svg--catalog"
-                      width="15"
-                      height="8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true">
-                      <use
-                        xlink:href="./img/outer-sprite.svg#icon-angle"></use>
+                    <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
                   </button>
 
-                  <div
-                    class="accordeon__content accordeon__content--catalog">
+                  <div class="accordeon__content accordeon__content--catalog">
                     <fieldset>
                       <legend>Collection</legend>
 
-                      <ul
-                        class="filter__list filter__list--collections list">
-                        <li
-                          class="filter__list-item filter__list-item--pink-flamingo">
-                          <input
-                            type="checkbox"
-                            name="collection-pink-flamingo"
-                            id="collection-pink-flamingo">
-                          <label
-                            class="filter__label filter__label--pink-flamingo"
-                            for="collection-pink-flamingo">Pink flamingo</label>
+                      <ul class="filter__list filter__list--collections list">
+                        <li class="filter__list-item filter__list-item--pink-flamingo">
+                          <input type="checkbox" name="collection-pink-flamingo" id="collection-pink-flamingo">
+                          <label class="filter__label filter__label--pink-flamingo" for="collection-pink-flamingo">Pink
+                            flamingo</label>
                         </li>
 
-                        <li
-                          class="filter__list-item filter__list-item--dreams">
-                          <input
-                            type="checkbox"
-                            name="collection-dreams"
-                            id="collection-dreams">
-                          <label
-                            class="filter__label filter__label--dreams"
-                            for="collection-dreams">Dreams</label>
+                        <li class="filter__list-item filter__list-item--dreams">
+                          <input type="checkbox" name="collection-dreams" id="collection-dreams">
+                          <label class="filter__label filter__label--dreams" for="collection-dreams">Dreams</label>
                         </li>
                       </ul>
                     </fieldset>
@@ -488,956 +258,628 @@
                 </div>
 
                 <!-- .accordeon__item--disclosed -->
-                <div
-                  class="accordeon__item accordeon__item--catalog accordeon__item--price accordeon__item--disclosed">
-                  <button
-                    class="accordeon__button accordeon__button--catalog accordeon__button--price button"
-                    type="button"
-                    aria-label="Button to display price controllers">
+                <div class="accordeon__item accordeon__item--catalog accordeon__item--price accordeon__item--disclosed">
+                  <button class="accordeon__button accordeon__button--catalog accordeon__button--price button"
+                    type="button" aria-label="Button to display price controllers">
                     Price
 
-                    <svg
-                      class="accordeon__button-svg accordeon__button-svg--catalog"
-                      width="15"
-                      height="8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true">
-                      <use
-                        xlink:href="./img/outer-sprite.svg#icon-angle"></use>
+                    <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
                   </button>
 
-                  <div
-                    class="accordeon__content accordeon__content--catalog accordeon__content--price">
-                    <fieldset
-                      class="filter__fieldset filter__fieldset--price">
+                  <div class="accordeon__content accordeon__content--catalog accordeon__content--price">
+                    <fieldset class="filter__fieldset filter__fieldset--price">
                       <legend>Price</legend>
 
-                      <div
-                        class="filter__controls-wrapper">
-                        <div
-                          class="filter__bar-shell">
-                          <div
-                            class="filter__bar-fill">
-                            <div
-                              class="filter__bar-handle filter__bar-handle--lower-level"
-                              id="lower-level-handle"
-                              tabindex="0"
-                              aria-labelledby="lower-level-handle-description">
-                              <span
-                                class="filter__bar-handle-value filter__bar-handle-value--lower"
+                      <div class="filter__controls-wrapper">
+                        <div class="filter__bar-shell">
+                          <div class="filter__bar-fill">
+                            <div class="filter__bar-handle filter__bar-handle--lower-level" id="lower-level-handle"
+                              tabindex="0" aria-labelledby="lower-level-handle-description">
+                              <span class="filter__bar-handle-value filter__bar-handle-value--lower"
                                 id="lower-cost-span">$ 55</span>
 
-                              <input
-                                type="hidden"
-                                name="lower-cost-input"
-                                id="lower-cost-input"
-                                value="$ 55">
+                              <input type="hidden" name="lower-cost-input" id="lower-cost-input" value="$ 55">
                             </div>
 
-                            <div
-                              class="filter__bar-handle filter__bar-handle--upper-level"
-                              id="upper-level-handle"
-                              tabindex="0"
-                              aria-labelledby="upper-level-handle-description">
-                              <span
-                                class="filter__bar-handle-value filter__bar-handle-value--upper"
+                            <div class="filter__bar-handle filter__bar-handle--upper-level" id="upper-level-handle"
+                              tabindex="0" aria-labelledby="upper-level-handle-description">
+                              <span class="filter__bar-handle-value filter__bar-handle-value--upper"
                                 id="upper-cost-span">$ 155</span>
 
-                              <input
-                                type="hidden"
-                                name="upper-cost-input"
-                                id="upper-cost-input"
-                                value="$ 155">
+                              <input type="hidden" name="upper-cost-input" id="upper-cost-input" value="$ 155">
                             </div>
                           </div>
                         </div>
 
-                        <span
-                          class="hidden-entity"
-                          id="lower-level-handle-description">Lower level cost handle</span>
-                        <span
-                          class="hidden-entity"
-                          id="upper-level-handle-description">Upper level cost handle</span>
+                        <span class="hidden-entity" id="lower-level-handle-description">Lower level cost handle</span>
+                        <span class="hidden-entity" id="upper-level-handle-description">Upper level cost handle</span>
                       </div>
                     </fieldset>
                   </div>
                 </div>
               </div>
 
-              <button
-                class="filter__button filter__apply button"
-                type="submit">Apply</button>
+              <button class="filter__button filter__apply button" type="submit">Apply</button>
 
-              <button
-                class="filter__button filter__clear button"
-                type="button"
-                id="filter-cleaner"
+              <button class="filter__button filter__clear button" type="button" id="filter-cleaner"
                 data-for="#accordeon-catalog">Clear All</button>
             </form>
 
-            <button
-              class="filter__cross button"
-              type="button"
-              aria-label="Button to close filter">
-              <svg
-                width="32"
-                height="32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <use
-                  xlink:href="./img/outer-sprite.svg#icon-cross-in-circle"></use>
+            <button class="filter__cross button" type="button" aria-label="Button to close filter">
+              <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="./img/outer-sprite.svg#icon-cross-in-circle"></use>
               </svg>
             </button>
           </div>
         </div>
       </div>
 
-      <div
-        class="slider slider--catalog"
-        id="slider-catalog"
-        role="region"
-        aria-label="Slider">
-        <div
-          class="slider__inner slider__inner--catalog">
-          <ul
-            class="slider__list slider__list--catalog list">
+      <div class="slider slider--catalog" id="slider-catalog" role="region" aria-label="Slider">
+        <div class="slider__inner slider__inner--catalog">
+          <ul class="slider__list slider__list--catalog list">
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/double-pearl-earrings.webp    1x,
                         ./img/content/catalog/mobile/double-pearl-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/double-pearl-earrings.jpg    1x,
                         ./img/content/catalog/mobile/double-pearl-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/double-pearl-earrings.webp    1x,
                         ./img/content/catalog/tablet/double-pearl-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/double-pearl-earrings.jpg    1x,
                         ./img/content/catalog/tablet/double-pearl-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/double-pearl-earrings.webp    1x,
                         ./img/content/catalog/desktop/double-pearl-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/double-pearl-earrings.jpg"
-                      width="270"
-                      height="272"
-                      alt="Double pearl earrings"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/double-pearl-earrings.jpg" width="270" height="272"
+                      alt="Double pearl earrings" srcset="
                         ./img/content/catalog/desktop/double-pearl-earrings@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name slider__product-name--altered">Double pearl earrings</span>
-                  <span
-                    class="slider__product-cost">$ 115</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name slider__product-name--altered">Double pearl earrings</span>
+                  <span class="slider__product-cost">$ 115</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/black-choker-gold-bead.webp    1x,
                         ./img/content/catalog/mobile/black-choker-gold-bead@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/black-choker-gold-bead.jpg    1x,
                         ./img/content/catalog/mobile/black-choker-gold-bead@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/black-choker-gold-bead.webp    1x,
                         ./img/content/catalog/tablet/black-choker-gold-bead@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/black-choker-gold-bead.jpg    1x,
                         ./img/content/catalog/tablet/black-choker-gold-bead@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/black-choker-gold-bead.webp    1x,
                         ./img/content/catalog/desktop/black-choker-gold-bead@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/black-choker-gold-bead.jpg"
-                      width="270"
-                      height="272"
-                      alt="Choker with gold bead"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/black-choker-gold-bead.jpg" width="270" height="272"
+                      alt="Choker with gold bead" srcset="
                         ./img/content/catalog/desktop/black-choker-gold-bead@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Choker with gold bead</span>
-                  <span
-                    class="slider__product-cost slider__product-cost--altered">$ 55</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Choker with gold bead</span>
+                  <span class="slider__product-cost slider__product-cost--altered">$ 55</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/gold-layered-necklace.webp    1x,
                         ./img/content/catalog/mobile/gold-layered-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/gold-layered-necklace.jpg    1x,
                         ./img/content/catalog/mobile/gold-layered-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/gold-layered-necklace.webp    1x,
                         ./img/content/catalog/tablet/gold-layered-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/gold-layered-necklace.jpg    1x,
                         ./img/content/catalog/tablet/gold-layered-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/gold-layered-necklace.webp    1x,
                         ./img/content/catalog/desktop/gold-layered-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/gold-layered-necklace.jpg"
-                      width="270"
-                      height="272"
-                      alt="Gold layered necklace"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/gold-layered-necklace.jpg" width="270" height="272"
+                      alt="Gold layered necklace" srcset="
                         ./img/content/catalog/desktop/gold-layered-necklace@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name slider__product-name--altered">Gold layered necklace</span>
-                  <span
-                    class="slider__product-cost">$ 155</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name slider__product-name--altered">Gold layered necklace</span>
+                  <span class="slider__product-cost">$ 155</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/blue-gemstone-pendant.webp    1x,
                         ./img/content/catalog/mobile/blue-gemstone-pendant@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/blue-gemstone-pendant.jpg    1x,
                         ./img/content/catalog/mobile/blue-gemstone-pendant@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/blue-gemstone-pendant.webp    1x,
                         ./img/content/catalog/tablet/blue-gemstone-pendant@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/blue-gemstone-pendant.jpg    1x,
                         ./img/content/catalog/tablet/blue-gemstone-pendant@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/blue-gemstone-pendant.webp    1x,
                         ./img/content/catalog/desktop/blue-gemstone-pendant@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/blue-gemstone-pendant.jpg"
-                      width="270"
-                      height="272"
-                      alt="Blue gemstone pendant"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/blue-gemstone-pendant.jpg" width="270" height="272"
+                      alt="Blue gemstone pendant" srcset="
                         ./img/content/catalog/desktop/blue-gemstone-pendant@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Blue gemstone pendant</span>
-                  <span
-                    class="slider__product-cost">$ 105</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Blue gemstone pendant</span>
+                  <span class="slider__product-cost">$ 105</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/boho-earrings.webp    1x,
                         ./img/content/catalog/mobile/boho-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/boho-earrings.jpg    1x,
                         ./img/content/catalog/mobile/boho-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/boho-earrings.webp    1x,
                         ./img/content/catalog/tablet/boho-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/boho-earrings.jpg    1x,
                         ./img/content/catalog/tablet/boho-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/boho-earrings.webp    1x,
                         ./img/content/catalog/desktop/boho-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/boho-earrings.jpg"
-                      width="270"
-                      height="272"
-                      alt="Boho earrings"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/boho-earrings.jpg" width="270" height="272"
+                      alt="Boho earrings" srcset="
                         ./img/content/catalog/desktop/boho-earrings@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Boho earrings</span>
-                  <span
-                    class="slider__product-cost">$ 75</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Boho earrings</span>
+                  <span class="slider__product-cost">$ 75</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/bird-necklace.webp    1x,
                         ./img/content/catalog/mobile/bird-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/bird-necklace.jpg    1x,
                         ./img/content/catalog/mobile/bird-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/bird-necklace.webp    1x,
                         ./img/content/catalog/tablet/bird-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/bird-necklace.jpg    1x,
                         ./img/content/catalog/tablet/bird-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/bird-necklace.webp    1x,
                         ./img/content/catalog/desktop/bird-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/bird-necklace.jpg"
-                      width="270"
-                      height="272"
-                      alt="Gold bird necklace"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/bird-necklace.jpg" width="270" height="272"
+                      alt="Gold bird necklace" srcset="
                         ./img/content/catalog/desktop/bird-necklace@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Gold bird necklace</span>
-                  <span
-                    class="slider__product-cost">$ 135</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Gold bird necklace</span>
+                  <span class="slider__product-cost">$ 135</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/black-leather-choker-necklace.webp    1x,
                         ./img/content/catalog/mobile/black-leather-choker-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/black-leather-choker-necklace.jpg    1x,
                         ./img/content/catalog/mobile/black-leather-choker-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/black-leather-choker-necklace.webp    1x,
                         ./img/content/catalog/tablet/black-leather-choker-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/black-leather-choker-necklace.jpg    1x,
                         ./img/content/catalog/tablet/black-leather-choker-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/black-leather-choker-necklace.webp    1x,
                         ./img/content/catalog/desktop/black-leather-choker-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/black-leather-choker-necklace.jpg"
-                      width="270"
-                      height="272"
-                      alt="Black leather choker"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/black-leather-choker-necklace.jpg" width="270" height="272"
+                      alt="Black leather choker" srcset="
                         ./img/content/catalog/desktop/black-leather-choker-necklace@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Black leather choker</span>
-                  <span
-                    class="slider__product-cost">$ 85</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Black leather choker</span>
+                  <span class="slider__product-cost">$ 85</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/purple-gemstone-necklace.webp    1x,
                         ./img/content/catalog/mobile/purple-gemstone-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/purple-gemstone-necklace.jpg    1x,
                         ./img/content/catalog/mobile/purple-gemstone-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/purple-gemstone-necklace.webp    1x,
                         ./img/content/catalog/tablet/purple-gemstone-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/purple-gemstone-necklace.jpg    1x,
                         ./img/content/catalog/tablet/purple-gemstone-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/purple-gemstone-necklace.webp    1x,
                         ./img/content/catalog/desktop/purple-gemstone-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/purple-gemstone-necklace.jpg"
-                      width="270"
-                      height="272"
-                      alt="Necklace with amethyst"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/purple-gemstone-necklace.jpg" width="270" height="272"
+                      alt="Necklace with amethyst" srcset="
                         ./img/content/catalog/desktop/purple-gemstone-necklace@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Necklace with amethyst</span>
-                  <span
-                    class="slider__product-cost">$ 145</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Necklace with amethyst</span>
+                  <span class="slider__product-cost">$ 145</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/elephant-earrings.webp    1x,
                         ./img/content/catalog/mobile/elephant-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/elephant-earrings.jpg    1x,
                         ./img/content/catalog/mobile/elephant-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/elephant-earrings.webp    1x,
                         ./img/content/catalog/tablet/elephant-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/elephant-earrings.jpg    1x,
                         ./img/content/catalog/tablet/elephant-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/elephant-earrings.webp    1x,
                         ./img/content/catalog/desktop/elephant-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/elephant-earrings.jpg"
-                      width="270"
-                      height="272"
-                      alt="Elephant earrings"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/elephant-earrings.jpg" width="270" height="272"
+                      alt="Elephant earrings" srcset="
                         ./img/content/catalog/desktop/elephant-earrings@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Elephant earrings</span>
-                  <span
-                    class="slider__product-cost">$ 95</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Elephant earrings</span>
+                  <span class="slider__product-cost">$ 95</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/threader-necklace-closeup.webp    1x,
                         ./img/content/catalog/mobile/threader-necklace-closeup@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/threader-necklace-closeup.jpg    1x,
                         ./img/content/catalog/mobile/threader-necklace-closeup@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/threader-necklace-closeup.webp    1x,
                         ./img/content/catalog/tablet/threader-necklace-closeup@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/threader-necklace-closeup.jpg    1x,
                         ./img/content/catalog/tablet/threader-necklace-closeup@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/threader-necklace-closeup.webp    1x,
                         ./img/content/catalog/desktop/threader-necklace-closeup@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/threader-necklace-closeup.jpg"
-                      width="270"
-                      height="272"
-                      alt="Threader necklace"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/threader-necklace-closeup.jpg" width="270" height="272"
+                      alt="Threader necklace" srcset="
                         ./img/content/catalog/desktop/threader-necklace-closeup@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Threader necklace</span>
-                  <span
-                    class="slider__product-cost">$ 115</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Threader necklace</span>
+                  <span class="slider__product-cost">$ 115</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/origami-crane-necklace.webp    1x,
                         ./img/content/catalog/mobile/origami-crane-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/origami-crane-necklace.jpg    1x,
                         ./img/content/catalog/mobile/origami-crane-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/origami-crane-necklace.webp    1x,
                         ./img/content/catalog/tablet/origami-crane-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/origami-crane-necklace.jpg    1x,
                         ./img/content/catalog/tablet/origami-crane-necklace@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/origami-crane-necklace.webp    1x,
                         ./img/content/catalog/desktop/origami-crane-necklace@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/origami-crane-necklace.jpg"
-                      width="270"
-                      height="272"
-                      alt="Origami crane necklace"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/origami-crane-necklace.jpg" width="270" height="272"
+                      alt="Origami crane necklace" srcset="
                         ./img/content/catalog/desktop/origami-crane-necklace@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Origami crane necklace</span>
-                  <span
-                    class="slider__product-cost">$ 105</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Origami crane necklace</span>
+                  <span class="slider__product-cost">$ 105</span>
                 </figcaption>
               </figure>
             </li>
 
-            <li
-              class="slider__item slider__item--catalog">
+            <li class="slider__item slider__item--catalog">
               <figure>
-                <div
-                  class="slider__padded-box slider__padded-box--catalog">
+                <div class="slider__padded-box slider__padded-box--catalog">
                   <picture>
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/marble-earrings.webp    1x,
                         ./img/content/catalog/mobile/marble-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source
-                      media="(max-width: 767px)"
-                      srcset="
+                    <source media="(max-width: 767px)" srcset="
                         ./img/content/catalog/mobile/marble-earrings.jpg    1x,
                         ./img/content/catalog/mobile/marble-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      type="image/webp"
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source type="image/webp" media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/marble-earrings.webp    1x,
                         ./img/content/catalog/tablet/marble-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source
-                      media="(max-width: 1023px)"
-                      srcset="
+                    <source media="(max-width: 1023px)" srcset="
                         ./img/content/catalog/tablet/marble-earrings.jpg    1x,
                         ./img/content/catalog/tablet/marble-earrings@2x.jpg 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source
-                      type="image/webp"
-                      srcset="
+                    <source type="image/webp" srcset="
                         ./img/content/catalog/desktop/marble-earrings.webp    1x,
                         ./img/content/catalog/desktop/marble-earrings@2x.webp 2x
                       " />
                     <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img
-                      src="./img/content/catalog/desktop/marble-earrings.jpg"
-                      width="270"
-                      height="272"
-                      alt="Marble earrings"
-                      srcset="
+                    <img src="./img/content/catalog/desktop/marble-earrings.jpg" width="270" height="272"
+                      alt="Marble earrings" srcset="
                         ./img/content/catalog/desktop/marble-earrings@2x.jpg 2x
                       " />
                   </picture>
                 </div>
 
-                <figcaption
-                  class="slider__figcaption">
-                  <span
-                    class="slider__product-name">Marble earrings</span>
-                  <span
-                    class="slider__product-cost">$ 95</span>
+                <figcaption class="slider__figcaption">
+                  <span class="slider__product-name">Marble earrings</span>
+                  <span class="slider__product-cost">$ 95</span>
                 </figcaption>
               </figure>
             </li>
           </ul>
         </div>
 
-        <button
-          class="slider__arrow slider__arrow--catalog slider__arrow--backward button hidden-on-mobile"
-          type="button"
-          data-id="previous"
-          aria-label="Previous slide button">Previous</button>
+        <button class="slider__arrow slider__arrow--catalog slider__arrow--backward button hidden-on-mobile"
+          type="button" data-id="previous" aria-label="Previous slide button">Previous</button>
 
-        <button
-          class="slider__arrow slider__arrow--catalog slider__arrow--forward button hidden-on-mobile"
-          type="button"
-          data-id="next"
-          aria-label="Next slide button">Next</button>
+        <button class="slider__arrow slider__arrow--catalog slider__arrow--forward button hidden-on-mobile"
+          type="button" data-id="next" aria-label="Next slide button">Next</button>
 
-        <ol
-          class="slider__frame-button-list slider__frame-button-list--catalog list">
-          <li
-            class="slider__frame-button-item slider__frame-button-item--catalog">
-            <button
-              class="slider__frame-button button active"
-              type="button"
+        <ol class="slider__frame-button-list slider__frame-button-list--catalog list">
+          <li class="slider__frame-button-item slider__frame-button-item--catalog">
+            <button class="slider__frame-button button active" type="button"
               aria-label="Button to enable the first set of products">1</button>
           </li>
 
-          <li
-            class="slider__frame-button-item slider__frame-button-item--catalog">
-            <button
-              class="slider__frame-button button"
-              type="button"
+          <li class="slider__frame-button-item slider__frame-button-item--catalog">
+            <button class="slider__frame-button button" type="button"
               aria-label="Button to enable the second set of products">2</button>
           </li>
 
-          <li
-            class="slider__frame-button-item slider__frame-button-item--catalog">
-            <button
-              class="slider__frame-button button"
-              type="button"
+          <li class="slider__frame-button-item slider__frame-button-item--catalog">
+            <button class="slider__frame-button button" type="button"
               aria-label="Button to enable the third set of products">3</button>
           </li>
 
-          <li
-            class="slider__frame-button-item slider__frame-button-item--catalog">
-            <button
-              class="slider__frame-button button"
-              type="button"
+          <li class="slider__frame-button-item slider__frame-button-item--catalog">
+            <button class="slider__frame-button button" type="button"
               aria-label="Button to enable the fourth set of products">4</button>
           </li>
 
-          <li
-            class="slider__frame-button-item slider__frame-button-item--catalog">
-            <button
-              class="slider__frame-button button"
-              type="button"
+          <li class="slider__frame-button-item slider__frame-button-item--catalog">
+            <button class="slider__frame-button button" type="button"
               aria-label="Button to enable the fifth set of products">5</button>
           </li>
         </ol>
@@ -1445,287 +887,159 @@
     </div>
   </main>
 
-  <footer
-    class="footer">
-    <div
-      class="footer__container container">
-      <section
-        class="footer__subscription">
+  <footer class="footer">
+    <div class="footer__container container">
+      <section class="footer__subscription">
         <h3>Subscription</h3>
 
-        <div
-          class="footer__leading-paragraph-box">
+        <div class="footer__leading-paragraph-box">
           <p>The good stuff in your inbox</p>
         </div>
 
-        <div
-          class="footer__auxiliary-paragraph-box">
+        <div class="footer__auxiliary-paragraph-box">
           <p>News and updates from CH. No spam, we promise.</p>
         </div>
 
-        <div
-          class="footer__form-box">
-          <form
-            id="news-subscription"
-            action="https://echo.htmlacademy.ru/"
-            method="GET"
-            autocomplete="off">
-            <label
-              class="visually-hidden"
-              for="subscribe-news">Your E-mail</label>
+        <div class="footer__form-box">
+          <form id="news-subscription" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+            <label class="visually-hidden" for="subscribe-news">Your E-mail</label>
 
-            <input
-              type="email"
-              name="subscribe-news"
-              id="subscribe-news"
-              placeholder="Your E-mail"
-              aria-label="type your e-mail"
-              required>
+            <input type="email" name="subscribe-news" id="subscribe-news" placeholder="Your E-mail"
+              aria-label="type your e-mail" required>
 
-            <button
-              class="footer__submit button"
-              type="submit"
-              aria-label="Submit button">
+            <button class="footer__submit button" type="submit" aria-label="Submit button">
               <span>Sign Up</span>
 
-              <svg
-                width="29"
-                height="9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <use
-                  xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
+              <svg width="29" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
               </svg>
             </button>
           </form>
         </div>
       </section>
 
-      <ul
-        class="footer__list footer__buyers-information list"
-        aria-labelledby="buyers-info">
+      <ul class="footer__list footer__buyers-information list" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">Ordering & Payment</a>
+          <a class="link" href="#">Ordering & Payment</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Terms & Conditions</a>
+          <a class="link" href="#">Terms & Conditions</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Returns & Exchanges</a>
+          <a class="link" href="#">Returns & Exchanges</a>
         </li>
-        <li
-          class="footer__delivery-item">
-          <a
-            class="link"
-            href="#">Delivery</a>
+        <li class="footer__delivery-item">
+          <a class="link" href="#">Delivery</a>
         </li>
       </ul>
 
-      <ul
-        class="footer__list footer__general-information general-information list"
-        aria-labelledby="buyers-info">
+      <ul class="footer__list footer__general-information general-information list" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">About CH</a>
+          <a class="link" href="#">About CH</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Stores & Hours</a>
+          <a class="link" href="#">Stores & Hours</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Jobs</a>
+          <a class="link" href="#">Jobs</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Contact Us</a>
+          <a class="link" href="#">Contact Us</a>
         </li>
       </ul>
 
-      <ul
-        class="footer__list footer__social-networks list"
-        aria-labelledby="social-networks">
+      <ul class="footer__list footer__social-networks list" aria-labelledby="social-networks">
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--facebook"
-              width="8"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--facebook" width="8" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Facebook</span>
+            <span class="hidden-before-tablet">Facebook</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--instagram"
-              width="15"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--instagram" width="15" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Instagram</span>
+            <span class="hidden-before-tablet">Instagram</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--pinterest"
-              width="16"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--pinterest" width="16" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Pinterest</span>
+            <span class="hidden-before-tablet">Pinterest</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--twitter"
-              width="15"
-              height="13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--twitter" width="15" height="13" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Twitter</span>
+            <span class="hidden-before-tablet">Twitter</span>
           </a>
         </li>
       </ul>
 
-      <span
-        id="buyers-info"
-        hidden>Information for buyers</span>
+      <span id="buyers-info" hidden>Information for buyers</span>
 
-      <span
-        id="social-networks"
-        hidden>We are in social networks</span>
+      <span id="social-networks" hidden>We are in social networks</span>
     </div>
   </footer>
 
   <!--.hidden-entity -->
-  <div
-    class="overlay hidden-entity"
-    id="modal-login">
-    <section
-      class="login">
+  <div class="overlay hidden-entity" id="modal-login">
+    <section class="login">
       <h2>Log In</h2>
       <h3>Log In</h3>
 
-      <form
-        action="https://echo.htmlacademy.ru/"
-        method="POST"
-        autocomplete="off">
-        <div
-          class="login__form-inner">
-          <div
-            class="login__input-wrapper login__input-wrapper--email">
-            <label
-              for="email">Your E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your E-mail"
-              required
-              autofocus>
+      <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
+        <div class="login__form-inner">
+          <div class="login__input-wrapper login__input-wrapper--email">
+            <label for="email">Your E-mail</label>
+            <input type="email" name="email" id="email" placeholder="Your E-mail" required autofocus>
           </div>
 
-          <div
-            class="login__input-wrapper login__input-wrapper--password">
-            <label
-              for="password">Your password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required>
+          <div class="login__input-wrapper login__input-wrapper--password">
+            <label for="password">Your password</label>
+            <input type="password" name="password" id="password" placeholder="Password" required>
 
-            <a
-              class="login__forgot-password-link link"
-              href="#">Forgot your password?</a>
+            <a class="login__forgot-password-link link" href="#">Forgot your password?</a>
           </div>
 
-          <button
-            class="login__submit button"
-            type="submit">Log In</button>
+          <button class="login__submit button" type="submit">Log In</button>
 
-          <div
-            class="login__singup-wrapper">
+          <div class="login__singup-wrapper">
             <p>Don’t have an account?</p>
 
-            <a
-              class="login__singup-link link"
-              href="#">Sign up</a>
+            <a class="login__singup-link link" href="#">Sign up</a>
           </div>
         </div>
       </form>
 
-      <button
-        class="login__cross button"
-        type="button"
-        aria-label="Button to close login form">
-        <svg
-          width="14"
-          height="14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-cross"></use>
+      <button class="login__cross button" type="button" aria-label="Button to close login form">
+        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="./img/outer-sprite.svg#icon-cross"></use>
         </svg>
       </button>
     </section>
   </div>
 
-  <script
-    src="./js/script.js"
-    defer></script>
+  <script src="./js/script.js" defer></script>
 
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 .blog {
   @media (min-width: $desktop-width) {
-    margin-bottom: 104px;
+    margin-bottom: 74px;
   }
 
   @media (max-width: $pre-desktop-width) {
@@ -14,6 +14,17 @@
   h2 {
     @media (min-width: $desktop-width) {
       margin-bottom: 32px;
+    }
+  }
+
+  .article {
+    &--trends {
+      @media (min-width: $desktop-width) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: calc(100% - #{$gap});
+      }
     }
   }
 }
@@ -35,39 +46,24 @@
   width: 100%;
 
   @media (min-width: $desktop-width) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, min-content);
-    grid-auto-rows: min-content;
-    gap: 30px;
+    position: relative;
   }
+
+  @include clearfix;
 }
 
 .blog__article {
-  &--care {
-    @media (min-width: $desktop-width) {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 1;
-      grid-row-end: 2;
-    }
-  }
-
-  &--power {
-    @media (min-width: $desktop-width) {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      grid-row-start: 2;
-      grid-row-end: 3;
-    }
+  @media (min-width: $desktop-width) {
+    width: calc(50% - #{$gap} / 2);
+    float: left;
+    margin-right: calc(50% + #{$gap});
+    margin-bottom: $gap;
   }
 
   &--trends {
     @media (min-width: $desktop-width) {
-      grid-column-start: 2;
-      grid-column-end: 3;
-      grid-row-start: 1;
-      grid-row-end: 3;
+      float: none;
+      margin-right: 0;
     }
   }
 }
