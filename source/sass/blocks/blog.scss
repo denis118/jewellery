@@ -1,15 +1,5 @@
 .blog {
-  @media (min-width: $desktop-width) {
-    margin-bottom: 74px;
-  }
-
-  @media (max-width: $pre-desktop-width) {
-    margin-bottom: 3px;
-  }
-
-  @media (max-width: $pre-tablet-width) {
-    margin-bottom: 4px;
-  }
+  margin-bottom: 74px;
 
   h2 {
     @media (min-width: $desktop-width) {
@@ -17,53 +7,99 @@
     }
   }
 
-  .article {
-    &--trends {
-      @media (min-width: $desktop-width) {
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: calc(100% - #{$gap});
-      }
-    }
-  }
-}
-
-.blog__link {
-  width: 70px;
-  margin-bottom: 65px;
-
-  @media (max-width: $pre-desktop-width) {
-    margin-bottom: 66px;
+  .blog__link {
+    width: 70px;
+    margin-bottom: 65px;
   }
 
-  @media (max-width: $pre-tablet-width) {
-    margin-bottom: 57px;
-  }
-}
-
-.blog__wrapper {
-  width: 100%;
-
-  @media (min-width: $desktop-width) {
-    position: relative;
+  .blog__grid {
+    @include casual-flex;
+    width: 100%;
   }
 
-  @include clearfix;
-}
+  .blog__row {
+    display: flex;
+    width: 100%;
+  }
 
-.blog__article {
-  @media (min-width: $desktop-width) {
+  .blog__article-preview {
     width: calc(50% - #{$gap} / 2);
-    float: left;
-    margin-right: calc(50% + #{$gap});
-    margin-bottom: $gap;
   }
 
-  &--trends {
-    @media (min-width: $desktop-width) {
-      float: none;
+  .article-preview {
+    &:nth-child(2n+2) {
       margin-right: 0;
     }
   }
 }
+
+
+// .blog {
+//   @media (min-width: $desktop-width) {
+//     margin-bottom: 74px;
+//   }
+
+//   @media (max-width: $pre-desktop-width) {
+//     margin-bottom: 3px;
+//   }
+
+//   @media (max-width: $pre-tablet-width) {
+//     margin-bottom: 4px;
+//   }
+
+//   h2 {
+//     @media (min-width: $desktop-width) {
+//       margin-bottom: 32px;
+//     }
+//   }
+
+//   .article {
+//     &--trends {
+//       @media (min-width: $desktop-width) {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         height: calc(100% - #{$gap});
+//       }
+//     }
+//   }
+// }
+
+// .blog__link {
+//   width: 70px;
+//   margin-bottom: 65px;
+
+//   @media (max-width: $pre-desktop-width) {
+//     margin-bottom: 66px;
+//   }
+
+//   @media (max-width: $pre-tablet-width) {
+//     margin-bottom: 57px;
+//   }
+// }
+
+// .blog__wrapper {
+//   width: 100%;
+
+//   @media (min-width: $desktop-width) {
+//     position: relative;
+//   }
+
+//   @include clearfix;
+// }
+
+// .blog__article {
+//   @media (min-width: $desktop-width) {
+//     width: calc(50% - #{$gap} / 2);
+//     float: left;
+//     margin-right: calc(50% + #{$gap});
+//     margin-bottom: $gap;
+//   }
+
+//   &--trends {
+//     @media (min-width: $desktop-width) {
+//       float: none;
+//       margin-right: 0;
+//     }
+//   }
+// }

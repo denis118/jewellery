@@ -697,41 +697,182 @@
     </section>
 
     <section class="main-page__section blog">
-      <div class="blog__container container">
+      <div class="container">
         <h2>Blog</h2>
 
         <a class="blog__link main-page__link link" href="#">Read All</a>
 
-        <div class="blog__wrapper">
-          <article class="blog__article blog__article--care article">
+        <div class="blog__grid">
+          <!-- one row can contain no more than two previews -->
+          <div class="blog__row">
+            <article class="blog__article-preview article-preview">
+              <div class="article-preview__image-box">
+                <picture>
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
+                  <source type="image/webp" media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/jess-harper-sunday.webp    1x,
+                      ./img/content/main/blog/mobile/jess-harper-sunday@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
+                  <source media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/jess-harper-sunday.jpg    1x,
+                      ./img/content/main/blog/mobile/jess-harper-sunday@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source type="image/webp" media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/jess-harper-sunday.webp    1x,
+                      ./img/content/main/blog/tablet/jess-harper-sunday@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/jess-harper-sunday.jpg    1x,
+                      ./img/content/main/blog/tablet/jess-harper-sunday@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
+                  <source type="image/webp" srcset="
+                      ./img/content/main/blog/desktop/jess-harper-sunday.webp    1x,
+                      ./img/content/main/blog/desktop/jess-harper-sunday@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
+                  <img src="./img/content/main/blog/desktop/jess-harper-sunday.jpg" width="285" height="300"
+                    alt="'Jess Harper Sunday' earrings" srcset="
+                      ./img/content/main/blog/desktop/jess-harper-sunday@2x.jpg 2x
+                    " />
+                </picture>
+              </div>
+
+              <div class="article-preview__presentation">
+                <time class="article-preview__datetime" datetime="2019-09-30">September 30, 2019</time>
+
+                <div class="article-preview__title-box">
+                  <h3>How to care for your jewellery</h3>
+                </div>
+
+                <a class="main-page__link article-preview__link link" href="#">Read Article</a>
+              </div>
+            </article>
+
+            <article class="blog__article-preview article-preview">
+              <div class="article-preview__image-box">
+                <picture>
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
+                  <source type="image/webp" media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/alex-holyoake.webp    1x,
+                      ./img/content/main/blog/mobile/alex-holyoake@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
+                  <source media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/alex-holyoake.jpg    1x,
+                      ./img/content/main/blog/mobile/alex-holyoake@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source type="image/webp" media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/alex-holyoake.webp    1x,
+                      ./img/content/main/blog/tablet/alex-holyoake@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/alex-holyoake.jpg    1x,
+                      ./img/content/main/blog/tablet/alex-holyoake@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
+                  <source type="image/webp" srcset="
+                      ./img/content/main/blog/desktop/alex-holyoake.webp    1x,
+                      ./img/content/main/blog/desktop/alex-holyoake@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
+                  <img src="./img/content/main/blog/desktop/alex-holyoake.jpg" width="285" height="300"
+                    alt="'Alex Holyoake' crystals" srcset="
+                      ./img/content/main/blog/desktop/alex-holyoake@2x.jpg 2x
+                    " />
+                </picture>
+              </div>
+
+              <div class="article-preview__presentation">
+                <time class="article-preview__datetime" datetime="2019-09-23">September 23, 2019</time>
+
+                <div class="article-preview__title-box">
+                  <h3>Power of crystals</h3>
+                </div>
+
+                <a class="main-page__link article-preview__link link" href="#">Read Article</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- one row can contain no more than two previews -->
+          <div class="blog__row">
+            <article class="blog__article-preview article-preview">
+              <div class="article-preview__image-box">
+                <picture>
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
+                  <source type="image/webp" media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/alve-odonnell.webp    1x,
+                      ./img/content/main/blog/mobile/alve-odonnell@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
+                  <source media="(max-width: 767px)" srcset="
+                      ./img/content/main/blog/mobile/alve-odonnell.jpg    1x,
+                      ./img/content/main/blog/mobile/alve-odonnell@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source type="image/webp" media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/alve-odonnell.webp    1x,
+                      ./img/content/main/blog/tablet/alve-odonnell@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
+                  <source media="(max-width: 1023px)" srcset="
+                      ./img/content/main/blog/tablet/alve-odonnell.jpg    1x,
+                      ./img/content/main/blog/tablet/alve-odonnell@2x.jpg 2x
+                    " />
+                  <!-- 1х: width: 570px, height: 630px; 2x: width: 1140px, height: 1260px -->
+                  <source type="image/webp" srcset="
+                      ./img/content/main/blog/desktop/alve-odonnell.webp    1x,
+                      ./img/content/main/blog/desktop/alve-odonnell@2x.webp 2x
+                    " />
+                  <!-- 1х: width: 570px, height: 630px; 2x: width: 1140px, height: 1260px -->
+                  <img src="./img/content/main/blog/desktop/alve-odonnell.jpg" width="570" height="630"
+                    alt="'Alve Odonnell' jewelry" srcset="
+                      ./img/content/main/blog/desktop/alve-odonnell@2x.jpg 2x
+                    " />
+                </picture>
+              </div>
+
+              <div class="article-preview__presentation">
+                <time class="article-preview__datetime" datetime="2019-09-16">September 16, 2019</time>
+
+                <div class="article-preview__title-box">
+                  <h3>AW 19 trends</h3>
+                </div>
+
+                <a class="main-page__link article-preview__link link" href="#">Read Article</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- <article class="blog__article blog__article--care article">
             <div class="article__image-box">
               <picture>
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
                 <source type="image/webp" media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/jess-harper-sunday.webp    1x,
                     ./img/content/main/blog/mobile/jess-harper-sunday@2x.webp 2x
                   " />
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
                 <source media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/jess-harper-sunday.jpg    1x,
                     ./img/content/main/blog/mobile/jess-harper-sunday@2x.jpg 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source type="image/webp" media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/jess-harper-sunday.webp    1x,
                     ./img/content/main/blog/tablet/jess-harper-sunday@2x.webp 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/jess-harper-sunday.jpg    1x,
                     ./img/content/main/blog/tablet/jess-harper-sunday@2x.jpg 2x
                   " />
-                <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
                 <source type="image/webp" srcset="
                     ./img/content/main/blog/desktop/jess-harper-sunday.webp    1x,
                     ./img/content/main/blog/desktop/jess-harper-sunday@2x.webp 2x
                   " />
-                <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
                 <img src="./img/content/main/blog/desktop/jess-harper-sunday.jpg" width="285" height="300"
                   alt="'Jess Harper Sunday' earrings" srcset="
                     ./img/content/main/blog/desktop/jess-harper-sunday@2x.jpg 2x
@@ -748,37 +889,31 @@
 
               <a class="main-page__link article__link link" href="#">Read Article</a>
             </div>
-          </article>
+          </article> -->
 
-          <article class="blog__article blog__article--power article">
+          <!-- <article class="blog__article blog__article--power article">
             <div class="article__image-box">
               <picture>
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
                 <source type="image/webp" media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/alex-holyoake.webp    1x,
                     ./img/content/main/blog/mobile/alex-holyoake@2x.webp 2x
                   " />
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
                 <source media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/alex-holyoake.jpg    1x,
                     ./img/content/main/blog/mobile/alex-holyoake@2x.jpg 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source type="image/webp" media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/alex-holyoake.webp    1x,
                     ./img/content/main/blog/tablet/alex-holyoake@2x.webp 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/alex-holyoake.jpg    1x,
                     ./img/content/main/blog/tablet/alex-holyoake@2x.jpg 2x
                   " />
-                <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
                 <source type="image/webp" srcset="
                     ./img/content/main/blog/desktop/alex-holyoake.webp    1x,
                     ./img/content/main/blog/desktop/alex-holyoake@2x.webp 2x
                   " />
-                <!-- 1х: width: 285px, height: 300px; 2x: width: 570px, height: 600px -->
                 <img src="./img/content/main/blog/desktop/alex-holyoake.jpg" width="285" height="300"
                   alt="'Alex Holyoake' crystals" srcset="
                     ./img/content/main/blog/desktop/alex-holyoake@2x.jpg 2x
@@ -795,37 +930,31 @@
 
               <a class="main-page__link article__link link" href="#">Read Article</a>
             </div>
-          </article>
+          </article> -->
 
-          <article class="blog__article blog__article--trends article article--trends">
+          <!-- <article class="blog__article blog__article--trends article article--trends">
             <div class="article__image-box article__image-box--trends">
               <picture>
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px -->
                 <source type="image/webp" media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/alve-odonnell.webp    1x,
                     ./img/content/main/blog/mobile/alve-odonnell@2x.webp 2x
                   " />
-                <!-- 1х: width: 290px, height: 256px; 2x: width: 580px, height: 512px   -->
                 <source media="(max-width: 767px)" srcset="
                     ./img/content/main/blog/mobile/alve-odonnell.jpg    1x,
                     ./img/content/main/blog/mobile/alve-odonnell@2x.jpg 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source type="image/webp" media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/alve-odonnell.webp    1x,
                     ./img/content/main/blog/tablet/alve-odonnell@2x.webp 2x
                   " />
-                <!-- 1х: width: 339px, height: 300px; 2x: width: 678px, height: 600px -->
                 <source media="(max-width: 1023px)" srcset="
                     ./img/content/main/blog/tablet/alve-odonnell.jpg    1x,
                     ./img/content/main/blog/tablet/alve-odonnell@2x.jpg 2x
                   " />
-                <!-- 1х: width: 570px, height: 630px; 2x: width: 1140px, height: 1260px -->
                 <source type="image/webp" srcset="
                     ./img/content/main/blog/desktop/alve-odonnell.webp    1x,
                     ./img/content/main/blog/desktop/alve-odonnell@2x.webp 2x
                   " />
-                <!-- 1х: width: 570px, height: 630px; 2x: width: 1140px, height: 1260px -->
                 <img src="./img/content/main/blog/desktop/alve-odonnell.jpg" width="570" height="630"
                   alt="'Alve Odonnell' jewelry" srcset="
                     ./img/content/main/blog/desktop/alve-odonnell@2x.jpg 2x
@@ -842,7 +971,7 @@
 
               <a class="main-page__link article__link link" href="#">Read Article</a>
             </div>
-          </article>
+          </article> -->
         </div>
       </div>
     </section>
