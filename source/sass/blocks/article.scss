@@ -38,8 +38,7 @@
     }
 
     .article-preview__title-box {
-      width: max-content;
-      max-width: 140px;
+      width: calc(100% - #{$min-gap} * 2);
       margin-bottom: 84px;
     }
   }
