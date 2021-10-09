@@ -69,9 +69,9 @@
   align-items: center;
 }
 
-@mixin padded-box {
+@mixin padded-box($width: 100%) { // height depends on width
   position: relative;
-  width: 100%;
+  width: $width;
   height: 0;
   overflow: hidden;
 }
@@ -84,6 +84,19 @@
   bottom: 0;
   width: 100%;
   height: auto;
+}
+
+@mixin inverse-padded-box($width: 100%) { // width depends on height
+  align-self: stretch;                    // this version for use in flex-box
+  position: relative;
+  width: $width;
+  overflow: hidden;
+}
+
+@mixin content-in-inverse-box {
+  @include centering-absolutely;
+  width: auto;
+  height: 100%;
 }
 
 @mixin no-zoom {

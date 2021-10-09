@@ -22,13 +22,7 @@
 
   &--large {
     .article-preview__image-box {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-
-      img {
-        width: 570px;
-      }
+      @include inverse-padded-box;
     }
 
     .article-preview__presentation {
@@ -54,18 +48,10 @@
 }
 
 .article-preview__image-box {
-  align-self: stretch;
-  position: relative;
-  width: 50%;
-  overflow: hidden;
+  @include inverse-padded-box(50%);
 
   img {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 285px;
-    height: 100%;
+    @include content-in-inverse-box;
   }
 }
 
@@ -102,6 +88,8 @@
 .article-preview__link {
   margin-bottom: 76px;
 }
+
+//--------------------------------------------------------------
 
 // .article__image-box {
 //   align-self: stretch;
