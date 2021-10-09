@@ -52,7 +52,7 @@
 }
 
 .subscription__content-item {
-  @include padded-box;
+  @include non-cropping-box;
   width: 100%;
   height: min-content;
 
@@ -198,6 +198,6 @@
   }
 
   img {
-    @include content-in-padded-box;
+    @include non-cropped-content;
   }
 }

@@ -1,6 +1,14 @@
 .blog {
   margin-bottom: 74px;
 
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 4px;
+  }
+
   h2 {
     @media (min-width: $desktop-width) {
       margin-top: 26px;
@@ -18,11 +26,23 @@
 .blog__link {
   width: 70px;
   margin-bottom: 65px;
+
+  @media (max-width: $pre-desktop-width) {
+    margin-bottom: 66px;
+  }
+
+  @media (max-width: $pre-tablet-width) {
+    margin-bottom: 57px;
+  }
 }
 
 .blog__grid {
   @include casual-flex;
   width: 100%;
+
+  @media (max-width: $pre-desktop-width) {
+    flex-direction: column;
+  }
 }
 
 .blog__row {
@@ -30,23 +50,31 @@
   width: 100%;
 
   .article-preview {
-    width: calc(50% - #{$gap} / 2);
+    width: calc(50% - #{$article-gap} / 2);
+
+    @media (max-width: $pre-desktop-width) {
+      width: 100%;
+    }
   }
 
   &--half {
-    width: calc(50% - #{$gap} / 2);
+    @media (min-width: $desktop-width) {
+      width: calc(50% - #{$article-gap} / 2);
 
-    .article-preview {
-      width: 100%;
+      .article-preview {
+        width: 100%;
 
-      &:nth-child(2n+1) {
-        margin-right: 0;
+        &:nth-child(2n+1) {
+          margin-right: 0;
+        }
       }
     }
   }
 
   &--left {
-    margin-right: $gap;
+    @media (min-width: $desktop-width) {
+      margin-right: $article-gap;
+    }
   }
 
   &--vertical {
@@ -54,77 +82,8 @@
   }
 
   &--expanded {
-    align-self: stretch;
+    @media (min-width: $desktop-width) {
+      align-self: stretch;
+    }
   }
 }
-
-
-// .blog {
-//   @media (min-width: $desktop-width) {
-//     margin-bottom: 74px;
-//   }
-
-//   @media (max-width: $pre-desktop-width) {
-//     margin-bottom: 3px;
-//   }
-
-//   @media (max-width: $pre-tablet-width) {
-//     margin-bottom: 4px;
-//   }
-
-//   h2 {
-//     @media (min-width: $desktop-width) {
-//       margin-bottom: 32px;
-//     }
-//   }
-
-//   .article {
-//     &--trends {
-//       @media (min-width: $desktop-width) {
-//         position: absolute;
-//         top: 0;
-//         right: 0;
-//         height: calc(100% - #{$gap});
-//       }
-//     }
-//   }
-// }
-
-// .blog__link {
-//   width: 70px;
-//   margin-bottom: 65px;
-
-//   @media (max-width: $pre-desktop-width) {
-//     margin-bottom: 66px;
-//   }
-
-//   @media (max-width: $pre-tablet-width) {
-//     margin-bottom: 57px;
-//   }
-// }
-
-// .blog__wrapper {
-//   width: 100%;
-
-//   @media (min-width: $desktop-width) {
-//     position: relative;
-//   }
-
-//   @include clearfix;
-// }
-
-// .blog__article {
-//   @media (min-width: $desktop-width) {
-//     width: calc(50% - #{$gap} / 2);
-//     float: left;
-//     margin-right: calc(50% + #{$gap});
-//     margin-bottom: $gap;
-//   }
-
-//   &--trends {
-//     @media (min-width: $desktop-width) {
-//       float: none;
-//       margin-right: 0;
-//     }
-//   }
-// }

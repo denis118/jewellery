@@ -69,14 +69,14 @@
   align-items: center;
 }
 
-@mixin padded-box($width: 100%) { // height depends on width
-  position: relative;
-  width: $width;
+@mixin non-cropping-box($width: 100%) { // height depends on width
+  position: relative;                   // padding-bottom: calc(#{$image-height} / #{$image-width} * 100%)
+  width: $width;                        // content is not cropped
   height: 0;
   overflow: hidden;
 }
 
-@mixin content-in-padded-box {
+@mixin non-cropped-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -86,14 +86,27 @@
   height: auto;
 }
 
-@mixin inverse-padded-box($width: 100%) { // width depends on height
-  align-self: stretch;                    // this version for use in flex-box
-  position: relative;
+@mixin height-cropping-box($width: 100%) { // height depends on width
+  position: relative;                      // content is cropped to height
+  width: $width;
+  height: 0;
+  overflow: hidden;
+}
+
+@mixin height-cropped-content {
+  @include centering-absolutely;
+  width: 100%;
+  height: auto;
+}
+
+@mixin width-cropping-box($width: 100%) { // width depends on height
+  align-self: stretch;                    // content is cropped to width
+  position: relative;                     // this version for use in flex-box
   width: $width;
   overflow: hidden;
 }
 
-@mixin content-in-inverse-box {
+@mixin width-cropped-content {
   @include centering-absolutely;
   width: auto;
   height: 100%;
