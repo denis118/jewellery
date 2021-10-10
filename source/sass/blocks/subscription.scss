@@ -39,7 +39,7 @@
   }
 }
 
-.subscription__column {
+.subscription__grid-block {
   @include column-flex;
   width: $initial-columns-width;
   margin-right: $subs-row-gap-desktop;
