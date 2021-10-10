@@ -155,6 +155,6 @@ $equal-columns-count: 3;
 $peer-columns-count: 2;
 
 $initial-columns-width: calc((100% - #{$subs-row-gap-desktop} * (#{$initial-columns-count} - 1)) / #{$initial-columns-count});
-$equal-columns-width: calc((100% - #{$wide-image-width} - #{$subs-row-gap-desktop} * (#{$equal-columns-count} - 1)) / #{$equal-columns-count});
-$identical-columns-width: calc((100% - #{$large-image-width} - #{$subs-row-gap-tablet} * (#{$equal-columns-count} - 1)) / #{$equal-columns-count});
+$equal-columns-width: calc((100% - #{$wide-image-width} - #{$subs-row-gap-desktop} * (#{$initial-columns-count} - 1)) / #{$equal-columns-count});
+$identical-columns-width: calc((100% - #{$large-image-width} - #{$subs-row-gap-tablet} * (#{$initial-columns-count} - 1)) / #{$equal-columns-count});
 $peer-columns-width: calc((100% - #{$subs-row-gap-mobile} * (#{$peer-columns-count} - 1)) / #{$peer-columns-count});

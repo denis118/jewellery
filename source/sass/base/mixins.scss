@@ -103,6 +103,7 @@
   align-self: stretch;                    // content is cropped to width
   position: relative;                     // this version for use in flex-box
   width: $width;
+  height: auto;
   overflow: hidden;
 }
 
