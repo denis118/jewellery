@@ -133,3 +133,28 @@ $timing-function: ease;
 $article-gap: 30px;
 $image-height-tablet: 300px;
 $image-height-mobile: 256px;
+
+// subscription
+$wide-image-width: calc(399 / 1170 * 100%);
+$large-image-width: calc(231 / 678 * 100%);
+
+$subs-row-gap-desktop: 27px;
+$subs-row-gap-tablet: 16px;
+$subs-row-gap-mobile: 24px;
+
+$subs-column-gap-desktop: 34px;
+$subs-column-gap-tablet: 20px;
+$subs-column-gap-mobile: 27px;
+
+$subs-ratio-square: 100%;
+$subs-ratio-rect-big: calc(150 / 230 * 100%);
+$subs-ratio-rect-small: calc(87 / 133 * 100%);
+
+$initial-columns-count: 4;
+$equal-columns-count: 3;
+$peer-columns-count: 2;
+
+$initial-columns-width: calc((100% - #{$subs-row-gap-desktop} * (#{$initial-columns-count} - 1)) / #{$initial-columns-count});
+$equal-columns-width: calc((100% - #{$wide-image-width} - #{$subs-row-gap-desktop} * (#{$equal-columns-count} - 1)) / #{$equal-columns-count});
+$identical-columns-width: calc((100% - #{$large-image-width} - #{$subs-row-gap-tablet} * (#{$equal-columns-count} - 1)) / #{$equal-columns-count});
+$peer-columns-width: calc((100% - #{$subs-row-gap-mobile} * (#{$peer-columns-count} - 1)) / #{$peer-columns-count});
