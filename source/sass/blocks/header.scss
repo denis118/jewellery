@@ -39,7 +39,7 @@
 
     .header__logo {
       @media (max-width: $pre-desktop-width) {
-        --icon-color: #{$mcg-1};
+        color: $mcg-1;
       }
 
       &--catalog {
@@ -50,12 +50,14 @@
     .header__burger,
     .header__cart {
       @media (max-width: $pre-desktop-width) {
-        --icon-color: #{$dcg-2};
+        color: $dcg-2;
       }
     }
 
     .header__burger {
-      display: block;
+      @media (max-width: $pre-desktop-width) {
+        display: block;
+      }
     }
   }
 
@@ -89,7 +91,7 @@
     .header__logo,
     .header__cart {
       @media (max-width: $pre-desktop-width) {
-        --icon-color: #{$lcg-1};
+        color: $lcg-1;
       }
     }
 
@@ -230,24 +232,24 @@
   left: 0;
   top: 50%;
   transform: translate(-36px, -50%);
+  color: $dcg-1;
 
   @include button-common-style;
 
-  @media (min-width: $desktop-width) {
-    --icon-color: #{$dcg-1};
+  @media (max-width: $pre-desktop-width) {
+    transform: translate(5px, -50%) scale(1.15);
+    color: $lcg-1;
   }
 
-  @media (max-width: $pre-desktop-width) {
-    --icon-color: #{$lcg-1};
-
-    transform: translate(5px, -50%) scale(1.15);
+  .icon-search {
+    font-size: 14px;
   }
 
   &:hover,
   &:focus {
-    --icon-color: #{$mcg-1};
+    color: $mcg-1;
 
-    svg {
+    .icon-search {
       transform: scale(1.1);
     }
   }
@@ -262,13 +264,10 @@
   top: 0;
   left: 50%;
   transform: translate(-50%, 30px);
-
-  @media (min-width: $desktop-width) {
-    --icon-color: #{$mcg-1};
-  }
+  color: $mcg-1;
 
   @media (max-width: $pre-desktop-width) {
-    --icon-color: #{$lcg-1};
+    color: $lcg-1;
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -290,10 +289,11 @@
     @include logo-catalog-interactive-style;
   }
 
-  svg {
+  .icon-logo {
+    font-size: 66px;
+
     @media (max-width: $pre-tablet-width) {
-      width: 52px;
-      height: 52px;
+      font-size: 52px;
     }
   }
 }
@@ -322,8 +322,7 @@
   }
 
   @media (max-width: $pre-desktop-width) {
-    --icon-color: #{$lcg-1};
-
+    color: $lcg-1;
     height: 18px;
     transform: translate(1px, 24px);
   }
@@ -332,7 +331,11 @@
     transform: translate(1px, 17px);
   }
 
-  @include svg-interactive-style;
+  .icon-cart {
+    font-size: 18px;
+  }
+
+  @include icon-interactive-style;
 }
 
 .header__navigation {
@@ -404,8 +407,7 @@
   @include button-common-style;
 
   @media (max-width: $pre-desktop-width) {
-    --icon-color: #{$lcg-1};
-
+    color: $lcg-1;
     margin-right: auto;
     padding: 2px;
     transform: translate(-4px, 20px);
@@ -415,7 +417,11 @@
     transform: translate(-4px, 13px);
   }
 
-  @include svg-interactive-style;
+  .icon-burger {
+    font-size: 18px;
+  }
+
+  @include icon-interactive-style;
 }
 
 .header__general-information {

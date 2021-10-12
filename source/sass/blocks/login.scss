@@ -226,8 +226,6 @@
 }
 
 .login__cross {
-  --icon-color: #{$dcg-2};
-
   position: absolute;
   top: 0;
   right: 0;
@@ -235,15 +233,17 @@
   transform-origin: 50% 44%;
   transition: transform 0.5s ease;
   z-index: 1;
+  color: $dcg-2;
 
   @media (max-width: $pre-tablet-width) {
     transform: translate(-9px, 14px);
   }
 
-  svg {
+  .icon-cross {
+    font-size: 14px;
+
     @media (max-width: $pre-desktop-width) and (min-width: $tablet-width) {
-      width: 20px;
-      height: 20px;
+      font-size: 20px;
     }
   }
 
@@ -256,10 +256,10 @@
   }
 
   &:focus {
-    --icon-color: #{$mcg-8};
+    color: $mcg-8;
   }
 
   &:active {
-    --icon-color: #{$lcg-1};
+    color: $lcg-1;
   }
 }

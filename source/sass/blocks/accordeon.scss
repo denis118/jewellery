@@ -56,8 +56,8 @@
       }
     }
 
-    .accordeon__button-svg {
-      transform: translate(-50px, 50px) rotate(180deg);
+    .accordeon__icon-angle {
+      transform: translate(-47px, 47px) rotate(180deg);
 
       @media (max-width: $pre-tablet-width) {
         transform: translate(-25px, 25px) rotate(180deg);
@@ -162,8 +162,6 @@
 }
 
 .accordeon__button {
-  --icon-color: #{$dcg-2};
-
   font-family:
     "poppins",
     "Arial",
@@ -172,7 +170,6 @@
   line-height: 130%;
   font-weight: 500;
   text-align: left;
-  color: $dcg-2;
 
   @include zero-edges;
   position: relative;
@@ -234,8 +231,6 @@
 
   &:hover,
   &:focus {
-    --icon-color: #{$mcg-1};
-
     color: $mcg-1;
     background-color: $mcg-9;
   }
@@ -245,20 +240,23 @@
   }
 }
 
-.accordeon__button-svg {
+.accordeon__icon-angle {
+  font-size: 17px;
   position: absolute;
   right: 0;
   top: 0;
-  transform: translate(-50px, 50px);
+  transform: translate(-47px, 47px);
 
   @media (max-width: $pre-desktop-width) {
-    width: 23px;
-    height: 12px;
+    // width: 23px;
+    // height: 12px;
+    font-size: 23px;
   }
 
   @media (max-width: $pre-tablet-width) {
-    width: 20px;
-    height: 10px;
+    // width: 20px;
+    // height: 10px;
+    font-size: 20px;
     transform: translate(-25px, 25px);
   }
 
