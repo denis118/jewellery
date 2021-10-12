@@ -124,7 +124,6 @@
 .header__container {
   &--upper {
     @include casual-flex;
-    justify-content: flex-end;
 
     padding-top: 30px;
 

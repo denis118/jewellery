@@ -196,7 +196,7 @@
   line-height: 130%;
   font-weight: 500;
   color: $lcg-1;
-  background-color: $dcg-1;
+  background-color: transparent;
 
   @include zero-edges;
   position: absolute;
