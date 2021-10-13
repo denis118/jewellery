@@ -134,6 +134,7 @@
 
     @media (max-width: $pre-desktop-width) {
       margin-bottom: 23px;
+      padding-top: 28px;
       padding-bottom: 43px;
     }
 
@@ -267,6 +268,7 @@
 
   @media (max-width: $pre-desktop-width) {
     color: $lcg-1;
+    transform: translate(-50%, 30px);
   }
 
   @media (max-width: $pre-tablet-width) {
@@ -331,7 +333,7 @@
   }
 
   .icon-cart {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   @include icon-interactive-style;
@@ -417,7 +419,7 @@
   }
 
   .icon-burger {
-    font-size: 18px;
+    font-size: 24px;
   }
 
   @include icon-interactive-style;

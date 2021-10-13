@@ -37,16 +37,13 @@
 
     .accordeon__button {
       padding-bottom: 4px;
-      margin-bottom: 3px;
 
       @media (max-width: $pre-desktop-width) {
         padding-bottom: 13px;
-        margin-bottom: 13px;
       }
 
       @media (max-width: $pre-tablet-width) {
         padding-bottom: 9px;
-        margin-bottom: 9px;
       }
 
       &--material {
@@ -59,6 +56,10 @@
     .accordeon__icon-angle {
       transform: translate(-47px, 47px) rotate(180deg);
 
+      @media (max-width: $pre-desktop-width) {
+        transform: translate(-49px, 44px) rotate(180deg);
+      }
+
       @media (max-width: $pre-tablet-width) {
         transform: translate(-25px, 25px) rotate(180deg);
       }
@@ -70,15 +71,18 @@
 
       @media (min-width: $desktop-width) {
         width: 555px;
+        padding-top: 3px;
       }
 
       @media (max-width: $pre-desktop-width) {
         width: 580px;
+        padding-top: 13px;
       }
 
       @media (max-width: $pre-tablet-width) {
         width: 230px;
         padding-left: 25px;
+        padding-top: 9px;
       }
     }
   }
@@ -248,14 +252,11 @@
   transform: translate(-47px, 47px);
 
   @media (max-width: $pre-desktop-width) {
-    // width: 23px;
-    // height: 12px;
     font-size: 23px;
+    transform: translate(-49px, 44px);
   }
 
   @media (max-width: $pre-tablet-width) {
-    // width: 20px;
-    // height: 10px;
     font-size: 20px;
     transform: translate(-25px, 25px);
   }

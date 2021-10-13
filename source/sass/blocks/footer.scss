@@ -163,7 +163,7 @@
     @media (max-width: $pre-desktop-width) {
       @include no-zoom;
       width: 114.5%;
-      padding-bottom: 10px;
+      padding-bottom: 9px;
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -207,7 +207,7 @@
   display: flex;
 
   @media (max-width: $pre-desktop-width) {
-    transform: translate(2px, -50%);
+    transform: translate(2px, -42%);
   }
 
   span {
@@ -345,7 +345,7 @@
         transform: translate(0, -65%) scale(1.2);
 
         @media (max-width: $pre-desktop-width) {
-          transform: translate(4px, -65%) scale(1.2);
+          transform: translate(1px, -60%) scale(1.2);
         }
 
         @media (max-width: $pre-tablet-width) {
@@ -355,7 +355,7 @@
 
       &--instagram {
         @media (max-width: $pre-desktop-width) {
-          transform: translate(1px, -60%) scale(1.2);
+          transform: translate(1px, -55%) scale(1.2);
         }
 
         @media (max-width: $pre-tablet-width) {
@@ -365,7 +365,7 @@
 
       &--pinterest {
         @media (max-width: $pre-desktop-width) {
-          transform: translate(1px, -55%) scale(1.2);
+          transform: translate(1px, -50%) scale(1.2);
         }
 
         @media (max-width: $pre-tablet-width) {
@@ -375,7 +375,7 @@
 
       &--twitter {
         @media (max-width: $pre-desktop-width) {
-          transform: translate(1px, -55%) scale(1.2);
+          transform: translate(1px, -60%) scale(1.2);
         }
 
         @media (max-width: $pre-tablet-width) {
@@ -410,7 +410,7 @@
     transform: translate(0, -65%);
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(5px, -65%);
+      transform: translate(1px, -60%);
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -437,7 +437,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(1px, -60%);
+      transform: translate(1px, -55%);
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -453,7 +453,7 @@
     }
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(1px, -55%);
+      transform: translate(1px, -50%);
     }
 
     @media (max-width: $pre-tablet-width) {
@@ -466,7 +466,7 @@
     transform: translate(-1px, -65%);
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(1px, -55%);
+      transform: translate(1px, -60%);
     }
 
     @media (max-width: $pre-tablet-width) {

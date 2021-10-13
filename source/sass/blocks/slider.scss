@@ -201,7 +201,7 @@
     transform: translate(0, -113px) rotate(180deg);
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(0, -97px) rotate(180deg);
+      transform: translate(0, -108px) rotate(180deg);
     }
   }
 
@@ -210,7 +210,7 @@
     transform: translate(0, -113px);
 
     @media (max-width: $pre-desktop-width) {
-      transform: translate(0, -97px);
+      transform: translate(0, -108px);
     }
   }
 
@@ -285,6 +285,10 @@
 .slider__frame-button-item {
   &:not(:last-child) {
     margin-right: 12px;
+
+    @media (max-width: $pre-desktop-width) {
+      margin-right: 14px;
+    }
   }
 
   &--catalog {
