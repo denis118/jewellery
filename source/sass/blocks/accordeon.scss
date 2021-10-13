@@ -61,7 +61,7 @@
       }
 
       @media (max-width: $pre-tablet-width) {
-        transform: translate(-25px, 25px) rotate(180deg);
+        transform: translate(-24px, 19px) rotate(180deg);
       }
     }
 
@@ -258,7 +258,7 @@
 
   @media (max-width: $pre-tablet-width) {
     font-size: 20px;
-    transform: translate(-25px, 25px);
+    transform: translate(-24px, 19px);
   }
 
   &--catalog {

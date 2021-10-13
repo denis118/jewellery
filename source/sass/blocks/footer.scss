@@ -210,6 +210,10 @@
     transform: translate(2px, -42%);
   }
 
+  @media (max-width: $pre-tablet-width) {
+    transform: translate(2px, -38%);
+  }
+
   span {
     @include inherit-text-style;
     margin-right: 15px;
@@ -224,7 +228,7 @@
     transform: translate(-2px, -12%);
 
     @media (max-width: $pre-tablet-width) {
-      transform: translate(-5%, -20%) scale(1.2);
+      transform: translate(-5%, -18%);
     }
   }
 
@@ -317,9 +321,13 @@
       padding-left: 45px;
     }
 
+    @media (max-width: $pre-tablet-width) {
+      left: -5px;
+    }
+
     &:not(:last-child) {
       @media (max-width: $pre-tablet-width) {
-        margin-right: 30px;
+        margin-right: 28px;
       }
     }
   }
@@ -349,7 +357,7 @@
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(0, -1px) scale(1.2);
+          transform: translate(0, 0) scale(1.2);
         }
       }
 
@@ -359,7 +367,7 @@
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(0, 0) scale(1.2);
+          transform: translate(-2px, 0) scale(1.2);
         }
       }
 
@@ -369,7 +377,7 @@
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(1px, -1px) scale(1.2);
+          transform: translate(-1px, 0) scale(1.2);
         }
       }
 
@@ -379,7 +387,7 @@
         }
 
         @media (max-width: $pre-tablet-width) {
-          transform: translate(0, 0) scale(1.2);
+          transform: translate(0, -1px) scale(1.2);
         }
       }
     }
@@ -414,17 +422,14 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      width: 12px;
-      height: 21px;
-      transform: translate(0, -1px);
+      font-size: 21px;
+      transform: translate(0, 0);
     }
   }
 
   &--instagram,
   &--pinterest {
     @media (max-width: $pre-tablet-width) {
-      // width: 20px;
-      // height: 21px;
       font-size: 21px;
     }
   }
@@ -441,7 +446,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      transform: translate(0, 0) scale(1.01);
+      transform: translate(-2px, 0) scale(1.01);
     }
   }
 
@@ -457,7 +462,7 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      transform: translate(1px, -1px) scale(1.1);
+      transform: translate(-1px, 0) scale(1.05);
     }
   }
 
@@ -470,10 +475,8 @@
     }
 
     @media (max-width: $pre-tablet-width) {
-      // width: 20px;
-      // height: 18px;
       font-size: 20px;
-      transform: translate(0, 0);
+      transform: translate(0, -1px);
     }
   }
 }
