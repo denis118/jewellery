@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <link rel="preload" href="#" as="font" type="font/woff2" crossorigin="">
-  <link rel="preload" href="#" as="font" type="font/woff" crossorigin="">
+  <meta name="description" content="jewelry, ornaments">
+  <link rel="preload" href="./fonts/poppins-regular-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="./fonts/cormorantgaramond-semibold-webfont.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="./fonts/cormorantgaramond-bold-webfont.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="./css/style.min.css">
   <title>Jewellery</title>
 </head>
 
 <!-- .scroll-stop -->
+
 <body>
   <!-- .header--js -->
   <!-- .menu-open -->
@@ -23,29 +27,19 @@
           <input type="text" name="search-request-desktop" id="search-request-desktop" placeholder="Type here to search" aria-label="Type here to search">
 
           <button class="header__form-submit" type="submit" aria-label="Button to search">
-            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
-            </svg>
+            <i class="icon icon-search"></i>
           </button>
         </form>
       </div>
 
       <button class="header__burger hidden-on-desktop" aria-labelledby="burger-description">
-        <svg width="25" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <use xlink:href="./img/outer-sprite.svg#icon-burger"></use>
-        </svg>
-
+        <i class="icon icon-burger"></i>
         <span id="burger-description" hidden="">Menu toggle</span>
       </button>
 
-      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html" aria-labelledby="site-logo-link">
-        <svg width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="site-logo-image">
-          <use xlink:href="./img/outer-sprite.svg#logo"></use>
-        </svg>
-
+      <a class="header__logo header__logo--different header__logo--interactive" href="./main.html" aria-labelledby="site-logo-link">
+        <i class="icon icon-logo"></i>
         <span class="hidden-entity" id="site-logo-link">Site logo link</span>
-
-        <span class="hidden-entity" id="site-logo-image">Site logo image</span>
       </a>
 
       <a class="header__login login-link link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
@@ -53,10 +47,7 @@
       <a class="header__cart link" href="#" aria-label="Cart">
         <span class="header__cart-text hidden-before-desktop">Cart</span>
         <span class="header__cart-fullness hidden-before-desktop">0</span>
-
-        <svg class="hidden-on-desktop" width="20" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <use xlink:href="./img/outer-sprite.svg#icon-cart"></use>
-        </svg>
+        <i class="icon icon-cart hidden-on-desktop"></i>
       </a>
     </div>
 
@@ -67,9 +58,7 @@
           <input type="text" name="search-request-predesktop" id="search-request-predesktop">
 
           <button class="header__form-submit" type="submit" aria-label="Button to search">
-            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
-            </svg>
+            <i class="icon icon-search"></i>
           </button>
         </form>
       </div>
@@ -143,7 +132,7 @@
         <h3>Subscription</h3>
 
         <div class="footer__leading-paragraph-box">
-          <p>The good stuff in your inbox </p>
+          <p>The good stuff in your inbox</p>
         </div>
 
         <div class="footer__auxiliary-paragraph-box">
@@ -158,16 +147,13 @@
 
             <button class="footer__submit button" type="submit" aria-label="Submit button">
               <span>Sign Up</span>
-
-              <svg width="29" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <use xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
-              </svg>
+              <i class="icon icon-arrow"></i>
             </button>
           </form>
         </div>
       </section>
 
-      <ul class="footer__buyers-information list" aria-labelledby="buyers-info">
+      <ul class="footer__list footer__buyers-information list" aria-labelledby="buyers-info">
         <li>
           <a class="link" href="#">Ordering & Payment</a>
         </li>
@@ -177,12 +163,12 @@
         <li>
           <a class="link" href="#">Returns & Exchanges</a>
         </li>
-        <li>
+        <li class="footer__delivery-item">
           <a class="link" href="#">Delivery</a>
         </li>
       </ul>
 
-      <ul class="footer__general-information general-information list" aria-labelledby="buyers-info">
+      <ul class="footer__list footer__general-information general-information list" aria-labelledby="buyers-info">
         <li>
           <a class="link" href="#">About CH</a>
         </li>
@@ -197,50 +183,37 @@
         </li>
       </ul>
 
-      <ul class="footer__social-networks list" aria-labelledby="social-networks">
+      <ul class="footer__list footer__social-networks list" aria-labelledby="social-networks">
         <li>
           <a class="footer__social-link link" href="#">
-            <svg class="footer__social-svg footer__social-svg--facebook" width="8" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
-            </svg>
-
+            <i class="icon icon-facebook footer__social-icon footer__social-icon--facebook"></i>
             <span class="hidden-before-tablet">Facebook</span>
           </a>
         </li>
 
         <li>
           <a class="footer__social-link link" href="#">
-            <svg class="footer__social-svg footer__social-svg--instagram" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
-            </svg>
-
+            <i class="icon icon-instagram footer__social-icon footer__social-icon--instagram"></i>
             <span class="hidden-before-tablet">Instagram</span>
           </a>
         </li>
 
         <li>
           <a class="footer__social-link link" href="#">
-            <svg class="footer__social-svg footer__social-svg--pinterest" width="16" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
-            </svg>
-
+            <i class="icon icon-pinterest footer__social-icon footer__social-icon--pinterest"></i>
             <span class="hidden-before-tablet">Pinterest</span>
           </a>
         </li>
 
-        <li>
+        <li class="footer__twitter-item">
           <a class="footer__social-link link" href="#">
-            <svg class="footer__social-svg footer__social-svg--twitter" width="15" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <use xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
-            </svg>
-
+            <i class="icon icon-twitter footer__social-icon footer__social-icon--twitter"></i>
             <span class="hidden-before-tablet">Twitter</span>
           </a>
         </li>
       </ul>
 
       <span id="buyers-info" hidden="">Information for buyers</span>
-
       <span id="social-networks" hidden="">We are in social networks</span>
     </div>
   </footer>
@@ -285,4 +258,5 @@
 
   <script src="./js/script.js" defer=""></script>
 </body>
+
 </html>

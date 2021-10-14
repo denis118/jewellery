@@ -402,71 +402,71 @@
 // slider
 //
 
-(function () {
-  var START_INDEX = 0;
-  var PERCENT_SIGN = '%';
+// (function () {
+//   var START_INDEX = 0;
+//   var PERCENT_SIGN = '%';
 
-  var makeArray = window.utility.makeArray;
+//   var makeArray = window.utility.makeArray;
 
-  var slider = document.querySelector('.slider');
-  var content = slider.querySelector('.slider__list');
-  var slides = makeArray(slider.querySelectorAll('.slider__item'));
-  var buttonPrevious = slider.querySelector('.slider__arrow--previous');
-  var buttonNext = slider.querySelector('.slider__arrow--next');
+//   var slider = document.querySelector('.slider');
+//   var content = slider.querySelector('.slider__list');
+//   var slides = makeArray(slider.querySelectorAll('.slider__item'));
+//   var buttonPrevious = slider.querySelector('.slider__arrow--previous');
+//   var buttonNext = slider.querySelector('.slider__arrow--next');
 
-  var index = START_INDEX;
+//   var index = START_INDEX;
 
-  buttonPrevious.onclick = function () {
-    sliderNext(true);
-  };
+//   buttonPrevious.onclick = function () {
+//     sliderNext(true);
+//   };
 
-  buttonNext.onclick = function () {
-    sliderNext();
-  };
+//   buttonNext.onclick = function () {
+//     sliderNext();
+//   };
 
-  var sliderNext = function (prev) {
-    if (prev) {
-      index = (--index) % slides.length;
+//   var sliderNext = function (prev) {
+//     if (prev) {
+//       index = (--index) % slides.length;
 
-      if (index < 0) {
-        index += slides.length;
-      }
-    } else {
-      index = (++index) % slides.length;
-    }
+//       if (index < 0) {
+//         index += slides.length;
+//       }
+//     } else {
+//       index = (++index) % slides.length;
+//     }
 
-    var offset = -index * 100 + PERCENT_SIGN;
-    content.setAttribute('style', 'transform: translateX(' + offset + ');');
+//     var offset = -index * 100 + PERCENT_SIGN;
+//     content.setAttribute('style', 'transform: translateX(' + offset + ');');
 
-    // var scrollPos = index * (content.scrollWidth / slides.length);
-    // content.scrollLeft = scrollPos;
-  };
+//     // var scrollPos = index * (content.scrollWidth / slides.length);
+//     // content.scrollLeft = scrollPos;
+//   };
 
-  var clientX1 = null;
-  var clientX2 = null;
+//   var clientX1 = null;
+//   var clientX2 = null;
 
-  content.addEventListener('touchstart', function (evt) {
-    evt.preventDefault();
-    clientX1 = evt.touches[0].clientX;
-  });
+//   content.addEventListener('touchstart', function (evt) {
+//     evt.preventDefault();
+//     clientX1 = evt.touches[0].clientX;
+//   });
 
-  content.addEventListener('touchend', function (evt) {
-    evt.preventDefault();
-    clientX2 = evt.changedTouches[0].clientX;
+//   content.addEventListener('touchend', function (evt) {
+//     evt.preventDefault();
+//     clientX2 = evt.changedTouches[0].clientX;
 
-    if (clientX1 - clientX2 === 0) {
-      return;
-    }
+//     if (clientX1 - clientX2 === 0) {
+//       return;
+//     }
 
-    if (clientX1 - clientX2 < 0) {
-      sliderNext(true);
-    }
+//     if (clientX1 - clientX2 < 0) {
+//       sliderNext(true);
+//     }
 
-    if (clientX1 - clientX2 > 0) {
-      sliderNext();
-    }
-  });
-})();
+//     if (clientX1 - clientX2 > 0) {
+//       sliderNext();
+//     }
+//   });
+// })();
 
 // (function () {
 //   var START_INDEX = 0;

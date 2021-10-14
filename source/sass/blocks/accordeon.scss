@@ -121,9 +121,9 @@
       }
     }
 
-    .accordeon__button-svg {
+    .accordeon__icon-angle {
       &--catalog {
-        transform: translate(-23px, 28px) rotate(180deg);
+        transform: translate(-23px, 25px) rotate(180deg);
 
         @media (max-width: $pre-desktop-width) {
           transform: translate(-40px, 40px) rotate(180deg);
@@ -262,7 +262,7 @@
   }
 
   &--catalog {
-    transform: translate(-23px, 28px);
+    transform: translate(-23px, 25px);
 
     @media (max-width: $pre-desktop-width) {
       transform: translate(-40px, 40px);

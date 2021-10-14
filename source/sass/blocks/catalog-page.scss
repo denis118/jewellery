@@ -6,14 +6,31 @@
 
 .catalog-page__container {
   @media (min-width: $desktop-width) {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-auto-rows: min-content;
-    column-gap: 50px;
-    align-items: start;
+   display: flex;
+   align-items: flex-start;
   }
 
   @media (max-width: $pre-desktop-width) {
-    @include column-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter {
+    @media (min-width: $desktop-width) {
+      flex-shrink: 0;
+      width: 250px;
+      width: calc(250 / 1170 * 100%);
+      min-width: 210px;
+      margin-right: 50px;
+      margin-right: calc(50 / 1170 * 100%);
+    }
+  }
+
+  .slider {
+    &--catalog {
+      @media (min-width: $desktop-width) {
+        width: calc(100% - ((250 / 1170 * 100%) + (50 / 1170 * 100%)));
+      }
+    }
   }
 }

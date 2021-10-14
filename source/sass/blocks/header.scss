@@ -43,7 +43,7 @@
       }
 
       &--catalog {
-        @include logo-catalog-interactive-style;
+        @include logo-interactive-style;
       }
     }
 
@@ -97,7 +97,7 @@
 
     .header__logo {
       &--catalog {
-        @include logo-catalog-interactive-style;
+        @include logo-interactive-style;
       }
     }
   }
@@ -108,7 +108,12 @@
 
   .header__logo {
     &--different {
+      &:hover,
+      &:focus,
       &:active {
+        border: none;
+        outline: none;
+        text-decoration: none;
         opacity: 1;
       }
     }
@@ -276,6 +281,11 @@
   }
 
   &--different {
+    border: none;
+    outline: none;
+    text-decoration: none;
+    opacity: 1;
+
     &:hover,
     &:focus,
     &:active {
@@ -286,8 +296,8 @@
     }
   }
 
-  &--catalog {
-    @include logo-catalog-interactive-style;
+  &--interactive {
+    @include logo-interactive-style;
   }
 
   .icon-logo {
@@ -350,7 +360,7 @@
 
   &--catalog {
     @media (min-width: $desktop-width) {
-      padding-bottom: 5px;
+      padding-bottom: 7px;
     }
   }
 

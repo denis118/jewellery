@@ -63,7 +63,6 @@
         top: 76px;
         left: 50%;
         transform: translate(-50%, 0);
-        // width: 270px;
         width: 84.375%;
       }
     }
@@ -106,19 +105,28 @@
 }
 
 .filter__cross {
-  --circle-color: #{$dcg-2};
-  --icon-color: #{$lcg-1};
-
   @include zero-edges;
   display: none;
 
+  .circle {
+    color: $dcg-2;
+  }
+
+  .path {
+    color: $lcg-1;
+  }
+
   &:hover,
   &:focus {
-    --circle-color: #{$mcg-2};
+    .circle {
+      color: $mcg-2;
+    }
   }
 
   &:active {
-    --circle-color: #{$mcg-7};
+    .circle {
+      color: $mcg-7;
+    }
   }
 }
 
