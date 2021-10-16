@@ -402,71 +402,336 @@
 // slider
 //
 
-// (function () {
-//   var START_INDEX = 0;
-//   var PERCENT_SIGN = '%';
+(function () {
+  var START_INDEX = 0;
+  var PERCENT_SIGN = '%';
+  var DESKTOP_SLIDES_AMOUNT = 4;
+  var PREDESKTOP_SLIDES_AMOUNT = 2;
+  var IGNORED_SWIPE_DISTANCE = 30;
 
-//   var makeArray = window.utility.makeArray;
+  var makeArray = window.utility.makeArray;
+  var sliders = makeArray(document.querySelectorAll('.slider'));
 
-//   var slider = document.querySelector('.slider');
-//   var content = slider.querySelector('.slider__list');
-//   var slides = makeArray(slider.querySelectorAll('.slider__item'));
-//   var buttonPrevious = slider.querySelector('.slider__arrow--previous');
-//   var buttonNext = slider.querySelector('.slider__arrow--next');
+  if (!sliders.length) {
+    return;
+  }
 
-//   var index = START_INDEX;
+  var getCurrentMode = window.utility.getCurrentMode;
+  var useMethod = window.utility.useMethod;
+  var mode = getCurrentMode();
+  var firstLoading = false;
+  window.slider = {};
 
-//   buttonPrevious.onclick = function () {
-//     sliderNext(true);
-//   };
+  var initSlider = function (rootElement) {
+    var that = {};
+    var _ = that;
 
-//   buttonNext.onclick = function () {
-//     sliderNext();
-//   };
+    _.root = rootElement;
+    _.sliderList = _.root.querySelector('.slider__list');
+    _.slides = makeArray(_.root.querySelectorAll('.slider__item'));
+    _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
+    _.buttonNext = _.root.querySelector('.slider__arrow--next');
+    _.frameButtonList = _.root.querySelector('.slider__frame-button-list');
+    _.currentSetNumber = _.root.querySelector('.slider__current-set-number');
+    _.slideSetQuantity = _.root.querySelector('.slider__slideset-quantity');
 
-//   var sliderNext = function (prev) {
-//     if (prev) {
-//       index = (--index) % slides.length;
+    that.activate = function () {
+      _.slideSetIndex = START_INDEX;
+      _.activeSetIndex = null;
+      _.cursorPosition = {};
+      _.setAmount = null;
+      _.numbers = [];
 
-//       if (index < 0) {
-//         index += slides.length;
-//       }
-//     } else {
-//       index = (++index) % slides.length;
-//     }
+      _.defineSetQuantity();
+      _.defineCurrentSetNumber();
+      _.specifyActiveSetIndex();
+      _.insertNumbers();
+      _.verifyArrows();
 
-//     var offset = -index * 100 + PERCENT_SIGN;
-//     content.setAttribute('style', 'transform: translateX(' + offset + ');');
+      return that;
+    };
 
-//     // var scrollPos = index * (content.scrollWidth / slides.length);
-//     // content.scrollLeft = scrollPos;
-//   };
+    that.defineSetQuantity = function () {
+      // var _ = that;
 
-//   var clientX1 = null;
-//   var clientX2 = null;
+      if (getCurrentMode() === 'desktop') {
+        _.setAmount = Math.ceil(_.slides.length / DESKTOP_SLIDES_AMOUNT);
+      } else {
+        _.setAmount = Math.ceil(_.slides.length / PREDESKTOP_SLIDES_AMOUNT);
+      }
 
-//   content.addEventListener('touchstart', function (evt) {
-//     evt.preventDefault();
-//     clientX1 = evt.touches[0].clientX;
-//   });
+      _.slideSetQuantity.innerText = _.setAmount;
+      return that;
+    };
 
-//   content.addEventListener('touchend', function (evt) {
-//     evt.preventDefault();
-//     clientX2 = evt.changedTouches[0].clientX;
+    that.defineCurrentSetNumber = function () {
+      that.currentSetNumber.innerText = that.slideSetIndex + 1;
+    };
 
-//     if (clientX1 - clientX2 === 0) {
-//       return;
-//     }
+    that.specifyActiveSetIndex = function () {
+      that.activeSetIndex = that.slideSetIndex;
+    };
 
-//     if (clientX1 - clientX2 < 0) {
-//       sliderNext(true);
-//     }
+    that.highlightNumber = function () {
+      that.numbers.forEach(function (number, index) {
+        number.setAttribute('class', 'slider__frame-button button');
 
-//     if (clientX1 - clientX2 > 0) {
-//       sliderNext();
-//     }
-//   });
-// })();
+        if (index === that.slideSetIndex) {
+          number.setAttribute('class', 'slider__frame-button button active');
+        }
+      });
+    };
+
+    that.insertNumbers = function () {
+      // var _ = that;
+      var listItem = _.frameButtonList
+          .querySelector('.slider__frame-button-item')
+          .cloneNode(true);
+
+      while (_.frameButtonList.firstChild) {
+        _.frameButtonList.removeChild(_.frameButtonList.firstChild);
+      }
+
+      var number = null;
+      var fragment = document.createDocumentFragment();
+      var button = listItem.querySelector('button');
+      var buttonAttributeSet = {
+        'class': 'slider__frame-button button',
+        'type': 'button'
+      };
+
+      Object.keys(buttonAttributeSet).forEach(function (key) {
+        button.setAttribute(key, buttonAttributeSet[key]);
+      });
+
+      for (var i = 0; i < _.setAmount; i++) {
+        number = i + 1;
+        button.setAttribute('aria-label', 'Button to enable the ' + number + ' of ' + _.setAmount + ' slides');
+        button.innerText = number;
+        fragment.appendChild(listItem.cloneNode(true));
+      }
+
+      _.frameButtonList.appendChild(fragment);
+      _.numbers = makeArray(_.root.querySelectorAll('.slider__frame-button'));
+      _.highlightNumber();
+    };
+
+    that.verifyArrows = function () {
+      // var _ = that;
+
+      if (_.setAmount === 0) {
+        return 'canceled';
+      }
+
+      if (_.setAmount < 0) {
+        return -1;
+      }
+
+      if (_.setAmount === 1) {
+        [
+          _.buttonPrevious,
+          _.buttonNext
+        ].forEach(function (item) {
+          item.setAttribute('disabled', 'true');
+        });
+      } else {
+        [
+          _.buttonPrevious,
+          _.buttonNext
+        ].forEach(function (item) {
+          item.removeAttribute('disabled');
+        });
+      }
+
+      return 'done';
+    };
+
+    that.manageNumbers = function () {
+      if (getCurrentMode() === 'mobile') {
+        that.defineCurrentSetNumber();
+      } else {
+        that.highlightNumber();
+      }
+    };
+
+    that.scrollSlides = function () {
+      var offset = -(that.slideSetIndex) * 100 + PERCENT_SIGN;
+      that.sliderList.setAttribute('style', 'transform: translateX(' + offset + ');');
+    };
+
+    that.switchSlideSet = function (previous) {
+      // var _ = that;
+
+      if (previous) {
+        _.slideSetIndex = (_.slideSetIndex - 1) % _.setAmount;
+
+        if (_.slideSetIndex < 0) {
+          _.slideSetIndex += _.setAmount;
+        }
+      } else {
+        _.slideSetIndex = (_.slideSetIndex + 1) % _.setAmount;
+      }
+
+      _.scrollSlides();
+      _.specifyActiveSetIndex();
+      _.manageNumbers();
+    };
+
+    that.onArrowClick = function (evt) {
+      if (evt.target.closest('.slider__arrow--previous')) {
+        that.switchSlideSet(true);
+      }
+
+      if (evt.target.closest('.slider__arrow--next')) {
+        that.switchSlideSet();
+      }
+    };
+
+    that.onSliderTouchstart = function (evt) {
+      evt.preventDefault();
+      that.cursorPosition.clientX1 = evt.touches[0].clientX;
+    };
+
+    that.onSliderTouchend = function (evt) {
+      // var _ = that;
+
+      evt.preventDefault();
+      _.cursorPosition.clientX2 = evt.changedTouches[0].clientX;
+
+      var clientX1 = _.cursorPosition.clientX1;
+      var clientX2 = _.cursorPosition.clientX2;
+
+      var isIgnored = clientX1 - clientX2 < IGNORED_SWIPE_DISTANCE
+        && clientX1 - clientX2 > -IGNORED_SWIPE_DISTANCE
+        ? true
+        : false;
+
+      if (clientX1 - clientX2 === 0 || isIgnored) {
+        return;
+      }
+
+      if (clientX1 - clientX2 < 0) {
+        _.switchSlideSet(true);
+      }
+
+      if (clientX1 - clientX2 > 0) {
+        _.switchSlideSet();
+      }
+    };
+
+    that.onNumbersClick = function (evt) {
+      if (!evt.target.matches('.slider__frame-button')) {
+        return;
+      }
+
+      // var _ = that;
+
+      _.slideSetIndex = _.numbers.indexOf(evt.target);
+
+      _.scrollSlides();
+      _.specifyActiveSetIndex();
+      _.manageNumbers();
+    };
+
+    that.processMouse = function (evt) {
+      if (evt.target.closest('.slider__arrow')) {
+        that.onArrowClick(evt);
+      }
+
+      if (evt.target.matches('.slider__frame-button')) {
+        that.onNumbersClick(evt);
+      }
+    };
+
+    that.onSliderPointerup = function (evt) {
+      if (evt.pointerType === 'mouse' || evt.pointerType === 'touch') {
+        that.processMouse(evt);
+      }
+    };
+
+    that.setEventListeners = function () {
+      that.root.addEventListener('pointerup', that.onSliderPointerup);
+      that.root.addEventListener('touchstart', that.onSliderTouchstart);
+      that.root.addEventListener('touchend', that.onSliderTouchend);
+    };
+
+    that.eraseEventListeners = function () {
+      that.root.removeEventListener('pointerup', that.onSliderPointerup);
+      that.root.removeEventListener('touchstart', that.onSliderTouchstart);
+      that.root.removeEventListener('touchend', that.onSliderTouchend);
+    };
+
+    return that;
+  };
+
+  // var sliderNext = function (prev) {
+  //   if (prev) {
+  //     index = (--index) % slides.length;
+
+  //     if (index < 0) {
+  //       index += slides.length;
+  //     }
+  //   } else {
+  //     index = (++index) % slides.length;
+  //   }
+
+  //   var offset = -index * 100 + PERCENT_SIGN;
+  //   content.setAttribute('style', 'transform: translateX(' + offset + ');');
+
+  //   // var scrollPos = index * (content.scrollWidth / slides.length);
+  //   // content.scrollLeft = scrollPos;
+  // };
+
+  sliders.forEach(function (it) {
+    var slider = initSlider(it);
+    slider.activate().setEventListeners();
+    window.slider[slider.root.id] = slider;
+  });
+
+  var activate = useMethod('slider', 'activate');
+  var manageNumbers = useMethod('slider', 'manageNumbers');
+
+  var onWindowResize = (function () {
+    var isWorkedOnPreDesktopWidth = false;
+    var isWorkedOnDesktopWidth = false;
+    var currentMode = '';
+
+    return function () {
+      currentMode = getCurrentMode();
+
+      if (currentMode !== mode && firstLoading) {
+        firstLoading = false;
+      }
+
+      if (currentMode !== 'desktop') {
+        manageNumbers();
+      }
+
+      if (currentMode === 'desktop' && !isWorkedOnDesktopWidth && !firstLoading) {
+        activate();
+        isWorkedOnPreDesktopWidth = false;
+        isWorkedOnDesktopWidth = true;
+        return;
+      }
+
+      if (currentMode !== 'desktop' && !isWorkedOnPreDesktopWidth && !firstLoading) {
+        activate();
+        isWorkedOnPreDesktopWidth = true;
+        isWorkedOnDesktopWidth = false;
+      }
+    };
+  })();
+
+  window.addEventListener('resize', onWindowResize);
+  firstLoading = true;
+
+  var onWindowBeforeunload = useMethod('slider', 'eraseEventListeners');
+
+  // export
+  window.sliderDestroyer = {
+    onWindowBeforeunload: onWindowBeforeunload
+  };
+})();
 
 // (function () {
 //   var START_INDEX = 0;
