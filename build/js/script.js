@@ -452,8 +452,6 @@
     };
 
     that.defineSetQuantity = function () {
-      // var _ = that;
-
       if (getCurrentMode() === 'desktop') {
         _.setAmount = Math.ceil(_.slides.length / DESKTOP_SLIDES_AMOUNT);
       } else {
@@ -483,7 +481,6 @@
     };
 
     that.insertNumbers = function () {
-      // var _ = that;
       var listItem = _.frameButtonList
           .querySelector('.slider__frame-button-item')
           .cloneNode(true);
@@ -517,8 +514,6 @@
     };
 
     that.verifyArrows = function () {
-      // var _ = that;
-
       if (_.setAmount === 0) {
         return 'canceled';
       }
@@ -560,8 +555,6 @@
     };
 
     that.switchSlideSet = function (previous) {
-      // var _ = that;
-
       if (previous) {
         _.slideSetIndex = (_.slideSetIndex - 1) % _.setAmount;
 
@@ -593,8 +586,6 @@
     };
 
     that.onSliderTouchend = function (evt) {
-      // var _ = that;
-
       evt.preventDefault();
       _.cursorPosition.clientX2 = evt.changedTouches[0].clientX;
 
@@ -623,8 +614,6 @@
       if (!evt.target.matches('.slider__frame-button')) {
         return;
       }
-
-      // var _ = that;
 
       _.slideSetIndex = _.numbers.indexOf(evt.target);
 
@@ -663,24 +652,6 @@
 
     return that;
   };
-
-  // var sliderNext = function (prev) {
-  //   if (prev) {
-  //     index = (--index) % slides.length;
-
-  //     if (index < 0) {
-  //       index += slides.length;
-  //     }
-  //   } else {
-  //     index = (++index) % slides.length;
-  //   }
-
-  //   var offset = -index * 100 + PERCENT_SIGN;
-  //   content.setAttribute('style', 'transform: translateX(' + offset + ');');
-
-  //   // var scrollPos = index * (content.scrollWidth / slides.length);
-  //   // content.scrollLeft = scrollPos;
-  // };
 
   sliders.forEach(function (it) {
     var slider = initSlider(it);
