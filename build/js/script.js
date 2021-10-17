@@ -429,8 +429,8 @@
     _.root = rootElement;
     _.sliderList = _.root.querySelector('.slider__list');
     _.slides = makeArray(_.root.querySelectorAll('.slider__item'));
-    _.buttonPrevious = _.root.querySelector('.slider__arrow--previous');
-    _.buttonNext = _.root.querySelector('.slider__arrow--next');
+    _.buttonPrevious = _.root.querySelector('[type="button"][data-id="previous"]');
+    _.buttonNext = _.root.querySelector('[type="button"][data-id="next"]');
     _.frameButtonList = _.root.querySelector('.slider__frame-button-list');
     _.currentSetNumber = _.root.querySelector('.slider__current-set-number');
     _.slideSetQuantity = _.root.querySelector('.slider__slideset-quantity');
@@ -452,6 +452,11 @@
     };
 
     that.defineSetQuantity = function () {
+      if (!_.slideSetQuantity) {
+        delete _.slideSetQuantity;
+        return that;
+      }
+
       if (getCurrentMode() === 'desktop') {
         _.setAmount = Math.ceil(_.slides.length / DESKTOP_SLIDES_AMOUNT);
       } else {
@@ -463,7 +468,13 @@
     };
 
     that.defineCurrentSetNumber = function () {
-      that.currentSetNumber.innerText = that.slideSetIndex + 1;
+      if (!_.currentSetNumber) {
+        delete _.currentSetNumber;
+        return that;
+      }
+
+      _.currentSetNumber.innerText = _.slideSetIndex + 1;
+      return that;
     };
 
     that.specifyActiveSetIndex = function () {
