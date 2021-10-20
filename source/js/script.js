@@ -495,7 +495,7 @@
 
       var catalogPropertySet = {
         common: {
-          spaceBetween: 30,
+          loop: true,
           pagination: {
             el: '.swiper-pagination',
             clickable: 'true',
@@ -503,31 +503,14 @@
             renderBullet: that.renderBullet,
           },
           navigation: {
-            nextEl: '.slider__arrow--next',
-            prevEl: '.slider__arrow--previous',
+            nextEl: '.slider__arrow--forward',
+            prevEl: '.slider__arrow--backward',
           },
         },
 
-        desktop: {
-          slidesPerView: 3,
-          grid: {
-            rows: 2,
-          },
-        },
-
-        tablet: {
-          slidesPerView: 3,
-          grid: {
-            rows: 2,
-          },
-        },
-
-        mobile: {
-          slidesPerView: 2,
-          grid: {
-            rows: 6,
-          },
-        },
+        desktop: {},
+        tablet: {},
+        mobile: {},
       };
 
       return (flag === 'catalog' && catalogPropertySet)
@@ -626,19 +609,8 @@
   };
 
   var sliderManager = manageSlider(sliderMain || sliderCatalog);
-  // sliderManager
-  //     .activate()
-  //     .saveDivider()
-  //     .normalizeClasses()
-  //     .buildSwiper();
-
-  sliderManager.activate();
-
-  if (sliderManager.root.id === 'slider-catalog') { // temporary plug
-    return;
-  }
-
   sliderManager
+      .activate()
       .saveDivider()
       .normalizeClasses()
       .buildSwiper();
@@ -680,7 +652,6 @@
   }
 
   var useMethod = window.utility.useMethod;
-  // var isMatched = window.utility.isMatched;
   window.accordeon = {};
 
   var initAccordeon = function (rootElement) {
@@ -703,9 +674,6 @@
 
     that.hideContent = function (item) {
       var jsClass = null;
-      // var isMaterialItem = isMatched(item, '.accordeon__item--material');
-      // var isProductItem = isMatched(item, '.accordeon__item--product');
-      // var isPriceItem = isMatched(item, '.accordeon__item--price');
       var isMaterialItem = item.matches('.accordeon__item--material');
       var isProductItem = item.matches('.accordeon__item--product');
       var isPriceItem = item.matches('.accordeon__item--price');

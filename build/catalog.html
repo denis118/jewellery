@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="jewelry, ornaments">
@@ -37,18 +38,14 @@
         <svg width="25" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <use xlink:href="./img/outer-sprite.svg#icon-burger"></use>
         </svg>
-
         <span id="burger-description" hidden="">Menu toggle</span>
       </button>
 
-      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html" aria-labelledby="site-logo-link">
+      <a class="header__logo header__logo--different header__logo--interactive" href="./main.html" aria-labelledby="site-logo-link">
         <svg width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="site-logo-image">
           <use xlink:href="./img/outer-sprite.svg#logo"></use>
         </svg>
-
         <span class="hidden-entity" id="site-logo-link">Site logo link</span>
-
-        <span class="hidden-entity" id="site-logo-image">Site logo image</span>
       </a>
 
       <a class="header__login login-link link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
@@ -56,7 +53,6 @@
       <a class="header__cart link" href="#" aria-label="Cart">
         <span class="header__cart-text hidden-before-desktop">Cart</span>
         <span class="header__cart-fullness hidden-before-desktop">0</span>
-
         <svg class="hidden-on-desktop" width="20" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <use xlink:href="./img/outer-sprite.svg#icon-cart"></use>
         </svg>
@@ -150,7 +146,6 @@
                 <div class="accordeon__item accordeon__item--product accordeon__item--catalog accordeon__item--disclosed">
                   <button class="accordeon__button accordeon__button--catalog accordeon__button--product button" type="button" aria-label="Button to display product types list">
                     Product
-
                     <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
@@ -189,7 +184,6 @@
                 <div class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
                   <button class="accordeon__button accordeon__button--catalog accordeon__button--material button" type="button" aria-label="Button to display product materials list">
                     Material
-
                     <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
@@ -218,7 +212,6 @@
                 <div class="accordeon__item accordeon__item--catalog accordeon__item--disclosed">
                   <button class="accordeon__button accordeon__button--catalog accordeon__button--collection button" type="button" aria-label="Button to display collections list">
                     Collection
-
                     <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
@@ -248,7 +241,6 @@
                 <div class="accordeon__item accordeon__item--catalog accordeon__item--price accordeon__item--disclosed">
                   <button class="accordeon__button accordeon__button--catalog accordeon__button--price button" type="button" aria-label="Button to display price controllers">
                     Price
-
                     <svg class="accordeon__button-svg accordeon__button-svg--catalog" width="15" height="8" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <use xlink:href="./img/outer-sprite.svg#icon-angle"></use>
                     </svg>
@@ -308,538 +300,1026 @@
           <!-- .swiper-wrapper -->
           <div class="slider__inner slider__inner--catalog">
             <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/double-pearl-earrings.webp    1x,
-                        ./img/content/catalog/mobile/double-pearl-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/double-pearl-earrings.jpg    1x,
-                        ./img/content/catalog/mobile/double-pearl-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/double-pearl-earrings.webp    1x,
-                        ./img/content/catalog/tablet/double-pearl-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/double-pearl-earrings.jpg    1x,
-                        ./img/content/catalog/tablet/double-pearl-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/double-pearl-earrings.webp    1x,
-                        ./img/content/catalog/desktop/double-pearl-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/double-pearl-earrings.jpg" width="270" height="272" alt="Double pearl earrings" srcset="
-                        ./img/content/catalog/desktop/double-pearl-earrings@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+            <div class="slider__item">
+              <ul class="slider__list slider__list--catalog list">
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/mobile/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/double-pearl-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/double-pearl-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/tablet/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/double-pearl-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/double-pearl-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/desktop/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/double-pearl-earrings.jpg" width="270" height="272" alt="Double pearl earrings" srcset="
+                            ./img/content/catalog/desktop/double-pearl-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog slider__product-name--altered">Double
-                    pearl earrings</span>
-                  <span class="slider__product-cost">$ 115</span>
-                </figcaption>
-              </figure>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name slider__product-name--altered">Double pearl earrings</span>
+                      <span class="slider__product-cost">$ 115</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/mobile/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-choker-gold-bead.jpg    1x,
+                            ./img/content/catalog/mobile/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/tablet/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-choker-gold-bead.jpg    1x,
+                            ./img/content/catalog/tablet/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/desktop/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/black-choker-gold-bead.jpg" width="270" height="272" alt="Choker with gold bead" srcset="
+                            ./img/content/catalog/desktop/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Choker with gold bead</span>
+                      <span class="slider__product-cost slider__product-cost--altered">$ 55</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/mobile/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/gold-layered-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/gold-layered-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/tablet/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/gold-layered-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/gold-layered-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/desktop/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/gold-layered-necklace.jpg" width="270" height="272" alt="Gold layered necklace" srcset="
+                            ./img/content/catalog/desktop/gold-layered-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name slider__product-name--altered">Gold layered necklace</span>
+                      <span class="slider__product-cost">$ 155</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/mobile/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/blue-gemstone-pendant.jpg    1x,
+                            ./img/content/catalog/mobile/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/tablet/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/blue-gemstone-pendant.jpg    1x,
+                            ./img/content/catalog/tablet/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/desktop/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/blue-gemstone-pendant.jpg" width="270" height="272" alt="Blue gemstone pendant" srcset="
+                            ./img/content/catalog/desktop/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Blue gemstone pendant</span>
+                      <span class="slider__product-cost">$ 105</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/boho-earrings.webp    1x,
+                            ./img/content/catalog/mobile/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/boho-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/boho-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/boho-earrings.webp    1x,
+                            ./img/content/catalog/tablet/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/boho-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/boho-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/boho-earrings.webp    1x,
+                            ./img/content/catalog/desktop/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/boho-earrings.jpg" width="270" height="272" alt="Boho earrings" srcset="
+                            ./img/content/catalog/desktop/boho-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Boho earrings</span>
+                      <span class="slider__product-cost">$ 75</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/bird-necklace.webp    1x,
+                            ./img/content/catalog/mobile/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/bird-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/bird-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/bird-necklace.webp    1x,
+                            ./img/content/catalog/tablet/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/bird-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/bird-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/bird-necklace.webp    1x,
+                            ./img/content/catalog/desktop/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/bird-necklace.jpg" width="270" height="272" alt="Gold bird necklace" srcset="
+                            ./img/content/catalog/desktop/bird-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Gold bird necklace</span>
+                      <span class="slider__product-cost">$ 135</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/mobile/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-leather-choker-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/tablet/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-leather-choker-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/desktop/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/black-leather-choker-necklace.jpg" width="270" height="272" alt="Black leather choker" srcset="
+                            ./img/content/catalog/desktop/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Black leather choker</span>
+                      <span class="slider__product-cost">$ 85</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/mobile/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/purple-gemstone-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/tablet/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/purple-gemstone-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/desktop/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/purple-gemstone-necklace.jpg" width="270" height="272" alt="Necklace with amethyst" srcset="
+                            ./img/content/catalog/desktop/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Necklace with amethyst</span>
+                      <span class="slider__product-cost">$ 145</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/elephant-earrings.webp    1x,
+                            ./img/content/catalog/mobile/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/elephant-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/elephant-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/elephant-earrings.webp    1x,
+                            ./img/content/catalog/tablet/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/elephant-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/elephant-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/elephant-earrings.webp    1x,
+                            ./img/content/catalog/desktop/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/elephant-earrings.jpg" width="270" height="272" alt="Elephant earrings" srcset="
+                            ./img/content/catalog/desktop/elephant-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Elephant earrings</span>
+                      <span class="slider__product-cost">$ 95</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/mobile/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/threader-necklace-closeup.jpg    1x,
+                            ./img/content/catalog/mobile/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/tablet/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/threader-necklace-closeup.jpg    1x,
+                            ./img/content/catalog/tablet/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/desktop/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/threader-necklace-closeup.jpg" width="270" height="272" alt="Threader necklace" srcset="
+                            ./img/content/catalog/desktop/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Threader necklace</span>
+                      <span class="slider__product-cost">$ 115</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/mobile/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/origami-crane-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/origami-crane-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/tablet/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/origami-crane-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/origami-crane-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/desktop/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/origami-crane-necklace.jpg" width="270" height="272" alt="Origami crane necklace" srcset="
+                            ./img/content/catalog/desktop/origami-crane-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Origami crane necklace</span>
+                      <span class="slider__product-cost">$ 105</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/marble-earrings.webp    1x,
+                            ./img/content/catalog/mobile/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/marble-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/marble-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/marble-earrings.webp    1x,
+                            ./img/content/catalog/tablet/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/marble-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/marble-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/marble-earrings.webp    1x,
+                            ./img/content/catalog/desktop/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/marble-earrings.jpg" width="270" height="272" alt="Marble earrings" srcset="
+                            ./img/content/catalog/desktop/marble-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
+
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Marble earrings</span>
+                      <span class="slider__product-cost">$ 95</span>
+                    </figcaption>
+                  </figure>
+                </li>
+              </ul>
             </div>
-
             <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/black-choker-gold-bead.webp    1x,
-                        ./img/content/catalog/mobile/black-choker-gold-bead@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/black-choker-gold-bead.jpg    1x,
-                        ./img/content/catalog/mobile/black-choker-gold-bead@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/black-choker-gold-bead.webp    1x,
-                        ./img/content/catalog/tablet/black-choker-gold-bead@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/black-choker-gold-bead.jpg    1x,
-                        ./img/content/catalog/tablet/black-choker-gold-bead@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/black-choker-gold-bead.webp    1x,
-                        ./img/content/catalog/desktop/black-choker-gold-bead@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/black-choker-gold-bead.jpg" width="270" height="272" alt="Choker with gold bead" srcset="
-                        ./img/content/catalog/desktop/black-choker-gold-bead@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+            <div class="slider__item">
+              <ul class="slider__list slider__list--catalog list">
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/mobile/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/double-pearl-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/double-pearl-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/tablet/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/double-pearl-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/double-pearl-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/double-pearl-earrings.webp    1x,
+                            ./img/content/catalog/desktop/double-pearl-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/double-pearl-earrings.jpg" width="270" height="272" alt="Double pearl earrings" srcset="
+                            ./img/content/catalog/desktop/double-pearl-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Choker with gold bead</span>
-                  <span class="slider__product-cost slider__product-cost--altered">$ 55</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name slider__product-name--altered">Double pearl earrings</span>
+                      <span class="slider__product-cost">$ 115</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/mobile/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-choker-gold-bead.jpg    1x,
+                            ./img/content/catalog/mobile/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/tablet/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-choker-gold-bead.jpg    1x,
+                            ./img/content/catalog/tablet/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/black-choker-gold-bead.webp    1x,
+                            ./img/content/catalog/desktop/black-choker-gold-bead@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/black-choker-gold-bead.jpg" width="270" height="272" alt="Choker with gold bead" srcset="
+                            ./img/content/catalog/desktop/black-choker-gold-bead@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/gold-layered-necklace.webp    1x,
-                        ./img/content/catalog/mobile/gold-layered-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/gold-layered-necklace.jpg    1x,
-                        ./img/content/catalog/mobile/gold-layered-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/gold-layered-necklace.webp    1x,
-                        ./img/content/catalog/tablet/gold-layered-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/gold-layered-necklace.jpg    1x,
-                        ./img/content/catalog/tablet/gold-layered-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/gold-layered-necklace.webp    1x,
-                        ./img/content/catalog/desktop/gold-layered-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/gold-layered-necklace.jpg" width="270" height="272" alt="Gold layered necklace" srcset="
-                        ./img/content/catalog/desktop/gold-layered-necklace@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Choker with gold bead</span>
+                      <span class="slider__product-cost slider__product-cost--altered">$ 55</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/mobile/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/gold-layered-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/gold-layered-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/tablet/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/gold-layered-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/gold-layered-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/gold-layered-necklace.webp    1x,
+                            ./img/content/catalog/desktop/gold-layered-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/gold-layered-necklace.jpg" width="270" height="272" alt="Gold layered necklace" srcset="
+                            ./img/content/catalog/desktop/gold-layered-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog slider__product-name--altered">Gold
-                    layered necklace</span>
-                  <span class="slider__product-cost">$ 155</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name slider__product-name--altered">Gold layered necklace</span>
+                      <span class="slider__product-cost">$ 155</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/mobile/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/blue-gemstone-pendant.jpg    1x,
+                            ./img/content/catalog/mobile/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/tablet/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/blue-gemstone-pendant.jpg    1x,
+                            ./img/content/catalog/tablet/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/blue-gemstone-pendant.webp    1x,
+                            ./img/content/catalog/desktop/blue-gemstone-pendant@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/blue-gemstone-pendant.jpg" width="270" height="272" alt="Blue gemstone pendant" srcset="
+                            ./img/content/catalog/desktop/blue-gemstone-pendant@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/blue-gemstone-pendant.webp    1x,
-                        ./img/content/catalog/mobile/blue-gemstone-pendant@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/blue-gemstone-pendant.jpg    1x,
-                        ./img/content/catalog/mobile/blue-gemstone-pendant@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/blue-gemstone-pendant.webp    1x,
-                        ./img/content/catalog/tablet/blue-gemstone-pendant@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/blue-gemstone-pendant.jpg    1x,
-                        ./img/content/catalog/tablet/blue-gemstone-pendant@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/blue-gemstone-pendant.webp    1x,
-                        ./img/content/catalog/desktop/blue-gemstone-pendant@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/blue-gemstone-pendant.jpg" width="270" height="272" alt="Blue gemstone pendant" srcset="
-                        ./img/content/catalog/desktop/blue-gemstone-pendant@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Blue gemstone pendant</span>
+                      <span class="slider__product-cost">$ 105</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/boho-earrings.webp    1x,
+                            ./img/content/catalog/mobile/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/boho-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/boho-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/boho-earrings.webp    1x,
+                            ./img/content/catalog/tablet/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/boho-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/boho-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/boho-earrings.webp    1x,
+                            ./img/content/catalog/desktop/boho-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/boho-earrings.jpg" width="270" height="272" alt="Boho earrings" srcset="
+                            ./img/content/catalog/desktop/boho-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Blue gemstone pendant</span>
-                  <span class="slider__product-cost">$ 105</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Boho earrings</span>
+                      <span class="slider__product-cost">$ 75</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/bird-necklace.webp    1x,
+                            ./img/content/catalog/mobile/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/bird-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/bird-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/bird-necklace.webp    1x,
+                            ./img/content/catalog/tablet/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/bird-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/bird-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/bird-necklace.webp    1x,
+                            ./img/content/catalog/desktop/bird-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/bird-necklace.jpg" width="270" height="272" alt="Gold bird necklace" srcset="
+                            ./img/content/catalog/desktop/bird-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/boho-earrings.webp    1x,
-                        ./img/content/catalog/mobile/boho-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/boho-earrings.jpg    1x,
-                        ./img/content/catalog/mobile/boho-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/boho-earrings.webp    1x,
-                        ./img/content/catalog/tablet/boho-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/boho-earrings.jpg    1x,
-                        ./img/content/catalog/tablet/boho-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/boho-earrings.webp    1x,
-                        ./img/content/catalog/desktop/boho-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/boho-earrings.jpg" width="270" height="272" alt="Boho earrings" srcset="
-                        ./img/content/catalog/desktop/boho-earrings@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Gold bird necklace</span>
+                      <span class="slider__product-cost">$ 135</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/mobile/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/black-leather-choker-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/tablet/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/black-leather-choker-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/black-leather-choker-necklace.webp    1x,
+                            ./img/content/catalog/desktop/black-leather-choker-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/black-leather-choker-necklace.jpg" width="270" height="272" alt="Black leather choker" srcset="
+                            ./img/content/catalog/desktop/black-leather-choker-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Boho earrings</span>
-                  <span class="slider__product-cost">$ 75</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Black leather choker</span>
+                      <span class="slider__product-cost">$ 85</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/mobile/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/purple-gemstone-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/tablet/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/purple-gemstone-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/purple-gemstone-necklace.webp    1x,
+                            ./img/content/catalog/desktop/purple-gemstone-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/purple-gemstone-necklace.jpg" width="270" height="272" alt="Necklace with amethyst" srcset="
+                            ./img/content/catalog/desktop/purple-gemstone-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/bird-necklace.webp    1x,
-                        ./img/content/catalog/mobile/bird-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/bird-necklace.jpg    1x,
-                        ./img/content/catalog/mobile/bird-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/bird-necklace.webp    1x,
-                        ./img/content/catalog/tablet/bird-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/bird-necklace.jpg    1x,
-                        ./img/content/catalog/tablet/bird-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/bird-necklace.webp    1x,
-                        ./img/content/catalog/desktop/bird-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/bird-necklace.jpg" width="270" height="272" alt="Gold bird necklace" srcset="
-                        ./img/content/catalog/desktop/bird-necklace@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Necklace with amethyst</span>
+                      <span class="slider__product-cost">$ 145</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/elephant-earrings.webp    1x,
+                            ./img/content/catalog/mobile/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/elephant-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/elephant-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/elephant-earrings.webp    1x,
+                            ./img/content/catalog/tablet/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/elephant-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/elephant-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/elephant-earrings.webp    1x,
+                            ./img/content/catalog/desktop/elephant-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/elephant-earrings.jpg" width="270" height="272" alt="Elephant earrings" srcset="
+                            ./img/content/catalog/desktop/elephant-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Gold bird necklace</span>
-                  <span class="slider__product-cost">$ 135</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Elephant earrings</span>
+                      <span class="slider__product-cost">$ 95</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/mobile/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/threader-necklace-closeup.jpg    1x,
+                            ./img/content/catalog/mobile/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/tablet/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/threader-necklace-closeup.jpg    1x,
+                            ./img/content/catalog/tablet/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/threader-necklace-closeup.webp    1x,
+                            ./img/content/catalog/desktop/threader-necklace-closeup@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/threader-necklace-closeup.jpg" width="270" height="272" alt="Threader necklace" srcset="
+                            ./img/content/catalog/desktop/threader-necklace-closeup@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/black-leather-choker-necklace.webp    1x,
-                        ./img/content/catalog/mobile/black-leather-choker-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/black-leather-choker-necklace.jpg    1x,
-                        ./img/content/catalog/mobile/black-leather-choker-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/black-leather-choker-necklace.webp    1x,
-                        ./img/content/catalog/tablet/black-leather-choker-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/black-leather-choker-necklace.jpg    1x,
-                        ./img/content/catalog/tablet/black-leather-choker-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/black-leather-choker-necklace.webp    1x,
-                        ./img/content/catalog/desktop/black-leather-choker-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/black-leather-choker-necklace.jpg" width="270" height="272" alt="Black leather choker" srcset="
-                        ./img/content/catalog/desktop/black-leather-choker-necklace@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Threader necklace</span>
+                      <span class="slider__product-cost">$ 115</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/mobile/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/origami-crane-necklace.jpg    1x,
+                            ./img/content/catalog/mobile/origami-crane-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/tablet/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/origami-crane-necklace.jpg    1x,
+                            ./img/content/catalog/tablet/origami-crane-necklace@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/origami-crane-necklace.webp    1x,
+                            ./img/content/catalog/desktop/origami-crane-necklace@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/origami-crane-necklace.jpg" width="270" height="272" alt="Origami crane necklace" srcset="
+                            ./img/content/catalog/desktop/origami-crane-necklace@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Black leather choker</span>
-                  <span class="slider__product-cost">$ 85</span>
-                </figcaption>
-              </figure>
-            </div>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Origami crane necklace</span>
+                      <span class="slider__product-cost">$ 105</span>
+                    </figcaption>
+                  </figure>
+                </li>
+                <li class="slider__list-item slider__list-item--catalog">
+                  <figure>
+                    <div class="slider__padded-box slider__padded-box--catalog">
+                      <picture>
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
+                        <source type="image/webp" media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/marble-earrings.webp    1x,
+                            ./img/content/catalog/mobile/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
+                        <source media="(max-width: 767px)" srcset="
+                            ./img/content/catalog/mobile/marble-earrings.jpg    1x,
+                            ./img/content/catalog/mobile/marble-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source type="image/webp" media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/marble-earrings.webp    1x,
+                            ./img/content/catalog/tablet/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
+                        <source media="(max-width: 1023px)" srcset="
+                            ./img/content/catalog/tablet/marble-earrings.jpg    1x,
+                            ./img/content/catalog/tablet/marble-earrings@2x.jpg 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <source type="image/webp" srcset="
+                            ./img/content/catalog/desktop/marble-earrings.webp    1x,
+                            ./img/content/catalog/desktop/marble-earrings@2x.webp 2x
+                          ">
+                        <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
+                        <img src="./img/content/catalog/desktop/marble-earrings.jpg" width="270" height="272" alt="Marble earrings" srcset="
+                            ./img/content/catalog/desktop/marble-earrings@2x.jpg 2x
+                          ">
+                      </picture>
+                    </div>
 
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/purple-gemstone-necklace.webp    1x,
-                        ./img/content/catalog/mobile/purple-gemstone-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/purple-gemstone-necklace.jpg    1x,
-                        ./img/content/catalog/mobile/purple-gemstone-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/purple-gemstone-necklace.webp    1x,
-                        ./img/content/catalog/tablet/purple-gemstone-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/purple-gemstone-necklace.jpg    1x,
-                        ./img/content/catalog/tablet/purple-gemstone-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/purple-gemstone-necklace.webp    1x,
-                        ./img/content/catalog/desktop/purple-gemstone-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/purple-gemstone-necklace.jpg" width="270" height="272" alt="Necklace with amethyst" srcset="
-                        ./img/content/catalog/desktop/purple-gemstone-necklace@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
-
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Necklace with amethyst</span>
-                  <span class="slider__product-cost">$ 145</span>
-                </figcaption>
-              </figure>
-            </div>
-
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/elephant-earrings.webp    1x,
-                        ./img/content/catalog/mobile/elephant-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/elephant-earrings.jpg    1x,
-                        ./img/content/catalog/mobile/elephant-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/elephant-earrings.webp    1x,
-                        ./img/content/catalog/tablet/elephant-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/elephant-earrings.jpg    1x,
-                        ./img/content/catalog/tablet/elephant-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/elephant-earrings.webp    1x,
-                        ./img/content/catalog/desktop/elephant-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/elephant-earrings.jpg" width="270" height="272" alt="Elephant earrings" srcset="
-                        ./img/content/catalog/desktop/elephant-earrings@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
-
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Elephant earrings</span>
-                  <span class="slider__product-cost">$ 95</span>
-                </figcaption>
-              </figure>
-            </div>
-
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/threader-necklace-closeup.webp    1x,
-                        ./img/content/catalog/mobile/threader-necklace-closeup@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/threader-necklace-closeup.jpg    1x,
-                        ./img/content/catalog/mobile/threader-necklace-closeup@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/threader-necklace-closeup.webp    1x,
-                        ./img/content/catalog/tablet/threader-necklace-closeup@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/threader-necklace-closeup.jpg    1x,
-                        ./img/content/catalog/tablet/threader-necklace-closeup@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/threader-necklace-closeup.webp    1x,
-                        ./img/content/catalog/desktop/threader-necklace-closeup@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/threader-necklace-closeup.jpg" width="270" height="272" alt="Threader necklace" srcset="
-                        ./img/content/catalog/desktop/threader-necklace-closeup@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
-
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Threader necklace</span>
-                  <span class="slider__product-cost">$ 115</span>
-                </figcaption>
-              </figure>
-            </div>
-
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/origami-crane-necklace.webp    1x,
-                        ./img/content/catalog/mobile/origami-crane-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/origami-crane-necklace.jpg    1x,
-                        ./img/content/catalog/mobile/origami-crane-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/origami-crane-necklace.webp    1x,
-                        ./img/content/catalog/tablet/origami-crane-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/origami-crane-necklace.jpg    1x,
-                        ./img/content/catalog/tablet/origami-crane-necklace@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/origami-crane-necklace.webp    1x,
-                        ./img/content/catalog/desktop/origami-crane-necklace@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/origami-crane-necklace.jpg" width="270" height="272" alt="Origami crane necklace" srcset="
-                        ./img/content/catalog/desktop/origami-crane-necklace@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
-
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Origami crane necklace</span>
-                  <span class="slider__product-cost">$ 105</span>
-                </figcaption>
-              </figure>
-            </div>
-
-            <!-- .swiper-slide -->
-            <div class="slider__item slider__item--catalog">
-              <figure>
-                <div class="slider__padded-box slider__padded-box--catalog">
-                  <picture>
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px -->
-                    <source type="image/webp" media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/marble-earrings.webp    1x,
-                        ./img/content/catalog/mobile/marble-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 130px, height: 136px; 2x: width: 260px, height: 272px   -->
-                    <source media="(max-width: 767px)" srcset="
-                        ./img/content/catalog/mobile/marble-earrings.jpg    1x,
-                        ./img/content/catalog/mobile/marble-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source type="image/webp" media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/marble-earrings.webp    1x,
-                        ./img/content/catalog/tablet/marble-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 206px, height: 208px; 2x: width: 412px, height: 416px -->
-                    <source media="(max-width: 1023px)" srcset="
-                        ./img/content/catalog/tablet/marble-earrings.jpg    1x,
-                        ./img/content/catalog/tablet/marble-earrings@2x.jpg 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <source type="image/webp" srcset="
-                        ./img/content/catalog/desktop/marble-earrings.webp    1x,
-                        ./img/content/catalog/desktop/marble-earrings@2x.webp 2x
-                      ">
-                    <!-- 1х: width: 270px, height: 272px; 2x: width: 540px, height: 544px -->
-                    <img src="./img/content/catalog/desktop/marble-earrings.jpg" width="270" height="272" alt="Marble earrings" srcset="
-                        ./img/content/catalog/desktop/marble-earrings@2x.jpg 2x
-                      ">
-                  </picture>
-                </div>
-
-                <figcaption class="slider__figcaption">
-                  <span class="slider__product-name slider__product-name--catalog">Marble earrings</span>
-                  <span class="slider__product-cost">$ 95</span>
-                </figcaption>
-              </figure>
+                    <figcaption class="slider__figcaption">
+                      <span class="slider__product-name">Marble earrings</span>
+                      <span class="slider__product-cost">$ 95</span>
+                    </figcaption>
+                  </figure>
+                </li>
+              </ul>
             </div>
           </div>
-
           <!-- .hidden-entity -->
-          <div class="swiper-pagination hidden-entity"></div>
+          <div class="swiper-pagination swiper-pagination--catalog hidden-entity"></div>
 
           <!-- .hidden-entity -->
           <ol class="slider__frame-button-list slider__frame-button-list--catalog list">
@@ -889,7 +1369,6 @@
 
             <button class="footer__submit button" type="submit" aria-label="Submit button">
               <span>Sign Up</span>
-
               <svg width="29" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <use xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
               </svg>
@@ -898,7 +1377,7 @@
         </div>
       </section>
 
-      <ul class="footer__list footer__buyers-information footer__buyers-information--catalog list" aria-labelledby="buyers-info">
+      <ul class="footer__list footer__buyers-information list" aria-labelledby="buyers-info">
         <li>
           <a class="link" href="#">Ordering & Payment</a>
         </li>
@@ -934,7 +1413,6 @@
             <svg class="footer__social-svg footer__social-svg--facebook" width="8" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <use xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
             </svg>
-
             <span class="hidden-before-tablet">Facebook</span>
           </a>
         </li>
@@ -944,7 +1422,6 @@
             <svg class="footer__social-svg footer__social-svg--instagram catalog" width="15" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <use xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
             </svg>
-
             <span class="hidden-before-tablet">Instagram</span>
           </a>
         </li>
@@ -954,7 +1431,6 @@
             <svg class="footer__social-svg footer__social-svg--pinterest" width="16" height="15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <use xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
             </svg>
-
             <span class="hidden-before-tablet">Pinterest</span>
           </a>
         </li>
@@ -964,14 +1440,12 @@
             <svg class="footer__social-svg footer__social-svg--twitter catalog" width="15" height="13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <use xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
             </svg>
-
             <span class="hidden-before-tablet">Twitter</span>
           </a>
         </li>
       </ul>
 
       <span id="buyers-info" hidden="">Information for buyers</span>
-
       <span id="social-networks" hidden="">We are in social networks</span>
     </div>
   </footer>

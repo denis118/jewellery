@@ -495,7 +495,7 @@
 
       var catalogPropertySet = {
         common: {
-          spaceBetween: 30,
+          loop: true,
           pagination: {
             el: '.swiper-pagination',
             clickable: 'true',
@@ -503,31 +503,35 @@
             renderBullet: that.renderBullet,
           },
           navigation: {
-            nextEl: '.slider__arrow--next',
-            prevEl: '.slider__arrow--previous',
+            nextEl: '.slider__arrow--forward',
+            prevEl: '.slider__arrow--backward',
           },
         },
 
-        desktop: {
-          slidesPerView: 3,
-          grid: {
-            rows: 2,
-          },
-        },
+        desktop: {},
+        tablet: {},
+        mobile: {},
 
-        tablet: {
-          slidesPerView: 3,
-          grid: {
-            rows: 2,
-          },
-        },
+        // desktop: {
+        //   slidesPerView: 3,
+        //   grid: {
+        //     rows: 2,
+        //   },
+        // },
 
-        mobile: {
-          slidesPerView: 2,
-          grid: {
-            rows: 6,
-          },
-        },
+        // tablet: {
+        //   slidesPerView: 3,
+        //   grid: {
+        //     rows: 2,
+        //   },
+        // },
+
+        // mobile: {
+        //   slidesPerView: 2,
+        //   grid: {
+        //     rows: 6,
+        //   },
+        // },
       };
 
       return (flag === 'catalog' && catalogPropertySet)
@@ -626,22 +630,22 @@
   };
 
   var sliderManager = manageSlider(sliderMain || sliderCatalog);
-  // sliderManager
-  //     .activate()
-  //     .saveDivider()
-  //     .normalizeClasses()
-  //     .buildSwiper();
-
-  sliderManager.activate();
-
-  if (sliderManager.root.id === 'slider-catalog') { // temporary plug
-    return;
-  }
-
   sliderManager
+      .activate()
       .saveDivider()
       .normalizeClasses()
       .buildSwiper();
+
+  // sliderManager.activate();
+
+  // if (sliderManager.root.id === 'slider-catalog') { // temporary plug
+  //   return;
+  // }
+
+  // sliderManager
+  //     .saveDivider()
+  //     .normalizeClasses()
+  //     .buildSwiper();
 
   var onWindowResize = (function () {
     var mode = getCurrentMode();
