@@ -226,7 +226,8 @@
 }
 
 .login__cross {
-  --icon-color: #{$dcg-2};
+  // --icon-color: #{$dcg-2};
+  color: $dcg-2;
 
   position: absolute;
   top: 0;
@@ -256,10 +257,12 @@
   }
 
   &:focus {
-    --icon-color: #{$mcg-8};
+    // --icon-color: #{$mcg-8};
+    color: $mcg-8;
   }
 
   &:active {
-    --icon-color: #{$lcg-1};
+    // --icon-color: #{$lcg-1};
+    color: $lcg-1;
   }
 }

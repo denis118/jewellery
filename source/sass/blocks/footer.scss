@@ -194,7 +194,7 @@
 }
 
 .footer__submit {
-  --icon-color: #{$lcg-1};
+  // --icon-color: #{$lcg-1};
 
   font-family:
     "poppins",
@@ -235,7 +235,7 @@
 
   &:hover,
   &:focus {
-    --icon-color: #{$mcg-2};
+    // --icon-color: #{$mcg-2};
 
     color: $mcg-2;
   }
@@ -322,7 +322,7 @@
 }
 
 .footer__social-networks {
-  --icon-color: #{$lcg-1};
+  // --icon-color: #{$lcg-1};
 
   @include column-flex-left;
 
@@ -415,6 +415,7 @@
   left: 0;
   top: 50%;
   transform: translate(-1px, -56%);
+  color: $lcg-1;
 
   @media (min-width: $desktop-width) {
     margin-right: 15px;

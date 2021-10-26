@@ -162,7 +162,7 @@
 }
 
 .accordeon__button {
-  --icon-color: #{$dcg-2};
+  // --icon-color: #{$dcg-2};
 
   font-family:
     "poppins",
@@ -234,7 +234,7 @@
 
   &:hover,
   &:focus {
-    --icon-color: #{$mcg-1};
+    // --icon-color: #{$mcg-1};
 
     color: $mcg-1;
     background-color: $mcg-9;

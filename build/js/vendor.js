@@ -43,7 +43,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 /**
- * Swiper 7.0.8
+ * Swiper 7.1.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -51,7 +51,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  *
  * Released under the MIT License
  *
- * Released on: October 4, 2021
+ * Released on: October 25, 2021
  */
 (function (global, factory) {
   (typeof exports === "undefined" ? "undefined" : _typeof(exports)) === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Swiper = factory());
@@ -2072,7 +2072,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var swiper = this;
     var params = swiper.params;
     var slides = swiper.slides,
-        rtl = swiper.rtlTranslate;
+        rtl = swiper.rtlTranslate,
+        snapGrid = swiper.snapGrid;
     if (slides.length === 0) return;
     if (typeof slides[0].swiperSlideOffset === 'undefined') swiper.updateSlidesOffset();
     var offsetCenter = -translate;
@@ -2091,6 +2092,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
 
       var slideProgress = (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (_slide2.swiperSlideSize + params.spaceBetween);
+      var originalSlideProgress = (offsetCenter - snapGrid[0] + (params.centeredSlides ? swiper.minTranslate() : 0) - slideOffset) / (_slide2.swiperSlideSize + params.spaceBetween);
       var slideBefore = -(offsetCenter - slideOffset);
       var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
       var isVisible = slideBefore >= 0 && slideBefore < swiper.size - 1 || slideAfter > 1 && slideAfter <= swiper.size || slideBefore <= 0 && slideAfter >= swiper.size;
@@ -2102,6 +2104,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       }
 
       _slide2.progress = rtl ? -slideProgress : slideProgress;
+      _slide2.originalProgress = rtl ? -originalSlideProgress : originalSlideProgress;
     }
 
     swiper.visibleSlides = $(swiper.visibleSlides);
@@ -2989,8 +2992,9 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var params = swiper.params,
         $wrapperEl = swiper.$wrapperEl; // Remove duplicated slides
 
-    $wrapperEl.children(".".concat(params.slideClass, ".").concat(params.slideDuplicateClass)).remove();
-    var slides = $wrapperEl.children(".".concat(params.slideClass));
+    var $selector = $($wrapperEl.children()[0].parentNode);
+    $selector.children(".".concat(params.slideClass, ".").concat(params.slideDuplicateClass)).remove();
+    var slides = $selector.children(".".concat(params.slideClass));
 
     if (params.loopFillGroupWithBlank) {
       var blankSlidesNum = params.slidesPerGroup - slides.length % params.slidesPerGroup;
@@ -2998,10 +3002,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       if (blankSlidesNum !== params.slidesPerGroup) {
         for (var i = 0; i < blankSlidesNum; i += 1) {
           var blankNode = $(document.createElement('div')).addClass("".concat(params.slideClass, " ").concat(params.slideBlankClass));
-          $wrapperEl.append(blankNode);
+          $selector.append(blankNode);
         }
 
-        slides = $wrapperEl.children(".".concat(params.slideClass));
+        slides = $selector.children(".".concat(params.slideClass));
       }
     }
 
@@ -3030,11 +3034,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     });
 
     for (var _i2 = 0; _i2 < appendSlides.length; _i2 += 1) {
-      $wrapperEl.append($(appendSlides[_i2].cloneNode(true)).addClass(params.slideDuplicateClass));
+      $selector.append($(appendSlides[_i2].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
 
     for (var _i3 = prependSlides.length - 1; _i3 >= 0; _i3 -= 1) {
-      $wrapperEl.prepend($(prependSlides[_i3].cloneNode(true)).addClass(params.slideDuplicateClass));
+      $selector.prepend($(prependSlides[_i3].cloneNode(true)).addClass(params.slideDuplicateClass));
     }
   }
 
@@ -9837,14 +9841,28 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     };
 
     var setTranslate = function setTranslate() {
-      var slides = swiper.slides;
+      var slides = swiper.slides,
+          $wrapperEl = swiper.$wrapperEl,
+          slidesSizesGrid = swiper.slidesSizesGrid;
       var params = swiper.params.creativeEffect;
       var multiplier = params.progressMultiplier;
+      var isCenteredSlides = swiper.params.centeredSlides;
+
+      if (isCenteredSlides) {
+        var margin = slidesSizesGrid[0] / 2 - swiper.params.slidesOffsetBefore || 0;
+        $wrapperEl.transform("translateX(calc(50% - ".concat(margin, "px))"));
+      }
 
       var _loop = function _loop(i) {
         var $slideEl = slides.eq(i);
         var slideProgress = $slideEl[0].progress;
         var progress = Math.min(Math.max($slideEl[0].progress, -params.limitProgress), params.limitProgress);
+        var originalProgress = progress;
+
+        if (!isCenteredSlides) {
+          originalProgress = Math.min(Math.max($slideEl[0].originalProgress, -params.limitProgress), params.limitProgress);
+        }
+
         var offset = $slideEl[0].swiperSlideOffset;
         var t = [swiper.params.cssMode ? -offset - swiper.translate : -offset, 0, 0];
         var r = [0, 0, 0];
@@ -9881,8 +9899,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         $slideEl[0].style.zIndex = -Math.abs(Math.round(slideProgress)) + slides.length;
         var translateString = t.join(', ');
         var rotateString = "rotateX(".concat(r[0], "deg) rotateY(").concat(r[1], "deg) rotateZ(").concat(r[2], "deg)");
-        var scaleString = progress < 0 ? "scale(".concat(1 + (1 - data.scale) * progress * multiplier, ")") : "scale(".concat(1 - (1 - data.scale) * progress * multiplier, ")");
-        var opacityString = progress < 0 ? 1 + (1 - data.opacity) * progress * multiplier : 1 - (1 - data.opacity) * progress * multiplier;
+        var scaleString = originalProgress < 0 ? "scale(".concat(1 + (1 - data.scale) * originalProgress * multiplier, ")") : "scale(".concat(1 - (1 - data.scale) * originalProgress * multiplier, ")");
+        var opacityString = originalProgress < 0 ? 1 + (1 - data.opacity) * originalProgress * multiplier : 1 - (1 - data.opacity) * originalProgress * multiplier;
         var transform = "translate3d(".concat(translateString, ") ").concat(rotateString, " ").concat(scaleString); // Set shadows
 
         if (custom && data.shadow || !custom) {
@@ -10065,3 +10083,280 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   Swiper.use(modules);
   return Swiper;
 });
+"use strict";
+
+/*!
+ * @copyright Copyright (c) 2017 IcoMoon.io
+ * @license   Licensed under MIT license
+ *            See https://github.com/Keyamoon/svgxuse
+ * @version   1.2.6
+ */
+
+/*jslint browser: true */
+
+/*global XDomainRequest, MutationObserver, window */
+(function () {
+  "use strict";
+
+  if (typeof window !== "undefined" && window.addEventListener) {
+    var cache = Object.create(null); // holds xhr objects to prevent multiple requests
+
+    var checkUseElems;
+    var tid; // timeout id
+
+    var debouncedCheck = function debouncedCheck() {
+      clearTimeout(tid);
+      tid = setTimeout(checkUseElems, 100);
+    };
+
+    var unobserveChanges = function unobserveChanges() {
+      return;
+    };
+
+    var observeChanges = function observeChanges() {
+      var observer;
+      window.addEventListener("resize", debouncedCheck, false);
+      window.addEventListener("orientationchange", debouncedCheck, false);
+
+      if (window.MutationObserver) {
+        observer = new MutationObserver(debouncedCheck);
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+          attributes: true
+        });
+
+        unobserveChanges = function unobserveChanges() {
+          try {
+            observer.disconnect();
+            window.removeEventListener("resize", debouncedCheck, false);
+            window.removeEventListener("orientationchange", debouncedCheck, false);
+          } catch (ignore) {}
+        };
+      } else {
+        document.documentElement.addEventListener("DOMSubtreeModified", debouncedCheck, false);
+
+        unobserveChanges = function unobserveChanges() {
+          document.documentElement.removeEventListener("DOMSubtreeModified", debouncedCheck, false);
+          window.removeEventListener("resize", debouncedCheck, false);
+          window.removeEventListener("orientationchange", debouncedCheck, false);
+        };
+      }
+    };
+
+    var createRequest = function createRequest(url) {
+      // In IE 9, cross origin requests can only be sent using XDomainRequest.
+      // XDomainRequest would fail if CORS headers are not set.
+      // Therefore, XDomainRequest should only be used with cross origin requests.
+      function getOrigin(loc) {
+        var a;
+
+        if (loc.protocol !== undefined) {
+          a = loc;
+        } else {
+          a = document.createElement("a");
+          a.href = loc;
+        }
+
+        return a.protocol.replace(/:/g, "") + a.host;
+      }
+
+      var Request;
+      var origin;
+      var origin2;
+
+      if (window.XMLHttpRequest) {
+        Request = new XMLHttpRequest();
+        origin = getOrigin(location);
+        origin2 = getOrigin(url);
+
+        if (Request.withCredentials === undefined && origin2 !== "" && origin2 !== origin) {
+          Request = XDomainRequest || undefined;
+        } else {
+          Request = XMLHttpRequest;
+        }
+      }
+
+      return Request;
+    };
+
+    var xlinkNS = "http://www.w3.org/1999/xlink";
+
+    checkUseElems = function checkUseElems() {
+      var base;
+      var bcr;
+      var fallback = ""; // optional fallback URL in case no base path to SVG file was given and no symbol definition was found.
+
+      var hash;
+      var href;
+      var i;
+      var inProgressCount = 0;
+      var isHidden;
+      var Request;
+      var url;
+      var uses;
+      var xhr;
+
+      function observeIfDone() {
+        // If done with making changes, start watching for chagnes in DOM again
+        inProgressCount -= 1;
+
+        if (inProgressCount === 0) {
+          // if all xhrs were resolved
+          unobserveChanges(); // make sure to remove old handlers
+
+          observeChanges(); // watch for changes to DOM
+        }
+      }
+
+      function attrUpdateFunc(spec) {
+        return function () {
+          if (cache[spec.base] !== true) {
+            spec.useEl.setAttributeNS(xlinkNS, "xlink:href", "#" + spec.hash);
+
+            if (spec.useEl.hasAttribute("href")) {
+              spec.useEl.setAttribute("href", "#" + spec.hash);
+            }
+          }
+        };
+      }
+
+      function onloadFunc(xhr) {
+        return function () {
+          var body = document.body;
+          var x = document.createElement("x");
+          var svg;
+          xhr.onload = null;
+          x.innerHTML = xhr.responseText;
+          svg = x.getElementsByTagName("svg")[0];
+
+          if (svg) {
+            svg.setAttribute("aria-hidden", "true");
+            svg.style.position = "absolute";
+            svg.style.width = 0;
+            svg.style.height = 0;
+            svg.style.overflow = "hidden";
+            body.insertBefore(svg, body.firstChild);
+          }
+
+          observeIfDone();
+        };
+      }
+
+      function onErrorTimeout(xhr) {
+        return function () {
+          xhr.onerror = null;
+          xhr.ontimeout = null;
+          observeIfDone();
+        };
+      }
+
+      unobserveChanges(); // stop watching for changes to DOM
+      // find all use elements
+
+      uses = document.getElementsByTagName("use");
+
+      for (i = 0; i < uses.length; i += 1) {
+        try {
+          bcr = uses[i].getBoundingClientRect();
+        } catch (ignore) {
+          // failed to get bounding rectangle of the use element
+          bcr = false;
+        }
+
+        href = uses[i].getAttribute("href") || uses[i].getAttributeNS(xlinkNS, "href") || uses[i].getAttribute("xlink:href");
+
+        if (href && href.split) {
+          url = href.split("#");
+        } else {
+          url = ["", ""];
+        }
+
+        base = url[0];
+        hash = url[1];
+        isHidden = bcr && bcr.left === 0 && bcr.right === 0 && bcr.top === 0 && bcr.bottom === 0;
+
+        if (bcr && bcr.width === 0 && bcr.height === 0 && !isHidden) {
+          // the use element is empty
+          // if there is a reference to an external SVG, try to fetch it
+          // use the optional fallback URL if there is no reference to an external SVG
+          if (fallback && !base.length && hash && !document.getElementById(hash)) {
+            base = fallback;
+          }
+
+          if (uses[i].hasAttribute("href")) {
+            uses[i].setAttributeNS(xlinkNS, "xlink:href", href);
+          }
+
+          if (base.length) {
+            // schedule updating xlink:href
+            xhr = cache[base];
+
+            if (xhr !== true) {
+              // true signifies that prepending the SVG was not required
+              setTimeout(attrUpdateFunc({
+                useEl: uses[i],
+                base: base,
+                hash: hash
+              }), 0);
+            }
+
+            if (xhr === undefined) {
+              Request = createRequest(base);
+
+              if (Request !== undefined) {
+                xhr = new Request();
+                cache[base] = xhr;
+                xhr.onload = onloadFunc(xhr);
+                xhr.onerror = onErrorTimeout(xhr);
+                xhr.ontimeout = onErrorTimeout(xhr);
+                xhr.open("GET", base);
+                xhr.send();
+                inProgressCount += 1;
+              }
+            }
+          }
+        } else {
+          if (!isHidden) {
+            if (cache[base] === undefined) {
+              // remember this URL if the use element was not empty and no request was sent
+              cache[base] = true;
+            } else if (cache[base].onload) {
+              // if it turns out that prepending the SVG is not necessary,
+              // abort the in-progress xhr.
+              cache[base].abort();
+              delete cache[base].onload;
+              cache[base] = true;
+            }
+          } else if (base.length && cache[base]) {
+            setTimeout(attrUpdateFunc({
+              useEl: uses[i],
+              base: base,
+              hash: hash
+            }), 0);
+          }
+        }
+      }
+
+      uses = "";
+      inProgressCount += 1;
+      observeIfDone();
+    };
+
+    var _winLoad;
+
+    _winLoad = function winLoad() {
+      window.removeEventListener("load", _winLoad, false); // to prevent memory leaks
+
+      tid = setTimeout(checkUseElems, 0);
+    };
+
+    if (document.readyState !== "complete") {
+      // The load event fires when all resources have finished loading, which allows detecting whether SVG use elements are empty.
+      window.addEventListener("load", _winLoad, false);
+    } else {
+      // No need to add a listener if the document is already loaded, initialize immediately.
+      _winLoad();
+    }
+  }
+})();

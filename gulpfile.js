@@ -22,6 +22,7 @@ var babel = require('gulp-babel');
 gulp.task('bundleVendorJs', function () {
   return gulp.src([
     'node_modules/swiper/swiper-bundle.js',
+    'node_modules/svgxuse/svgxuse.js',
   ])
       .pipe(plumber())
       .pipe(babel({

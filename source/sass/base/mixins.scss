@@ -155,10 +155,11 @@
   background-color: transparent;
 }
 
-@mixin logo-catalog-interactive-style {
+@mixin logo-interactive-style {
   &:hover,
   &:focus {
-    --icon-color: #{$mcg-5};
+    // --icon-color: #{$mcg-5};
+    color: $mcg-5;
   }
 
   &:active {

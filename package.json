@@ -57,6 +57,7 @@
   "dependencies": {
     "del": "^4.1.1",
     "sass": "^1.35.1",
+    "svgxuse": "^1.2.6",
     "swiper": "^7.0.6"
   }
 }
