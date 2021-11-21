@@ -1,560 +1,309 @@
 <!DOCTYPE html>
-<html
-  lang="ru">
+<html lang="ru">
+
 <head>
-  <meta
-    charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="">
-  <link
-    rel="preload"
-    href="#"
-    as="font"
-    type="font/woff2"
-    crossorigin>
-  <link
-    rel="preload"
-    href="#"
-    as="font"
-    type="font/woff"
-    crossorigin>
-  <link
-    rel="stylesheet"
-    href="./css/style.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="./favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#b91d47">
+  <meta name="msapplication-config" content="./favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="#" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="#" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="./css/style.min.css">
   <title>Jewellery</title>
 </head>
 
 <!-- .scroll-stop -->
+
 <body>
   <!-- .header--js -->
   <!-- .menu-open -->
-  <header
-    class="header">
-    <div
-      class="header__container header__container--upper container">
-      <div
-        class="header__form-box hidden-before-desktop">
-        <form
-          id="site-search-desktop"
-          action="https://echo.htmlacademy.ru/"
-          method="GET"
-          autocomplete="off">
+  <header class="header">
+    <div class="header__container header__container--upper container">
+      <div class="header__form-box hidden-before-desktop">
+        <form id="site-search-desktop" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
 
-          <label
-            class="visually-hidden"
-            for="search-request-desktop">Site search</label>
-          <input
-            type="text"
-            name="search-request-desktop"
-            id="search-request-desktop"
-            placeholder="Type here to search"
+          <label class="visually-hidden" for="search-request-desktop">Site search</label>
+          <input type="text" name="search-request-desktop" id="search-request-desktop" placeholder="Type here to search"
             aria-label="Type here to search">
 
-          <button
-            class="header__form-submit"
-            type="submit"
-            aria-label="Button to search">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-search"></use>
+          <button class="header__form-submit" type="submit" aria-label="Button to search">
+            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
             </svg>
           </button>
         </form>
       </div>
 
-      <button
-        class="header__burger hidden-on-desktop"
-        aria-labelledby="burger-description">
-        <svg
-          width="25"
-          height="18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-burger"></use>
+      <button class="header__burger hidden-on-desktop" aria-labelledby="burger-description">
+        <svg width="25" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="./img/outer-sprite.svg#icon-burger"></use>
         </svg>
 
-        <span
-          id="burger-description"
-          hidden>Menu toggle</span>
+        <span id="burger-description" hidden>Menu toggle</span>
       </button>
 
-      <a
-        class="header__logo header__logo--different header__logo--catalog"
-        href="./main.html"
+      <a class="header__logo header__logo--different header__logo--catalog" href="./main.html"
         aria-labelledby="site-logo-link">
-        <svg
-          width="66"
-          height="66"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          role="img"
+        <svg width="66" height="66" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
           aria-labelledby="site-logo-image">
-          <use
-            xlink:href="./img/outer-sprite.svg#logo"></use>
+          <use xlink:href="./img/outer-sprite.svg#logo"></use>
         </svg>
 
-        <span
-          class="hidden-entity"
-          id="site-logo-link">Site logo link</span>
+        <span class="hidden-entity" id="site-logo-link">Site logo link</span>
 
-        <span
-          class="hidden-entity"
-          id="site-logo-image">Site logo image</span>
+        <span class="hidden-entity" id="site-logo-image">Site logo image</span>
       </a>
 
-      <a
-        class="header__login login-link link hidden-before-desktop"
-        href="./login.html"
-        aria-label="Login">Login</a>
+      <a class="header__login login-link link hidden-before-desktop" href="./login.html" aria-label="Login">Login</a>
 
-      <a
-        class="header__cart link"
-        href="#"
-        aria-label="Cart">
-        <span
-          class="header__cart-text hidden-before-desktop">Cart</span>
-        <span
-          class="header__cart-fullness hidden-before-desktop">0</span>
+      <a class="header__cart link" href="#" aria-label="Cart">
+        <span class="header__cart-text hidden-before-desktop">Cart</span>
+        <span class="header__cart-fullness hidden-before-desktop">0</span>
 
-        <svg
-          class="hidden-on-desktop"
-          width="20"
-          height="18"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <svg class="hidden-on-desktop" width="20" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-cart"></use>
+          <use xlink:href="./img/outer-sprite.svg#icon-cart"></use>
         </svg>
       </a>
     </div>
 
-    <div
-      class="header__container header__container--lower container">
-      <div
-        class="header__form-box hidden-on-desktop">
-        <form
-          id="site-search-predesktop"
-          action="https://echo.htmlacademy.ru/"
-          method="GET"
-          autocomplete="off">
-          <label
-            class="visually-hidden"
-            for="search-request-predesktop">Site search</label>
-          <input
-            type="text"
-            name="search-request-predesktop"
-            id="search-request-predesktop">
+    <div class="header__container header__container--lower container">
+      <div class="header__form-box hidden-on-desktop">
+        <form id="site-search-predesktop" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+          <label class="visually-hidden" for="search-request-predesktop">Site search</label>
+          <input type="text" name="search-request-predesktop" id="search-request-predesktop">
 
-          <button
-            class="header__form-submit"
-            type="submit"
-            aria-label="Button to search">
-            <svg
-              width="14"
-              height="14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-search"></use>
+          <button class="header__form-submit" type="submit" aria-label="Button to search">
+            <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-search"></use>
             </svg>
           </button>
         </form>
       </div>
 
-      <nav
-        class="header__navigation"
-        aria-label="Site chapters">
-        <ul
-          class="list">
+      <nav class="header__navigation" aria-label="Site chapters">
+        <ul class="list">
           <li>
-            <a
-              class="link"
-              href="#">What’s new</a>
+            <a class="link" href="#">What’s new</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Chokers</a>
+            <a class="link" href="#">Chokers</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Necklaces</a>
+            <a class="link" href="#">Necklaces</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Rings</a>
+            <a class="link" href="#">Rings</a>
           </li>
           <li>
-            <a
-              class="link"
-              href="#">Earrings</a>
+            <a class="link" href="#">Earrings</a>
           </li>
         </ul>
       </nav>
 
-      <ul
-        class="header__general-information general-information list hidden-on-desktop"
-        aria-labelledby="buyers-info">
+      <ul class="header__general-information general-information list hidden-on-desktop" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">About CH</a>
+          <a class="link" href="#">About CH</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Stores & Hours</a>
+          <a class="link" href="#">Stores & Hours</a>
         </li>
-        <li
-          hidden>
-          <a
-            class="link"
-            href="#">Jobs</a>
+        <li hidden>
+          <a class="link" href="#">Jobs</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Contact Us</a>
+          <a class="link" href="#">Contact Us</a>
         </li>
       </ul>
 
-      <a
-        class="header__login login-link link hidden-on-desktop"
-        href="./login.html"
-        aria-label="login">Login</a>
+      <a class="header__login login-link link hidden-on-desktop" href="./login.html" aria-label="login">Login</a>
     </div>
   </header>
 
   <main>
-    <div
-      class="container container--index">
+    <div class="container container--index">
       <h1>Jewellery</h1>
 
-      <nav
-        class="page-navigation">
+      <nav class="page-navigation">
         <h2>Page navigation</h2>
 
-        <ul
-          class="page-navigation__list list">
-          <li
-            class="page-navigation__item">
-            <a
-              class="link"
-              href="./main.html">Main</a>
+        <ul class="page-navigation__list list">
+          <li class="page-navigation__item">
+            <a class="link" href="./main.html">Main</a>
           </li>
 
-          <li
-            class="page-navigation__item">
-            <a
-              class="link"
-              href="./catalog.html">Catalog</a>
+          <li class="page-navigation__item">
+            <a class="link" href="./catalog.html">Catalog</a>
           </li>
 
-          <li
-            class="page-navigation__item">
-            <a
-              class="link"
-              href="./login.html">Login page</a>
+          <li class="page-navigation__item">
+            <a class="link" href="./login.html">Login page</a>
           </li>
         </ul>
       </nav>
     </div>
   </main>
 
-  <footer
-    class="footer">
-    <div
-      class="footer__container container">
-      <section
-        class="footer__subscription">
+  <footer class="footer">
+    <div class="footer__container container">
+      <section class="footer__subscription">
         <h3>Subscription</h3>
 
-        <div
-          class="footer__leading-paragraph-box">
+        <div class="footer__leading-paragraph-box">
           <p>The good stuff in your inbox </p>
         </div>
 
-        <div
-          class="footer__auxiliary-paragraph-box">
+        <div class="footer__auxiliary-paragraph-box">
           <p>News and updates from CH. No spam, we promise.</p>
         </div>
 
-        <div
-          class="footer__form-box">
-          <form
-            id="news-subscription"
-            action="https://echo.htmlacademy.ru/"
-            method="GET"
-            autocomplete="off">
-            <label
-              class="visually-hidden"
-              for="subscribe-news">Your E-mail</label>
+        <div class="footer__form-box">
+          <form id="news-subscription" action="https://echo.htmlacademy.ru/" method="GET" autocomplete="off">
+            <label class="visually-hidden" for="subscribe-news">Your E-mail</label>
 
-            <input
-              type="email"
-              name="subscribe-news"
-              id="subscribe-news"
-              placeholder="Your E-mail"
-              aria-label="type your e-mail"
-              required>
+            <input type="email" name="subscribe-news" id="subscribe-news" placeholder="Your E-mail"
+              aria-label="type your e-mail" required>
 
-            <button
-              class="footer__submit button"
-              type="submit"
-              aria-label="Submit button">
+            <button class="footer__submit button" type="submit" aria-label="Submit button">
               <span>Sign Up</span>
 
-              <svg
-                width="29"
-                height="9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true">
-                <use
-                  xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
+              <svg width="29" height="9" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <use xlink:href="./img/outer-sprite.svg#icon-arrow"></use>
               </svg>
             </button>
           </form>
         </div>
       </section>
 
-      <ul
-        class="footer__buyers-information list"
-        aria-labelledby="buyers-info">
+      <ul class="footer__buyers-information list" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">Ordering & Payment</a>
+          <a class="link" href="#">Ordering & Payment</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Terms & Conditions</a>
+          <a class="link" href="#">Terms & Conditions</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Returns & Exchanges</a>
+          <a class="link" href="#">Returns & Exchanges</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Delivery</a>
+          <a class="link" href="#">Delivery</a>
         </li>
       </ul>
 
-      <ul
-        class="footer__general-information general-information list"
-        aria-labelledby="buyers-info">
+      <ul class="footer__general-information general-information list" aria-labelledby="buyers-info">
         <li>
-          <a
-            class="link"
-            href="#">About CH</a>
+          <a class="link" href="#">About CH</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Stores & Hours</a>
+          <a class="link" href="#">Stores & Hours</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Jobs</a>
+          <a class="link" href="#">Jobs</a>
         </li>
         <li>
-          <a
-            class="link"
-            href="#">Contact Us</a>
+          <a class="link" href="#">Contact Us</a>
         </li>
       </ul>
 
-      <ul
-        class="footer__social-networks list"
-        aria-labelledby="social-networks">
+      <ul class="footer__social-networks list" aria-labelledby="social-networks">
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--facebook"
-              width="8"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--facebook" width="8" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-facebook"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Facebook</span>
+            <span class="hidden-before-tablet">Facebook</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--instagram"
-              width="15"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--instagram" width="15" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-instagram"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Instagram</span>
+            <span class="hidden-before-tablet">Instagram</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--pinterest"
-              width="16"
-              height="15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--pinterest" width="16" height="15" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-pinterest"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Pinterest</span>
+            <span class="hidden-before-tablet">Pinterest</span>
           </a>
         </li>
 
         <li>
-          <a
-            class="footer__social-link link"
-            href="#">
-            <svg
-              class="footer__social-svg footer__social-svg--twitter"
-              width="15"
-              height="13"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <use
-                xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
+          <a class="footer__social-link link" href="#">
+            <svg class="footer__social-svg footer__social-svg--twitter" width="15" height="13" fill="none"
+              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <use xlink:href="./img/outer-sprite.svg#icon-twitter"></use>
             </svg>
 
-            <span
-              class="hidden-before-tablet">Twitter</span>
+            <span class="hidden-before-tablet">Twitter</span>
           </a>
         </li>
       </ul>
 
-      <span
-        id="buyers-info"
-        hidden>Information for buyers</span>
+      <span id="buyers-info" hidden>Information for buyers</span>
 
-      <span
-        id="social-networks"
-        hidden>We are in social networks</span>
+      <span id="social-networks" hidden>We are in social networks</span>
     </div>
   </footer>
 
   <!--.hidden-entity -->
-  <div
-    class="overlay hidden-entity"
-    id="modal-login">
-    <section
-      class="login">
+  <div class="overlay hidden-entity" id="modal-login">
+    <section class="login">
       <h2>Log In</h2>
       <h3>Log In</h3>
 
-      <form
-        action="https://echo.htmlacademy.ru/"
-        method="POST"
-        autocomplete="off">
-        <div
-          class="login__form-inner">
-          <div
-            class="login__input-wrapper login__input-wrapper--email">
-            <label
-              for="email">Your E-mail</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your E-mail"
-              required
-              autofocus>
+      <form action="https://echo.htmlacademy.ru/" method="POST" autocomplete="off">
+        <div class="login__form-inner">
+          <div class="login__input-wrapper login__input-wrapper--email">
+            <label for="email">Your E-mail</label>
+            <input type="email" name="email" id="email" placeholder="Your E-mail" required autofocus>
           </div>
 
-          <div
-            class="login__input-wrapper login__input-wrapper--password">
-            <label
-              for="password">Your password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              required>
+          <div class="login__input-wrapper login__input-wrapper--password">
+            <label for="password">Your password</label>
+            <input type="password" name="password" id="password" placeholder="Password" required>
 
-            <a
-              class="login__forgot-password-link link"
-              href="#">Forgot your password?</a>
+            <a class="login__forgot-password-link link" href="#">Forgot your password?</a>
           </div>
 
-          <button
-            class="login__submit button"
-            type="submit">Log In</button>
+          <button class="login__submit button" type="submit">Log In</button>
 
-          <div
-            class="login__singup-wrapper">
+          <div class="login__singup-wrapper">
             <p>Don’t have an account?</p>
 
-            <a
-              class="login__singup-link link"
-              href="#">Sign up</a>
+            <a class="login__singup-link link" href="#">Sign up</a>
           </div>
         </div>
       </form>
 
-      <button
-        class="login__cross button"
-        type="button"
-        aria-label="Button to close login form">
-        <svg
-          width="14"
-          height="14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <use
-            xlink:href="./img/outer-sprite.svg#icon-cross"></use>
+      <button class="login__cross button" type="button" aria-label="Button to close login form">
+        <svg width="14" height="14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <use xlink:href="./img/outer-sprite.svg#icon-cross"></use>
         </svg>
       </button>
     </section>
   </div>
 
-  <script
-    src="./js/script.js"
-    defer></script>
+  <script src="./js/script.js" defer></script>
 </body>
+
 </html>
