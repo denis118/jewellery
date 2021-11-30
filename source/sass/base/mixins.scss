@@ -101,7 +101,7 @@
 
 @mixin width-cropping-box($width: 100%) { // width depends on height
   align-self: stretch;                    // content is cropped to width
-  position: relative;                     // this version for use in flex-box
+  position: relative;                     // this version for usage in flex-box
   width: $width;
   height: auto;
   overflow: hidden;
